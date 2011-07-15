@@ -1,0 +1,48 @@
+﻿using System;
+
+namespace dokas.FluentStrings.Actions.Insert
+{
+    public class InsertTextBeforeOccurrence
+    {
+        private readonly InsertText _insertText;
+        private readonly int _occurrenceCount;
+        private readonly string _marker;
+
+        internal InsertTextBeforeOccurrence(InsertText insertText, int occurenceCount, string marker)
+        {
+            _insertText = insertText;
+            _occurrenceCount = Math.Max(occurenceCount, 1);
+            _marker = marker;
+        }
+
+        internal InsertText InsertText { get { return _insertText; } }
+        internal int OccurrenceCount { get { return _occurrenceCount; } }
+        internal string Marker { get { return _marker; } }
+
+        public static implicit operator string(InsertTextBeforeOccurrence insertTextBeforeOccurrence)
+        {
+            return insertTextBeforeOccurrence.ToString();
+        }
+
+        public override string ToString()
+        {
+            if (String.IsNullOrEmpty(_marker))
+                return _insertText.Source;
+            else
+            {
+                int index = -1;
+                int passCounter = 0;
+                do
+                {
+                    index = _insertText.Source.IndexOf(_marker, index + 1);
+                    passCounter++;
+                }
+                while (passCounter < _occurrenceCount && index >= 0);
+
+                return index < 0
+                    ? _insertText.Source
+                    : _insertText.Source.Insert(index, _insertText.Insertion ?? String.Empty);
+            }
+        }
+    }
+}
