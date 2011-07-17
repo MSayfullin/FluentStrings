@@ -1,4 +1,4 @@
-﻿namespace dokas.FluentStrings.Actions.Remove
+﻿namespace dokas.FluentStrings
 {
     public static class RemoveExtensions
     {

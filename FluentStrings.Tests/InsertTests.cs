@@ -1,6 +1,5 @@
 ﻿using System;
 using dokas.FluentStrings;
-using dokas.FluentStrings.Actions.Insert;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

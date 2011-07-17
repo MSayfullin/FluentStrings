@@ -1,4 +1,6 @@
-﻿namespace dokas.FluentStrings.Actions.Insert
+﻿using dokas.FluentStrings.Actions.Insert;
+
+namespace dokas.FluentStrings
 {
     public static class InsertExtensions
     {
