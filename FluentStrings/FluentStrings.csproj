@@ -49,12 +49,11 @@
     <Compile Include="Actions\Insert\Auxiliary\InsertTextTo.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertTextAfterOccurrenceFrom.cs" />
     <Compile Include="Actions\Remove\RemoveExtensions.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveText.cs" />
     <Compile Include="Positions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Actions\Remove\Auxiliary\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
