@@ -9,9 +9,6 @@ namespace dokas.FluentStrings.Actions.Insert
 
         internal InsertTextAtFrom(InsertTextAt insertTextAt, Position position)
         {
-            if (position == Position.Anywhere)
-                throw new ArgumentException();
-
             _insertTextAt = insertTextAt;
             _position = position;
         }

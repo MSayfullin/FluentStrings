@@ -9,9 +9,6 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public InsertTextAfterOccurrenceFrom(InsertTextAfterOccurrence insertTextAfterOccurrence, Position position)
         {
-            if (position == Position.Anywhere)
-                throw new ArgumentException();
-
             _insertTextAfterOccurrence = insertTextAfterOccurrence;
             _position = position;
         }

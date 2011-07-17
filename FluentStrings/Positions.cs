@@ -5,7 +5,6 @@
     /// </summary>
     public enum Position
     {
-        Anywhere,
         Beginning,
         End
     }
