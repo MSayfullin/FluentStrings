@@ -20,7 +20,7 @@ namespace dokas.FluentStrings
         /// </summary>
         /// <param name="source">String in which to insert</param>
         /// <param name="position">Position in string where to insert</param>
-        public static InsertTextTo To(this InsertText source, Position position)
+        public static InsertTextTo To(this InsertText source, The position)
         {
             return new InsertTextTo(source, position);
         }
@@ -36,7 +36,7 @@ namespace dokas.FluentStrings
             return new InsertTextAt(source, positionIndex);
         }
 
-        public static InsertTextAtFrom From(this InsertTextAt source, Position position)
+        public static InsertTextAtFrom From(this InsertTextAt source, The position)
         {
             return new InsertTextAtFrom(source, position);
         }
@@ -51,7 +51,7 @@ namespace dokas.FluentStrings
             return new InsertTextBeforeOccurrence(source, occurrence, marker);
         }
 
-        public static InsertTextBeforeOccurrenceFrom From(this InsertTextBeforeOccurrence source, Position position)
+        public static InsertTextBeforeOccurrenceFrom From(this InsertTextBeforeOccurrence source, The position)
         {
             return new InsertTextBeforeOccurrenceFrom(source, position);
         }
@@ -66,7 +66,7 @@ namespace dokas.FluentStrings
             return new InsertTextAfterOccurrence(source, occurrence, marker);
         }
 
-        public static InsertTextAfterOccurrenceFrom From(this InsertTextAfterOccurrence source, Position position)
+        public static InsertTextAfterOccurrenceFrom From(this InsertTextAfterOccurrence source, The position)
         {
             return new InsertTextAfterOccurrenceFrom(source, position);
         }

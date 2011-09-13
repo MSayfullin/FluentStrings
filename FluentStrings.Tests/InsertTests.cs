@@ -65,70 +65,70 @@ namespace StringTransformerTests
         [TestMethod()]
         public void InsertNullTextToBeginningOfNullString()
         {
-            string transformed = NullString.Insert(null).To(Position.Beginning);
+            string transformed = NullString.Insert(null).To(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertTextToBeginningOfNullString()
         {
-            string transformed = NullString.Insert("bla").To(Position.Beginning);
+            string transformed = NullString.Insert("bla").To(The.Beginning);
             transformed.Should().Be("bla");
         }
 
         [TestMethod()]
         public void InsertNullTextToBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).To(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(null).To(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertEmptyTextToBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).To(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).To(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertNullTextToEndOfNullString()
         {
-            string transformed = NullString.Insert(null).To(Position.End);
+            string transformed = NullString.Insert(null).To(The.End);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertTextToEndOfNullString()
         {
-            string transformed = NullString.Insert("bla").To(Position.End);
+            string transformed = NullString.Insert("bla").To(The.End);
             transformed.Should().Be("bla");
         }
 
         [TestMethod()]
         public void InsertNullTextToEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).To(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(null).To(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertEmptyTextToEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).To(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).To(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertTextToBeginning()
         {
-            string transformed = "<-- TEST string will be inserted here".Insert("TEST").To(Position.Beginning);
+            string transformed = "<-- TEST string will be inserted here".Insert("TEST").To(The.Beginning);
             transformed.Should().Be("TEST<-- TEST string will be inserted here");
         }
 
         [TestMethod()]
         public void InsertTextToEnd()
         {
-            string transformed = "TEST string will be inserted here -->".Insert("TEST").To(Position.End);
+            string transformed = "TEST string will be inserted here -->".Insert("TEST").To(The.End);
             transformed.Should().Be("TEST string will be inserted here -->TEST");
         }
 
@@ -178,70 +178,70 @@ namespace StringTransformerTests
         [TestMethod()]
         public void InsertNullTextAtPositionFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).At(3).From(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(null).At(3).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertTextAtPositionFromBeginningOfNullString()
         {
-            string transformed = NullString.Insert("bla").At(3).From(Position.Beginning);
+            string transformed = NullString.Insert("bla").At(3).From(The.Beginning);
             transformed.Should().Be("bla");
         }
 
         [TestMethod()]
         public void InsertNullTextAtPositionFromBeginningOfNullString()
         {
-            string transformed = NullString.Insert(null).At(3).From(Position.Beginning);
+            string transformed = NullString.Insert(null).At(3).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertEmptyTextAtPositionFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).At(3).From(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).At(3).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertNullTextAtPositionFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).At(5).From(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(null).At(5).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertTextAtPositionFromEndOfNullString()
         {
-            string transformed = NullString.Insert("bla").At(3).From(Position.End);
+            string transformed = NullString.Insert("bla").At(3).From(The.End);
             transformed.Should().Be("bla");
         }
 
         [TestMethod()]
         public void InsertNullTextAtPositionFromEndOfNullString()
         {
-            string transformed = NullString.Insert(null).At(3).From(Position.Beginning);
+            string transformed = NullString.Insert(null).At(3).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertEmptyTextAtPositionFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).At(5).From(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).At(5).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertTextAtPositionFromBeginning()
         {
-            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(4).From(Position.Beginning);
+            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(4).From(The.Beginning);
             transformed.Should().Be("Bla TEST<-- TEST string will be inserted here");
         }
 
         [TestMethod()]
         public void InsertTextAtPositionFromEnd()
         {
-            string transformed = "TEST string will be inserted here --> bla".Insert("TEST").At(4).From(Position.End);
+            string transformed = "TEST string will be inserted here --> bla".Insert("TEST").At(4).From(The.End);
             transformed.Should().Be("TEST string will be inserted here -->TEST bla");
         }
 
@@ -416,126 +416,126 @@ namespace StringTransformerTests
         [TestMethod()]
         public void InsertNullTextBeforeOccurrenceFromBeginningOfNullString()
         {
-            string transformed = NullString.Insert(null).Before(1, String.Empty).From(Position.Beginning);
+            string transformed = NullString.Insert(null).Before(1, String.Empty).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertNullTextBeforeOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Insert(null).Before(3, String.Empty).From(Position.End);
+            string transformed = NullString.Insert(null).Before(3, String.Empty).From(The.End);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertEmptyTextBeforeNullOccurrenceFromBeginningOfNullString()
         {
-            string transformed = NullString.Insert(String.Empty).Before(2, null).From(Position.Beginning);
+            string transformed = NullString.Insert(String.Empty).Before(2, null).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertEmptyTextBeforeNullOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Insert(String.Empty).Before(3, null).From(Position.End);
+            string transformed = NullString.Insert(String.Empty).Before(3, null).From(The.End);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertNullTextBeforeNullOccurrenceFromBeginningOfNullString()
         {
-            string transformed = NullString.Insert(null).Before(3, null).From(Position.Beginning);
+            string transformed = NullString.Insert(null).Before(3, null).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertNullTextBeforeNullOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Insert(null).Before(2, null).From(Position.End);
+            string transformed = NullString.Insert(null).Before(2, null).From(The.End);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertEmptyTextBeforeOccurrenceFromBeginningOfNullString()
         {
-            string transformed = NullString.Insert(String.Empty).Before(3, String.Empty).From(Position.Beginning);
+            string transformed = NullString.Insert(String.Empty).Before(3, String.Empty).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertEmptyTextBeforeOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Insert(String.Empty).Before(4, String.Empty).From(Position.End);
+            string transformed = NullString.Insert(String.Empty).Before(4, String.Empty).From(The.End);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertNullTextBeforeOccurrenceFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).Before(3, String.Empty).From(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(null).Before(3, String.Empty).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertNullTextBeforeOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).Before(6, String.Empty).From(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(null).Before(6, String.Empty).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertEmptyTextBeforeNullOccurrenceFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).Before(3, null).From(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).Before(3, null).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertEmptyTextBeforeNullOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).Before(2, null).From(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).Before(2, null).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertNullTextBeforeNullOccurrenceFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).Before(3, null).From(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(null).Before(3, null).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertNullTextBeforeNullOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).Before(3, null).From(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(null).Before(3, null).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertEmptyTextBeforeOccurrenceFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).Before(3, String.Empty).From(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).Before(3, String.Empty).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertEmptyTextBeforeOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).Before(2, String.Empty).From(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).Before(2, String.Empty).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertTextBeforeOccurrenceFromBeginning()
         {
-            string transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, "_bla").From(Position.Beginning);
+            string transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, "_bla").From(The.Beginning);
             transformed.Should().Be("_bla TEST string will be inserted here -->TEST_bla But not here --X_bla");
         }
 
         [TestMethod()]
         public void InsertTextBeforeOccurrenceFromEnd()
         {
-            string transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, "_bla").From(Position.End);
+            string transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, "_bla").From(The.End);
             transformed.Should().Be("_bla TEST string will be inserted here -->TEST_bla But not here --X_bla");
         }
 
@@ -707,126 +707,126 @@ namespace StringTransformerTests
         [TestMethod()]
         public void InsertNullTextAfterOccurrenceFromBeginningOfNullString()
         {
-            string transformed = NullString.Insert(null).After(1, String.Empty).From(Position.Beginning);
+            string transformed = NullString.Insert(null).After(1, String.Empty).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertNullTextAfterOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Insert(null).After(3, String.Empty).From(Position.End);
+            string transformed = NullString.Insert(null).After(3, String.Empty).From(The.End);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertEmptyTextAfterNullOccurrenceFromBeginningOfNullString()
         {
-            string transformed = NullString.Insert(String.Empty).After(4, null).From(Position.Beginning);
+            string transformed = NullString.Insert(String.Empty).After(4, null).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertEmptyTextAfterNullOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Insert(String.Empty).After(1, null).From(Position.End);
+            string transformed = NullString.Insert(String.Empty).After(1, null).From(The.End);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertNullTextAfterNullOccurrenceFromBeginningOfNullString()
         {
-            string transformed = NullString.Insert(null).After(2, null).From(Position.Beginning);
+            string transformed = NullString.Insert(null).After(2, null).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertNullTextAfterNullOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Insert(null).After(3, null).From(Position.End);
+            string transformed = NullString.Insert(null).After(3, null).From(The.End);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertEmptyTextAfterOccurrenceFromBeginningOfNullString()
         {
-            string transformed = NullString.Insert(String.Empty).After(6, String.Empty).From(Position.Beginning);
+            string transformed = NullString.Insert(String.Empty).After(6, String.Empty).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertEmptyTextAfterOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Insert(String.Empty).After(2, String.Empty).From(Position.End);
+            string transformed = NullString.Insert(String.Empty).After(2, String.Empty).From(The.End);
             transformed.Should().Be(NullString);
         }
 
         [TestMethod()]
         public void InsertNullTextAfterOccurrenceFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).After(3, String.Empty).From(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(null).After(3, String.Empty).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertNullTextAfterOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).After(2, String.Empty).From(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(null).After(2, String.Empty).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertEmptyTextAfterNullOccurrenceFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).After(3, null).From(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).After(3, null).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertEmptyTextAfterNullOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).After(1, null).From(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).After(1, null).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertNullTextAfterNullOccurrenceFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).After(3, null).From(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(null).After(3, null).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertNullTextAfterNullOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(null).After(2, null).From(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(null).After(2, null).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertEmptyTextAfterOccurrenceFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).After(3, String.Empty).From(Position.Beginning);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).After(3, String.Empty).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertEmptyTextAfterOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Insert(String.Empty).After(2, String.Empty).From(Position.End);
+            string transformed = NothingShouldBeChanged.Insert(String.Empty).After(2, String.Empty).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
         [TestMethod()]
         public void InsertTextAfterOccurrenceFromBeginning()
         {
-            string transformed = "bla_ bla bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(2, "bla_").From(Position.Beginning);
+            string transformed = "bla_ bla bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(2, "bla_").From(The.Beginning);
             transformed.Should().Be("bla_ bla bla bla_TEST<-- TEST string will be inserted here. bla_X-- But not here");
         }
 
         [TestMethod()]
         public void InsertTextAfterOccurrenceFromEnd()
         {
-            string transformed = "bla_ bla bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(2, "bla_").From(Position.End);
+            string transformed = "bla_ bla bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(2, "bla_").From(The.End);
             transformed.Should().Be("bla_ bla bla bla_TEST<-- TEST string will be inserted here. bla_X-- But not here");
         }
 

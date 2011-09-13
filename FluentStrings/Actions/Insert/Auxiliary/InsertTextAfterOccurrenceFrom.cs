@@ -5,9 +5,9 @@ namespace dokas.FluentStrings.Actions.Insert
     public class InsertTextAfterOccurrenceFrom
     {
         private readonly InsertTextAfterOccurrence _insertTextAfterOccurrence;
-        private readonly Position _position;
+        private readonly The _position;
 
-        public InsertTextAfterOccurrenceFrom(InsertTextAfterOccurrence insertTextAfterOccurrence, Position position)
+        public InsertTextAfterOccurrenceFrom(InsertTextAfterOccurrence insertTextAfterOccurrence, The position)
         {
             _insertTextAfterOccurrence = insertTextAfterOccurrence;
             _position = position;
@@ -24,7 +24,7 @@ namespace dokas.FluentStrings.Actions.Insert
                 return _insertTextAfterOccurrence.InsertText.Source;
             else
             {
-                if (_position == Position.Beginning)
+                if (_position == The.Beginning)
                     return _insertTextAfterOccurrence;
                 else
                 {

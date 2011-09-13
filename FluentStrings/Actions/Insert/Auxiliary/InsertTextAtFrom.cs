@@ -5,9 +5,9 @@ namespace dokas.FluentStrings.Actions.Insert
     public class InsertTextAtFrom
     {
         private readonly InsertTextAt _insertTextAt;
-        private readonly Position _position;
+        private readonly The _position;
 
-        internal InsertTextAtFrom(InsertTextAt insertTextAt, Position position)
+        internal InsertTextAtFrom(InsertTextAt insertTextAt, The position)
         {
             _insertTextAt = insertTextAt;
             _position = position;
@@ -20,7 +20,7 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
-            if (_position == Position.Beginning || _insertTextAt.InsertText.Source == null)
+            if (_position == The.Beginning || _insertTextAt.InsertText.Source == null)
                 return _insertTextAt;
             else
             {

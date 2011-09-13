@@ -3,9 +3,9 @@
     public class InsertTextTo
     {
         private readonly InsertText _insertText;
-        private readonly Position _position;
+        private readonly The _position;
 
-        internal InsertTextTo(InsertText insertText, Position position)
+        internal InsertTextTo(InsertText insertText, The position)
         {
             _insertText = insertText;
             _position = position;
@@ -18,7 +18,7 @@
 
         public override string ToString()
         {
-            return _position == Position.Beginning
+            return _position == The.Beginning
                 ? _insertText
                 : (_insertText.Source == null && _insertText.Insertion == null)
                     ? null

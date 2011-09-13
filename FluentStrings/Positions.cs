@@ -1,11 +1,15 @@
 ﻿namespace dokas.FluentStrings
 {
     /// <summary>
-    /// Represents position in String
+    /// Represents position in a string
+    /// or marker point
     /// </summary>
-    public enum Position
+    public enum The
     {
         Beginning,
-        End
+        End,
+
+        StartOf,
+        EndOf
     }
 }
