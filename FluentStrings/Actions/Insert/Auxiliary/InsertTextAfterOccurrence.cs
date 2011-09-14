@@ -8,10 +8,10 @@ namespace dokas.FluentStrings.Actions.Insert
         private readonly int _occurrenceCount;
         private readonly string _marker;
 
-        internal InsertTextAfterOccurrence(InsertText insertText, int occurenceCount, string marker)
+        internal InsertTextAfterOccurrence(InsertText insertText, int occurrenceCount, string marker)
         {
             _insertText = insertText;
-            _occurrenceCount = Math.Max(occurenceCount, 1);
+            _occurrenceCount = Math.Max(occurrenceCount, 1);
             _marker = marker;
         }
 
