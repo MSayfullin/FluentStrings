@@ -48,6 +48,10 @@
     <Compile Include="Actions\Insert\Auxiliary\InsertTextBeforeOccurrence.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertTextTo.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertTextAfterOccurrenceFrom.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringToFrom.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrenceFrom.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrence.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringTo.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrenceFromToOccurrencePosition.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrenceFromToOccurrencePositionFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrenceToOccurrencePosition.cs" />

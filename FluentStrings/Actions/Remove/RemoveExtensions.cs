@@ -129,6 +129,18 @@ namespace dokas.FluentStrings
 
         #region To
 
+        public static RemoveStringTo To(this RemoveString source, int positionIndex)
+        {
+            return new RemoveStringTo(source, positionIndex);
+        }
+
+        public static RemoveStringToFrom From(this RemoveStringTo source, The position)
+        {
+            return new RemoveStringToFrom(source, position);
+        }
+
+
+
         public static RemoveStringStartingTo To(this RemoveStringStarting source, int positionIndex)
         {
             return new RemoveStringStartingTo(source, positionIndex);
@@ -172,6 +184,18 @@ namespace dokas.FluentStrings
         public static RemoveStringStartingOccurrenceFromToFrom From(this RemoveStringStartingOccurrenceFromTo source, The position)
         {
             return new RemoveStringStartingOccurrenceFromToFrom(source, position);
+        }
+
+
+
+        public static RemoveStringToOccurrence To(this RemoveString source, int occurrence, string marker)
+        {
+            return new RemoveStringToOccurrence(source, occurrence, marker);
+        }
+
+        public static RemoveStringToOccurrenceFrom From(this RemoveStringToOccurrence source, The position)
+        {
+            return new RemoveStringToOccurrenceFrom(source, position);
         }
 
 
