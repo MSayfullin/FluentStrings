@@ -100,6 +100,9 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveVowels.cs" />
     <Compile Include="Actions\Remove\RemoveExtensions.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveText.cs" />
+    <Compile Include="Actions\Truncate\Auxiliary\TruncateTextFrom.cs" />
+    <Compile Include="Actions\Truncate\Auxiliary\TruncateText.cs" />
+    <Compile Include="Actions\Truncate\TruncateExtensions.cs" />
     <Compile Include="Positions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
