@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Fluent Strings")]
-[assembly: AssemblyDescription("Powerful utilities set for any kind of strings transformation")]
+[assembly: AssemblyDescription("Powerful set of utilities for any kind of string transformation with fluent interface")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("doka")]
+[assembly: AssemblyCompany("Marsel Sayfullin")]
 [assembly: AssemblyProduct("Strings Transformation Engine")]
-[assembly: AssemblyCopyright("Copyright © doka 2011")]
+[assembly: AssemblyCopyright("Copyright © Marsel Sayfullin, 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,4 +32,4 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("0.1.*")]
