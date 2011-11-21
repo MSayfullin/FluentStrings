@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentStrings", "FluentStrings\FluentStrings.csproj", "{79FB125E-FB95-4327-A305-E88E71C2AF59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentStrings.Tests", "FluentStrings.Tests\FluentStrings.Tests.csproj", "{CD228F4F-429E-4FC4-879F-C7FF2566972A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44E87F65-D8CD-4805-987A-8A338C879A9A}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
@@ -18,10 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Externals", "Externals", "{
 		Externals\FluentAssertions.xml = Externals\FluentAssertions.xml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentStrings.Tests", "MonoFluentStringTests\FluentStrings.Tests\FluentStrings.Tests.csproj", "{403CB03C-CADE-45FE-A121-E81246C77E6F}"
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = FluentStrings.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -29,18 +26,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
+		Default|Any CPU = Default|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Debug|x86.ActiveCfg = Debug|x86
-		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Debug|x86.Build.0 = Debug|x86
-		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Release|Any CPU.ActiveCfg = Release|x86
-		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Release|Mixed Platforms.Build.0 = Release|x86
-		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Release|x86.ActiveCfg = Release|x86
-		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Release|x86.Build.0 = Release|x86
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Debug|x86.Build.0 = Debug|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Release|x86.ActiveCfg = Release|Any CPU
+		{403CB03C-CADE-45FE-A121-E81246C77E6F}.Release|x86.Build.0 = Release|Any CPU
 		{79FB125E-FB95-4327-A305-E88E71C2AF59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79FB125E-FB95-4327-A305-E88E71C2AF59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79FB125E-FB95-4327-A305-E88E71C2AF59}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -51,16 +53,48 @@ Global
 		{79FB125E-FB95-4327-A305-E88E71C2AF59}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{79FB125E-FB95-4327-A305-E88E71C2AF59}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{79FB125E-FB95-4327-A305-E88E71C2AF59}.Release|x86.ActiveCfg = Release|Any CPU
-		{CD228F4F-429E-4FC4-879F-C7FF2566972A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD228F4F-429E-4FC4-879F-C7FF2566972A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD228F4F-429E-4FC4-879F-C7FF2566972A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{CD228F4F-429E-4FC4-879F-C7FF2566972A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{CD228F4F-429E-4FC4-879F-C7FF2566972A}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CD228F4F-429E-4FC4-879F-C7FF2566972A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD228F4F-429E-4FC4-879F-C7FF2566972A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD228F4F-429E-4FC4-879F-C7FF2566972A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{CD228F4F-429E-4FC4-879F-C7FF2566972A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{CD228F4F-429E-4FC4-879F-C7FF2566972A}.Release|x86.ActiveCfg = Release|Any CPU
+		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Debug|x86.ActiveCfg = Debug|x86
+		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Debug|x86.Build.0 = Debug|x86
+		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Release|Any CPU.ActiveCfg = Release|x86
+		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Release|Mixed Platforms.Build.0 = Release|x86
+		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Release|x86.ActiveCfg = Release|x86
+		{1BA7E009-16E9-4151-944C-01CAF18E0D79}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = MonoFluentStringTests\FluentStrings.Tests\FluentStrings.Tests.csproj
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = None
+		$1.ResourceNamePolicy = FileFormatDefault
+		$0.TextStylePolicy = $2
+		$2.FileWidth = 120
+		$2.EolMarker = Windows
+		$2.inheritsSet = VisualStudio
+		$2.inheritsScope = text/plain
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/x-csharp
+		$3.scope = text/x-csharp
+		$0.StandardHeader = $4
+		$4.Text = 
+		$4.IncludeInNewFiles = True
+		$0.VersionControlPolicy = $5
+		$5.inheritsSet = Mono
+		$0.ChangeLogPolicy = $6
+		$6.UpdateMode = None
+		$6.MessageStyle = $7
+		$7.LineAlign = 0
+		$6.inheritsSet = Mono
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = FluentStrings.vsmdi
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
