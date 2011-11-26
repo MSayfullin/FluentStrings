@@ -3,3 +3,4 @@ bin/
 obj/
 TestResults/
 *.suo
+.DS_Store
