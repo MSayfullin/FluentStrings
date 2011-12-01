@@ -43,6 +43,7 @@
     <Compile Include="InsertTests.cs" />
     <Compile Include="RemoveTests.cs" />
     <Compile Include="TruncateTests.cs" />
+    <Compile Include="ReplaceTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

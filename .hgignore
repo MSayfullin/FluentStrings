@@ -4,3 +4,5 @@ obj/
 TestResults/
 *.suo
 .DS_Store
+FluentStrings\.userprefs
+test-results
