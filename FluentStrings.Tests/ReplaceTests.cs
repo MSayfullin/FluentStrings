@@ -9,9 +9,11 @@ namespace FluentStrings.Tests
     public class ReplaceTests
     {
         [TestMethod]
-        public void TestCase()
+        public void TestCases()
         {
+            string transformed = "some very long string".Replace("very");
+            transformed = "some very long string".Replace("very").With("not very");
+            transformed = "some very long string".Replace("very").With("not very").IgnoringCase();
         }
     }
 }
-

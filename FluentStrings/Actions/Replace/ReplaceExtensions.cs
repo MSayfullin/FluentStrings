@@ -1,47 +1,23 @@
 using System;
+using dokas.FluentStrings.Actions.Replace;
 
 namespace dokas.FluentStrings
 {
     public static class ReplaceExtensions
     {
-        public static ReplacePattern Replace(this string source, string pattern)
+        public static ReplaceText Replace(this string source, string value)
         {
-            return new ReplacePattern(source, pattern);
+            return new ReplaceText(source, value);
         }
 
-        public static ReplacePattern FirstOccurrence(this ReplacePattern source)
+        public static ReplaceTextWith With(this ReplaceText source, string replacement)
         {
-            return new ReplacePattern(source, true, false, false);
+            return new ReplaceTextWith(source, replacement);
         }
 
-        public static ReplacePattern LastOccurrence(this ReplacePattern source)
+        public static ReplaceTextWithIgnoringCase IgnoringCase(this ReplaceTextWith source)
         {
-            return new ReplacePattern(source, false, true, false);
-        }
-
-        public static ReplacePattern All(this ReplacePattern source)
-        {
-            return new ReplacePattern(source, false, false, true);
-        }
-
-        public static ReplaceWith With(this ReplacePattern source, string text)
-        {
-            return new ReplaceWith(source, text);
-        }
-
-        public static ReplaceWith SeparatedBy(this ReplaceWith source, char symbol)
-        {
-            return new ReplaceWith(source, symbol);
-        }
-
-        public static ReplaceWith SeparatedBy(this ReplaceWith source, string symbol)
-        {
-            return new ReplaceWith(source, symbol);
-        }
-
-        public static ReplaceWithSeparatedByIgnoringCase IgnoringCase(this ReplaceWith source)
-        {
-            return new ReplaceWithSeparatedByIgnoringCase(source);
+            return new ReplaceTextWithIgnoringCase(source);
         }
     }
 }
