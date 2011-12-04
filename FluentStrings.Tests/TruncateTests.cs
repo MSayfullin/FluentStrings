@@ -3,9 +3,9 @@ using dokas.FluentStrings;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace StringTransformerTests
+namespace FluentStrings.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class TruncateTests
     {
         /// <summary>
@@ -23,21 +23,21 @@ namespace StringTransformerTests
 
         #region TruncateTo
 
-        [TestMethod()]
+        [TestMethod]
         public void TruncateToOfNullString()
         {
             string transformed = NullString.TruncateTo(3);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void TruncateToOfEmptyString()
         {
             string transformed = String.Empty.TruncateTo(5);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void TruncateTo()
         {
             string transformed = "Some very long string".TruncateTo(8);
@@ -48,46 +48,60 @@ namespace StringTransformerTests
 
         #region TruncateTo From
 
-        [TestMethod()]
+        [TestMethod]
         public void TruncateToFromBeginningOfNullString()
         {
             string transformed = NullString.TruncateTo(3).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void TruncateToFromEndOfNullString()
         {
             string transformed = NullString.TruncateTo(3).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void TruncateToFromBeginningOfEmptyString()
         {
             string transformed = String.Empty.TruncateTo(5).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void TruncateToFromEndOfEmptyString()
         {
             string transformed = String.Empty.TruncateTo(5).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void TruncateToFromBeginning()
         {
             string transformed = "Some very long string".TruncateTo(9).From(The.Beginning);
             transformed.Should().Be("Some very");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void TruncateToFromEnd()
         {
             string transformed = "Some very long string".TruncateTo(11).From(The.End);
             transformed.Should().Be("long string");
+        }
+
+        [TestMethod]
+        public void TruncateToFromBeginningMoreThanAvailable()
+        {
+            string transformed = NothingShouldBeChanged.TruncateTo(100).From(The.Beginning);
+            transformed.Should().Be(NothingShouldBeChanged);
+        }
+        
+        [TestMethod]
+        public void TruncateToFromEndMoreThanAvailable()
+        {
+            string transformed = NothingShouldBeChanged.TruncateTo(100).From (The.End);
+            transformed.Should().Be(NothingShouldBeChanged);
         }
 
         #endregion

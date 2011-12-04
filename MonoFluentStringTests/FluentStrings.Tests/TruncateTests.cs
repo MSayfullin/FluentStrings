@@ -83,12 +83,19 @@ namespace StringTransformerTests
             string transformed = "Some very long string".TruncateTo (11).From (The.End);
             transformed.Should ().Be ("long string");
         }
+
+        [Test]
+        public void TruncateToFromBeginningMoreThanAvailable()
+        {
+            string transformed = NothingShouldBeChanged.TruncateTo(100).From(The.Beginning);
+            transformed.Should().Be(NothingShouldBeChanged);
+        }
         
         [Test]
-        public void TruncateToFromEndMoreThanLength ()
+        public void TruncateToFromEndMoreThanAvailable()
         {
-            string transformed = "short string".TruncateTo (100).From (The.End);
-            transformed.Should().Be("");
+            string transformed = NothingShouldBeChanged.TruncateTo(100).From (The.End);
+            transformed.Should().Be(NothingShouldBeChanged);
         }
 
         #endregion

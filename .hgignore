@@ -3,6 +3,8 @@ bin/
 obj/
 TestResults/
 *.suo
+*.csproj.user
 .DS_Store
 FluentStrings\.userprefs
 test-results
+

@@ -3,9 +3,9 @@ using dokas.FluentStrings;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace StringTransformerTests
+namespace FluentStrings.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class RemoveTests
     {
         /// <summary>
@@ -23,35 +23,35 @@ namespace StringTransformerTests
 
         #region Remove
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextFromNullString()
         {
             string transformed = NullString.Remove("bla");
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullText()
         {
             string transformed = NothingShouldBeChanged.Remove(null);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullTextFromNullString()
         {
             string transformed = NullString.Remove(null);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveEmptyText()
         {
             string transformed = NothingShouldBeChanged.Remove(String.Empty);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveText()
         {
             string transformed = "TEST string will be removed".Remove("TEST");
@@ -65,63 +65,63 @@ namespace StringTransformerTests
 
         #region Remove From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextFromBeginingOfNullString()
         {
             string transformed = NullString.Remove("bla").From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextFromEndOfNullString()
         {
             string transformed = NullString.Remove("bla").From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullTextFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove(null).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullTextFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove(null).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullTextFromBeginingOfNullString()
         {
             string transformed = NullString.Remove(null).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullTextFromEndOfNullString()
         {
             string transformed = NullString.Remove(null).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveEmptyTextFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove(String.Empty).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveEmptyTextFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove(String.Empty).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextFromBegining()
         {
             string transformed = "TEST string will be removed".Remove("TEST").From(The.Beginning);
@@ -134,7 +134,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some additional string || string will be removed");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextFromEnd()
         {
             string transformed = "string will be removed -> TEST".Remove("TEST").From(The.End);
@@ -151,21 +151,21 @@ namespace StringTransformerTests
 
         #region Full Remove
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromNullString()
         {
             string transformed = NullString.Remove();
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromEmptyString()
         {
             string transformed = String.Empty.Remove();
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void Remove()
         {
             string transformed = "Some string".Remove();
@@ -176,35 +176,35 @@ namespace StringTransformerTests
 
         #region Remove Before
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerFromNullString()
         {
             string transformed = NullString.Remove(null).Before(null);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerFromNullString()
         {
             string transformed = NullString.Remove(null).Before("marker");
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerFromNullString()
         {
             string transformed = NullString.Remove("something").Before("marker");
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarker()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before(null);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarker()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before("marker");
@@ -214,14 +214,14 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeNonExistingMarker()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").Before("marker");
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarker()
         {
             string transformed = "This string will be removed -> TEST and this -> TEST also because 'marker' is here. And this TEST will be left".Remove("TEST").Before("marker");
@@ -232,63 +232,63 @@ namespace StringTransformerTests
 
         #region Remove Before From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerFromBeginingOfNullString()
         {
             string transformed = NullString.Remove(null).Before(null).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerFromEndOfNullString()
         {
             string transformed = NullString.Remove(null).Before(null).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerFromBeginingOfNullString()
         {
             string transformed = NullString.Remove(null).Before("marker").From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerFromEndOfNullString()
         {
             string transformed = NullString.Remove(null).Before("marker").From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerFromBeginingOfNullString()
         {
             string transformed = NullString.Remove("something").Before("marker").From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerFromEndOfNullString()
         {
             string transformed = NullString.Remove("something").Before("marker").From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before(null).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before(null).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before("marker").From(The.Beginning);
@@ -298,7 +298,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before("marker").From(The.End);
@@ -308,28 +308,28 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeNonExistingMarkerFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").Before("marker").From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeNonExistingMarkerFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").Before("marker").From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerFromBegining()
         {
             string transformed = "This string will be removed -> TEST and this -> TEST also because 'marker' is here. And this TEST will be left".Remove("TEST").Before("marker").From(The.Beginning);
             transformed.Should().Be("This string will be removed ->  and this ->  also because 'marker' is here. And this TEST will be left");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerFromEnd()
         {
             string transformed = "This string will NOT be removed -> TEST and this also -> TEST also because 'marker' is here. And this TEST will NOT be left".Remove("TEST").Before("marker").From(The.End);
@@ -343,7 +343,7 @@ namespace StringTransformerTests
 
         #region Remove Before Occurrence
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrenceFromNullString()
         {
             string transformed = NullString.Remove(null).Before(3, null);
@@ -353,7 +353,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerOccurrenceFromNullString()
         {
             string transformed = NullString.Remove(null).Before(4, "marker");
@@ -363,7 +363,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerOccurrenceFromNullString()
         {
             string transformed = NullString.Remove("something").Before(2, "marker");
@@ -373,7 +373,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrence()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before(2, null);
@@ -383,7 +383,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerOccurrence()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before(1, "marker");
@@ -396,7 +396,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeNonExistingMarkerOccurrence()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").Before(3, "marker");
@@ -406,7 +406,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerOccurrence()
         {
             string transformed = "This string will be removed -> TEST and this -> TEST also because 'marker' is here. And this TEST will be left".Remove("TEST").Before(1, "marker");
@@ -423,7 +423,7 @@ namespace StringTransformerTests
 
         #region Remove Before Occurrence From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrenceFromBeginingOfNullString()
         {
             string transformed = NullString.Remove(null).Before(3, null).From(The.Beginning);
@@ -433,7 +433,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrenceFromEndOfNullString()
         {
             string transformed = NullString.Remove(null).Before(3, null).From(The.End);
@@ -443,7 +443,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerOccurrenceFromBeginingOfNullString()
         {
             string transformed = NullString.Remove(null).Before(4, "marker").From(The.Beginning);
@@ -453,7 +453,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerOccurrenceFromEndOfNullString()
         {
             string transformed = NullString.Remove(null).Before(4, "marker").From(The.End);
@@ -463,7 +463,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerOccurrenceFromBeginingOfNullString()
         {
             string transformed = NullString.Remove("something").Before(2, "marker").From(The.Beginning);
@@ -473,7 +473,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerOccurrenceFromEndOfNullString()
         {
             string transformed = NullString.Remove("something").Before(2, "marker").From(The.End);
@@ -483,7 +483,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrenceFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before(2, null).From(The.Beginning);
@@ -493,7 +493,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrenceFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before(2, null).From(The.End);
@@ -503,7 +503,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerOccurrenceFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before(1, "marker").From(The.Beginning);
@@ -516,7 +516,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullBeforeMarkerOccurrenceFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove(null).Before(1, "marker").From(The.End);
@@ -529,7 +529,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeNonExistingMarkerOccurrenceFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").Before(3, "marker").From(The.Beginning);
@@ -539,7 +539,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeNonExistingMarkerOccurrenceFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").Before(3, "marker").From(The.End);
@@ -549,7 +549,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerOccurrenceFromBegining()
         {
             string transformed = "This string will be removed -> TEST and this -> TEST also because 'marker' is here. And this TEST will be left".Remove("TEST").Before(1, "marker").From(The.Beginning);
@@ -563,7 +563,7 @@ namespace StringTransformerTests
             transformed.Should().Be("some some some  some  another  marker    marker TEST some words TEST");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextBeforeMarkerOccurrenceFromEnd()
         {
             string transformed = "This string will be removed -> TEST and this -> TEST also because 'marker' is here. And this TEST will be left".Remove("TEST").Before(1, "marker").From(The.End);
@@ -581,35 +581,35 @@ namespace StringTransformerTests
 
         #region Remove After
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerFromNullString()
         {
             string transformed = NullString.Remove(null).After(null);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerFromNullString()
         {
             string transformed = NullString.Remove(null).After("marker");
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerFromNullString()
         {
             string transformed = NullString.Remove("something").After("marker");
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarker()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After(null);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarker()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After("marker");
@@ -619,14 +619,14 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterNonExistingMarker()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").After("marker");
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarker()
         {
             string transformed = "This string will be left -> TEST and this -> TEST also because 'marker' is here. And this TEST will be removed".Remove("TEST").After("marker");
@@ -640,63 +640,63 @@ namespace StringTransformerTests
 
         #region Remove After From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerFromBeginingOfNullString()
         {
             string transformed = NullString.Remove(null).After(null).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerFromEndOfNullString()
         {
             string transformed = NullString.Remove(null).After(null).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerFromBeginingOfNullString()
         {
             string transformed = NullString.Remove(null).After("marker").From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerFromEndOfNullString()
         {
             string transformed = NullString.Remove(null).After("marker").From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerFromBeginingOfNullString()
         {
             string transformed = NullString.Remove("something").After("marker").From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerFromEndOfNullString()
         {
             string transformed = NullString.Remove("something").After("marker").From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After(null).From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After(null).From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After("marker").From(The.Beginning);
@@ -706,7 +706,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After("marker").From(The.End);
@@ -716,21 +716,21 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterNonExistingMarkerFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").After("marker").From(The.Beginning);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterNonExistingMarkerFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").After("marker").From(The.End);
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerFromBegining()
         {
             string transformed = "This string will be left -> TEST and this -> TEST also because 'marker' is here. And this TEST will be removed".Remove("TEST").After("marker").From(The.Beginning);
@@ -740,7 +740,7 @@ namespace StringTransformerTests
             transformed.Should().Be("This string will be left -> TEST and this -> TEST also because 'marker' is here. And this  will be removed with this  one");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerFromEnd()
         {
             string transformed = "This string will be removed -> TEST and this also -> TEST because 'marker' is here. And this TEST will be left".Remove("TEST").After("marker").From(The.End);
@@ -754,7 +754,7 @@ namespace StringTransformerTests
 
         #region Remove After Occurrence
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrenceFromNullString()
         {
             string transformed = NullString.Remove(null).After(3, null);
@@ -764,7 +764,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerOccurrenceFromNullString()
         {
             string transformed = NullString.Remove(null).After(4, "marker");
@@ -774,7 +774,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerOccurrenceFromNullString()
         {
             string transformed = NullString.Remove("something").After(2, "marker");
@@ -784,7 +784,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrence()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After(2, null);
@@ -794,7 +794,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerOccurrence()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After(1, "marker");
@@ -807,7 +807,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterNonExistingMarkerOccurrence()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").After(3, "marker");
@@ -817,7 +817,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerOccurrence()
         {
             string transformed = "This string will be left -> TEST and this -> TEST also because 'marker' is here. And this TEST will be removed".Remove("TEST").After(1, "marker");
@@ -835,7 +835,7 @@ namespace StringTransformerTests
 
         #region Remove After Occurrence From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrenceFromBeginingOfNullString()
         {
             string transformed = NullString.Remove(null).After(3, null).From(The.Beginning);
@@ -845,7 +845,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrenceFromEndOfNullString()
         {
             string transformed = NullString.Remove(null).After(3, null).From(The.End);
@@ -855,7 +855,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerOccurrenceFromBeginingOfNullString()
         {
             string transformed = NullString.Remove(null).After(4, "marker").From(The.Beginning);
@@ -865,7 +865,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerOccurrenceFromEndOfNullString()
         {
             string transformed = NullString.Remove(null).After(4, "marker").From(The.End);
@@ -875,7 +875,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerOccurrenceFromBeginingOfNullString()
         {
             string transformed = NullString.Remove("something").After(2, "marker").From(The.Beginning);
@@ -885,7 +885,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerOccurrenceFromEndOfNullString()
         {
             string transformed = NullString.Remove("something").After(2, "marker").From(The.End);
@@ -895,7 +895,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrenceFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After(2, null).From(The.Beginning);
@@ -905,7 +905,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrenceFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After(2, null).From(The.End);
@@ -915,7 +915,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerOccurrenceFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After(1, "marker").From(The.Beginning);
@@ -928,7 +928,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNullAfterMarkerOccurrenceFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove(null).After(1, "marker").From(The.End);
@@ -941,7 +941,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterNonExistingMarkerOccurrenceFromBegining()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").After(3, "marker").From(The.Beginning);
@@ -951,7 +951,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterNonExistingMarkerOccurrenceFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove("TEST").After(3, "marker").From(The.End);
@@ -961,7 +961,7 @@ namespace StringTransformerTests
             transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerOccurrenceFromBegining()
         {
             string transformed = "This string will be left -> TEST and this -> TEST also because 'marker' is here. And this TEST will be removed".Remove("TEST").After(1, "marker").From(The.Beginning);
@@ -975,7 +975,7 @@ namespace StringTransformerTests
             transformed.Should().Be("some some some TEST some TEST another TEST marker TEST TEST TEST marker  some words ");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveTextAfterMarkerOccurrenceFromEnd()
         {
             string transformed = "This string will be left -> TEST and this -> TEST also because 'marker' is here and searching from END. And this TEST will be removed".Remove("TEST").After(1, "marker").From(The.End);
@@ -996,21 +996,21 @@ namespace StringTransformerTests
 
         #region Remove Vowels
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveVowelsFromNullString()
         {
             string transformed = NullString.RemoveVowels();
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveVowelsFromEmptyString()
         {
             string transformed = String.Empty.RemoveVowels();
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveVowels()
         {
             string transformed = "Vowels will be removed from this string".RemoveVowels();
@@ -1021,28 +1021,28 @@ namespace StringTransformerTests
 
         #region Remove Chars
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveSelectedChars()
         {
             string transformed = "Some very long string".RemoveChars('e', 'l', 'g');
             transformed.Should().Be("Som vry on strin");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveChars()
         {
             string transformed = "Some very long string".RemoveChars(3);
             transformed.Should().Be("e very long string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveCharsFromBeginning()
         {
             string transformed = "Some very long string".RemoveChars(7).From(The.Beginning);
             transformed.Should().Be("ry long string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveCharsFromEnd()
         {
             string transformed = "Some very long string".RemoveChars(5).From(The.End);
@@ -1053,21 +1053,21 @@ namespace StringTransformerTests
 
         #region Remove Starting
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterInNullString()
         {
             string transformed = NullString.Remove().Starting(3);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(5);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacter()
         {
             string transformed = "Some very long string".Remove().Starting(0);
@@ -1087,21 +1087,21 @@ namespace StringTransformerTests
 
         #region Remove To
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToCharacterInNullString()
         {
             string transformed = NullString.Remove().To(3);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToCharacterInEmptyString()
         {
             string transformed = String.Empty.Remove().To(5);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToCharacter()
         {
             string transformed = "Some very long string".Remove().To(0);
@@ -1121,35 +1121,35 @@ namespace StringTransformerTests
 
         #region Remove To From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToCharacterFromBeginningInNullString()
         {
             string transformed = NullString.Remove().To(3).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToCharacterFromEndInNullString()
         {
             string transformed = NullString.Remove().To(3).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToCharacterFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().To(5).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToCharacterFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().To(5).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToCharacterFromBeginning()
         {
             string transformed = "Some very long string".Remove().To(0).From(The.Beginning);
@@ -1165,7 +1165,7 @@ namespace StringTransformerTests
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToCharacterFromEnd()
         {
             string transformed = "Some very long string".Remove().To(0).From(The.End);
@@ -1185,21 +1185,21 @@ namespace StringTransformerTests
 
         #region Remove Starting To
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToCharacterInNullString()
         {
             string transformed = NullString.Remove().Starting(3).To(6);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToCharacterInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(5).To(14);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToCharacter()
         {
             string transformed = NothingShouldBeChanged.Remove().Starting(0).To(0);
@@ -1221,7 +1221,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some vlong string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToCharacterInReverse()
         {
             string transformed = "Some very long string".Remove().Starting(1).To(0);
@@ -1241,49 +1241,49 @@ namespace StringTransformerTests
 
         #region Remove Starting To Occurrence
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfNullMarkerInNullString()
         {
             string transformed = NullString.Remove().Starting(1).To(3, null);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfEmptyMarkerInNullString()
         {
             string transformed = NullString.Remove().Starting(1).To(2, String.Empty);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerInNullString()
         {
             string transformed = NullString.Remove().Starting(1).To(2, "marker");
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfNullMarkerInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(1).To(3, null);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfEmptyMarkerInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(1).To(2, String.Empty);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(1).To(2, "marker");
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarker()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).To(1, "marker");
@@ -1305,7 +1305,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some very marker");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterExceedingToOccurrenceOfMarker()
         {
             string transformed = "Some string with marker and markers and markable words".Remove().Starting(25).To(2, "mark");
@@ -1325,49 +1325,49 @@ namespace StringTransformerTests
 
         #region Remove To Occurrence
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfNullMarkerInNullString()
         {
             string transformed = NullString.Remove().To(3, null);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerInNullString()
         {
             string transformed = NullString.Remove().To(2, String.Empty);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfMarkerInNullString()
         {
             string transformed = NullString.Remove().To(2, "marker");
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfNullMarkerInEmptyString()
         {
             string transformed = String.Empty.Remove().To(3, null);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerInEmptyString()
         {
             string transformed = String.Empty.Remove().To(2, String.Empty);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfMarkerInEmptyString()
         {
             string transformed = String.Empty.Remove().To(2, "marker");
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfMarker()
         {
             string transformed = "Some very long string with marker and another marker".Remove().To(0, "marker");
@@ -1387,91 +1387,91 @@ namespace StringTransformerTests
 
         #region Remove Starting To Occurrence From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfNullMarkerFromBeginningInNullString()
         {
             string transformed = NullString.Remove().Starting(1).To(3, null).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfNullMarkerFromEndInNullString()
         {
             string transformed = NullString.Remove().Starting(1).To(3, null).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfEmptyMarkerFromBeginningInNullString()
         {
             string transformed = NullString.Remove().Starting(1).To(2, String.Empty).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfEmptyMarkerFromEndInNullString()
         {
             string transformed = NullString.Remove().Starting(1).To(2, String.Empty).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerFromBeginningInNullString()
         {
             string transformed = NullString.Remove().Starting(1).To(2, "marker").From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerFromEndInNullString()
         {
             string transformed = NullString.Remove().Starting(1).To(2, "marker").From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfNullMarkerFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(1).To(3, null).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfNullMarkerFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(1).To(3, null).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfEmptyMarkerFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(1).To(2, String.Empty).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfEmptyMarkerFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(1).To(2, String.Empty).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(1).To(2, "marker").From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(1).To(2, "marker").From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerFromBeginning()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).To(1, "marker").From(The.Beginning);
@@ -1493,7 +1493,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some very marker");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerFromEnd()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).To(1, "marker").From(The.End);
@@ -1518,7 +1518,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some very marker' long string with marker");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterExceedingToOccurrenceOfMarkerFromBeginning()
         {
             string transformed = "Some string with marker and markers and markable words".Remove().Starting(25).To(2, "mark").From(The.Beginning);
@@ -1534,7 +1534,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some very 'm");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterExceedingToOccurrenceOfMarkerFromEnd()
         {
             string transformed = "Some string with marker and markers and markable words".Remove().Starting(25).To(2, "mark").From(The.End);
@@ -1551,91 +1551,91 @@ namespace StringTransformerTests
 
         #region Remove To Occurrence From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfNullMarkerFromBeginningInNullString()
         {
             string transformed = NullString.Remove().To(3, null).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfNullMarkerFromEndInNullString()
         {
             string transformed = NullString.Remove().To(3, null).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerFromBeginningInNullString()
         {
             string transformed = NullString.Remove().To(2, String.Empty).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerFromEndInNullString()
         {
             string transformed = NullString.Remove().To(2, String.Empty).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfMarkerFromBeginningInNullString()
         {
             string transformed = NullString.Remove().To(2, "marker").From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfMarkerFromEndInNullString()
         {
             string transformed = NullString.Remove().To(2, "marker").From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfNullMarkerFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().To(3, null).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfNullMarkerFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().To(3, null).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().To(2, String.Empty).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(1).To(2, String.Empty).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfMarkerFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().To(2, "marker").From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfMarkerFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().To(2, "marker").From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfMarkerFromBeginning()
         {
             string transformed = "Some very long string with marker and another marker".Remove().To(0, "marker").From(The.Beginning);
@@ -1651,7 +1651,7 @@ namespace StringTransformerTests
             transformed.Should().Be("markable words");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveToOccurrenceOfMarkerFromEnd()
         {
             string transformed = "Some very long string with marker and another marker".Remove().To(0, "marker").From(The.End);
@@ -1671,35 +1671,35 @@ namespace StringTransformerTests
 
         #region Remove Starting From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginnigInNullString()
         {
             string transformed = NullString.Remove().Starting(3).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndInNullString()
         {
             string transformed = NullString.Remove().Starting(3).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginnigInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(5).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(5).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginnig()
         {
             string transformed = "Some very long string".Remove().Starting(0).From(The.Beginning);
@@ -1715,7 +1715,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some very long string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEnd()
         {
             string transformed = "Some very long string".Remove().Starting(0).From(The.End);
@@ -1735,35 +1735,35 @@ namespace StringTransformerTests
 
         #region Remove Starting From To
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterInNullString()
         {
             string transformed = NullString.Remove().Starting(3).From(The.Beginning).To(6);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterInNullString()
         {
             string transformed = NullString.Remove().Starting(3).From(The.End).To(6);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(5).From(The.Beginning).To(14);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(5).From(The.End).To(14);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacter()
         {
             string transformed = NothingShouldBeChanged.Remove().Starting(0).From(The.Beginning).To(0);
@@ -1785,7 +1785,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some vlong string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacter()
         {
             string transformed = "Some very long string".Remove().Starting(0).From(The.End).To(0);
@@ -1807,7 +1807,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some very string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterInReverse()
         {
             string transformed = "Some very long string".Remove().Starting(1).From(The.Beginning).To(0);
@@ -1823,7 +1823,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some g string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterInReverse()
         {
             string transformed = "Some very long string".Remove().Starting(100).From(The.End).To(1);
@@ -1843,63 +1843,63 @@ namespace StringTransformerTests
 
         #region Remove Starting From To From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromBeginningInNullString()
         {
             string transformed = NullString.Remove().Starting(3).From(The.Beginning).To(6).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromEndInNullString()
         {
             string transformed = NullString.Remove().Starting(3).From(The.Beginning).To(6).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromBeginningInNullString()
         {
             string transformed = NullString.Remove().Starting(3).From(The.End).To(6).From(The.Beginning);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromEndInNullString()
         {
             string transformed = NullString.Remove().Starting(3).From(The.End).To(6).From(The.End);
             transformed.Should().Be(NullString);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(5).From(The.Beginning).To(14).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(5).From(The.Beginning).To(14).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(5).From(The.End).To(14).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().Starting(5).From(The.End).To(14).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromBeginning()
         {
             string transformed = NothingShouldBeChanged.Remove().Starting(0).From(The.Beginning).To(0).From(The.Beginning);
@@ -1921,7 +1921,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some vlong string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromEnd()
         {
             string transformed = "Entire string will be removed".Remove().Starting(0).From(The.Beginning).To(0).From(The.End);
@@ -1943,7 +1943,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some vong string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromBeginning()
         {
             string transformed = "Some very long string".Remove().Starting(0).From(The.End).To(0).From(The.Beginning);
@@ -1965,7 +1965,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some very string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromEnd()
         {
             string transformed = NothingShouldBeChanged.Remove().Starting(0).From(The.End).To(0).From(The.End);
@@ -1987,7 +1987,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some very string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromBeginningInReverse()
         {
             string transformed = "Some very long string".Remove().Starting(1).From(The.Beginning).To(0).From(The.Beginning);
@@ -2003,7 +2003,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some g string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromEndInReverse()
         {
             string transformed = "Some very long string".Remove().Starting(100).From(The.Beginning).To(1).From(The.End);
@@ -2016,7 +2016,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some veryg string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromBeginningInReverse()
         {
             string transformed = "Some very long string".Remove().Starting(100).From(The.End).To(1).From(The.Beginning);
@@ -2032,7 +2032,7 @@ namespace StringTransformerTests
             transformed.Should().Be("Some verg string");
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromEndInReverse()
         {
             string transformed = "Some very long string".Remove().Starting(13).From(The.End).To(6).From(The.End);
@@ -2046,7 +2046,7 @@ namespace StringTransformerTests
 
         #region Remove Starting From To Occurrence
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingFromToOccurrence()
         {
             string transformed = "Some very long string".Remove().Starting(1).From(The.Beginning).To(3, "marker");
@@ -2057,7 +2057,7 @@ namespace StringTransformerTests
 
         #region Remove Starting From To Occurrence From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingFromToOccurrenceFrom()
         {
             string transformed = "Some very long string".Remove().Starting(1).From(The.Beginning).To(3, "marker").From(The.End);
@@ -2068,7 +2068,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Next
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveNext()
         {
             string transformed = "Some very long string".Remove().Starting(1).Next(3);
@@ -2079,7 +2079,7 @@ namespace StringTransformerTests
 
         #region Remove Starting From Next
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromNext()
         {
             string transformed = "Some very long string".Remove().Starting(1).From(The.Beginning).Next(3);
@@ -2090,7 +2090,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Previous
 
-        [TestMethod()]
+        [TestMethod]
         public void RemovePrevious()
         {
             string transformed = "Some very long string".Remove().Starting(1).Previous(3);
@@ -2101,7 +2101,7 @@ namespace StringTransformerTests
 
         #region Remove Starting From Previous
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromPrevious()
         {
             string transformed = "Some very long string".Remove().Starting(1).From(The.Beginning).Previous(3);
@@ -2112,7 +2112,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromOccurrence()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker");
@@ -2123,7 +2123,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromOccurrenceFrom()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").From(The.Beginning);
@@ -2134,7 +2134,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence To
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromOccurrenceTo()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").To(2);
@@ -2145,7 +2145,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence To From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromOccurrenceToFrom()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").To(2).From(The.End);
@@ -2156,7 +2156,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence From To
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromOccurrenceFromTo()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").From(The.Beginning).To(2);
@@ -2167,7 +2167,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence From To From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromOccurrenceFromToFrom()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").From(The.Beginning).To(2).From(The.End);
@@ -2178,7 +2178,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence To Occurrence
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromOccurrenceToOccurrence()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").To(2, "marker");
@@ -2189,7 +2189,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence To Occurrence From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromOccurrenceToOccurrenceFrom()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").To(2, "marker").From(The.End);
@@ -2200,7 +2200,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence From To Occurrence
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromOccurrenceFromToOccurrence()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").From(The.Beginning).To(2, "marker");
@@ -2211,7 +2211,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence From To Occurrence From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveFromOccurrenceFromToOccurrenceFrom()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").From(The.Beginning).To(2, "marker").From(The.End);
@@ -2222,7 +2222,7 @@ namespace StringTransformerTests
 
         #region Remove Starting To Occurrence Position
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingAtToStartOfMarker()
         {
             string transformed = "Some very long string".Remove().Starting(1).To(The.StartOf, 2, "marker");
@@ -2233,7 +2233,7 @@ namespace StringTransformerTests
 
         #region Remove Starting To Occurrence Position From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingAtToStartOfMarkerFromEnd()
         {
             string transformed = "Some very long string".Remove().Starting(1).To(The.StartOf, 2, "marker").From(The.End);
@@ -2244,7 +2244,7 @@ namespace StringTransformerTests
 
         #region Remove Starting From To Occurrence Position
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingAtFromBeginningToStartOfMarker()
         {
             string transformed = "Some very long string".Remove().Starting(1).From(The.Beginning).To(The.StartOf, 2, "marker");
@@ -2255,7 +2255,7 @@ namespace StringTransformerTests
 
         #region Remove Starting From To Occurrence Position From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingAtFromBeginningToStartOfMarkerFromEnd()
         {
             string transformed = "Some very long string".Remove().Starting(1).From(The.Beginning).To(The.StartOf, 2, "marker").From(The.End);
@@ -2266,7 +2266,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence To Occurrence Position
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingOfMarkerToStartOfMarker()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").To(The.StartOf, 2, "marker");
@@ -2277,7 +2277,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence To Occurrence Position From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingOfMarkerToStartOfMarkerFromEnd()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").To(The.StartOf, 2, "marker").From(The.End);
@@ -2288,7 +2288,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence From To Occurrence Position
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingOfMarkerFromBeginningToStartOfMarker()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").From(The.Beginning).To(The.StartOf, 2, "marker");
@@ -2299,7 +2299,7 @@ namespace StringTransformerTests
 
         #region Remove Starting Occurrence From To Occurrence Position From
 
-        [TestMethod()]
+        [TestMethod]
         public void RemoveStartingOfMarkerFromBeginningToStartOfMarkerFromEnd()
         {
             string transformed = "Some very long string".Remove().Starting(1, "marker").From(The.Beginning).To(The.StartOf, 2, "marker").From(The.End);
