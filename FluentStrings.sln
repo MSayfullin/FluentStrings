@@ -1,27 +1,17 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentStrings", "FluentStrings\FluentStrings.csproj", "{79FB125E-FB95-4327-A305-E88E71C2AF59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44E87F65-D8CD-4805-987A-8A338C879A9A}"
 	ProjectSection(SolutionItems) = preProject
-		FluentStrings.vsmdi = FluentStrings.vsmdi
 		Local.testsettings = Local.testsettings
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Externals", "Externals", "{040000E6-C40B-40CA-AA48-99915213EAF0}"
-	ProjectSection(SolutionItems) = preProject
-		Externals\FluentAssertions.dll = Externals\FluentAssertions.dll
-		Externals\FluentAssertions.xml = Externals\FluentAssertions.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentStrings.Tests", "FluentStrings.Tests\FluentStrings.Tests.csproj", "{CD228F4F-429E-4FC4-879F-C7FF2566972A}"
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = FluentStrings.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
