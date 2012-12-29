@@ -8,26 +8,13 @@ namespace FluentStrings.Tests
     [TestClass]
     public class TruncateTests
     {
-        /// <summary>
-        /// Gets or sets the test context which provides
-        /// information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext { get; set; }
-
-        #region Constants
-
-        private const string NullString = null;
-        private const string NothingShouldBeChanged = "Nothing should be changed";
-
-        #endregion
-
-        #region TruncateTo
+        #region Truncate To
 
         [TestMethod]
         public void TruncateToOfNullString()
         {
-            string transformed = NullString.TruncateTo(3);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.TruncateTo(3);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -46,20 +33,20 @@ namespace FluentStrings.Tests
 
         #endregion
 
-        #region TruncateTo From
+        #region Truncate To From
 
         [TestMethod]
         public void TruncateToFromBeginningOfNullString()
         {
-            string transformed = NullString.TruncateTo(3).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.TruncateTo(3).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void TruncateToFromEndOfNullString()
         {
-            string transformed = NullString.TruncateTo(3).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.TruncateTo(3).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -93,15 +80,15 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void TruncateToFromBeginningMoreThanAvailable()
         {
-            string transformed = NothingShouldBeChanged.TruncateTo(100).From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.TruncateTo(100).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
         }
         
         [TestMethod]
         public void TruncateToFromEndMoreThanAvailable()
         {
-            string transformed = NothingShouldBeChanged.TruncateTo(100).From (The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.TruncateTo(100).From (The.End);
+            transformed.Should().Be(Const.SampleString);
         }
 
         #endregion

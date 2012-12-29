@@ -8,47 +8,34 @@ namespace FluentStrings.Tests
     [TestClass]
     public class RemoveTests
     {
-        /// <summary>
-        /// Gets or sets the test context which provides
-        /// information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext { get; set; }
-
-        #region Constants
-
-        private const string NullString = null;
-        private const string NothingShouldBeChanged = "Nothing should be changed";
-
-        #endregion
-
         #region Remove
 
         [TestMethod]
         public void RemoveTextFromNullString()
         {
-            string transformed = NullString.Remove("bla");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("bla");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullText()
         {
-            string transformed = NothingShouldBeChanged.Remove(null);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullTextFromNullString()
         {
-            string transformed = NullString.Remove(null);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveEmptyText()
         {
-            string transformed = NothingShouldBeChanged.Remove(String.Empty);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(String.Empty);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
@@ -68,57 +55,57 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveTextFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove("bla").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("bla").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextFromEndOfNullString()
         {
-            string transformed = NullString.Remove("bla").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("bla").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullTextFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullTextFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).From(The.End);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullTextFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove(null).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullTextFromEndOfNullString()
         {
-            string transformed = NullString.Remove(null).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveEmptyTextFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove(String.Empty).From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(String.Empty).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveEmptyTextFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove(String.Empty).From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(String.Empty).From(The.End);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
@@ -154,8 +141,8 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveFromNullString()
         {
-            string transformed = NullString.Remove();
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove();
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -179,46 +166,46 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveNullBeforeNullMarkerFromNullString()
         {
-            string transformed = NullString.Remove(null).Before(null);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before(null);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerFromNullString()
         {
-            string transformed = NullString.Remove(null).Before("marker");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before("marker");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextBeforeMarkerFromNullString()
         {
-            string transformed = NullString.Remove("something").Before("marker");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").Before("marker");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeNullMarker()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before(null);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before(null);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarker()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before("marker");
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before("marker");
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).Before("marker");
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).Before("marker");
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveTextBeforeNonExistingMarker()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").Before("marker");
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").Before("marker");
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
@@ -235,91 +222,91 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveNullBeforeNullMarkerFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove(null).Before(null).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before(null).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeNullMarkerFromEndOfNullString()
         {
-            string transformed = NullString.Remove(null).Before(null).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before(null).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove(null).Before("marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before("marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerFromEndOfNullString()
         {
-            string transformed = NullString.Remove(null).Before("marker").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before("marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextBeforeMarkerFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove("something").Before("marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").Before("marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextBeforeMarkerFromEndOfNullString()
         {
-            string transformed = NullString.Remove("something").Before("marker").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").Before("marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeNullMarkerFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before(null).From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before(null).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeNullMarkerFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before(null).From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before(null).From(The.End);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before("marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before("marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).Before("marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).Before("marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before("marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before("marker").From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).Before("marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).Before("marker").From(The.End);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveTextBeforeNonExistingMarkerFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").Before("marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").Before("marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveTextBeforeNonExistingMarkerFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").Before("marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").Before("marker").From(The.End);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
@@ -346,64 +333,64 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrenceFromNullString()
         {
-            string transformed = NullString.Remove(null).Before(3, null);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before(3, null);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).Before(1, null);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).Before(1, null);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerOccurrenceFromNullString()
         {
-            string transformed = NullString.Remove(null).Before(4, "marker");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before(4, "marker");
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).Before(0, "marker");
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).Before(0, "marker");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextBeforeMarkerOccurrenceFromNullString()
         {
-            string transformed = NullString.Remove("something").Before(2, "marker");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").Before(2, "marker");
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove("something").Before(4, "marker");
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove("something").Before(4, "marker");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrence()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before(2, null);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before(2, null);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).Before(0, null);
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).Before(0, null);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerOccurrence()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before(1, "marker");
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before(1, "marker");
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).Before(7, "marker");
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).Before(7, "marker");
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).Before(1, "marker");
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).Before(1, "marker");
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveTextBeforeNonExistingMarkerOccurrence()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").Before(3, "marker");
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").Before(3, "marker");
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove("TEST").Before(1, "marker");
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove("TEST").Before(1, "marker");
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
@@ -426,127 +413,127 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrenceFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove(null).Before(3, null).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before(3, null).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).Before(1, null).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).Before(1, null).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Remove(null).Before(3, null).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before(3, null).From(The.End);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).Before(1, null).From(The.End);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).Before(1, null).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerOccurrenceFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove(null).Before(4, "marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before(4, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).Before(0, "marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).Before(0, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Remove(null).Before(4, "marker").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).Before(4, "marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).Before(0, "marker").From(The.End);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).Before(0, "marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextBeforeMarkerOccurrenceFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove("something").Before(2, "marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").Before(2, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove("something").Before(4, "marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove("something").Before(4, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextBeforeMarkerOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Remove("something").Before(2, "marker").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").Before(2, "marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove("something").Before(4, "marker").From(The.End);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove("something").Before(4, "marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrenceFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before(2, null).From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before(2, null).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).Before(0, null).From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).Before(0, null).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeNullMarkerOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before(2, null).From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before(2, null).From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).Before(0, null).From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).Before(0, null).From(The.End);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerOccurrenceFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before(1, "marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before(1, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).Before(7, "marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).Before(7, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).Before(1, "marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).Before(1, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveNullBeforeMarkerOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).Before(1, "marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).Before(1, "marker").From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).Before(7, "marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).Before(7, "marker").From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).Before(1, "marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).Before(1, "marker").From(The.End);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveTextBeforeNonExistingMarkerOccurrenceFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").Before(3, "marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);  
+            string transformed = Const.SampleString.Remove("TEST").Before(3, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);  
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove("TEST").Before(1, "marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove("TEST").Before(1, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveTextBeforeNonExistingMarkerOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").Before(3, "marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").Before(3, "marker").From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove("TEST").Before(1, "marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove("TEST").Before(1, "marker").From(The.End);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
@@ -584,46 +571,46 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveNullAfterNullMarkerFromNullString()
         {
-            string transformed = NullString.Remove(null).After(null);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After(null);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerFromNullString()
         {
-            string transformed = NullString.Remove(null).After("marker");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After("marker");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextAfterMarkerFromNullString()
         {
-            string transformed = NullString.Remove("something").After("marker");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").After("marker");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterNullMarker()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After(null);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After(null);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullAfterMarker()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After("marker");
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After("marker");
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).After("marker");
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).After("marker");
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveTextAfterNonExistingMarker()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").After("marker");
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").After("marker");
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
@@ -643,91 +630,91 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveNullAfterNullMarkerFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove(null).After(null).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After(null).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterNullMarkerFromEndOfNullString()
         {
-            string transformed = NullString.Remove(null).After(null).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After(null).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove(null).After("marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After("marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerFromEndOfNullString()
         {
-            string transformed = NullString.Remove(null).After("marker").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After("marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextAfterMarkerFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove("something").After("marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").After("marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextAfterMarkerFromEndOfNullString()
         {
-            string transformed = NullString.Remove("something").After("marker").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").After("marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterNullMarkerFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After(null).From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After(null).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullAfterNullMarkerFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After(null).From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After(null).From(The.End);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After("marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After("marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).After("marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).After("marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After("marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After("marker").From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).After("marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).After("marker").From(The.End);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveTextAfterNonExistingMarkerFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").After("marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").After("marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveTextAfterNonExistingMarkerFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").After("marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").After("marker").From(The.End);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
@@ -757,64 +744,64 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrenceFromNullString()
         {
-            string transformed = NullString.Remove(null).After(3, null);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After(3, null);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).After(1, null);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).After(1, null);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerOccurrenceFromNullString()
         {
-            string transformed = NullString.Remove(null).After(4, "marker");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After(4, "marker");
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).After(0, "marker");
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).After(0, "marker");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextAfterMarkerOccurrenceFromNullString()
         {
-            string transformed = NullString.Remove("something").After(2, "marker");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").After(2, "marker");
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove("something").After(4, "marker");
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove("something").After(4, "marker");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrence()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After(2, null);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After(2, null);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).After(0, null);
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).After(0, null);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerOccurrence()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After(1, "marker");
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After(1, "marker");
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).After(7, "marker");
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).After(7, "marker");
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).After(1, "marker");
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).After(1, "marker");
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveTextAfterNonExistingMarkerOccurrence()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").After(3, "marker");
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").After(3, "marker");
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove("TEST").After(1, "marker");
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove("TEST").After(1, "marker");
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
@@ -838,127 +825,127 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrenceFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove(null).After(3, null).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After(3, null).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).After(1, null).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).After(1, null).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Remove(null).After(3, null).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After(3, null).From(The.End);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).After(1, null).From(The.End);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).After(1, null).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerOccurrenceFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove(null).After(4, "marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After(4, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).After(0, "marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).After(0, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Remove(null).After(4, "marker").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove(null).After(4, "marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove(null).After(0, "marker").From(The.End);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove(null).After(0, "marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextAfterMarkerOccurrenceFromBeginingOfNullString()
         {
-            string transformed = NullString.Remove("something").After(2, "marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").After(2, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove("something").After(4, "marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove("something").After(4, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveTextAfterMarkerOccurrenceFromEndOfNullString()
         {
-            string transformed = NullString.Remove("something").After(2, "marker").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove("something").After(2, "marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
 
-            transformed = NullString.Remove("something").After(4, "marker").From(The.End);
-            transformed.Should().Be(NullString);
+            transformed = Const.NullString.Remove("something").After(4, "marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrenceFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After(2, null).From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After(2, null).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).After(0, null).From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).After(0, null).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullAfterNullMarkerOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After(2, null).From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After(2, null).From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).After(0, null).From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).After(0, null).From(The.End);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerOccurrenceFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After(1, "marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After(1, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).After(7, "marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).After(7, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).After(1, "marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).After(1, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveNullAfterMarkerOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove(null).After(1, "marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove(null).After(1, "marker").From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged.Remove(null).After(7, "marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            transformed = Const.SampleString.Remove(null).After(7, "marker").From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove(null).After(1, "marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove(null).After(1, "marker").From(The.End);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveTextAfterNonExistingMarkerOccurrenceFromBegining()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").After(3, "marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").After(3, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove("TEST").After(1, "marker").From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove("TEST").After(1, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
         public void RemoveTextAfterNonExistingMarkerOccurrenceFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove("TEST").After(3, "marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove("TEST").After(3, "marker").From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
-            transformed = NothingShouldBeChanged + "even if marker is here".Remove("TEST").After(1, "marker").From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged + "even if marker is here");
+            transformed = Const.SampleString + "even if marker is here".Remove("TEST").After(1, "marker").From(The.End);
+            transformed.Should().Be(Const.SampleString + "even if marker is here");
         }
 
         [TestMethod]
@@ -999,8 +986,8 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveVowelsFromNullString()
         {
-            string transformed = NullString.RemoveVowels();
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.RemoveVowels();
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1056,8 +1043,8 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterInNullString()
         {
-            string transformed = NullString.Remove().Starting(3);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(3);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1090,8 +1077,8 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveToCharacterInNullString()
         {
-            string transformed = NullString.Remove().To(3);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(3);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1124,15 +1111,15 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveToCharacterFromBeginningInNullString()
         {
-            string transformed = NullString.Remove().To(3).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(3).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveToCharacterFromEndInNullString()
         {
-            string transformed = NullString.Remove().To(3).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(3).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1188,8 +1175,8 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterToCharacterInNullString()
         {
-            string transformed = NullString.Remove().Starting(3).To(6);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(3).To(6);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1202,8 +1189,8 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterToCharacter()
         {
-            string transformed = NothingShouldBeChanged.Remove().Starting(0).To(0);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove().Starting(0).To(0);
+            transformed.Should().Be(Const.SampleString);
 
             transformed = "Some very long string".Remove().Starting(0).To(1);
             transformed.Should().Be("ome very long string");
@@ -1244,22 +1231,22 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfNullMarkerInNullString()
         {
-            string transformed = NullString.Remove().Starting(1).To(3, null);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(1).To(3, null);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfEmptyMarkerInNullString()
         {
-            string transformed = NullString.Remove().Starting(1).To(2, String.Empty);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(1).To(2, String.Empty);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerInNullString()
         {
-            string transformed = NullString.Remove().Starting(1).To(2, "marker");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(1).To(2, "marker");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1328,22 +1315,22 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveToOccurrenceOfNullMarkerInNullString()
         {
-            string transformed = NullString.Remove().To(3, null);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(3, null);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerInNullString()
         {
-            string transformed = NullString.Remove().To(2, String.Empty);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(2, String.Empty);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveToOccurrenceOfMarkerInNullString()
         {
-            string transformed = NullString.Remove().To(2, "marker");
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(2, "marker");
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1390,43 +1377,43 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfNullMarkerFromBeginningInNullString()
         {
-            string transformed = NullString.Remove().Starting(1).To(3, null).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(1).To(3, null).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfNullMarkerFromEndInNullString()
         {
-            string transformed = NullString.Remove().Starting(1).To(3, null).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(1).To(3, null).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfEmptyMarkerFromBeginningInNullString()
         {
-            string transformed = NullString.Remove().Starting(1).To(2, String.Empty).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(1).To(2, String.Empty).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfEmptyMarkerFromEndInNullString()
         {
-            string transformed = NullString.Remove().Starting(1).To(2, String.Empty).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(1).To(2, String.Empty).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerFromBeginningInNullString()
         {
-            string transformed = NullString.Remove().Starting(1).To(2, "marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(1).To(2, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterToOccurrenceOfMarkerFromEndInNullString()
         {
-            string transformed = NullString.Remove().Starting(1).To(2, "marker").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(1).To(2, "marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1554,43 +1541,43 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveToOccurrenceOfNullMarkerFromBeginningInNullString()
         {
-            string transformed = NullString.Remove().To(3, null).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(3, null).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveToOccurrenceOfNullMarkerFromEndInNullString()
         {
-            string transformed = NullString.Remove().To(3, null).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(3, null).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerFromBeginningInNullString()
         {
-            string transformed = NullString.Remove().To(2, String.Empty).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(2, String.Empty).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerFromEndInNullString()
         {
-            string transformed = NullString.Remove().To(2, String.Empty).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(2, String.Empty).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveToOccurrenceOfMarkerFromBeginningInNullString()
         {
-            string transformed = NullString.Remove().To(2, "marker").From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(2, "marker").From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveToOccurrenceOfMarkerFromEndInNullString()
         {
-            string transformed = NullString.Remove().To(2, "marker").From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().To(2, "marker").From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1674,15 +1661,15 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterFromBeginnigInNullString()
         {
-            string transformed = NullString.Remove().Starting(3).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(3).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterFromEndInNullString()
         {
-            string transformed = NullString.Remove().Starting(3).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(3).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1738,15 +1725,15 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterInNullString()
         {
-            string transformed = NullString.Remove().Starting(3).From(The.Beginning).To(6);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(3).From(The.Beginning).To(6);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterInNullString()
         {
-            string transformed = NullString.Remove().Starting(3).From(The.End).To(6);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(3).From(The.End).To(6);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1766,8 +1753,8 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacter()
         {
-            string transformed = NothingShouldBeChanged.Remove().Starting(0).From(The.Beginning).To(0);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove().Starting(0).From(The.Beginning).To(0);
+            transformed.Should().Be(Const.SampleString);
 
             transformed = "Some very long string".Remove().Starting(0).From(The.Beginning).To(1);
             transformed.Should().Be("ome very long string");
@@ -1846,29 +1833,29 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromBeginningInNullString()
         {
-            string transformed = NullString.Remove().Starting(3).From(The.Beginning).To(6).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(3).From(The.Beginning).To(6).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromEndInNullString()
         {
-            string transformed = NullString.Remove().Starting(3).From(The.Beginning).To(6).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(3).From(The.Beginning).To(6).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromBeginningInNullString()
         {
-            string transformed = NullString.Remove().Starting(3).From(The.End).To(6).From(The.Beginning);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(3).From(The.End).To(6).From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromEndInNullString()
         {
-            string transformed = NullString.Remove().Starting(3).From(The.End).To(6).From(The.End);
-            transformed.Should().Be(NullString);
+            string transformed = Const.NullString.Remove().Starting(3).From(The.End).To(6).From(The.End);
+            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -1902,8 +1889,8 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterFromBeginningToCharacterFromBeginning()
         {
-            string transformed = NothingShouldBeChanged.Remove().Starting(0).From(The.Beginning).To(0).From(The.Beginning);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove().Starting(0).From(The.Beginning).To(0).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
 
             transformed = "Some very long string".Remove().Starting(0).From(The.Beginning).To(1).From(The.Beginning);
             transformed.Should().Be("ome very long string");
@@ -1968,8 +1955,8 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void RemoveStartingCharacterFromEndToCharacterFromEnd()
         {
-            string transformed = NothingShouldBeChanged.Remove().Starting(0).From(The.End).To(0).From(The.End);
-            transformed.Should().Be(NothingShouldBeChanged);
+            string transformed = Const.SampleString.Remove().Starting(0).From(The.End).To(0).From(The.End);
+            transformed.Should().Be(Const.SampleString);
 
             transformed = "Some very long string".Remove().Starting(0).From(The.End).To(1).From(The.End);
             transformed.Should().Be("Some very long strin");
