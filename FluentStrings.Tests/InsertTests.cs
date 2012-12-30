@@ -126,35 +126,49 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void InsertNullTextAtPositionInNullString()
         {
-            string transformed = Const.NullString.Insert(null).At(2);
+            string transformed = Const.NullString.Insert(null).At(position: 2);
             transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void InsertTextAtPositionInNullString()
         {
-            string transformed = Const.NullString.Insert("bla").At(2);
+            string transformed = Const.NullString.Insert("bla").At(position: 2);
             transformed.Should().Be("bla");
         }
 
         [TestMethod]
         public void InsertNullTextAt()
         {
-            string transformed = Const.SampleString.Insert(null).At(2);
+            string transformed = Const.SampleString.Insert(null).At(position: 2);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void InsertEmptyTextAt()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).At(2);
+            string transformed = Const.SampleString.Insert(String.Empty).At(position: 2);
             transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertTextAtZeroPosition()
+        {
+            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(position: 0);
+            transformed.Should().Be("TESTBla <-- TEST string will be inserted here");
+        }
+
+        [TestMethod]
+        public void InsertTextAtFirstPosition()
+        {
+            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(position: 1);
+            transformed.Should().Be("BTESTla <-- TEST string will be inserted here");
         }
 
         [TestMethod]
         public void InsertTextAt()
         {
-            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(4);
+            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(position: 4);
             transformed.Should().Be("Bla TEST<-- TEST string will be inserted here");
         }
 
@@ -165,70 +179,70 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void InsertNullTextAtPositionFromBeginning()
         {
-            string transformed = Const.SampleString.Insert(null).At(3).From(The.Beginning);
+            string transformed = Const.SampleString.Insert(null).At(position: 3).From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
-
+        
         [TestMethod]
         public void InsertTextAtPositionFromBeginningOfNullString()
         {
-            string transformed = Const.NullString.Insert("bla").At(3).From(The.Beginning);
+            string transformed = Const.NullString.Insert("bla").At(position: 3).From(The.Beginning);
             transformed.Should().Be("bla");
         }
 
         [TestMethod]
         public void InsertNullTextAtPositionFromBeginningOfNullString()
         {
-            string transformed = Const.NullString.Insert(null).At(3).From(The.Beginning);
+            string transformed = Const.NullString.Insert(null).At(position: 3).From(The.Beginning);
             transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void InsertEmptyTextAtPositionFromBeginning()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).At(3).From(The.Beginning);
+            string transformed = Const.SampleString.Insert(String.Empty).At(position: 3).From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void InsertNullTextAtPositionFromEnd()
         {
-            string transformed = Const.SampleString.Insert(null).At(5).From(The.End);
+            string transformed = Const.SampleString.Insert(null).At(position: 5).From(The.End);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void InsertTextAtPositionFromEndOfNullString()
         {
-            string transformed = Const.NullString.Insert("bla").At(3).From(The.End);
+            string transformed = Const.NullString.Insert("bla").At(position: 3).From(The.End);
             transformed.Should().Be("bla");
         }
 
         [TestMethod]
         public void InsertNullTextAtPositionFromEndOfNullString()
         {
-            string transformed = Const.NullString.Insert(null).At(3).From(The.Beginning);
+            string transformed = Const.NullString.Insert(null).At(position: 3).From(The.Beginning);
             transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void InsertEmptyTextAtPositionFromEnd()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).At(5).From(The.End);
+            string transformed = Const.SampleString.Insert(String.Empty).At(position: 5).From(The.End);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void InsertTextAtPositionFromBeginning()
         {
-            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(4).From(The.Beginning);
+            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(position: 4).From(The.Beginning);
             transformed.Should().Be("Bla TEST<-- TEST string will be inserted here");
         }
 
         [TestMethod]
         public void InsertTextAtPositionFromEnd()
         {
-            string transformed = "TEST string will be inserted here --> bla".Insert("TEST").At(4).From(The.End);
+            string transformed = "TEST string will be inserted here --> bla".Insert("TEST").At(position: 4).From(The.End);
             transformed.Should().Be("TEST string will be inserted here -->TEST bla");
         }
 
@@ -372,27 +386,28 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void InsertTextBeforeNonExistingOccurrence()
         {
-            string transformed = Const.SampleString.Insert("TEST").Before(1, "_bla");
+            string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_bla");
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void InsertTextBeforeOccurrence()
         {
-            string transformed = "TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(1, "_bla");
+            string transformed = "TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(1, of: "_bla");
             transformed.Should().Be("TEST string will be inserted here -->TEST_bla But not here --X_bla");
 
-            transformed = "_bla Some Another Text _bla _bla And again text _bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(5, "_bla");
+            transformed = "_bla Some Another Text _bla _bla And again text _bla TEST string will be inserted here -->_bla But not here --X_bla"
+                .Insert("TEST").Before(5, of: "_bla");
             transformed.Should().Be("_bla Some Another Text _bla _bla And again text _bla TEST string will be inserted here -->TEST_bla But not here --X_bla");
         }
 
         [TestMethod]
         public void InsertTextBeforeOccurrenceWithMarkerAtBeginning()
         {
-            string transformed = "_bla<-- TEST string will be inserted before that _bla".Insert("TEST").Before(1, "_bla");
+            string transformed = "_bla<-- TEST string will be inserted before that _bla".Insert("TEST").Before(1, of: "_bla");
             transformed.Should().Be("TEST_bla<-- TEST string will be inserted before that _bla");
 
-            transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, "_bla");
+            transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, of: "_bla");
             transformed.Should().Be("_bla TEST string will be inserted here -->TEST_bla But not here --X_bla");
         }
 
@@ -515,14 +530,14 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void InsertTextBeforeOccurrenceFromBeginning()
         {
-            string transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, "_bla").From(The.Beginning);
+            string transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, of: "_bla").From(The.Beginning);
             transformed.Should().Be("_bla TEST string will be inserted here -->TEST_bla But not here --X_bla");
         }
 
         [TestMethod]
         public void InsertTextBeforeOccurrenceFromEnd()
         {
-            string transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, "_bla").From(The.End);
+            string transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, of: "_bla").From(The.End);
             transformed.Should().Be("_bla TEST string will be inserted here -->TEST_bla But not here --X_bla");
         }
 
@@ -670,20 +685,20 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void InsertTextAfterOccurrence()
         {
-            string transformed = "bla_ bla bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(2, "bla_");
+            string transformed = "bla_ bla bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(2, of: "bla_");
             transformed.Should().Be("bla_ bla bla bla_TEST<-- TEST string will be inserted here. bla_X-- But not here");
 
-            transformed = "bla_ bla Some other bla_ text bla_ bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(4, "bla_");
+            transformed = "bla_ bla Some other bla_ text bla_ bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(4, of: "bla_");
             transformed.Should().Be("bla_ bla Some other bla_ text bla_ bla bla_TEST<-- TEST string will be inserted here. bla_X-- But not here");
         }
 
         [TestMethod]
         public void InsertTextAfterOccurrenceWithMarkerAtBeginning()
         {
-            string transformed = "bla_<-- TEST string will be inserted after that _bla".Insert("TEST").After(1, "bla_");
+            string transformed = "bla_<-- TEST string will be inserted after that _bla".Insert("TEST").After(1, of: "bla_");
             transformed.Should().Be("bla_TEST<-- TEST string will be inserted after that _bla");
 
-            transformed = "bla_ Some other text bla_<-- TEST string will be inserted here But not here --X_bla".Insert("TEST").After(2, "bla_");
+            transformed = "bla_ Some other text bla_<-- TEST string will be inserted here But not here --X_bla".Insert("TEST").After(2, of: "bla_");
             transformed.Should().Be("bla_ Some other text bla_TEST<-- TEST string will be inserted here But not here --X_bla");
         }
 
@@ -806,14 +821,14 @@ namespace FluentStrings.Tests
         [TestMethod]
         public void InsertTextAfterOccurrenceFromBeginning()
         {
-            string transformed = "bla_ bla bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(2, "bla_").From(The.Beginning);
+            string transformed = "bla_ bla bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(2, of: "bla_").From(The.Beginning);
             transformed.Should().Be("bla_ bla bla bla_TEST<-- TEST string will be inserted here. bla_X-- But not here");
         }
 
         [TestMethod]
         public void InsertTextAfterOccurrenceFromEnd()
         {
-            string transformed = "bla_ bla bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(2, "bla_").From(The.End);
+            string transformed = "bla_ bla bla bla_<-- TEST string will be inserted here. bla_X-- But not here".Insert("TEST").After(2, of: "bla_").From(The.End);
             transformed.Should().Be("bla_ bla bla bla_TEST<-- TEST string will be inserted here. bla_X-- But not here");
         }
 

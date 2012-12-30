@@ -5,9 +5,9 @@ namespace dokas.FluentStrings
     public static class InsertExtensions
     {
         /// <summary>
-        /// Inserts value to the beginning of the source string
+        /// Inserts value to the beginning of the given string
         /// </summary>
-        /// <param name="source">String in which to insert</param>
+        /// <param name="source">Target string for insertion</param>
         /// <param name="value">String to be inserted</param>
         public static InsertText Insert(this string source, string value)
         {
@@ -16,9 +16,9 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends Insert with the ability to change place of insertion
-        /// N.B.: Default Insert() is equivalent of Insert().To(Position.Beginning)
+        /// N.B.: Default Insert() is equivalent of Insert().To(The.Beginning)
         /// </summary>
-        /// <param name="source">String in which to insert</param>
+        /// <param name="source">Target string for insertion</param>
         /// <param name="position">Position in string where to insert</param>
         public static InsertTextTo To(this InsertText source, The position)
         {
@@ -27,13 +27,13 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends Insert with the ability to change position of insertion
-        /// N.B.: Default Insert() is equivalent of Insert().At(0) or Insert().At(1)
+        /// N.B.: Default Insert() is equivalent of Insert().At(0).From(The.Beginning)
         /// </summary>
-        /// <param name="source">String in which to insert</param>
-        /// <param name="positionIndex">Position in string where to insert</param>
-        public static InsertTextAt At(this InsertText source, int positionIndex)
+        /// <param name="source">Target string for insertion</param>
+        /// <param name="position">Position in string where to insert</param>
+        public static InsertTextAt At(this InsertText source, int position)
         {
-            return new InsertTextAt(source, positionIndex);
+            return new InsertTextAt(source, position);
         }
 
         public static InsertTextAtFrom From(this InsertTextAt source, The position)
@@ -46,9 +46,9 @@ namespace dokas.FluentStrings
             return new InsertTextBefore(source, marker);
         }
 
-        public static InsertTextBeforeOccurrence Before(this InsertText source, int occurrence, string marker)
+        public static InsertTextBeforeOccurrence Before(this InsertText source, int occurrence, string of)
         {
-            return new InsertTextBeforeOccurrence(source, occurrence, marker);
+            return new InsertTextBeforeOccurrence(source, occurrence, of);
         }
 
         public static InsertTextBeforeOccurrenceFrom From(this InsertTextBeforeOccurrence source, The position)
@@ -61,9 +61,9 @@ namespace dokas.FluentStrings
             return new InsertTextAfter(source, marker);
         }
 
-        public static InsertTextAfterOccurrence After(this InsertText source, int occurrence, string marker)
+        public static InsertTextAfterOccurrence After(this InsertText source, int occurrence, string of)
         {
-            return new InsertTextAfterOccurrence(source, occurrence, marker);
+            return new InsertTextAfterOccurrence(source, occurrence, of);
         }
 
         public static InsertTextAfterOccurrenceFrom From(this InsertTextAfterOccurrence source, The position)
