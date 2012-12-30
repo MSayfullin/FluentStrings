@@ -21,4 +21,3 @@ namespace dokas.FluentStrings
         }
     }
 }
-

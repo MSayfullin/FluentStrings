@@ -3,7 +3,7 @@ using dokas.FluentStrings;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FluentStrings.Tests
+namespace dokas.FluentStrings.Tests
 {
     [TestClass]
     public class RemoveTests

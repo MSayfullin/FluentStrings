@@ -9,8 +9,8 @@
     <ProjectGuid>{CD228F4F-429E-4FC4-879F-C7FF2566972A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FluentStrings.Tests</RootNamespace>
-    <AssemblyName>FluentStrings.Tests</AssemblyName>
+    <RootNamespace>dokas.FluentStrings.Tests</RootNamespace>
+    <AssemblyName>dokas.FluentStrings.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

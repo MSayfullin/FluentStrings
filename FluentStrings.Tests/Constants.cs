@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentStrings.Tests
+namespace dokas.FluentStrings.Tests
 {
     public class Const
     {
