@@ -13,6 +13,9 @@ namespace dokas.FluentStrings.Actions.Truncate
             _charsCount = charsCount;
         }
 
+        internal string Source { get { return _source; } }
+        internal int CharsCount { get { return _charsCount; } }
+
         public static implicit operator string(TruncateText truncateText)
         {
             return truncateText.ToString();
@@ -20,7 +23,9 @@ namespace dokas.FluentStrings.Actions.Truncate
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return _source != null
+                ? _source.Length <= _charsCount ? _source : _source.Substring(0, _charsCount)
+                : null;
         }
     }
 }

@@ -4,12 +4,12 @@ namespace dokas.FluentStrings.Actions.Truncate
 {
     public class TruncateTextFrom
     {
-        private readonly TruncateText _source;
+        private readonly TruncateText _truncateText;
         private readonly The _position;
 
-        internal TruncateTextFrom(TruncateText source, The position)
+        internal TruncateTextFrom(TruncateText truncateText, The position)
         {
-            _source = source;
+            _truncateText = truncateText;
             _position = position;
         }
 
@@ -20,7 +20,22 @@ namespace dokas.FluentStrings.Actions.Truncate
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            if (_position == The.Beginning)
+                return _truncateText;
+            else
+            {
+                if (_truncateText.Source != null)
+                {
+                    if (_truncateText.Source.Length <= _truncateText.CharsCount)
+                        return _truncateText.Source;
+                    else
+                    {
+                        int startingPoint = _truncateText.Source.Length - _truncateText.CharsCount;
+                        return _truncateText.Source.Substring(startingPoint);
+                    }
+                }
+                return null;
+            }
         }
     }
 }
