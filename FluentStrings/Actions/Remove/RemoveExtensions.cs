@@ -14,8 +14,8 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Removes all value occurrences from the source string
         /// </summary>
-        /// <param name="source">String in which to remove</param>
-        /// <param name="whatToRemove">String to remove</param>
+        /// <param name="source">Target string for removal</param>
+        /// <param name="whatToRemove">String to be removed</param>
         public static RemoveText Remove(this string source, string whatToRemove)
         {
             return new RemoveText(source, whatToRemove);
