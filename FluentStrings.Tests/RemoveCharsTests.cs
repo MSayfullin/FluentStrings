@@ -165,7 +165,6 @@ namespace dokas.FluentStrings.Tests
         public void RemoveNegativeQuantityOfChars()
         {
             string transformed = "Some very long string".RemoveChars(-1);
-            transformed.Should().Be(String.Empty);
         }
 
         #endregion
@@ -212,7 +211,6 @@ namespace dokas.FluentStrings.Tests
         public void RemoveNegativeQuantityOfCharsFromBeginning()
         {
             string transformed = "Some very long string".RemoveChars(-1).From(The.Beginning);
-            transformed.Should().Be(String.Empty);
         }
 
         #endregion
@@ -259,7 +257,6 @@ namespace dokas.FluentStrings.Tests
         public void RemoveNegativeQuantityOfCharsFromEnd()
         {
             string transformed = "Some very long string".RemoveChars(-1).From(The.End);
-            transformed.Should().Be(String.Empty);
         }
 
         #endregion
