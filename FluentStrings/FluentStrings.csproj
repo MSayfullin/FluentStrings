@@ -96,6 +96,7 @@
     <Compile Include="Actions\Remove\RemoveExtensions.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveText.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveSelectedCharsIgnoringCase.cs" />
+    <Compile Include="Actions\Remove\Resources\VowelsMap.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateTextFrom.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateText.cs" />
     <Compile Include="Actions\Truncate\TruncateExtensions.cs" />
@@ -106,7 +107,6 @@
     <Compile Include="Actions\Replace\Auxiliary\ReplaceTextWithIgnoringCase.cs" />
     <Compile Include="Actions\Replace\Auxiliary\ReplaceText.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
