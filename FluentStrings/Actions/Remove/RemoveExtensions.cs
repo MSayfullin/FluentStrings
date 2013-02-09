@@ -82,9 +82,9 @@ namespace dokas.FluentStrings
 
         #region Remove Chars
 
-        public static RemoveChars RemoveChars(this string source, int chars)
+        public static RemoveChars RemoveChars(this string source, int quantity)
         {
-            return new RemoveChars(source, chars);
+            return new RemoveChars(source, quantity);
         }
 
         public static RemoveCharsFrom From(this RemoveChars source, The position)
