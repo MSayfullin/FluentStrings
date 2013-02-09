@@ -8,6 +8,31 @@ namespace dokas.FluentStrings.Tests
     [TestClass]
     public class RemoveTests
     {
+        #region Full Remove
+
+        [TestMethod]
+        public void RemoveFromNullString()
+        {
+            string transformed = Const.NullString.Remove();
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveFromEmptyString()
+        {
+            string transformed = String.Empty.Remove();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void Remove()
+        {
+            string transformed = "Some string".Remove();
+            transformed.Should().Be(String.Empty);
+        }
+
+        #endregion
+
         #region Remove
 
         [TestMethod]
@@ -132,31 +157,6 @@ namespace dokas.FluentStrings.Tests
 
             transformed = "string will be removed -> |TEST| some additional string".Remove("TEST").From(The.End);
             transformed.Should().Be("string will be removed -> || some additional string");
-        }
-
-        #endregion
-
-        #region Full Remove
-
-        [TestMethod]
-        public void RemoveFromNullString()
-        {
-            string transformed = Const.NullString.Remove();
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
-        public void RemoveFromEmptyString()
-        {
-            string transformed = String.Empty.Remove();
-            transformed.Should().Be(String.Empty);
-        }
-
-        [TestMethod]
-        public void Remove()
-        {
-            string transformed = "Some string".Remove();
-            transformed.Should().Be(String.Empty);
         }
 
         #endregion
@@ -977,63 +977,6 @@ namespace dokas.FluentStrings.Tests
 
             transformed = "some some some TEST marker some TEST another TEST marker TEST TEST TEST marker TEST some marker words TEST".Remove("TEST").After(3, "marker").From(The.End);
             transformed.Should().Be("some some some TEST marker some TEST another TEST marker    marker  some marker words ");
-        }
-
-        #endregion
-
-        #region Remove Vowels
-
-        [TestMethod]
-        public void RemoveVowelsFromNullString()
-        {
-            string transformed = Const.NullString.RemoveVowels();
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
-        public void RemoveVowelsFromEmptyString()
-        {
-            string transformed = String.Empty.RemoveVowels();
-            transformed.Should().Be(String.Empty);
-        }
-
-        [TestMethod]
-        public void RemoveVowels()
-        {
-            string transformed = "Vowels will be removed from this string".RemoveVowels();
-            transformed.Should().Be("Vwls wll b rmvd frm ths strng");
-        }
-
-        #endregion
-
-        #region Remove Chars
-
-        [TestMethod]
-        public void RemoveSelectedChars()
-        {
-            string transformed = "Some very long string".RemoveChars('e', 'l', 'g');
-            transformed.Should().Be("Som vry on strin");
-        }
-
-        [TestMethod]
-        public void RemoveChars()
-        {
-            string transformed = "Some very long string".RemoveChars(3);
-            transformed.Should().Be("e very long string");
-        }
-
-        [TestMethod]
-        public void RemoveCharsFromBeginning()
-        {
-            string transformed = "Some very long string".RemoveChars(7).From(The.Beginning);
-            transformed.Should().Be("ry long string");
-        }
-
-        [TestMethod]
-        public void RemoveCharsFromEnd()
-        {
-            string transformed = "Some very long string".RemoveChars(5).From(The.End);
-            transformed.Should().Be("Some very long s");
         }
 
         #endregion
