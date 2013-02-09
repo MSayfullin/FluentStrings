@@ -13,6 +13,9 @@ namespace dokas.FluentStrings.Actions.Remove
             _charsCount = charsCount;
         }
 
+        internal string Source { get { return _source; } }
+        internal int CharsCount { get { return _charsCount; } }
+
         public static implicit operator string(RemoveChars removeChars)
         {
             return removeChars.ToString();

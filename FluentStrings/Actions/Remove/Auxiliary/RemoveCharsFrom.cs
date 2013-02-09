@@ -4,12 +4,12 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     public class RemoveCharsFrom
     {
-        private readonly string _source;
+        private readonly RemoveChars _removeChars;
         private readonly The _position;
 
-        internal RemoveCharsFrom(string source, The position)
+        internal RemoveCharsFrom(RemoveChars removeChars, The position)
         {
-            _source = source;
+            _removeChars = removeChars;
             _position = position;
         }
 
@@ -20,7 +20,22 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            switch (_position)
+            {
+                case The.Beginning:
+                    return _removeChars;
+                case The.End:
+                    if (String.IsNullOrEmpty(_removeChars.Source))
+                        return _removeChars;
+                    
+                    return _removeChars.CharsCount <= _removeChars.Source.Length
+                        ? _removeChars.Source.Remove(_removeChars.Source.Length - _removeChars.CharsCount, _removeChars.CharsCount)
+                        : String.Empty;
+                case The.StartOf:
+                case The.EndOf:
+                default:
+                    throw new ArgumentOutOfRangeException("position", "Only Beginning and And positions are supported by RemoveChars().From() method");
+            }
         }
     }
 }

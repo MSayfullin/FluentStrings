@@ -93,6 +93,11 @@ namespace dokas.FluentStrings
             return new RemoveChars(source, quantity);
         }
 
+        /// <summary>
+        /// Removes chars from the source string either from Beginning or End
+        /// N.B.: RemoveChars().From(The.Beginning) is equivalent of the simple RemoveChars() call
+        /// </summary>
+        /// <param name="position">Position in string for removal</param>
         public static RemoveCharsFrom From(this RemoveChars source, The position)
         {
             return new RemoveCharsFrom(source, position);
