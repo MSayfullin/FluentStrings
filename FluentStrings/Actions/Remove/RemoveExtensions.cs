@@ -104,7 +104,11 @@ namespace dokas.FluentStrings
         }
 
 
-
+        /// <summary>
+        /// Removes selected chars from the source string
+        /// </summary>
+        /// <param name="source">Target string for removal</param>
+        /// <param name="chars">Chars to be removed</param>
         public static RemoveSelectedChars RemoveChars(this string source, params char[] chars)
         {
             return new RemoveSelectedChars(source, chars);

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 
 namespace dokas.FluentStrings.Actions.Remove
 {
@@ -20,7 +22,16 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            if (String.IsNullOrEmpty(_source) || _charsToRemove.Length == 0)
+                return _source;
+
+            var builder = new StringBuilder(_source.Length - _charsToRemove.Length, _source.Length);
+            foreach (var ch in _source)
+            {
+                if (!_charsToRemove.Contains(ch))
+                    builder.Append(ch);
+            }
+            return builder.ToString();
         }
     }
 }
