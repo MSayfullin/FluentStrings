@@ -352,7 +352,7 @@ namespace dokas.FluentStrings
         /// N.B.: Thread.CurrentThread.CurrentCulture property is used
         /// </summary>
         /// <param name="source">Target string for removal</param>
-        public static string RemoveVowels(this string source)
+        public static RemoveVowels RemoveVowels(this string source)
         {
             return new RemoveVowels(source);
         }
