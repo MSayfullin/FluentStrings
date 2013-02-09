@@ -82,6 +82,12 @@ namespace dokas.FluentStrings
 
         #region Remove Chars
 
+        /// <summary>
+        /// Removes chars from the source string
+        /// N.B.: Default RemoveChars() is equivalent of RemoveChars().From(The.Beginning)
+        /// </summary>
+        /// <param name="source">Target string for removal</param>
+        /// <param name="quantity">Number of chars to remove</param>
         public static RemoveChars RemoveChars(this string source, int quantity)
         {
             return new RemoveChars(source, quantity);
