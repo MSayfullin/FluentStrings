@@ -15,6 +15,9 @@ namespace dokas.FluentStrings.Actions.Remove
             _charsToRemove = charsToRemove;
         }
 
+        internal string Source { get { return _source; } }
+        internal char[] CharsToRemove { get { return _charsToRemove; } }
+
         public static implicit operator string(RemoveSelectedChars removeSelectedChars)
         {
             return removeSelectedChars.ToString();

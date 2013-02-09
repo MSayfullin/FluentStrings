@@ -114,6 +114,14 @@ namespace dokas.FluentStrings
             return new RemoveSelectedChars(source, chars);
         }
 
+        /// <summary>
+        /// Removes selected chars from the source string ignoring case
+        /// </summary>
+        public static RemoveSelectedCharsIgnoringCase IgnoringCase(this RemoveSelectedChars source)
+        {
+            return new RemoveSelectedCharsIgnoringCase(source);
+        }
+
         #endregion
 
         #region Starting

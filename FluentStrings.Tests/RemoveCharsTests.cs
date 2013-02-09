@@ -71,6 +71,45 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
+        #region Remove Chars Ignoring Case
+
+        [TestMethod]
+        public void RemoveNoCharsIgnoringCase()
+        {
+            string transformed = Const.SampleString.RemoveChars().IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveSelectedCharsFromNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.RemoveChars('e', 'L', 'g').IgnoringCase();
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveSelectedCharsFromEmptyStringIgnoringCase()
+        {
+            string transformed = String.Empty.RemoveChars('e', 'L', 'g').IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveSelectedCharsIgnoringCase()
+        {
+            string transformed = "Some very long string".RemoveChars('e', 'L', 'g').IgnoringCase();
+            transformed.Should().Be("Som vry on strin");
+        }
+
+        [TestMethod]
+        public void RemoveSelectedRussianCharsIgnoringCase()
+        {
+            string transformed = "Очень длинная строка с русскими буквами, ё".RemoveChars('ь', 'Н', 'с', 'Ё').IgnoringCase();
+            transformed.Should().Be("Оче длиая трока  рукими буквами, ");
+        }
+
+        #endregion
+
         #region Remove Chars By Quantity
 
         [TestMethod]
