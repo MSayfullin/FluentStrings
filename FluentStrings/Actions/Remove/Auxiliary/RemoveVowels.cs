@@ -12,6 +12,8 @@ namespace dokas.FluentStrings.Actions.Remove
             _source = source;
         }
 
+        internal string Source { get { return _source; } }
+
         public static implicit operator string(RemoveVowels removeVowels)
         {
             return removeVowels.ToString();

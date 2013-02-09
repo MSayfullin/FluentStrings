@@ -45,6 +45,52 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
+        #region Remove Vowels For
+
+        [TestMethod]
+        public void RemoveVowelsFromNullStringForEn()
+        {
+            string transformed = Const.NullString.RemoveVowels().For("en");
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveVowelsFromEmptyStringForRu()
+        {
+            string transformed = String.Empty.RemoveVowels().For("ru");
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveVowelsForEmptyCulture()
+        {
+            string transformed = Const.SampleString.RemoveVowels().For("");
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveVowelsForNonExistingCulture()
+        {
+            string transformed = Const.SampleString.RemoveVowels().For("no_culture");
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveVowelsForEnglishCultureExplicit()
+        {
+            string transformed = "Vowels will be removed from this string".RemoveVowels().For("en");
+            transformed.Should().Be("Vwls wll b rmvd frm ths strng");
+        }
+
+        [TestMethod]
+        public void RemoveVowelsForRussianCultureExplicit()
+        {
+            string transformed = "Очень длинная строка с русскими буквами, ё".RemoveVowels().For("ru");
+            transformed.Should().Be("чнь длнн стрк с рсскм бквм, ");
+        }
+
+        #endregion
+
         #region Remove Chars
 
         [TestMethod]

@@ -96,6 +96,7 @@
     <Compile Include="Actions\Remove\RemoveExtensions.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveText.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveSelectedCharsIgnoringCase.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveVowelsFor.cs" />
     <Compile Include="Actions\Remove\Resources\VowelsMap.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateTextFrom.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateText.cs" />
@@ -115,5 +116,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
 </Project>

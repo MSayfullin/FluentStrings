@@ -357,6 +357,15 @@ namespace dokas.FluentStrings
             return new RemoveVowels(source);
         }
 
+        /// <summary>
+        /// Removes vowels from source string for a defined culture
+        /// </summary>
+        /// <param name="source">Target string for removal</param>
+        public static RemoveVowelsFor For(this RemoveVowels source, string cultureName)
+        {
+            return new RemoveVowelsFor(source, cultureName);
+        }
+
         #endregion
     }
 }
