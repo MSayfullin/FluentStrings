@@ -62,6 +62,13 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("Som vry on strin");
         }
 
+        [TestMethod]
+        public void RemoveSelectedRussianChars()
+        {
+            string transformed = "Очень длинная строка с русскими буквами, ё".RemoveChars('ь', 'н', 'с', 'ё');
+            transformed.Should().Be("Оче длиая трока  рукими буквами, ");
+        }
+
         #endregion
 
         #region Remove Chars By Quantity
