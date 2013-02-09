@@ -345,9 +345,18 @@ namespace dokas.FluentStrings
 
         #endregion
 
+        #region Remove Vowels
+
+        /// <summary>
+        /// Removes vowels from source string for a culture set on a CurrentThread
+        /// N.B.: Thread.CurrentThread.CurrentCulture property is used
+        /// </summary>
+        /// <param name="source">Target string for removal</param>
         public static string RemoveVowels(this string source)
         {
             return new RemoveVowels(source);
         }
+
+        #endregion
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -24,10 +26,21 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveVowels()
+        public void RemoveVowelsForEnglishCulture()
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en");
+
             string transformed = "Vowels will be removed from this string".RemoveVowels();
             transformed.Should().Be("Vwls wll b rmvd frm ths strng");
+        }
+
+        [TestMethod]
+        public void RemoveVowelsForRussianCulture()
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("ru");
+
+            string transformed = "Очень длинная строка с русскими буквами, ё".RemoveVowels();
+            transformed.Should().Be("чнь длнн стрк с рсскм бквм, ");
         }
 
         #endregion
