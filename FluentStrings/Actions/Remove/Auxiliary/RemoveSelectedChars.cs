@@ -28,7 +28,7 @@ namespace dokas.FluentStrings.Actions.Remove
             if (String.IsNullOrEmpty(_source) || _charsToRemove.Length == 0)
                 return _source;
 
-            var builder = new StringBuilder(_source.Length - _charsToRemove.Length, _source.Length);
+            var builder = new StringBuilder(_source.Length);
             foreach (var ch in _source)
             {
                 if (!_charsToRemove.Contains(ch))

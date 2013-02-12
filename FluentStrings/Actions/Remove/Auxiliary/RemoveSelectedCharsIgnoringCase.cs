@@ -24,7 +24,7 @@ namespace dokas.FluentStrings.Actions.Remove
                 return _removeSelectedChars.Source;
 
             var lowerCaseCharsToRemove = _removeSelectedChars.CharsToRemove.Select(c => Char.ToLower(c)).ToArray();
-            var builder = new StringBuilder(_removeSelectedChars.Source.Length - _removeSelectedChars.CharsToRemove.Length, _removeSelectedChars.Source.Length);
+            var builder = new StringBuilder(_removeSelectedChars.Source.Length);
             foreach (var ch in _removeSelectedChars.Source)
             {
                 var lowerCh = Char.ToLower(ch);
