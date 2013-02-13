@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="RemoveStartingToTests.cs" />
     <Compile Include="RemoveBeforeAfterTests.cs" />
     <Compile Include="RemoveCharsTests.cs" />
     <Compile Include="ReplaceTests.cs" />
