@@ -6,6 +6,11 @@ namespace dokas.FluentStrings
     {
         #region Remove
 
+        /// <summary>
+        /// Terminates string itself
+        /// </summary>
+        /// <param name="source">Target string for removal</param>
+        /// <returns>Null if string is null and String.Empty in all other cases</returns>
         public static RemoveString Remove(this string source)
         {
             return new RemoveString(source);
