@@ -17,7 +17,7 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Removes all value occurrences from the source string
+        /// Removes first value occurrence from the source string
         /// </summary>
         /// <param name="source">Target string for removal</param>
         /// <param name="whatToRemove">String to be removed</param>
@@ -26,9 +26,25 @@ namespace dokas.FluentStrings
             return new RemoveText(source, whatToRemove);
         }
 
+        /// <summary>
+        /// Removes first value occurrence from the source string either from Beginning or End
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public static RemoveTextFrom From(this RemoveText source, The position)
         {
             return new RemoveTextFrom(source, position);
+        }
+
+        /// <summary>
+        /// Removes all value occurrences from the source string
+        /// </summary>
+        /// <param name="source">Target string for removal</param>
+        /// <param name="whatToRemove">String to be removed</param>
+        public static RemoveAllText RemoveAll(this string source, string whatToRemove)
+        {
+            return new RemoveAllText(source, whatToRemove);
         }
 
         #endregion
