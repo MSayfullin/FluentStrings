@@ -18,20 +18,19 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Removes first value occurrence from the source string
+        /// N.B.: Default Remove() is equivalent of Remove().From(The.Beginning)
         /// </summary>
         /// <param name="source">Target string for removal</param>
-        /// <param name="whatToRemove">String to be removed</param>
-        public static RemoveText Remove(this string source, string whatToRemove)
+        /// <param name="value">String to be removed</param>
+        public static RemoveText Remove(this string source, string value)
         {
-            return new RemoveText(source, whatToRemove);
+            return new RemoveText(source, value);
         }
 
         /// <summary>
-        /// Removes first value occurrence from the source string either from Beginning or End
+        /// Removes first value occurrence from the source string either from the Beginning or the End
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="position"></param>
-        /// <returns></returns>
+        /// <param name="position">Position in string for removal</param>
         public static RemoveTextFrom From(this RemoveText source, The position)
         {
             return new RemoveTextFrom(source, position);
@@ -41,10 +40,10 @@ namespace dokas.FluentStrings
         /// Removes all value occurrences from the source string
         /// </summary>
         /// <param name="source">Target string for removal</param>
-        /// <param name="whatToRemove">String to be removed</param>
-        public static RemoveAllText RemoveAll(this string source, string whatToRemove)
+        /// <param name="value">String to be removed</param>
+        public static RemoveAllText RemoveAll(this string source, string value)
         {
-            return new RemoveAllText(source, whatToRemove);
+            return new RemoveAllText(source, value);
         }
 
         #endregion
@@ -115,7 +114,7 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Removes number of chars from the source string either from Beginning or End
+        /// Removes number of chars from the source string either from the Beginning or the End
         /// N.B.: RemoveChars().From(The.Beginning) is equivalent of the default RemoveChars()
         /// </summary>
         /// <param name="position">Position in string for removal</param>
