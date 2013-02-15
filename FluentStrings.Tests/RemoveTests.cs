@@ -68,8 +68,14 @@ namespace dokas.FluentStrings.Tests
             string transformed = "TEST string will be removed".Remove("TEST");
             transformed.Should().Be(" string will be removed");
 
-            transformed = "TEST string will be removed from both sides TEST".Remove("TEST");
-            transformed.Should().Be(" string will be removed from both sides ");
+            transformed = "string will be removed ->TEST".Remove("TEST");
+            transformed.Should().Be("string will be removed ->");
+
+            transformed = "string will be removed ->TEST this will be left ".Remove("TEST");
+            transformed.Should().Be("string will be removed -> this will be left");
+
+            transformed = "TEST string will be removed only from left side TEST".Remove("TEST");
+            transformed.Should().Be(" string will be removed only from left side TEST");
         }
 
         #endregion
@@ -156,6 +162,48 @@ namespace dokas.FluentStrings.Tests
 
             transformed = "string will be removed -> |TEST| some additional string".Remove("TEST").From(The.End);
             transformed.Should().Be("string will be removed -> || some additional string");
+        }
+
+        #endregion
+
+        #region Remove All
+
+        [TestMethod]
+        public void RemoveAllTextFromNullString()
+        {
+            string transformed = Const.NullString.RemoveAll("bla");
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveAllNullText()
+        {
+            string transformed = Const.SampleString.RemoveAll(null);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveAllNullTextFromNullString()
+        {
+            string transformed = Const.NullString.RemoveAll(null);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveAllEmptyText()
+        {
+            string transformed = Const.SampleString.RemoveAll(String.Empty);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveAllText()
+        {
+            string transformed = "TEST string will be removed".RemoveAll("TEST");
+            transformed.Should().Be(" string will be removed");
+
+            transformed = "TEST string will be removed from both sides TEST".RemoveAll("TEST");
+            transformed.Should().Be(" string will be removed from both sides ");
         }
 
         #endregion
