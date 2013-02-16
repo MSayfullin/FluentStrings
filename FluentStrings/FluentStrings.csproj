@@ -109,9 +109,9 @@
     <Compile Include="Positions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Actions\Replace\ReplaceExtensions.cs" />
-    <Compile Include="Actions\Replace\Auxiliary\ReplaceTextWith.cs" />
-    <Compile Include="Actions\Replace\Auxiliary\ReplaceTextWithIgnoringCase.cs" />
-    <Compile Include="Actions\Replace\Auxiliary\ReplaceText.cs" />
+    <Compile Include="Actions\Replace\Auxiliary\ReplaceStringWith.cs" />
+    <Compile Include="Actions\Replace\Auxiliary\ReplaceStringWithIgnoringCase.cs" />
+    <Compile Include="Actions\Replace\Auxiliary\ReplaceString.cs" />
     <Compile Include="Actions\Utilities\UtilityExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
