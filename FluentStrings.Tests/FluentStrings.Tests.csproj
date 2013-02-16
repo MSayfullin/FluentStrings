@@ -48,13 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="RemoveNextPreviousTests.cs" />
-    <Compile Include="RemoveStartingToTests.cs" />
-    <Compile Include="RemoveBeforeAfterTests.cs" />
-    <Compile Include="RemoveCharsTests.cs" />
     <Compile Include="ReplaceTests.cs" />
     <Compile Include="TruncateTests.cs" />
-    <Compile Include="RemoveTests.cs" />
+    <Compile Include="Remove\RemoveNextPreviousTests.cs" />
+    <Compile Include="Remove\RemoveStartingToTests.cs" />
+    <Compile Include="Remove\RemoveBeforeAfterTests.cs" />
+    <Compile Include="Remove\RemoveCharsTests.cs" />
+    <Compile Include="Remove\RemoveTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InsertTests.cs" />
     <Compile Include="UtilitiesTests.cs" />
