@@ -4,14 +4,14 @@ namespace dokas.FluentStrings
 {
     public static class TruncateExtensions
     {
-        public static TruncateText TruncateTo(this string source, int charsCount)
+        public static TruncateString TruncateTo(this string source, int charsCount)
         {
-            return new TruncateText(source, charsCount);
+            return new TruncateString(source, charsCount);
         }
 
-        public static TruncateTextFrom From(this TruncateText source, The position)
+        public static TruncateStringFrom From(this TruncateString source, The position)
         {
-            return new TruncateTextFrom(source, position);
+            return new TruncateStringFrom(source, position);
         }
     }
 }

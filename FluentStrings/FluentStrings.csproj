@@ -101,8 +101,8 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringIgnoringCase.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringIgnoringCaseFrom.cs" />
     <Compile Include="Actions\Remove\Resources\VowelsMap.cs" />
-    <Compile Include="Actions\Truncate\Auxiliary\TruncateTextFrom.cs" />
-    <Compile Include="Actions\Truncate\Auxiliary\TruncateText.cs" />
+    <Compile Include="Actions\Truncate\Auxiliary\TruncateStringFrom.cs" />
+    <Compile Include="Actions\Truncate\Auxiliary\TruncateString.cs" />
     <Compile Include="Actions\Truncate\TruncateExtensions.cs" />
     <Compile Include="Actions\Utilities\Auxiliary\IsEmptyString.cs" />
     <Compile Include="Actions\Utilities\Auxiliary\IsEmptyOrWhiteSpaceString.cs" />

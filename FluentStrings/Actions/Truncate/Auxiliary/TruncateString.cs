@@ -2,12 +2,12 @@
 
 namespace dokas.FluentStrings.Actions.Truncate
 {
-    public class TruncateText
+    public class TruncateString
     {
         private readonly string _source;
         private readonly int _charsCount;
 
-        internal TruncateText(string source, int charsCount)
+        internal TruncateString(string source, int charsCount)
         {
             _source = source;
             _charsCount = charsCount;
@@ -16,7 +16,7 @@ namespace dokas.FluentStrings.Actions.Truncate
         internal string Source { get { return _source; } }
         internal int CharsCount { get { return _charsCount; } }
 
-        public static implicit operator string(TruncateText truncateText)
+        public static implicit operator string(TruncateString truncateText)
         {
             return truncateText.ToString();
         }

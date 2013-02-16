@@ -2,18 +2,18 @@
 
 namespace dokas.FluentStrings.Actions.Truncate
 {
-    public class TruncateTextFrom
+    public class TruncateStringFrom
     {
-        private readonly TruncateText _truncateText;
+        private readonly TruncateString _truncateText;
         private readonly The _position;
 
-        internal TruncateTextFrom(TruncateText truncateText, The position)
+        internal TruncateStringFrom(TruncateString truncateText, The position)
         {
             _truncateText = truncateText;
             _position = position;
         }
 
-        public static implicit operator string(TruncateTextFrom truncateTextFrom)
+        public static implicit operator string(TruncateStringFrom truncateTextFrom)
         {
             return truncateTextFrom.ToString();
         }
