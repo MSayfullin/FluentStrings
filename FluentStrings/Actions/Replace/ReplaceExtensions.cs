@@ -5,19 +5,19 @@ namespace dokas.FluentStrings
 {
     public static class ReplaceExtensions
     {
-        public static ReplaceText Replace(this string source, string value)
+        public static ReplaceString Replace(this string source, string value)
         {
-            return new ReplaceText(source, value);
+            return new ReplaceString(source, value);
         }
 
-        public static ReplaceTextWith With(this ReplaceText source, string replacement)
+        public static ReplaceStringWith With(this ReplaceString source, string replacement)
         {
-            return new ReplaceTextWith(source, replacement);
+            return new ReplaceStringWith(source, replacement);
         }
 
-        public static ReplaceTextWithIgnoringCase IgnoringCase(this ReplaceTextWith source)
+        public static ReplaceStringWithIgnoringCase IgnoringCase(this ReplaceStringWith source)
         {
-            return new ReplaceTextWithIgnoringCase(source);
+            return new ReplaceStringWithIgnoringCase(source);
         }
     }
 }

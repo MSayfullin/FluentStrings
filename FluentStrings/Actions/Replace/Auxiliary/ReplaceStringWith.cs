@@ -2,20 +2,20 @@ using System;
 
 namespace dokas.FluentStrings.Actions.Replace
 {
-    public class ReplaceTextWith
+    public class ReplaceStringWith
     {
-        private readonly ReplaceText _source;
+        private readonly ReplaceString _replaceString;
         private readonly string _replacement;
 
-        public ReplaceTextWith(ReplaceText source, string replacement)
+        public ReplaceStringWith(ReplaceString replaceString, string replacement)
         {
-            _source = source;
+            _replaceString = replaceString;
             _replacement = replacement;
         }
 
-        public static implicit operator string(ReplaceTextWith replaceTextWith)
+        public static implicit operator string(ReplaceStringWith replaceStringWith)
         {
-            return replaceTextWith.ToString();
+            return replaceStringWith.ToString();
         }
 
         public override string ToString()

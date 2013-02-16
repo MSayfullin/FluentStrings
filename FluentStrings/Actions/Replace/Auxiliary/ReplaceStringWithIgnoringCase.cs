@@ -2,18 +2,18 @@ using System;
 
 namespace dokas.FluentStrings.Actions.Replace
 {
-    public class ReplaceTextWithIgnoringCase
+    public class ReplaceStringWithIgnoringCase
     {
-        private readonly ReplaceTextWith _source;
+        private readonly ReplaceStringWith _replaceStringWith;
 
-        public ReplaceTextWithIgnoringCase(ReplaceTextWith source)
+        public ReplaceStringWithIgnoringCase(ReplaceStringWith replaceStringWith)
         {
-            _source = source;
+            _replaceStringWith = replaceStringWith;
         }
 
-        public static implicit operator string(ReplaceTextWithIgnoringCase replaceTextWithIgnoringCase)
+        public static implicit operator string(ReplaceStringWithIgnoringCase replaceStringWithIgnoringCase)
         {
-            return replaceTextWithIgnoringCase.ToString();
+            return replaceStringWithIgnoringCase.ToString();
         }
 
         public override string ToString()
