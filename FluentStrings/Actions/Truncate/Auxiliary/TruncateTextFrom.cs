@@ -20,21 +20,26 @@ namespace dokas.FluentStrings.Actions.Truncate
 
         public override string ToString()
         {
-            if (_position == The.Beginning)
-                return _truncateText;
-            else
+            switch (_position)
             {
-                if (_truncateText.Source != null)
-                {
-                    if (_truncateText.Source.Length <= _truncateText.CharsCount)
-                        return _truncateText.Source;
-                    else
+                case The.Beginning:
+                    return _truncateText;
+                case The.End:
+                    if (_truncateText.Source != null)
                     {
-                        int startingPoint = _truncateText.Source.Length - _truncateText.CharsCount;
-                        return _truncateText.Source.Substring(startingPoint);
+                        if (_truncateText.Source.Length <= _truncateText.CharsCount)
+                            return _truncateText.Source;
+                        else
+                        {
+                            int startingPoint = _truncateText.Source.Length - _truncateText.CharsCount;
+                            return _truncateText.Source.Substring(startingPoint);
+                        }
                     }
-                }
-                return null;
+                    return null;
+                case The.StartOf:
+                case The.EndOf:
+                default:
+                    throw new ArgumentOutOfRangeException("position", "Only Beginning and End positions are supported by TruncateTo().From() method");
             }
         }
     }
