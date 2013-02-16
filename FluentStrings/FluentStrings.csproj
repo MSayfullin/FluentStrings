@@ -33,16 +33,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Actions\Insert\InsertExtensions.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertTextBeforeOccurrenceFrom.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertTextAfter.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertTextAfterOccurrence.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertText.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertTextAt.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertTextAtFrom.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertTextBefore.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertTextBeforeOccurrence.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertTextTo.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertTextAfterOccurrenceFrom.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringBeforeOccurrenceFrom.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringAfter.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringAfterOccurrence.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertString.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringAt.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringAtFrom.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringBefore.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringBeforeOccurrence.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringTo.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringAfterOccurrenceFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrenceFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrence.cs" />
