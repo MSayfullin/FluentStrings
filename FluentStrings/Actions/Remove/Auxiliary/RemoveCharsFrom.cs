@@ -25,16 +25,15 @@ namespace dokas.FluentStrings.Actions.Remove
                 case The.Beginning:
                     return _removeChars;
                 case The.End:
-                    if (String.IsNullOrEmpty(_removeChars.Source))
-                        return _removeChars;
-                    
-                    return _removeChars.CharsCount <= _removeChars.Source.Length
-                        ? _removeChars.Source.Remove(_removeChars.Source.Length - _removeChars.CharsCount, _removeChars.CharsCount)
-                        : String.Empty;
+                    return _removeChars.Source.IsEmpty()
+                        ? _removeChars
+                        : _removeChars.CharsCount <= _removeChars.Source.Length
+                            ? _removeChars.Source.Remove(_removeChars.Source.Length - _removeChars.CharsCount, _removeChars.CharsCount)
+                            : String.Empty;
                 case The.StartOf:
                 case The.EndOf:
                 default:
-                    throw new ArgumentOutOfRangeException("position", "Only Beginning and And positions are supported by RemoveChars().From() method");
+                    throw new ArgumentOutOfRangeException("position", "Only Beginning and End positions are supported by RemoveChars().From() method");
             }
         }
     }

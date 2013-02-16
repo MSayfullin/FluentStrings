@@ -26,7 +26,7 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
-            if (String.IsNullOrEmpty(_marker))
+            if (_marker.IsEmpty())
                 return _insertText.Source;
             else
             {

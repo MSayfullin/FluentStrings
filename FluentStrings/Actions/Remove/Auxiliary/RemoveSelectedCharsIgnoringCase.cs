@@ -20,7 +20,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            if (String.IsNullOrEmpty(_removeSelectedChars.Source) || _removeSelectedChars.CharsToRemove.Length == 0)
+            if (_removeSelectedChars.Source.IsEmpty() || _removeSelectedChars.CharsToRemove.Length == 0)
                 return _removeSelectedChars.Source;
 
             var lowerCaseCharsToRemove = _removeSelectedChars.CharsToRemove.Select(c => Char.ToLower(c)).ToArray();

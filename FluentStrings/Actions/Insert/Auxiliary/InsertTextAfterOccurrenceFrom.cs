@@ -20,7 +20,7 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
-            if (String.IsNullOrEmpty(_insertTextAfterOccurrence.Marker))
+            if (_insertTextAfterOccurrence.Marker.IsEmpty())
                 return _insertTextAfterOccurrence.InsertText.Source;
             else
             {

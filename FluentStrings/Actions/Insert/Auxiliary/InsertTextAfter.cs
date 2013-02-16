@@ -22,7 +22,7 @@ namespace dokas.FluentStrings.Actions.Insert
         {
             if (_insertText.Source != null)
             {
-                return String.IsNullOrEmpty(_marker)
+                return _marker.IsEmpty()
                     ? _insertText.Source
                     : _insertText.Source.Replace(_marker, _marker + (_insertText.Insertion ?? String.Empty));
             }

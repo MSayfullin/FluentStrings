@@ -25,7 +25,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            if (String.IsNullOrEmpty(_source) || _charsToRemove.Length == 0)
+            if (_source.IsEmpty() || _charsToRemove.Length == 0)
                 return _source;
 
             var builder = new StringBuilder(_source.Length);
