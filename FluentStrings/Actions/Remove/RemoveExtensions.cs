@@ -37,6 +37,14 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Adds ignoring case flag to remove action
+        /// </summary>
+        public static RemoveStringIgnoringCase IgnoringCase(this RemoveText source)
+        {
+            return new RemoveStringIgnoringCase(source);
+        }
+
+        /// <summary>
         /// Removes all value occurrences from the source string
         /// </summary>
         /// <param name="source">Target string for removal</param>
@@ -135,7 +143,7 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Removes selected chars from the source string ignoring case
+        /// Adds ignoring case flag to remove selected chars action
         /// </summary>
         public static RemoveSelectedCharsIgnoringCase IgnoringCase(this RemoveSelectedChars source)
         {

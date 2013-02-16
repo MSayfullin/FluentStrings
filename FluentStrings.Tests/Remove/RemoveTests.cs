@@ -166,6 +166,54 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
+        #region Remove Ignoring Case
+
+        [TestMethod]
+        public void RemoveTextFromNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove("bla").IgnoringCase();
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveNullTextIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(null).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNullTextFromNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(null).IgnoringCase();
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyTextIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(String.Empty).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveTextIgnoringCase()
+        {
+            string transformed = "TEST string will be removed".Remove("TeSt").IgnoringCase();
+            transformed.Should().Be(" string will be removed");
+
+            transformed = "string will be removed ->tEST".Remove("tEsT").IgnoringCase();
+            transformed.Should().Be("string will be removed ->");
+
+            transformed = "string will be removed ->TEST and this will be left TEST".Remove("TEST").IgnoringCase();
+            transformed.Should().Be("string will be removed -> and this will be left TEST");
+
+            transformed = "TesT string will be removed only from left side TEST".Remove("TEST").IgnoringCase();
+            transformed.Should().Be(" string will be removed only from left side TEST");
+        }
+
+        #endregion
+
         #region Remove All
 
         [TestMethod]
