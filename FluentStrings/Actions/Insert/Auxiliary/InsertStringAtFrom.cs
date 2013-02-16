@@ -2,20 +2,20 @@
 
 namespace dokas.FluentStrings.Actions.Insert
 {
-    public class InsertTextAtFrom
+    public class InsertStringAtFrom
     {
-        private readonly InsertTextAt _insertTextAt;
+        private readonly InsertStringAt _insertStringAt;
         private readonly The _position;
 
-        internal InsertTextAtFrom(InsertTextAt insertTextAt, The position)
+        internal InsertStringAtFrom(InsertStringAt insertStringAt, The position)
         {
-            _insertTextAt = insertTextAt;
+            _insertStringAt = insertStringAt;
             _position = position;
         }
 
-        public static implicit operator string(InsertTextAtFrom insertTextAtFrom)
+        public static implicit operator string(InsertStringAtFrom insertStringAtFrom)
         {
-            return insertTextAtFrom.ToString();
+            return insertStringAtFrom.ToString();
         }
 
         public override string ToString()
@@ -23,13 +23,13 @@ namespace dokas.FluentStrings.Actions.Insert
             switch (_position)
             {
                 case The.Beginning:
-                    return _insertTextAt;
+                    return _insertStringAt;
                 case The.End:
-                    if (_insertTextAt.InsertText.Source == null)
-                        return _insertTextAt;
+                    if (_insertStringAt.InsertString.Source == null)
+                        return _insertStringAt;
 
-                    int positionIndex = _insertTextAt.InsertText.Source.Length - _insertTextAt.PositionIndex;
-                    return _insertTextAt.InsertText.Source.Insert(positionIndex, _insertTextAt.InsertText.Insertion ?? String.Empty);
+                    int positionIndex = _insertStringAt.InsertString.Source.Length - _insertStringAt.PositionIndex;
+                    return _insertStringAt.InsertString.Source.Insert(positionIndex, _insertStringAt.InsertString.Insertion ?? String.Empty);
                 case The.StartOf:
                 case The.EndOf:
                 default:

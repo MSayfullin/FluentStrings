@@ -1,28 +1,28 @@
 ﻿namespace dokas.FluentStrings.Actions.Insert
 {
-    public class InsertTextTo
+    public class InsertStringTo
     {
-        private readonly InsertText _insertText;
+        private readonly InsertString _insertString;
         private readonly The _position;
 
-        internal InsertTextTo(InsertText insertText, The position)
+        internal InsertStringTo(InsertString insertString, The position)
         {
-            _insertText = insertText;
+            _insertString = insertString;
             _position = position;
         }
 
-        public static implicit operator string(InsertTextTo insertTextTo)
+        public static implicit operator string(InsertStringTo insertStringTo)
         {
-            return insertTextTo.ToString();
+            return insertStringTo.ToString();
         }
 
         public override string ToString()
         {
             return _position == The.Beginning
-                ? _insertText
-                : (_insertText.Source == null && _insertText.Insertion == null)
+                ? _insertString
+                : (_insertString.Source == null && _insertString.Insertion == null)
                     ? null
-                    : _insertText.Source + _insertText.Insertion;
+                    : _insertString.Source + _insertString.Insertion;
         }
     }
 }

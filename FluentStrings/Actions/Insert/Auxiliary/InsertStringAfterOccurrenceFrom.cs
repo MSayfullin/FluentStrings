@@ -2,20 +2,20 @@
 
 namespace dokas.FluentStrings.Actions.Insert
 {
-    public class InsertTextAfterOccurrenceFrom
+    public class InsertStringAfterOccurrenceFrom
     {
-        private readonly InsertTextAfterOccurrence _insertTextAfterOccurrence;
+        private readonly InsertStringAfterOccurrence _insertStringAfterOccurrence;
         private readonly The _position;
 
-        public InsertTextAfterOccurrenceFrom(InsertTextAfterOccurrence insertTextAfterOccurrence, The position)
+        public InsertStringAfterOccurrenceFrom(InsertStringAfterOccurrence insertStringAfterOccurrence, The position)
         {
-            _insertTextAfterOccurrence = insertTextAfterOccurrence;
+            _insertStringAfterOccurrence = insertStringAfterOccurrence;
             _position = position;
         }
 
-        public static implicit operator string(InsertTextAfterOccurrenceFrom insertTextAfterOccurrenceFrom)
+        public static implicit operator string(InsertStringAfterOccurrenceFrom insertStringAfterOccurrenceFrom)
         {
-            return insertTextAfterOccurrenceFrom.ToString();
+            return insertStringAfterOccurrenceFrom.ToString();
         }
 
         public override string ToString()
@@ -23,23 +23,23 @@ namespace dokas.FluentStrings.Actions.Insert
             switch (_position)
             {
                 case The.Beginning:
-                    return _insertTextAfterOccurrence;
+                    return _insertStringAfterOccurrence;
                 case The.End:
-                    if (_insertTextAfterOccurrence.Marker.IsEmpty())
-                        return _insertTextAfterOccurrence.InsertText.Source;
+                    if (_insertStringAfterOccurrence.Marker.IsEmpty())
+                        return _insertStringAfterOccurrence.InsertString.Source;
 
-                    int index = _insertTextAfterOccurrence.InsertText.Source.Length;
+                    int index = _insertStringAfterOccurrence.InsertString.Source.Length;
                     int passCounter = 0;
                     do
                     {
-                        index = _insertTextAfterOccurrence.InsertText.Source.LastIndexOf(_insertTextAfterOccurrence.Marker, index - 1);
+                        index = _insertStringAfterOccurrence.InsertString.Source.LastIndexOf(_insertStringAfterOccurrence.Marker, index - 1);
                         passCounter++;
                     }
-                    while (passCounter < _insertTextAfterOccurrence.OccurrenceCount && index >= 0);
+                    while (passCounter < _insertStringAfterOccurrence.OccurrenceCount && index >= 0);
 
                     return index < 0
-                        ? _insertTextAfterOccurrence.InsertText.Source
-                        : _insertTextAfterOccurrence.InsertText.Source.Insert(index + _insertTextAfterOccurrence.Marker.Length, _insertTextAfterOccurrence.InsertText.Insertion ?? String.Empty);
+                        ? _insertStringAfterOccurrence.InsertString.Source
+                        : _insertStringAfterOccurrence.InsertString.Source.Insert(index + _insertStringAfterOccurrence.Marker.Length, _insertStringAfterOccurrence.InsertString.Insertion ?? String.Empty);
                 case The.StartOf:
                 case The.EndOf:
                 default:

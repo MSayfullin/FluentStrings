@@ -9,9 +9,9 @@ namespace dokas.FluentStrings
         /// </summary>
         /// <param name="source">Target string for insertion</param>
         /// <param name="value">String to be inserted</param>
-        public static InsertText Insert(this string source, string value)
+        public static InsertString Insert(this string source, string value)
         {
-            return new InsertText(source, value);
+            return new InsertString(source, value);
         }
 
         /// <summary>
@@ -20,9 +20,9 @@ namespace dokas.FluentStrings
         /// </summary>
         /// <param name="source">Target string for insertion</param>
         /// <param name="position">Position in string where to insert</param>
-        public static InsertTextTo To(this InsertText source, The position)
+        public static InsertStringTo To(this InsertString source, The position)
         {
-            return new InsertTextTo(source, position);
+            return new InsertStringTo(source, position);
         }
 
         /// <summary>
@@ -31,44 +31,44 @@ namespace dokas.FluentStrings
         /// </summary>
         /// <param name="source">Target string for insertion</param>
         /// <param name="position">Position in string where to insert</param>
-        public static InsertTextAt At(this InsertText source, int position)
+        public static InsertStringAt At(this InsertString source, int position)
         {
-            return new InsertTextAt(source, position);
+            return new InsertStringAt(source, position);
         }
 
-        public static InsertTextAtFrom From(this InsertTextAt source, The position)
+        public static InsertStringAtFrom From(this InsertStringAt source, The position)
         {
-            return new InsertTextAtFrom(source, position);
+            return new InsertStringAtFrom(source, position);
         }
 
-        public static InsertTextBefore Before(this InsertText source, string marker)
+        public static InsertStringBefore Before(this InsertString source, string marker)
         {
-            return new InsertTextBefore(source, marker);
+            return new InsertStringBefore(source, marker);
         }
 
-        public static InsertTextBeforeOccurrence Before(this InsertText source, int occurrence, string of)
+        public static InsertStringBeforeOccurrence Before(this InsertString source, int occurrence, string of)
         {
-            return new InsertTextBeforeOccurrence(source, occurrence, of);
+            return new InsertStringBeforeOccurrence(source, occurrence, of);
         }
 
-        public static InsertTextBeforeOccurrenceFrom From(this InsertTextBeforeOccurrence source, The position)
+        public static InsertStringBeforeOccurrenceFrom From(this InsertStringBeforeOccurrence source, The position)
         {
-            return new InsertTextBeforeOccurrenceFrom(source, position);
+            return new InsertStringBeforeOccurrenceFrom(source, position);
         }
 
-        public static InsertTextAfter After(this InsertText source, string marker)
+        public static InsertStringAfter After(this InsertString source, string marker)
         {
-            return new InsertTextAfter(source, marker);
+            return new InsertStringAfter(source, marker);
         }
 
-        public static InsertTextAfterOccurrence After(this InsertText source, int occurrence, string of)
+        public static InsertStringAfterOccurrence After(this InsertString source, int occurrence, string of)
         {
-            return new InsertTextAfterOccurrence(source, occurrence, of);
+            return new InsertStringAfterOccurrence(source, occurrence, of);
         }
 
-        public static InsertTextAfterOccurrenceFrom From(this InsertTextAfterOccurrence source, The position)
+        public static InsertStringAfterOccurrenceFrom From(this InsertStringAfterOccurrence source, The position)
         {
-            return new InsertTextAfterOccurrenceFrom(source, position);
+            return new InsertStringAfterOccurrenceFrom(source, position);
         }
     }
 }

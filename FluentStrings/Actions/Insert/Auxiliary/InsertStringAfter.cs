@@ -2,32 +2,32 @@
 
 namespace dokas.FluentStrings.Actions.Insert
 {
-    public class InsertTextAfter
+    public class InsertStringAfter
     {
-        private readonly InsertText _insertText;
+        private readonly InsertString _insertString;
         private readonly string _marker;
 
-        internal InsertTextAfter(InsertText insertText, string marker)
+        internal InsertStringAfter(InsertString insertString, string marker)
         {
-            _insertText = insertText;
+            _insertString = insertString;
             _marker = marker;
         }
 
-        public static implicit operator string(InsertTextAfter insertTextAfter)
+        public static implicit operator string(InsertStringAfter insertStringAfter)
         {
-            return insertTextAfter.ToString();
+            return insertStringAfter.ToString();
         }
 
         public override string ToString()
         {
-            if (_insertText.Source != null)
+            if (_insertString.Source != null)
             {
                 return _marker.IsEmpty()
-                    ? _insertText.Source
-                    : _insertText.Source.Replace(_marker, _marker + (_insertText.Insertion ?? String.Empty));
+                    ? _insertString.Source
+                    : _insertString.Source.Replace(_marker, _marker + (_insertString.Insertion ?? String.Empty));
             }
             else
-                return _marker == null ? _insertText.Insertion : null;
+                return _marker == null ? _insertString.Insertion : null;
         }
     }
 }
