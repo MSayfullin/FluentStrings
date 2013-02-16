@@ -57,6 +57,7 @@
     <Compile Include="RemoveTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InsertTests.cs" />
+    <Compile Include="UtilitiesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentStrings\FluentStrings.csproj">

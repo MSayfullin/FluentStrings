@@ -102,6 +102,8 @@
     <Compile Include="Actions\Truncate\Auxiliary\TruncateTextFrom.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateText.cs" />
     <Compile Include="Actions\Truncate\TruncateExtensions.cs" />
+    <Compile Include="Actions\Utilities\Auxiliary\IsEmptyString.cs" />
+    <Compile Include="Actions\Utilities\Auxiliary\IsEmptyOrWhiteSpaceString.cs" />
     <Compile Include="Positions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Actions\Replace\ReplaceExtensions.cs" />
@@ -120,8 +122,5 @@
   -->
   <ItemGroup>
     <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Actions\Utilities\Auxiliary\" />
   </ItemGroup>
 </Project>
