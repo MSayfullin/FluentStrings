@@ -13,8 +13,8 @@ namespace dokas.FluentStrings.Actions.Remove
             _extraction = extraction;
         }
 
-        internal String Source { get { return _source; } }
-        internal String Extraction { get { return _extraction; } }
+        internal string Source { get { return _source; } }
+        internal string Extraction { get { return _extraction; } }
 
         public static implicit operator string(RemoveText removeText)
         {
@@ -23,7 +23,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return (_source == null || _extraction.IsEmpty())
+            return (_source.IsEmpty() || _extraction.IsEmpty())
                 ? _source
                 : _source.Remove(_source.IndexOf(_extraction), _extraction.Length);
         }

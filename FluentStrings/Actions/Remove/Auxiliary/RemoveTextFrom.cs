@@ -25,7 +25,7 @@ namespace dokas.FluentStrings.Actions.Remove
                 case The.Beginning:
                     return _removeText;
                 case The.End:
-                    return (_removeText.Source == null || _removeText.Extraction.IsEmpty())
+                    return (_removeText.Source.IsEmpty() || _removeText.Extraction.IsEmpty())
                         ? _removeText.Source
                         : _removeText.Source.Remove(_removeText.Source.LastIndexOf(_removeText.Extraction), _removeText.Extraction.Length);
                 case The.StartOf:
