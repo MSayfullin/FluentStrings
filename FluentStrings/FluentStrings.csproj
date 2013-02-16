@@ -108,7 +108,7 @@
     <Compile Include="Actions\Replace\Auxiliary\ReplaceTextWith.cs" />
     <Compile Include="Actions\Replace\Auxiliary\ReplaceTextWithIgnoringCase.cs" />
     <Compile Include="Actions\Replace\Auxiliary\ReplaceText.cs" />
-    <Compile Include="Utilities.cs" />
+    <Compile Include="Actions\Utilities\UtilityExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -120,5 +120,8 @@
   -->
   <ItemGroup>
     <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions\Utilities\Auxiliary\" />
   </ItemGroup>
 </Project>
