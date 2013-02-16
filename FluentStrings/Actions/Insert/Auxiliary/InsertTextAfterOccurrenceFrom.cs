@@ -20,14 +20,14 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
-            if (_insertTextAfterOccurrence.Marker.IsEmpty())
-                return _insertTextAfterOccurrence.InsertText.Source;
-            else
+            switch (_position)
             {
-                if (_position == The.Beginning)
+                case The.Beginning:
                     return _insertTextAfterOccurrence;
-                else
-                {
+                case The.End:
+                    if (_insertTextAfterOccurrence.Marker.IsEmpty())
+                        return _insertTextAfterOccurrence.InsertText.Source;
+
                     int index = _insertTextAfterOccurrence.InsertText.Source.Length;
                     int passCounter = 0;
                     do
@@ -40,7 +40,10 @@ namespace dokas.FluentStrings.Actions.Insert
                     return index < 0
                         ? _insertTextAfterOccurrence.InsertText.Source
                         : _insertTextAfterOccurrence.InsertText.Source.Insert(index + _insertTextAfterOccurrence.Marker.Length, _insertTextAfterOccurrence.InsertText.Insertion ?? String.Empty);
-                }
+                case The.StartOf:
+                case The.EndOf:
+                default:
+                    throw new ArgumentOutOfRangeException("position", "Only Beginning and End positions are supported by Insert().After().From() method");
             }
         }
     }
