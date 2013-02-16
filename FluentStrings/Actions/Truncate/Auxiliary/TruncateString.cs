@@ -16,9 +16,9 @@ namespace dokas.FluentStrings.Actions.Truncate
         internal string Source { get { return _source; } }
         internal int CharsCount { get { return _charsCount; } }
 
-        public static implicit operator string(TruncateString truncateText)
+        public static implicit operator string(TruncateString truncateString)
         {
-            return truncateText.ToString();
+            return truncateString.ToString();
         }
 
         public override string ToString()

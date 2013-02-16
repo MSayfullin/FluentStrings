@@ -4,18 +4,18 @@ namespace dokas.FluentStrings.Actions.Truncate
 {
     public class TruncateStringFrom
     {
-        private readonly TruncateString _truncateText;
+        private readonly TruncateString _truncateString;
         private readonly The _position;
 
-        internal TruncateStringFrom(TruncateString truncateText, The position)
+        internal TruncateStringFrom(TruncateString truncateString, The position)
         {
-            _truncateText = truncateText;
+            _truncateString = truncateString;
             _position = position;
         }
 
-        public static implicit operator string(TruncateStringFrom truncateTextFrom)
+        public static implicit operator string(TruncateStringFrom truncateStringFrom)
         {
-            return truncateTextFrom.ToString();
+            return truncateStringFrom.ToString();
         }
 
         public override string ToString()
@@ -23,16 +23,16 @@ namespace dokas.FluentStrings.Actions.Truncate
             switch (_position)
             {
                 case The.Beginning:
-                    return _truncateText;
+                    return _truncateString;
                 case The.End:
-                    if (_truncateText.Source != null)
+                    if (_truncateString.Source != null)
                     {
-                        if (_truncateText.Source.Length <= _truncateText.CharsCount)
-                            return _truncateText.Source;
+                        if (_truncateString.Source.Length <= _truncateString.CharsCount)
+                            return _truncateString.Source;
                         else
                         {
-                            int startingPoint = _truncateText.Source.Length - _truncateText.CharsCount;
-                            return _truncateText.Source.Substring(startingPoint);
+                            int startingPoint = _truncateString.Source.Length - _truncateString.CharsCount;
+                            return _truncateString.Source.Substring(startingPoint);
                         }
                     }
                     return null;
