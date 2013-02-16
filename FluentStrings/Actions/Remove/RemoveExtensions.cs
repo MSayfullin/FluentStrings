@@ -45,6 +45,15 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Removes first value occurrence from the source string either from the Beginning or the End ignoringCase
+        /// </summary>
+        /// <param name="position">Position in string for removal</param>
+        public static RemoveStringIgnoringCaseFrom From(this RemoveStringIgnoringCase source, The position)
+        {
+            return new RemoveStringIgnoringCaseFrom(source, position);
+        }
+
+        /// <summary>
         /// Removes all value occurrences from the source string
         /// </summary>
         /// <param name="source">Target string for removal</param>

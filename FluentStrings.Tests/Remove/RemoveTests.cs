@@ -83,7 +83,7 @@ namespace dokas.FluentStrings.Tests
         #region Remove From
 
         [TestMethod]
-        public void RemoveTextFromBeginingOfNullString()
+        public void RemoveTextFromBeginningOfNullString()
         {
             string transformed = Const.NullString.Remove("bla").From(The.Beginning);
             transformed.Should().Be(Const.NullString);
@@ -97,7 +97,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveNullTextFromBegining()
+        public void RemoveNullTextFromBeginning()
         {
             string transformed = Const.SampleString.Remove(null).From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
@@ -111,7 +111,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveNullTextFromBeginingOfNullString()
+        public void RemoveNullTextFromBeginningOfNullString()
         {
             string transformed = Const.NullString.Remove(null).From(The.Beginning);
             transformed.Should().Be(Const.NullString);
@@ -125,7 +125,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveEmptyTextFromBegining()
+        public void RemoveEmptyTextFromBeginning()
         {
             string transformed = Const.SampleString.Remove(String.Empty).From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
@@ -139,7 +139,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveTextFromBegining()
+        public void RemoveTextFromBeginning()
         {
             string transformed = "TEST string will be removed".Remove("TEST").From(The.Beginning);
             transformed.Should().Be(" string will be removed");
@@ -210,6 +210,95 @@ namespace dokas.FluentStrings.Tests
 
             transformed = "TesT string will be removed only from left side TEST".Remove("TEST").IgnoringCase();
             transformed.Should().Be(" string will be removed only from left side TEST");
+        }
+
+        #endregion
+
+        #region Remove Ignoring Case From
+
+        [TestMethod]
+        public void RemoveTextFromBeginningOfNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove("bla").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveTextFromEndOfNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove("bla").IgnoringCase().From(The.End);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveNullTextFromBeginningIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(null).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNullTextFromEndIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(null).IgnoringCase().From(The.End);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNullTextFromBeginningOfNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(null).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveNullTextFromEndOfNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(null).IgnoringCase().From(The.End);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyTextFromBeginningIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(String.Empty).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyTextFromEndIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(String.Empty).IgnoringCase().From(The.End);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveTextFromBeginningIgnoringCase()
+        {
+            string transformed = "TEST string will be removed".Remove("TeSt").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(" string will be removed");
+
+            transformed = "string will be removed ->tEST".Remove("tEsT").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be("string will be removed ->");
+
+            transformed = "string will be removed ->TEST and this will be left TEST".Remove("TEST").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be("string will be removed -> and this will be left TEST");
+
+            transformed = "TesT string will be removed only from left side TEST".Remove("TEST").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(" string will be removed only from left side TEST");
+        }
+
+        [TestMethod]
+        public void RemoveTextFromEndIgnoringCase()
+        {
+            string transformed = "string will be removed -> TEST".Remove("tESt").IgnoringCase().From(The.End);
+            transformed.Should().Be("string will be removed -> ");
+
+            transformed = "TEST <- this string will be left, but this will be removed -> TEST".Remove("test").IgnoringCase().From(The.End);
+            transformed.Should().Be("TEST <- this string will be left, but this will be removed -> ");
+
+            transformed = "string will be removed -> |TesT| some additional string".Remove("TEST").IgnoringCase().From(The.End);
+            transformed.Should().Be("string will be removed -> || some additional string");
         }
 
         #endregion
