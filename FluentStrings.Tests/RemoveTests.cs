@@ -71,8 +71,8 @@ namespace dokas.FluentStrings.Tests
             transformed = "string will be removed ->TEST".Remove("TEST");
             transformed.Should().Be("string will be removed ->");
 
-            transformed = "string will be removed ->TEST this will be left ".Remove("TEST");
-            transformed.Should().Be("string will be removed -> this will be left");
+            transformed = "string will be removed ->TEST and this will be left TEST".Remove("TEST");
+            transformed.Should().Be("string will be removed -> and this will be left TEST");
 
             transformed = "TEST string will be removed only from left side TEST".Remove("TEST");
             transformed.Should().Be(" string will be removed only from left side TEST");
