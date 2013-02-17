@@ -93,7 +93,7 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveTextBefore.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveTextFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveVowels.cs" />
-    <Compile Include="Actions\Remove\Auxiliary\RemoveAllText.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveAll.cs" />
     <Compile Include="Actions\Remove\RemoveExtensions.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveText.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveSelectedCharsIgnoringCase.cs" />
