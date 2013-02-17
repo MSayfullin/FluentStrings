@@ -22,9 +22,9 @@ namespace dokas.FluentStrings
         /// </summary>
         /// <param name="source">Target string for removal</param>
         /// <param name="value">String to be removed</param>
-        public static RemoveText Remove(this string source, string value)
+        public static RemoveValue Remove(this string source, string value)
         {
-            return new RemoveText(source, value);
+            return new RemoveValue(source, value);
         }
 
         /// <summary>
@@ -34,15 +34,15 @@ namespace dokas.FluentStrings
         /// Position in source string to start from. Beginning or End values could be used
         /// </param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveTextFrom From(this RemoveText source, The position)
+        public static RemoveValueFrom From(this RemoveValue source, The position)
         {
-            return new RemoveTextFrom(source, position);
+            return new RemoveValueFrom(source, position);
         }
 
         /// <summary>
         /// Extends Remove action with the ability to ignore case
         /// </summary>
-        public static RemoveStringIgnoringCase IgnoringCase(this RemoveText source)
+        public static RemoveStringIgnoringCase IgnoringCase(this RemoveValue source)
         {
             return new RemoveStringIgnoringCase(source);
         }
@@ -73,52 +73,52 @@ namespace dokas.FluentStrings
 
         #region Before
 
-        public static RemoveTextBefore Before(this RemoveText source, string marker)
+        public static RemoveValueBefore Before(this RemoveValue source, string marker)
         {
-            return new RemoveTextBefore(source, marker);
+            return new RemoveValueBefore(source, marker);
         }
 
-        public static RemoveTextBeforeFrom From(this RemoveTextBefore source, The position)
+        public static RemoveValueBeforeFrom From(this RemoveValueBefore source, The position)
         {
-            return new RemoveTextBeforeFrom(source, position);
+            return new RemoveValueBeforeFrom(source, position);
         }
 
 
 
-        public static RemoveTextBeforeOccurrence Before(this RemoveText source, int occurrence, string marker)
+        public static RemoveValueBeforeOccurrence Before(this RemoveValue source, int occurrence, string marker)
         {
-            return new RemoveTextBeforeOccurrence(source, occurrence, marker);
+            return new RemoveValueBeforeOccurrence(source, occurrence, marker);
         }
 
-        public static RemoveTextBeforeOccurrenceFrom From(this RemoveTextBeforeOccurrence source, The position)
+        public static RemoveValueBeforeOccurrenceFrom From(this RemoveValueBeforeOccurrence source, The position)
         {
-            return new RemoveTextBeforeOccurrenceFrom(source, position);
+            return new RemoveValueBeforeOccurrenceFrom(source, position);
         }
 
         #endregion
 
         #region After
 
-        public static RemoveTextAfter After(this RemoveText source, string marker)
+        public static RemoveValueAfter After(this RemoveValue source, string marker)
         {
-            return new RemoveTextAfter(source, marker);
+            return new RemoveValueAfter(source, marker);
         }
 
-        public static RemoveTextAfterFrom From(this RemoveTextAfter source, The position)
+        public static RemoveValueAfterFrom From(this RemoveValueAfter source, The position)
         {
-            return new RemoveTextAfterFrom(source, position);
+            return new RemoveValueAfterFrom(source, position);
         }
 
 
 
-        public static RemoveTextAfterOccurrence After(this RemoveText source, int occurrence, string marker)
+        public static RemoveValueAfterOccurrence After(this RemoveValue source, int occurrence, string marker)
         {
-            return new RemoveTextAfterOccurrence(source, occurrence, marker);
+            return new RemoveValueAfterOccurrence(source, occurrence, marker);
         }
 
-        public static RemoveTextAfterOccurrenceFrom From(this RemoveTextAfterOccurrence source, The position)
+        public static RemoveValueAfterOccurrenceFrom From(this RemoveValueAfterOccurrence source, The position)
         {
-            return new RemoveTextAfterOccurrenceFrom(source, position);
+            return new RemoveValueAfterOccurrenceFrom(source, position);
         }
 
         #endregion

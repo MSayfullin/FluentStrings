@@ -2,12 +2,12 @@
 
 namespace dokas.FluentStrings.Actions.Remove
 {
-    public class RemoveText
+    public class RemoveValue
     {
         private readonly string _source;
         private readonly string _extraction;
 
-        internal RemoveText(string source, string extraction)
+        internal RemoveValue(string source, string extraction)
         {
             _source = source;
             _extraction = extraction;
@@ -16,9 +16,9 @@ namespace dokas.FluentStrings.Actions.Remove
         internal string Source { get { return _source; } }
         internal string Extraction { get { return _extraction; } }
 
-        public static implicit operator string(RemoveText removeText)
+        public static implicit operator string(RemoveValue removeValue)
         {
-            return removeText.ToString();
+            return removeValue.ToString();
         }
 
         public override string ToString()

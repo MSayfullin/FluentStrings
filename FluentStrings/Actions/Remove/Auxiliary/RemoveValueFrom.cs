@@ -2,20 +2,20 @@
 
 namespace dokas.FluentStrings.Actions.Remove
 {
-    public class RemoveTextFrom
+    public class RemoveValueFrom
     {
-        private readonly RemoveText _removeText;
+        private readonly RemoveValue _removeValue;
         private readonly The _position;
 
-        internal RemoveTextFrom(RemoveText removeText, The position)
+        internal RemoveValueFrom(RemoveValue removeValue, The position)
         {
-            _removeText = removeText;
+            _removeValue = removeValue;
             _position = position;
         }
 
-        public static implicit operator string(RemoveTextFrom removeTextFrom)
+        public static implicit operator string(RemoveValueFrom removeValueFrom)
         {
-            return removeTextFrom.ToString();
+            return removeValueFrom.ToString();
         }
 
         public override string ToString()
@@ -23,11 +23,11 @@ namespace dokas.FluentStrings.Actions.Remove
             switch (_position)
             {
                 case The.Beginning:
-                    return _removeText;
+                    return _removeValue;
                 case The.End:
-                    return (_removeText.Source.IsEmpty() || _removeText.Extraction.IsEmpty())
-                        ? _removeText.Source
-                        : _removeText.Source.Remove(_removeText.Source.LastIndexOf(_removeText.Extraction), _removeText.Extraction.Length);
+                    return (_removeValue.Source.IsEmpty() || _removeValue.Extraction.IsEmpty())
+                        ? _removeValue.Source
+                        : _removeValue.Source.Remove(_removeValue.Source.LastIndexOf(_removeValue.Extraction), _removeValue.Extraction.Length);
                 case The.StartOf:
                 case The.EndOf:
                 default:

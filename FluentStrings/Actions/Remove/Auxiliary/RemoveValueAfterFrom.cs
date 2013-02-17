@@ -2,20 +2,20 @@
 
 namespace dokas.FluentStrings.Actions.Remove
 {
-    public class RemoveTextAfterFrom
+    public class RemoveValueAfterFrom
     {
-        private readonly RemoveTextAfter _source;
+        private readonly RemoveValueAfter _removeValueAfter;
         private readonly The _position;
 
-        internal RemoveTextAfterFrom(RemoveTextAfter source, The position)
+        internal RemoveValueAfterFrom(RemoveValueAfter removeValueAfter, The position)
         {
-            _source = source;
+            _removeValueAfter = removeValueAfter;
             _position = position;
         }
 
-        public static implicit operator string(RemoveTextAfterFrom removeTextAfterFrom)
+        public static implicit operator string(RemoveValueAfterFrom removeValueAfterFrom)
         {
-            return removeTextAfterFrom.ToString();
+            return removeValueAfterFrom.ToString();
         }
 
         public override string ToString()

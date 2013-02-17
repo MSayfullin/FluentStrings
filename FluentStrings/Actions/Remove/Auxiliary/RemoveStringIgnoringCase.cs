@@ -4,14 +4,14 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     public class RemoveStringIgnoringCase
     {
-        private readonly RemoveText _removeText;
+        private readonly RemoveValue _removeValue;
 
-        public RemoveStringIgnoringCase(RemoveText removeText)
+        public RemoveStringIgnoringCase(RemoveValue removeValue)
         {
-            _removeText = removeText;
+            _removeValue = removeValue;
         }
 
-        internal RemoveText RemoveText { get { return _removeText; } }
+        internal RemoveValue RemoveValue { get { return _removeValue; } }
 
         public static implicit operator string(RemoveStringIgnoringCase removeStringIgnoringCase)
         {
@@ -20,9 +20,9 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return (_removeText.Source.IsEmpty() || _removeText.Extraction.IsEmpty())
-                ? _removeText.Source
-                : _removeText.Source.Remove(_removeText.Source.IndexOf(_removeText.Extraction, StringComparison.CurrentCultureIgnoreCase), _removeText.Extraction.Length);
+            return (_removeValue.Source.IsEmpty() || _removeValue.Extraction.IsEmpty())
+                ? _removeValue.Source
+                : _removeValue.Source.Remove(_removeValue.Source.IndexOf(_removeValue.Extraction, StringComparison.CurrentCultureIgnoreCase), _removeValue.Extraction.Length);
         }
     }
 }
