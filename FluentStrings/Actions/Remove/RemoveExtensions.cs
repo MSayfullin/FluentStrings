@@ -64,9 +64,9 @@ namespace dokas.FluentStrings
         /// </summary>
         /// <param name="source">Target string for removal</param>
         /// <param name="value">String to be removed</param>
-        public static RemoveAllText RemoveAll(this string source, string value)
+        public static RemoveAll RemoveAll(this string source, string value)
         {
-            return new RemoveAllText(source, value);
+            return new RemoveAll(source, value);
         }
 
         #endregion
