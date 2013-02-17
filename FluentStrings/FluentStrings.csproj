@@ -98,8 +98,8 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveValue.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveSelectedCharsIgnoringCase.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveVowelsFor.cs" />
-    <Compile Include="Actions\Remove\Auxiliary\RemoveStringIgnoringCase.cs" />
-    <Compile Include="Actions\Remove\Auxiliary\RemoveStringIgnoringCaseFrom.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveValueIgnoringCase.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveValueIgnoringCaseFrom.cs" />
     <Compile Include="Actions\Remove\Resources\VowelsMap.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateStringFrom.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateString.cs" />
