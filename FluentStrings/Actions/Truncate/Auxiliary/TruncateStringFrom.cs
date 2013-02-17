@@ -27,11 +27,11 @@ namespace dokas.FluentStrings.Actions.Truncate
                 case The.End:
                     if (_truncateString.Source != null)
                     {
-                        if (_truncateString.Source.Length <= _truncateString.CharsCount)
+                        if (_truncateString.Source.Length <= _truncateString.Length)
                             return _truncateString.Source;
                         else
                         {
-                            int startingPoint = _truncateString.Source.Length - _truncateString.CharsCount;
+                            int startingPoint = _truncateString.Source.Length - _truncateString.Length;
                             return _truncateString.Source.Substring(startingPoint);
                         }
                     }

@@ -17,7 +17,7 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Removes first value occurrence from the source string
+        /// Removes first value occurrence from the source string.
         /// N.B.: Default Remove() is equivalent of Remove().From(The.Beginning)
         /// </summary>
         /// <param name="source">Target string for removal</param>
@@ -28,16 +28,19 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Removes first value occurrence from the source string either from the Beginning or the End
+        /// Extends Remove action with the ability to change starting point.
         /// </summary>
-        /// <param name="position">Position in string for removal</param>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveTextFrom From(this RemoveText source, The position)
         {
             return new RemoveTextFrom(source, position);
         }
 
         /// <summary>
-        /// Adds ignoring case flag to remove action
+        /// Extends Remove action with the ability to ignore case
         /// </summary>
         public static RemoveStringIgnoringCase IgnoringCase(this RemoveText source)
         {
@@ -45,9 +48,12 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Removes first value occurrence from the source string either from the Beginning or the End ignoringCase
+        /// Extends Remove.IgnoringCase action with the ability to change starting point.
         /// </summary>
-        /// <param name="position">Position in string for removal</param>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveStringIgnoringCaseFrom From(this RemoveStringIgnoringCase source, The position)
         {
             return new RemoveStringIgnoringCaseFrom(source, position);
@@ -120,7 +126,7 @@ namespace dokas.FluentStrings
         #region Remove Chars
 
         /// <summary>
-        /// Removes number of chars from the source string
+        /// Removes number of chars from the source string.
         /// N.B.: Default RemoveChars() is equivalent of RemoveChars().From(The.Beginning)
         /// </summary>
         /// <param name="source">Target string for removal</param>
@@ -131,10 +137,13 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Removes number of chars from the source string either from the Beginning or the End
+        /// Extends RemoveChars action with the ability to change starting point.
         /// N.B.: RemoveChars().From(The.Beginning) is equivalent of the default RemoveChars()
         /// </summary>
-        /// <param name="position">Position in string for removal</param>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveCharsFrom From(this RemoveChars source, The position)
         {
             return new RemoveCharsFrom(source, position);
@@ -152,7 +161,7 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Adds ignoring case flag to remove selected chars action
+        /// Extends RemoveChars action with the ability to ignore case
         /// </summary>
         public static RemoveSelectedCharsIgnoringCase IgnoringCase(this RemoveSelectedChars source)
         {
@@ -385,7 +394,7 @@ namespace dokas.FluentStrings
         #region Remove Vowels
 
         /// <summary>
-        /// Removes vowels from source string for a culture set on a CurrentThread
+        /// Removes vowels from source string for a culture set on a CurrentThread.
         /// N.B.: Thread.CurrentThread.CurrentCulture property is used
         /// </summary>
         /// <param name="source">Target string for removal</param>
@@ -397,7 +406,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Removes vowels from source string for a defined culture
         /// </summary>
-        /// <param name="source">Target string for removal</param>
+        /// <param name="cultureName">Culture name in a .net format. e.g. "en-US", "ru"</param>
         public static RemoveVowelsFor For(this RemoveVowels source, string cultureName)
         {
             return new RemoveVowelsFor(source, cultureName);

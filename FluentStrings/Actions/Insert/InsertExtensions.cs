@@ -15,22 +15,25 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Insert with the ability to change place of insertion
+        /// Extends Insert action with the ability to change place of insertion.
         /// N.B.: Default Insert() is equivalent of Insert().To(The.Beginning)
         /// </summary>
         /// <param name="source">Target string for insertion</param>
-        /// <param name="position">Position in string where to insert</param>
+        /// <param name="position">
+        /// Position in source string for insert. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static InsertStringTo To(this InsertString source, The position)
         {
             return new InsertStringTo(source, position);
         }
 
         /// <summary>
-        /// Extends Insert with the ability to change position of insertion
-        /// N.B.: Default Insert() is equivalent of Insert().At(0).From(The.Beginning)
+        /// Extends Insert action with the ability to change position of insertion.
+        /// N.B.: Default Insert() is equivalent of Insert().At(position: 0).From(The.Beginning)
         /// </summary>
         /// <param name="source">Target string for insertion</param>
-        /// <param name="position">Position in string where to insert</param>
+        /// <param name="position">Position in string for insert</param>
         public static InsertStringAt At(this InsertString source, int position)
         {
             return new InsertStringAt(source, position);
