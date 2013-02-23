@@ -343,6 +343,16 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be(" string will be removed from both sides ");
         }
 
+        [TestMethod]
+        public void RemoveAllTextCaseSensitive()
+        {
+            string transformed = "TeSt string will be removed from both sides TeSt".RemoveAll("TeSt");
+            transformed.Should().Be(" string will be removed from both sides ");
+
+            transformed = "TEST string will NOT be removed from both sides TEST".RemoveAll("TeSt");
+            transformed.Should().Be("TEST string will NOT be removed from both sides TEST");
+        }
+
         #endregion
     }
 }
