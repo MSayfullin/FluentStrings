@@ -18,6 +18,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Removes first value occurrence from the source string.
+        /// Action is case sensitive by default, use IgnoringCase extension to change behaviour.
         /// N.B.: Default Remove() is equivalent of Remove().From(The.Beginning)
         /// </summary>
         /// <param name="source">Target string for removal</param>
@@ -60,13 +61,22 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Removes all value occurrences from the source string
+        /// Removes all value occurrences from the source string.
+        /// Action is case sensitive by default, use IgnoringCase extension to change behaviour
         /// </summary>
         /// <param name="source">Target string for removal</param>
         /// <param name="value">String to be removed</param>
         public static RemoveAll RemoveAll(this string source, string value)
         {
             return new RemoveAll(source, value);
+        }
+
+        /// <summary>
+        /// Extends RemoveAll action with the ability to ignore case
+        /// </summary>
+        public static RemoveAllIgnoringCase IgnoringCase(this RemoveAll source)
+        {
+            return new RemoveAllIgnoringCase(source);
         }
 
         #endregion

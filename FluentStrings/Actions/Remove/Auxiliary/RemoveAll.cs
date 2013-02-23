@@ -13,6 +13,9 @@ namespace dokas.FluentStrings.Actions.Remove
             _extraction = extraction;
         }
 
+        internal string Source { get { return _source; } }
+        internal string Extraction { get { return _extraction; } }
+
         public static implicit operator string(RemoveAll removeAll)
         {
             return removeAll.ToString();

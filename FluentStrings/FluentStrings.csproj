@@ -94,6 +94,7 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveValueFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveVowels.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveAll.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveAllIgnoringCase.cs" />
     <Compile Include="Actions\Remove\RemoveExtensions.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveValue.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveSelectedCharsIgnoringCase.cs" />

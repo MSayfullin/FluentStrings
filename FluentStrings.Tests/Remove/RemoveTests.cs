@@ -354,5 +354,50 @@ namespace dokas.FluentStrings.Tests
         }
 
         #endregion
+
+        #region Remove All Ignoring Case
+
+        [TestMethod]
+        public void RemoveAllTextFromNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.RemoveAll("bla").IgnoringCase();
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveAllNullTextIgnoringCase()
+        {
+            string transformed = Const.SampleString.RemoveAll(null).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveAllNullTextFromNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.RemoveAll(null).IgnoringCase();
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveAllEmptyTextIgnoringCase()
+        {
+            string transformed = Const.SampleString.RemoveAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveAllTextIgnoringCase()
+        {
+            string transformed = "TEST string will be removed".RemoveAll("TeSt").IgnoringCase();
+            transformed.Should().Be(" string will be removed");
+
+            transformed = "TEST string will be removed from both sides TEST".RemoveAll("tESt").IgnoringCase();
+            transformed.Should().Be(" string will be removed from both sides ");
+
+            transformed = "TEST string will be TEST removed from test the whole string TEST".RemoveAll("tESt").IgnoringCase();
+            transformed.Should().Be(" string will be  removed from  the whole string ");
+        }
+
+        #endregion
     }
 }
