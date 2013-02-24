@@ -13,9 +13,9 @@ namespace dokas.FluentStrings.Actions.Remove
             _position = position;
         }
 
-        public static implicit operator string(RemoveValueIgnoringCaseFrom removeStringIgnoringCaseFrom)
+        public static implicit operator string(RemoveValueIgnoringCaseFrom removeValueIgnoringCaseFrom)
         {
-            return removeStringIgnoringCaseFrom.ToString();
+            return removeValueIgnoringCaseFrom.ToString();
         }
 
         public override string ToString()

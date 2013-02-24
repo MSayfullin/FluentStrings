@@ -13,9 +13,9 @@ namespace dokas.FluentStrings.Actions.Remove
 
         internal RemoveValue RemoveValue { get { return _removeValue; } }
 
-        public static implicit operator string(RemoveValueIgnoringCase removeStringIgnoringCase)
+        public static implicit operator string(RemoveValueIgnoringCase removeValueIgnoringCase)
         {
-            return removeStringIgnoringCase.ToString();
+            return removeValueIgnoringCase.ToString();
         }
 
         public override string ToString()
