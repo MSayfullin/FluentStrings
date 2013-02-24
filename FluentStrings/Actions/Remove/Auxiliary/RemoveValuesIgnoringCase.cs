@@ -11,6 +11,8 @@ namespace dokas.FluentStrings.Actions.Remove
             _removeValues = removeValues;
         }
 
+        internal RemoveValues RemoveValues { get { return _removeValues; } }
+
         public static implicit operator string(RemoveValuesIgnoringCase removeValuesIgnoringCase)
         {
             return removeValuesIgnoringCase.ToString();

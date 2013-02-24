@@ -668,6 +668,144 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
+        #region Remove Values Ignoring Case From
+
+        [TestMethod]
+        public void RemoveValuesIgnoringCaseFromBeginningOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, "bla").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveValuesIgnoringCaseFromEndOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, "bla").IgnoringCase().From(The.End);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesIgnoringCaseFromBeginning()
+        {
+            string transformed = Const.SampleString.Remove(1, null).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesIgnoringCaseFromEnd()
+        {
+            string transformed = Const.SampleString.Remove(2, null).IgnoringCase().From(The.End);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesIgnoringCaseFromBeginningOfNullString()
+        {
+            string transformed = Const.NullString.Remove(3, null).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesIgnoringCaseFromEndOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, null).IgnoringCase().From(The.End);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesIgnoringCaseFromBeginning()
+        {
+            string transformed = Const.SampleString.Remove(4, String.Empty).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesIgnoringCaseFromEnd()
+        {
+            string transformed = Const.SampleString.Remove(3, String.Empty).IgnoringCase().From(The.End);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void RemoveNegativeQuantityValuesIgnoringCaseFromBeginning()
+        {
+            string transformed = "TEST string will be removed".Remove(-1, "TEST").IgnoringCase().From(The.Beginning);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void RemoveNegativeQuantityValuesIgnoringCaseFromEnd()
+        {
+            string transformed = "TEST string will be removed".Remove(-1, "TEST").IgnoringCase().From(The.End);
+        }
+
+        [TestMethod]
+        public void RemoveZeroValuesIgnoringCaseFromBeginning()
+        {
+            string transformed = "TEST string will be removed".Remove(0, "TEST").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be("TEST string will be removed");
+
+            transformed = "TEST <- both strings will be removed -> TEST".Remove(0, "TEST").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be("TEST <- both strings will be removed -> TEST");
+        }
+
+        [TestMethod]
+        public void RemoveZeroValuesIgnoringCaseFromEnd()
+        {
+            string transformed = "string will be removed -> TEST".Remove(0, "TEST").IgnoringCase().From(The.End);
+            transformed.Should().Be("string will be removed -> TEST");
+
+            transformed = "TEST <- again both strings will be removed -> TEST".Remove(0, "TEST").IgnoringCase().From(The.End);
+            transformed.Should().Be("TEST <- again both strings will be removed -> TEST");
+        }
+
+        [TestMethod]
+        public void RemoveOneValueIgnoringCaseFromBeginning()
+        {
+            string transformed = "TEST string will be removed".Remove(1, "TeSt").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(" string will be removed");
+
+            transformed = "string will be removed ->tEST".Remove(1, "tEsT").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be("string will be removed ->");
+
+            transformed = "string will be removed ->TEST and this will be left TEST".Remove(1, "TEST").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be("string will be removed -> and this will be left TEST");
+        }
+
+        [TestMethod]
+        public void RemoveTwoValuesFromBeginningIgnoringCase()
+        {
+            string transformed = "TesT string will be removed from both sides TEST".Remove(2, "TEST").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(" string will be removed from both sides ");
+        }
+
+        [TestMethod]
+        public void RemoveFiveValuesIgnoringCaseFromBeginningOfStringWithTwoValues()
+        {
+            string transformed = "TesT string will be removed from both sides TEST".Remove(5, "TEST").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(" string will be removed from both sides ");
+        }
+
+        [TestMethod]
+        public void RemoveValuesIgnoringCaseFromEnd()
+        {
+            string transformed = "string will be removed -> TEST".Remove(1, "tESt").IgnoringCase().From(The.End);
+            transformed.Should().Be("string will be removed -> ");
+
+            transformed = "TEST <- this string will be left, but this will be removed -> TEST".Remove(1, "test").IgnoringCase().From(The.End);
+            transformed.Should().Be("TEST <- this string will be left, but this will be removed -> ");
+        }
+
+        [TestMethod]
+        public void RemoveTwoValuesIgnoringCaseFromEndOfStringWithOneValue()
+        {
+            string transformed = "string will be removed -> |TesT| some additional string".Remove(2, "TEST").IgnoringCase().From(The.End);
+            transformed.Should().Be("string will be removed -> || some additional string");
+        }
+
+        #endregion
+
         #region Remove All
 
         [TestMethod]

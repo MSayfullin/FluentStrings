@@ -97,6 +97,17 @@ namespace dokas.FluentStrings
             return new RemoveValuesIgnoringCase(source);
         }
 
+        /// <summary>
+        /// Extends Remove.IgnoringCase action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        public static RemoveValuesIgnoringCaseFrom From(this RemoveValuesIgnoringCase source, The position)
+        {
+            return new RemoveValuesIgnoringCaseFrom(source, position);
+        }
 
 
         /// <summary>
