@@ -43,9 +43,9 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Extends Remove action with the ability to ignore case
         /// </summary>
-        public static RemoveStringIgnoringCase IgnoringCase(this RemoveValue source)
+        public static RemoveValueIgnoringCase IgnoringCase(this RemoveValue source)
         {
-            return new RemoveStringIgnoringCase(source);
+            return new RemoveValueIgnoringCase(source);
         }
 
         /// <summary>
@@ -55,9 +55,9 @@ namespace dokas.FluentStrings
         /// Position in source string to start from. Beginning or End values could be used
         /// </param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringIgnoringCaseFrom From(this RemoveStringIgnoringCase source, The position)
+        public static RemoveValueIgnoringCaseFrom From(this RemoveValueIgnoringCase source, The position)
         {
-            return new RemoveStringIgnoringCaseFrom(source, position);
+            return new RemoveValueIgnoringCaseFrom(source, position);
         }
 
         /// <summary>

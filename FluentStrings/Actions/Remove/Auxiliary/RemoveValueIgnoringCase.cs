@@ -2,18 +2,18 @@
 
 namespace dokas.FluentStrings.Actions.Remove
 {
-    public class RemoveStringIgnoringCase
+    public class RemoveValueIgnoringCase
     {
         private readonly RemoveValue _removeValue;
 
-        public RemoveStringIgnoringCase(RemoveValue removeValue)
+        public RemoveValueIgnoringCase(RemoveValue removeValue)
         {
             _removeValue = removeValue;
         }
 
         internal RemoveValue RemoveValue { get { return _removeValue; } }
 
-        public static implicit operator string(RemoveStringIgnoringCase removeStringIgnoringCase)
+        public static implicit operator string(RemoveValueIgnoringCase removeStringIgnoringCase)
         {
             return removeStringIgnoringCase.ToString();
         }
