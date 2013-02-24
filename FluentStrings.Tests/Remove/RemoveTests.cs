@@ -173,8 +173,8 @@ namespace dokas.FluentStrings.Tests
             transformed = "test <- string will be removed, not this -> test".Remove("test").From(The.Beginning);
             transformed.Should().Be(" <- string will be removed, not this -> test");
 
-            transformed = "Some additional TEST which will be ifnored string |TeSt| string will be removed".Remove("TeSt").From(The.Beginning);
-            transformed.Should().Be("Some additional TEST which will be ifnored string || string will be removed");
+            transformed = "Some additional TEST which will be ignored string |TeSt| string will be removed".Remove("TeSt").From(The.Beginning);
+            transformed.Should().Be("Some additional TEST which will be ignored string || string will be removed");
         }
 
         [TestMethod]
@@ -370,6 +370,13 @@ namespace dokas.FluentStrings.Tests
         {
             string transformed = Const.SampleString.Remove(2, String.Empty);
             transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void RemoveNegativeQuantityValues()
+        {
+            string transformed = Const.SampleString.Remove(-1, "TEST");
         }
 
         [TestMethod]

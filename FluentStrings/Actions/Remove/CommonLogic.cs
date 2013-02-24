@@ -8,6 +8,9 @@ namespace dokas.FluentStrings.Actions.Remove
     {
         public static string RemoveValues(string source, int? quantity, string extraction, StringComparison comparisonRule)
         {
+            if (quantity < 0)
+                throw new ArgumentOutOfRangeException("quantity", "Negative quantity is not supported");
+
             if (source.IsEmpty() || extraction.IsEmpty() || quantity == 0)
                 return source;
 
