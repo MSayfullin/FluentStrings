@@ -342,6 +342,86 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
+        #region Remove Values
+
+        [TestMethod]
+        public void RemoveValuesFromNullString()
+        {
+            string transformed = Const.NullString.Remove(2, "bla");
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveNullValues()
+        {
+            string transformed = Const.SampleString.Remove(3, null);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesFromNullString()
+        {
+            string transformed = Const.NullString.Remove(1, null);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValues()
+        {
+            string transformed = Const.SampleString.Remove(2, String.Empty);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveOneValue()
+        {
+            string transformed = "TEST string will be removed".Remove(1, "TEST");
+            transformed.Should().Be(" string will be removed");
+
+            transformed = "string will be removed ->TEST".Remove(1, "TEST");
+            transformed.Should().Be("string will be removed ->");
+        }
+
+        [TestMethod]
+        public void RemoveZeroValues()
+        {
+            string transformed = Const.SampleString.Remove(0, "TEST");
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveTwoValues()
+        {
+            string transformed = "string will be removed ->TEST and this will be removed also TEST".Remove(2, "TEST");
+            transformed.Should().Be("string will be removed -> and this will be removed also ");
+        }
+
+        [TestMethod]
+        public void RemoveThreeValuesFromStringWithThreeValues()
+        {
+            string transformed = "TEST only three TEST strings will be removed from TEST string TEST".Remove(3, "TEST");
+            transformed.Should().Be(" only three  strings will be removed from  string TEST");
+        }
+
+        [TestMethod]
+        public void RemoveOneValueCaseSensitive()
+        {
+            string transformed = "TEsT string will be removed".Remove(1, "TEsT");
+            transformed.Should().Be(" string will be removed");
+
+            transformed = "string will be removed ->Test".Remove(1, "Test");
+            transformed.Should().Be("string will be removed ->");
+        }
+
+        [TestMethod]
+        public void RemoveThreeValuesCaseSensitiveFromStringWithThreeValues()
+        {
+            string transformed = "TesT only three TesT strings will be removed from TesT string TesT".Remove(3, "TesT");
+            transformed.Should().Be(" only three  strings will be removed from  string TesT");
+        }
+
+        #endregion
+
         #region Remove All
 
         [TestMethod]

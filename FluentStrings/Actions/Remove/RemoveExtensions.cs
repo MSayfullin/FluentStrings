@@ -16,6 +16,8 @@ namespace dokas.FluentStrings
             return new RemoveString(source);
         }
 
+
+
         /// <summary>
         /// Removes first value occurrence from the source string.
         /// Action is case sensitive by default, use IgnoringCase extension to change behaviour.
@@ -59,6 +61,23 @@ namespace dokas.FluentStrings
         {
             return new RemoveValueIgnoringCaseFrom(source, position);
         }
+
+
+
+        /// <summary>
+        /// Removes defined number of value occurrences from the source string.
+        /// Action is case sensitive by default, use IgnoringCase extension to change behaviour.
+        /// N.B.: Default Remove() is equivalent of Remove().From(The.Beginning)
+        /// </summary>
+        /// <param name="source">Target string for removal</param>
+        /// <param name="quantity">Number of values to remove</param>
+        /// <param name="value">String to be removed</param>
+        public static RemoveValues Remove(this string source, int quantity, string value)
+        {
+            return new RemoveValues(source, quantity, value);
+        }
+
+
 
         /// <summary>
         /// Removes all value occurrences from the source string.
