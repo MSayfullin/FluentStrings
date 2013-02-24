@@ -89,6 +89,14 @@ namespace dokas.FluentStrings
             return new RemoveValuesFrom(source, position);
         }
 
+        /// <summary>
+        /// Extends Remove action with the ability to ignore case
+        /// </summary>
+        public static RemoveValuesIgnoringCase IgnoringCase(this RemoveValues source)
+        {
+            return new RemoveValuesIgnoringCase(source);
+        }
+
 
 
         /// <summary>

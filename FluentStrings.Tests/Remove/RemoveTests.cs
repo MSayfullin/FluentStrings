@@ -404,7 +404,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveThreeValuesFromStringWithThreeValues()
+        public void RemoveThreeValuesFromStringWithFourValues()
         {
             string transformed = "TEST only three TEST strings will be removed from TEST string TEST".Remove(3, "TEST");
             transformed.Should().Be(" only three  strings will be removed from  string TEST");
@@ -421,7 +421,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveThreeValuesCaseSensitiveFromStringWithThreeValues()
+        public void RemoveThreeValuesCaseSensitiveFromStringWithFourValues()
         {
             string transformed = "TesT only three TesT strings will be removed from TesT string TesT".Remove(3, "TesT");
             transformed.Should().Be(" only three  strings will be removed from  string TesT");
@@ -591,6 +591,79 @@ namespace dokas.FluentStrings.Tests
 
             transformed = "string will be removed -> |tEsT| some additional string".Remove(1, "tEsT").From(The.End);
             transformed.Should().Be("string will be removed -> || some additional string");
+        }
+
+        #endregion
+
+        #region Remove Values Ignoring Case
+
+        [TestMethod]
+        public void RemoveValuesFromNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(1, "bla").IgnoringCase();
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(2, null).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesFromNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(2, null).IgnoringCase();
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(1, String.Empty).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void RemoveNegativeQuantityValuesIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(-1, "TEST").IgnoringCase();
+        }
+
+        [TestMethod]
+        public void RemoveZeroValuesIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(0, "TEST").IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveOneValueIgnoringCase()
+        {
+            string transformed = "TEST string will be removed".Remove(1, "TeSt").IgnoringCase();
+            transformed.Should().Be(" string will be removed");
+
+            transformed = "string will be removed ->tEST".Remove(1, "tEsT").IgnoringCase();
+            transformed.Should().Be("string will be removed ->");
+
+            transformed = "string will be removed ->TEST and this will be left TEST".Remove(1, "TEST").IgnoringCase();
+            transformed.Should().Be("string will be removed -> and this will be left TEST");
+        }
+
+        [TestMethod]
+        public void RemoveTwoValuesIgnoringCase()
+        {
+            string transformed = "TesT string will be removed from both sides TEST".Remove(2, "TEST").IgnoringCase();
+            transformed.Should().Be(" string will be removed from both sides ");
+        }
+
+        [TestMethod]
+        public void RemoveThreeValuesIgnoringCaseFromStringWithFourValues()
+        {
+            string transformed = "TEST only three TeSt strings will be removed from test string TesT".Remove(3, "TesT").IgnoringCase();
+            transformed.Should().Be(" only three  strings will be removed from  string TesT");
         }
 
         #endregion
