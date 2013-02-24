@@ -78,6 +78,19 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be(" string will be removed only from left side TEST");
         }
 
+        [TestMethod]
+        public void RemoveTextCaseSensitive()
+        {
+            string transformed = "tEsT string will be removed".Remove("tEsT");
+            transformed.Should().Be(" string will be removed");
+
+            transformed = "string will be removed ->TesT and this will be left TEST".Remove("TesT");
+            transformed.Should().Be("string will be removed -> and this will be left TEST");
+
+            transformed = "TEST string will be NOT be removed from string TEST".Remove("test");
+            transformed.Should().Be("TEST string will be NOT be removed from string TEST");
+        }
+
         #endregion
 
         #region Remove From
@@ -152,6 +165,19 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
+        public void RemoveTextCaseSensitiveFromBeginning()
+        {
+            string transformed = "teST string will be removed".Remove("teST").From(The.Beginning);
+            transformed.Should().Be(" string will be removed");
+
+            transformed = "test <- string will be removed, not this -> test".Remove("test").From(The.Beginning);
+            transformed.Should().Be(" <- string will be removed, not this -> test");
+
+            transformed = "Some additional TEST which will be ifnored string |TeSt| string will be removed".Remove("TeSt").From(The.Beginning);
+            transformed.Should().Be("Some additional TEST which will be ifnored string || string will be removed");
+        }
+
+        [TestMethod]
         public void RemoveTextFromEnd()
         {
             string transformed = "string will be removed -> TEST".Remove("TEST").From(The.End);
@@ -161,6 +187,19 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("TEST <- this string will be left, but this will be removed -> ");
 
             transformed = "string will be removed -> |TEST| some additional string".Remove("TEST").From(The.End);
+            transformed.Should().Be("string will be removed -> || some additional string");
+        }
+
+        [TestMethod]
+        public void RemoveTextCaseSensitiveFromEnd()
+        {
+            string transformed = "string will be removed -> TesT".Remove("TesT").From(The.End);
+            transformed.Should().Be("string will be removed -> ");
+
+            transformed = "test <- this string will be left, but this will be removed -> test".Remove("test").From(The.End);
+            transformed.Should().Be("test <- this string will be left, but this will be removed -> ");
+
+            transformed = "string will be removed -> |tEsT| some additional string".Remove("tEsT").From(The.End);
             transformed.Should().Be("string will be removed -> || some additional string");
         }
 

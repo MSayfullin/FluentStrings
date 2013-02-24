@@ -23,9 +23,11 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return (_source.IsEmpty() || _extraction.IsEmpty())
-                ? _source
-                : _source.Remove(_source.IndexOf(_extraction), _extraction.Length);
+            if (_source.IsEmpty() || _extraction.IsEmpty())
+                return _source;
+
+            var index = _source.IndexOf(_extraction);
+            return index >= 0 ? _source.Remove(index, _extraction.Length) : _source;
         }
     }
 }
