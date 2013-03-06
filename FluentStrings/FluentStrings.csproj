@@ -105,7 +105,7 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveValues.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveValuesFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveValuesIgnoringCase.cs" />
-    <Compile Include="Actions\Remove\RemoveValuesIgnoringCaseFrom.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveValuesIgnoringCaseFrom.cs" />
     <Compile Include="Actions\Remove\Resources\VowelsMap.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateStringFrom.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateString.cs" />
