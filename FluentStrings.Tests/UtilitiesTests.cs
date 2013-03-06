@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -71,7 +72,7 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
-        #region Indexes Of
+        #region Indexes Of Value
 
         [TestMethod]
         public void IndexesOfMarkerInNullString()
@@ -145,7 +146,158 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
-        #region Indexes Of Ignoring Case
+        #region Indexes Of Value From
+
+        [TestMethod]
+        public void IndexesOfMarkerFromEndOf()
+        {
+            Action action = () => Const.SampleString.IndexesOf("marker").From(The.EndOf).First();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerInNullStringFromBeginning()
+        {
+            var indexes = Const.NullString.IndexesOf("marker").From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerInNullStringFromEnd()
+        {
+            var indexes = Const.NullString.IndexesOf("marker").From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInNullStringFromBeginning()
+        {
+            var indexes = Const.NullString.IndexesOf(null).From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInNullStringFromEnd()
+        {
+            var indexes = Const.NullString.IndexesOf(null).From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInNullStringFromBeginning()
+        {
+            var indexes = Const.NullString.IndexesOf(String.Empty).From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInNullStringFromEnd()
+        {
+            var indexes = Const.NullString.IndexesOf(String.Empty).From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerInEmptyStringFromBeginning()
+        {
+            var indexes = String.Empty.IndexesOf("marker").From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerInEmptyStringFromEnd()
+        {
+            var indexes = String.Empty.IndexesOf("marker").From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInEmptyStringFromBeginning()
+        {
+            var indexes = String.Empty.IndexesOf(null).From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInEmptyStringFromEnd()
+        {
+            var indexes = String.Empty.IndexesOf(null).From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInEmptyStringFromBeginning()
+        {
+            var indexes = String.Empty.IndexesOf(String.Empty).From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInEmptyStringFromEnd()
+        {
+            var indexes = String.Empty.IndexesOf(String.Empty).From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerFromBeginning()
+        {
+            var indexes = Const.SampleString.IndexesOf(null).From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerFromEnd()
+        {
+            var indexes = Const.SampleString.IndexesOf(null).From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerFromBeginning()
+        {
+            var indexes = Const.SampleString.IndexesOf(String.Empty).From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerFromEnd()
+        {
+            var indexes = Const.SampleString.IndexesOf(String.Empty).From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerFromBeginning()
+        {
+            var indexes = "Some text marker another texts marker marker".IndexesOf("marker").From(The.Beginning);
+            indexes.Should().ContainInOrder(10, 31, 38);
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerFromEnd()
+        {
+            var indexes = "Some text marker another texts marker marker".IndexesOf("marker").From(The.End);
+            indexes.Should().ContainInOrder(38, 31, 10);
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerCaseSensitiveFromBeginning()
+        {
+            var indexes = "Some text marker another texts Marker marker".IndexesOf("marker").From(The.Beginning);
+            indexes.Should().ContainInOrder(10, 38);
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerCaseSensitiveFromEnd()
+        {
+            var indexes = "Some text marker another texts Marker marker".IndexesOf("marker").From(The.End);
+            indexes.Should().ContainInOrder(38, 10);
+        }
+
+        #endregion
+
+        #region Indexes Of Value Ignoring Case
 
         [TestMethod]
         public void IndexesOfMarkerInNullStringIgnoringCase()
@@ -211,6 +363,143 @@ namespace dokas.FluentStrings.Tests
 
             indexes = "Some text marker another texts MarKer marker".IndexesOf("mArkEr").IgnoringCase();
             indexes.Should().ContainInOrder(10, 31, 38);
+        }
+
+        #endregion
+
+        #region Indexes Of Value Ignoring Case From
+
+        [TestMethod]
+        public void IndexesOfMarkerIgnoringCaseFromStartOf()
+        {
+            Action action = () => Const.SampleString.IndexesOf("marker").IgnoringCase().From(The.StartOf).First();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerInNullStringIgnoringCaseFromBeginning()
+        {
+            var indexes = Const.NullString.IndexesOf("marker").IgnoringCase().From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerInNullStringIgnoringCaseFromEnd()
+        {
+            var indexes = Const.NullString.IndexesOf("marker").IgnoringCase().From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInNullStringIgnoringCaseFromBeginning()
+        {
+            var indexes = Const.NullString.IndexesOf(null).IgnoringCase().From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInNullStringIgnoringCaseFromEnd()
+        {
+            var indexes = Const.NullString.IndexesOf(null).IgnoringCase().From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInNullStringIgnoringCaseFromBeginning()
+        {
+            var indexes = Const.NullString.IndexesOf(String.Empty).IgnoringCase().From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInNullStringIgnoringCaseFromEnd()
+        {
+            var indexes = Const.NullString.IndexesOf(String.Empty).IgnoringCase().From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerInEmptyStringIgnoringCaseFromBeginning()
+        {
+            var indexes = String.Empty.IndexesOf("marker").IgnoringCase().From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerInEmptyStringIgnoringCaseFromEnd()
+        {
+            var indexes = String.Empty.IndexesOf("marker").IgnoringCase().From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInEmptyStringIgnoringCaseFromBeginning()
+        {
+            var indexes = String.Empty.IndexesOf(null).IgnoringCase().From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInEmptyStringIgnoringCaseFromEnd()
+        {
+            var indexes = String.Empty.IndexesOf(null).IgnoringCase().From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInEmptyStringIgnoringCaseFromBeginning()
+        {
+            var indexes = String.Empty.IndexesOf(String.Empty).IgnoringCase().From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInEmptyStringIgnoringCaseFromEnd()
+        {
+            var indexes = String.Empty.IndexesOf(String.Empty).IgnoringCase().From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerIgnoringCaseFromBeginning()
+        {
+            var indexes = Const.SampleString.IndexesOf(null).IgnoringCase().From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerIgnoringCaseFromEnd()
+        {
+            var indexes = Const.SampleString.IndexesOf(null).IgnoringCase().From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerIgnoringCaseFromBeginning()
+        {
+            var indexes = Const.SampleString.IndexesOf(String.Empty).IgnoringCase().From(The.Beginning);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerIgnoringCaseFromEnd()
+        {
+            var indexes = Const.SampleString.IndexesOf(String.Empty).IgnoringCase().From(The.End);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerIgnoringCaseFromBeginning()
+        {
+            var indexes = "Some text marker another texts marker marker".IndexesOf("marker").IgnoringCase().From(The.Beginning);
+            indexes.Should().ContainInOrder(10, 31, 38);
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerIgnoringCaseFromEnd()
+        {
+            var indexes = "Some text marker another texts marker marker".IndexesOf("marker").IgnoringCase().From(The.End);
+            indexes.Should().ContainInOrder(38, 31, 10);
         }
 
         #endregion

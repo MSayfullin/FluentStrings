@@ -4,20 +4,20 @@ using System.Collections.Generic;
 
 namespace dokas.FluentStrings.Actions.Utilities
 {
-    public class IndexesOfValueIgnoringCase : IEnumerable<int>
+    public class IndexesOfValueFrom : IEnumerable<int>
     {
         private readonly IndexesOfValue _indexesOfValue;
+        private readonly The _position;
 
-        internal IndexesOfValueIgnoringCase(IndexesOfValue indexesOfValue)
+        internal IndexesOfValueFrom(IndexesOfValue indexesOfValue, The position)
         {
             _indexesOfValue = indexesOfValue;
+            _position = position;
         }
-
-        internal IndexesOfValue IndexesOfValue { get { return _indexesOfValue; } }
 
         private IEnumerable<int> AsEnumerable()
         {
-            return _indexesOfValue.Source.IndexesOf(_indexesOfValue.Marker, StringComparison.CurrentCultureIgnoreCase);
+            return _indexesOfValue.Source.IndexesOf(_indexesOfValue.Marker, StringComparison.CurrentCulture, _position);
         }
 
         #region IEnumerable Members
