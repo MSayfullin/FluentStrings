@@ -144,5 +144,75 @@ namespace dokas.FluentStrings.Tests
         }
 
         #endregion
+
+        #region Indexes Of Ignoring Case
+
+        [TestMethod]
+        public void IndexesOfMarkerInNullStringIgnoringCase()
+        {
+            var indexes = Const.NullString.IndexesOf("marker").IgnoringCase();
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInNullStringIgnoringCase()
+        {
+            var indexes = Const.NullString.IndexesOf(null).IgnoringCase();
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInNullStringIgnoringCase()
+        {
+            var indexes = Const.NullString.IndexesOf(String.Empty).IgnoringCase();
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerInEmptyStringIgnoringCase()
+        {
+            var indexes = String.Empty.IndexesOf("marker").IgnoringCase();
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInEmptyStringIgnoringCase()
+        {
+            var indexes = String.Empty.IndexesOf(null).IgnoringCase();
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInEmptyStringIgnoringCase()
+        {
+            var indexes = String.Empty.IndexesOf(String.Empty).IgnoringCase();
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerIgnoringCase()
+        {
+            var indexes = Const.SampleString.IndexesOf(null).IgnoringCase();
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerIgnoringCase()
+        {
+            var indexes = Const.SampleString.IndexesOf(String.Empty).IgnoringCase();
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerIgnoringCase()
+        {
+            var indexes = "Some text marker another texts MarKer marker".IndexesOf("marker").IgnoringCase();
+            indexes.Should().ContainInOrder(10, 31, 38);
+
+            indexes = "Some text marker another texts MarKer marker".IndexesOf("mArkEr").IgnoringCase();
+            indexes.Should().ContainInOrder(10, 31, 38);
+        }
+
+        #endregion
     }
 }

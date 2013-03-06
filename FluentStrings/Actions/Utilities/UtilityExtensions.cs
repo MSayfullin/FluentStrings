@@ -38,13 +38,22 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Enumerates through indexes of a marker value in a given string
+        /// Enumerates through indexes of a marker value in a given string.
+        /// Action is case sensitive by default, use IgnoringCase extension to change behaviour.
         /// </summary>
         /// <param name="source">Target string for indexing</param>
         /// <param name="value">Marker value</param>
         public static IndexesOfValue IndexesOf(this string source, string value)
         {
             return new IndexesOfValue(source, value);
+        }
+
+        /// <summary>
+        /// Extends IndexesOf action with the ability to ignore case
+        /// </summary>
+        public static IndexesOfValueIgnoringCase IgnoringCase(this IndexesOfValue source)
+        {
+            return new IndexesOfValueIgnoringCase(source);
         }
     }
 }
