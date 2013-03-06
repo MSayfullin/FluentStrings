@@ -20,8 +20,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return CommonLogic.RemoveValues(
-                _removeValuesIgnoringCase.RemoveValues.Source,
+            return _removeValuesIgnoringCase.RemoveValues.Source.RemoveValues(
                 _removeValuesIgnoringCase.RemoveValues.Quantity,
                 _removeValuesIgnoringCase.RemoveValues.Extraction,
                 StringComparison.CurrentCultureIgnoreCase,

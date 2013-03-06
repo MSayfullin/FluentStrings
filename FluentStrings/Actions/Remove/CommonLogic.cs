@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using dokas.FluentStrings.Actions.Utilities;
 
 namespace dokas.FluentStrings.Actions.Remove
 {
     internal static class CommonLogic
     {
-        public static string RemoveValues(string source, int? quantity, string extraction, StringComparison comparisonRule, The position)
+        public static string RemoveValues(this string source, int? quantity, string extraction, StringComparison comparisonRule, The position)
         {
             switch (position)
             {
                 case The.Beginning:
-                    return RemoveValuesInternal(source, quantity, extraction, comparisonRule);
                 case The.End:
-                    return RemoveValuesInternal(source, quantity, extraction, comparisonRule, true);
+                    return RemoveValuesInternal(source, quantity, extraction, comparisonRule, position);
                 case The.StartOf:
                 case The.EndOf:
                 default:
@@ -21,12 +21,12 @@ namespace dokas.FluentStrings.Actions.Remove
             }
         }
 
-        public static string RemoveValues(string source, int? quantity, string extraction, StringComparison comparisonRule)
+        public static string RemoveValues(this string source, int? quantity, string extraction, StringComparison comparisonRule)
         {
             return RemoveValuesInternal(source, quantity, extraction, comparisonRule);
         }
 
-        private static string RemoveValuesInternal(string source, int? quantity, string extraction, StringComparison comparisonRule, bool reverse = false)
+        private static string RemoveValuesInternal(string source, int? quantity, string extraction, StringComparison comparisonRule, The position = The.Beginning)
         {
             if (quantity < 0)
                 throw new ArgumentOutOfRangeException("quantity", "Negative quantity is not supported");
@@ -34,15 +34,19 @@ namespace dokas.FluentStrings.Actions.Remove
             if (source.IsEmpty() || extraction.IsEmpty() || quantity == 0)
                 return source;
 
-            var indexes = reverse
-                ? GetReverseIndexes(source, quantity, extraction, comparisonRule)
-                : GetForwardIndexes(source, quantity, extraction, comparisonRule);
+            var indexes = source.IndexesOf(extraction, comparisonRule, position);
+            if (quantity != null)
+                indexes = indexes.Take(quantity.Value);
+            if (position == The.End)
+                indexes = indexes.Reverse();
 
-            if (indexes.Count == 0)
+            var indexesArray = indexes.ToArray();
+
+            if (!indexesArray.Any())
                 return source;
 
             var start = 0;
-            var resultStringLength = source.Length - indexes.Count * extraction.Length;
+            var resultStringLength = source.Length - indexesArray.Length * extraction.Length;
             var builder = new StringBuilder(resultStringLength);
             foreach (var index in indexes)
             {
@@ -51,31 +55,6 @@ namespace dokas.FluentStrings.Actions.Remove
             }
             builder.Append(source.Substring(start));
             return builder.ToString();
-        }
-
-        private static List<int> GetForwardIndexes(string source, int? quantity, string extraction, StringComparison comparisonRule)
-        {
-            var indexes = new List<int>();
-            var index = source.IndexOf(extraction, comparisonRule);
-            while (index >= 0 && (quantity == null || indexes.Count < quantity))
-            {
-                indexes.Add(index);
-                index = source.IndexOf(extraction, index + 1, comparisonRule);
-            }
-            return indexes;
-        }
-
-        private static List<int> GetReverseIndexes(string source, int? quantity, string extraction, StringComparison comparisonRule)
-        {
-            var indexes = new List<int>();
-            var index = source.LastIndexOf(extraction, comparisonRule);
-            while (index >= 0 && (quantity == null || indexes.Count < quantity))
-            {
-                indexes.Add(index);
-                index = source.LastIndexOf(extraction, index + 1, comparisonRule);
-            }
-            indexes.Reverse();
-            return indexes;
         }
     }
 }
