@@ -7,7 +7,7 @@ namespace dokas.FluentStrings.Actions.Remove
         private readonly RemoveValues _removeValues;
         private readonly The _position;
 
-        public RemoveValuesFrom(RemoveValues source, The position)
+        internal RemoveValuesFrom(RemoveValues source, The position)
         {
             _removeValues = source;
             _position = position;

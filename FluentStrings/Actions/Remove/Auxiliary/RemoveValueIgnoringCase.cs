@@ -6,7 +6,7 @@ namespace dokas.FluentStrings.Actions.Remove
     {
         private readonly RemoveValue _removeValue;
 
-        public RemoveValueIgnoringCase(RemoveValue removeValue)
+        internal RemoveValueIgnoringCase(RemoveValue removeValue)
         {
             _removeValue = removeValue;
         }

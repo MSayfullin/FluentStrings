@@ -8,7 +8,7 @@ namespace dokas.FluentStrings.Actions.Remove
         private readonly int _quantity;
         private readonly string _extraction;
 
-        public RemoveValues(string source, int quantity, string extraction)
+        internal RemoveValues(string source, int quantity, string extraction)
         {
             _source = source;
             _quantity = quantity;

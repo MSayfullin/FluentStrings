@@ -6,7 +6,7 @@ namespace dokas.FluentStrings.Actions.Remove
     {
         private readonly RemoveAll _removeAll;
 
-        public RemoveAllIgnoringCase(RemoveAll removeAll)
+        internal RemoveAllIgnoringCase(RemoveAll removeAll)
         {
             _removeAll = removeAll;
         }
