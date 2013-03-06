@@ -373,10 +373,10 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveNegativeQuantityValues()
         {
-            string transformed = Const.SampleString.Remove(-1, "TEST");
+            Action action = () => Const.SampleString.Remove(-1, "TEST").ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
         [TestMethod]
@@ -488,10 +488,10 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveNegativeQuantityValuesFromBeginning()
         {
-            string transformed = "TEST string will be removed".Remove(-1, "TEST").From(The.Beginning);
+            Action action = () => "TEST string will be removed".Remove(-1, "TEST").From(The.Beginning).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
         [TestMethod]
@@ -541,10 +541,10 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveNegativeQuantityValuesFromEnd()
         {
-            string transformed = "TEST string will be removed".Remove(-1, "TEST").From(The.End);
+            Action action = () => "TEST string will be removed".Remove(-1, "TEST").From(The.End).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
         [TestMethod]
@@ -626,10 +626,10 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveNegativeQuantityValuesIgnoringCase()
         {
-            string transformed = Const.SampleString.Remove(-1, "TEST").IgnoringCase();
+            Action action = () => Const.SampleString.Remove(-1, "TEST").IgnoringCase().ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
         [TestMethod]
@@ -727,17 +727,17 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveNegativeQuantityValuesIgnoringCaseFromBeginning()
         {
-            string transformed = "TEST string will be removed".Remove(-1, "TEST").IgnoringCase().From(The.Beginning);
+            Action action = () => "TEST string will be removed".Remove(-1, "TEST").IgnoringCase().From(The.Beginning).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveNegativeQuantityValuesIgnoringCaseFromEnd()
         {
-            string transformed = "TEST string will be removed".Remove(-1, "TEST").IgnoringCase().From(The.End);
+            Action action = () => "TEST string will be removed".Remove(-1, "TEST").IgnoringCase().From(The.End).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
         [TestMethod]
