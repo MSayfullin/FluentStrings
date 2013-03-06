@@ -70,5 +70,79 @@ namespace dokas.FluentStrings.Tests
         }
 
         #endregion
+
+        #region Indexes Of
+
+        [TestMethod]
+        public void IndexesOfMarkerInNullString()
+        {
+            var indexes = Const.NullString.IndexesOf("marker");
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInNullString()
+        {
+            var indexes = Const.NullString.IndexesOf(null);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInNullString()
+        {
+            var indexes = Const.NullString.IndexesOf(String.Empty);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerInEmptyString()
+        {
+            var indexes = String.Empty.IndexesOf("marker");
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarkerInEmptyString()
+        {
+            var indexes = String.Empty.IndexesOf(null);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarkerInEmptyString()
+        {
+            var indexes = String.Empty.IndexesOf(String.Empty);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfNullMarker()
+        {
+            var indexes = Const.SampleString.IndexesOf(null);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfEmptyMarker()
+        {
+            var indexes = Const.SampleString.IndexesOf(String.Empty);
+            indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarker()
+        {
+            var indexes = "Some text marker another texts marker marker".IndexesOf("marker");
+            indexes.Should().ContainInOrder(10, 31, 38);
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerCaseSensitive()
+        {
+            var indexes = "Some text marker another texts Marker marker".IndexesOf("marker");
+            indexes.Should().ContainInOrder(10, 38);
+        }
+
+        #endregion
     }
 }

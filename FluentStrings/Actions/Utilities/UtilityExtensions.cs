@@ -36,5 +36,15 @@ namespace dokas.FluentStrings
         {
             return String.Format(template, values);
         }
+
+        /// <summary>
+        /// Enumerates through indexes of a marker value in a given string
+        /// </summary>
+        /// <param name="source">Target string for indexing</param>
+        /// <param name="value">Marker value</param>
+        public static IndexesOfValue IndexesOf(this string source, string value)
+        {
+            return new IndexesOfValue(source, value);
+        }
     }
 }
