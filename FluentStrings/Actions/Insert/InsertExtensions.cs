@@ -5,10 +5,12 @@ namespace dokas.FluentStrings
     public static class InsertExtensions
     {
         /// <summary>
-        /// Inserts value to the beginning of the given string
+        /// Inserts value to the beginning of the given string.
+        /// N.B.: Default Insert() is equivalent of Insert().To(The.Beginning)
+        /// and Insert().At(position: 0).From(The.Beginning)
         /// </summary>
-        /// <param name="source">Target string for insertion</param>
-        /// <param name="value">String to be inserted</param>
+        /// <param name="source">Target string for insertion.</param>
+        /// <param name="value">String to be inserted.</param>
         public static InsertString Insert(this string source, string value)
         {
             return new InsertString(source, value);
@@ -16,13 +18,12 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends Insert action with the ability to change place of insertion.
-        /// N.B.: Default Insert() is equivalent of Insert().To(The.Beginning)
         /// </summary>
-        /// <param name="source">Target string for insertion</param>
+        /// <param name="source">Target string for insertion.</param>
         /// <param name="position">
-        /// Position in source string for insert. Beginning or End values could be used
+        /// Position in source string for insertion. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringTo To(this InsertString source, The position)
         {
             return new InsertStringTo(source, position);
@@ -30,45 +31,88 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends Insert action with the ability to change position of insertion.
-        /// N.B.: Default Insert() is equivalent of Insert().At(position: 0).From(The.Beginning)
+        /// N.B.: Default Insert().At() is equivalent of Insert().At().From(The.Beginning)
         /// </summary>
-        /// <param name="source">Target string for insertion</param>
-        /// <param name="position">Position in string for insert</param>
+        /// <param name="source">Target string for insertion.</param>
+        /// <param name="position">Position in string for insertion.</param>
         public static InsertStringAt At(this InsertString source, int position)
         {
             return new InsertStringAt(source, position);
         }
 
+        /// <summary>
+        /// Extends Insert.At action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End value can be used.
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringAtFrom From(this InsertStringAt source, The position)
         {
             return new InsertStringAtFrom(source, position);
         }
 
+        /// <summary>
+        /// Extends Insert action with the ability to set insertion point through the marker.
+        /// Given string is inserted BEFORE every marker in the target string.
+        /// </summary>
+        /// <param name="marker">Marker value for insertion point.</param>
         public static InsertStringBefore Before(this InsertString source, string marker)
         {
             return new InsertStringBefore(source, marker);
         }
 
+        /// <summary>
+        /// Extends Insert action with the ability to set insertion point through occurrence of the marker.
+        /// Given string is inserted right BEFORE the marker.
+        /// </summary>
+        /// <param name="occurrence">Marker occurrence value for insertion point.</param>
+        /// <param name="of">Marker value for insertion point.</param>
         public static InsertStringBeforeOccurrence Before(this InsertString source, int occurrence, string of)
         {
             return new InsertStringBeforeOccurrence(source, occurrence, of);
         }
 
+        /// <summary>
+        /// Extends Insert.Before action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End value can be used.
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringBeforeOccurrenceFrom From(this InsertStringBeforeOccurrence source, The position)
         {
             return new InsertStringBeforeOccurrenceFrom(source, position);
         }
 
+        /// <summary>
+        /// Extends Insert action with the ability to set insertion point through some marker.
+        /// Given string is inserted AFTER every marker in the target string.
+        /// </summary>
+        /// <param name="marker">Marker value for insertion point.</param>
         public static InsertStringAfter After(this InsertString source, string marker)
         {
             return new InsertStringAfter(source, marker);
         }
 
+        /// <summary>
+        /// Extends Insert action with the ability to set insertion point through occurrence of the marker.
+        /// Given string is inserted right AFTER the marker.
+        /// </summary>
+        /// <param name="occurrence">Marker occurrence value for insertion point.</param>
+        /// <param name="of">Marker value for insertion point.</param>
         public static InsertStringAfterOccurrence After(this InsertString source, int occurrence, string of)
         {
             return new InsertStringAfterOccurrence(source, occurrence, of);
         }
 
+        /// <summary>
+        /// Extends Insert.After action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End value can be used.
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringAfterOccurrenceFrom From(this InsertStringAfterOccurrence source, The position)
         {
             return new InsertStringAfterOccurrenceFrom(source, position);
