@@ -25,8 +25,8 @@ namespace dokas.FluentStrings.Actions.Insert
                 case The.Beginning:
                     return _insertStringAt;
                 case The.End:
-                    if (_insertStringAt.InsertString.Source == null)
-                        return _insertStringAt;
+                    if (_insertStringAt.InsertString.Source.IsEmpty())
+                        return _insertStringAt.InsertString.Source;
 
                     int positionIndex = _insertStringAt.InsertString.Source.Length - _insertStringAt.PositionIndex;
                     return _insertStringAt.InsertString.Source.Insert(positionIndex, _insertStringAt.InsertString.Insertion ?? String.Empty);

@@ -23,8 +23,8 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
-            return _insertString.Source == null
-                ? _insertString
+            return _insertString.Source.IsEmpty()
+                ? _insertString.Source
                 : _insertString.Source.Insert(_positionIndex, _insertString.Insertion ?? String.Empty);
         }
     }

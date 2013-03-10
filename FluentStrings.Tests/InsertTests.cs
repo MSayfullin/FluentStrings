@@ -1,5 +1,4 @@
 ﻿using System;
-using dokas.FluentStrings;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,24 +10,52 @@ namespace dokas.FluentStrings.Tests
         #region Insert
 
         [TestMethod]
-        public void InsertTextToNullString()
+        public void InsertNullIntoNullString()
         {
-            string transformed = Const.NullString.Insert("bla");
-            transformed.Should().Be("bla");
+            string transformed = Const.NullString.Insert(null);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertNullText()
+        public void InsertEmptyTextIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(String.Empty);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue);
+            transformed.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void InsertNullIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(null);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(String.Empty);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue);
+            transformed.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void InsertNull()
         {
             string transformed = Const.SampleString.Insert(null);
             transformed.Should().Be(Const.SampleString);
-        }
-
-        [TestMethod]
-        public void InsertNullTextToNullString()
-        {
-            string transformed = Const.NullString.Insert(null);
-            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -50,56 +77,112 @@ namespace dokas.FluentStrings.Tests
         #region Insert To
 
         [TestMethod]
-        public void InsertNullTextToBeginningOfNullString()
+        public void InsertNullToTheBeginningOfNullString()
         {
             string transformed = Const.NullString.Insert(null).To(The.Beginning);
-            transformed.Should().Be(Const.NullString);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertTextToBeginningOfNullString()
+        public void InsertEmptyTextToTheBeginningOfNullString()
         {
-            string transformed = Const.NullString.Insert("bla").To(The.Beginning);
-            transformed.Should().Be("bla");
+            string transformed = Const.NullString.Insert(String.Empty).To(The.Beginning);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertNullTextToBeginning()
+        public void InsertTextToTheBeginningOfNullString()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue).To(The.Beginning);
+            transformed.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void InsertNullToTheBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Insert(null).To(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextToTheBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Insert(String.Empty).To(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextToTheBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).To(The.Beginning);
+            transformed.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void InsertNullToTheBeginning()
         {
             string transformed = Const.SampleString.Insert(null).To(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextToBeginning()
+        public void InsertEmptyTextToTheBeginning()
         {
             string transformed = Const.SampleString.Insert(String.Empty).To(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertNullTextToEndOfNullString()
+        public void InsertNullToTheEndOfNullString()
         {
             string transformed = Const.NullString.Insert(null).To(The.End);
-            transformed.Should().Be(Const.NullString);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertTextToEndOfNullString()
+        public void InsertEmptyTextToTheEndOfNullString()
         {
-            string transformed = Const.NullString.Insert("bla").To(The.End);
-            transformed.Should().Be("bla");
+            string transformed = Const.NullString.Insert(String.Empty).To(The.End);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertNullTextToEnd()
+        public void InsertTextToTheEndOfNullString()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue).To(The.End);
+            transformed.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void InsertNullToTheEndOfEmptyString()
+        {
+            string transformed = String.Empty.Insert(null).To(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextToTheEndOfEmptyString()
+        {
+            string transformed = String.Empty.Insert(String.Empty).To(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextToTheEndOfEmptyString()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).To(The.End);
+            transformed.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void InsertNullToTheEnd()
         {
             string transformed = Const.SampleString.Insert(null).To(The.End);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextToEnd()
+        public void InsertEmptyTextToTheEnd()
         {
             string transformed = Const.SampleString.Insert(String.Empty).To(The.End);
             transformed.Should().Be(Const.SampleString);
@@ -124,28 +207,56 @@ namespace dokas.FluentStrings.Tests
         #region Insert At
 
         [TestMethod]
-        public void InsertNullTextAtPositionInNullString()
+        public void InsertNullAtPositionInNullString()
         {
             string transformed = Const.NullString.Insert(null).At(position: 2);
-            transformed.Should().Be(Const.NullString);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAtPositionInNullString()
+        {
+            string transformed = Const.NullString.Insert(String.Empty).At(position: 2);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
         public void InsertTextAtPositionInNullString()
         {
-            string transformed = Const.NullString.Insert("bla").At(position: 2);
-            transformed.Should().Be("bla");
+            string transformed = Const.NullString.Insert(Const.SampleValue).At(position: 2);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertNullTextAt()
+        public void InsertNullAtPositionInEmptyString()
+        {
+            string transformed = String.Empty.Insert(null).At(position: 2);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAtPositionInEmptyString()
+        {
+            string transformed = String.Empty.Insert(String.Empty).At(position: 2);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextAtPositionInEmptyString()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).At(position: 2);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertNullAtPosition()
         {
             string transformed = Const.SampleString.Insert(null).At(position: 2);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextAt()
+        public void InsertEmptyTextAtPosition()
         {
             string transformed = Const.SampleString.Insert(String.Empty).At(position: 2);
             transformed.Should().Be(Const.SampleString);
@@ -154,22 +265,22 @@ namespace dokas.FluentStrings.Tests
         [TestMethod]
         public void InsertTextAtZeroPosition()
         {
-            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(position: 0);
-            transformed.Should().Be("TESTBla <-- TEST string will be inserted here");
+            string transformed = "<-- TEST string will be inserted here".Insert("TEST").At(position: 0);
+            transformed.Should().Be("TEST<-- TEST string will be inserted here");
         }
 
         [TestMethod]
         public void InsertTextAtFirstPosition()
         {
-            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(position: 1);
-            transformed.Should().Be("BTESTla <-- TEST string will be inserted here");
+            string transformed = "!<-- TEST string will be inserted here".Insert("TEST").At(position: 1);
+            transformed.Should().Be("!TEST<-- TEST string will be inserted here");
         }
 
         [TestMethod]
         public void InsertTextAt()
         {
-            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(position: 4);
-            transformed.Should().Be("Bla TEST<-- TEST string will be inserted here");
+            string transformed = "!!! <-- TEST string will be inserted here".Insert("TEST").At(position: 4);
+            transformed.Should().Be("!!! TEST<-- TEST string will be inserted here");
         }
 
         #endregion
@@ -177,73 +288,129 @@ namespace dokas.FluentStrings.Tests
         #region Insert At From
 
         [TestMethod]
-        public void InsertNullTextAtPositionFromBeginning()
+        public void InsertNullAtPositionInNullStringFromBeginning()
         {
-            string transformed = Const.SampleString.Insert(null).At(position: 3).From(The.Beginning);
-            transformed.Should().Be(Const.SampleString);
-        }
-        
-        [TestMethod]
-        public void InsertTextAtPositionFromBeginningOfNullString()
-        {
-            string transformed = Const.NullString.Insert("bla").At(position: 3).From(The.Beginning);
-            transformed.Should().Be("bla");
+            string transformed = Const.NullString.Insert(null).At(position: 2).From(The.Beginning);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertNullTextAtPositionFromBeginningOfNullString()
+        public void InsertEmptyTextAtPositionInNullStringFromBeginning()
         {
-            string transformed = Const.NullString.Insert(null).At(position: 3).From(The.Beginning);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Insert(String.Empty).At(position: 2).From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertTextAtPositionInNullStringFromBeginning()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue).At(position: 2).From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertNullAtPositionInEmptyStringFromBeginning()
+        {
+            string transformed = String.Empty.Insert(null).At(position: 2).From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAtPositionInEmptyStringFromBeginning()
+        {
+            string transformed = String.Empty.Insert(String.Empty).At(position: 2).From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextAtPositionInEmptyStringFromBeginning()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).At(position: 2).From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertNullAtPositionFromBeginning()
+        {
+            string transformed = Const.SampleString.Insert(null).At(position: 2).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void InsertEmptyTextAtPositionFromBeginning()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).At(position: 3).From(The.Beginning);
+            string transformed = Const.SampleString.Insert(String.Empty).At(position: 2).From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertNullTextAtPositionFromEnd()
+        public void InsertNullAtPositionInNullStringFromEnd()
         {
-            string transformed = Const.SampleString.Insert(null).At(position: 5).From(The.End);
+            string transformed = Const.NullString.Insert(null).At(position: 2).From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAtPositionInNullStringFromEnd()
+        {
+            string transformed = Const.NullString.Insert(String.Empty).At(position: 2).From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertTextAtPositionInNullStringFromEnd()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue).At(position: 2).From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertNullAtPositionInEmptyStringFromEnd()
+        {
+            string transformed = String.Empty.Insert(null).At(position: 2).From(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAtPositionInEmptyStringFromEnd()
+        {
+            string transformed = String.Empty.Insert(String.Empty).At(position: 2).From(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextAtPositionInEmptyStringFromEnd()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).At(position: 2).From(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertNullAtPositionFromEnd()
+        {
+            string transformed = Const.SampleString.Insert(null).At(position: 2).From(The.End);
             transformed.Should().Be(Const.SampleString);
-        }
-
-        [TestMethod]
-        public void InsertTextAtPositionFromEndOfNullString()
-        {
-            string transformed = Const.NullString.Insert("bla").At(position: 3).From(The.End);
-            transformed.Should().Be("bla");
-        }
-
-        [TestMethod]
-        public void InsertNullTextAtPositionFromEndOfNullString()
-        {
-            string transformed = Const.NullString.Insert(null).At(position: 3).From(The.Beginning);
-            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void InsertEmptyTextAtPositionFromEnd()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).At(position: 5).From(The.End);
+            string transformed = Const.SampleString.Insert(String.Empty).At(position: 2).From(The.End);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void InsertTextAtPositionFromBeginning()
         {
-            string transformed = "Bla <-- TEST string will be inserted here".Insert("TEST").At(position: 4).From(The.Beginning);
-            transformed.Should().Be("Bla TEST<-- TEST string will be inserted here");
+            string transformed = "!!! <-- TEST string will be inserted here".Insert("TEST").At(position: 4).From(The.Beginning);
+            transformed.Should().Be("!!! TEST<-- TEST string will be inserted here");
         }
 
         [TestMethod]
         public void InsertTextAtPositionFromEnd()
         {
-            string transformed = "TEST string will be inserted here --> bla".Insert("TEST").At(position: 4).From(The.End);
-            transformed.Should().Be("TEST string will be inserted here -->TEST bla");
+            string transformed = "TEST string will be inserted here --> !!!".Insert("TEST").At(position: 4).From(The.End);
+            transformed.Should().Be("TEST string will be inserted here -->TEST !!!");
         }
 
         #endregion
