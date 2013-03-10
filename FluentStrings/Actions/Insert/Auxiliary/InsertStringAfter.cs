@@ -20,14 +20,7 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
-            if (_insertString.Source != null)
-            {
-                return _marker.IsEmpty()
-                    ? _insertString.Source
-                    : _insertString.Source.Replace(_marker, _marker + (_insertString.Insertion ?? String.Empty));
-            }
-            else
-                return _marker == null ? _insertString.Insertion : null;
+            return _insertString.Source.Insert(_insertString.Insertion, _marker, (s, i, m) => s.Replace(m, m + i));
         }
     }
 }
