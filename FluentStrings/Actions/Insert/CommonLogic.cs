@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using dokas.FluentStrings.Actions.Utilities;
 
 namespace dokas.FluentStrings.Actions.Insert
@@ -45,6 +46,36 @@ namespace dokas.FluentStrings.Actions.Insert
                 default:
                     throw new ArgumentOutOfRangeException("Didn't you forget to regenerate case statements for changed key?");
             }
+        }
+
+        public static string Insert(this string source, string insertion, string marker, int occurrenceCount, The position = The.Beginning)
+        {
+            switch (position)
+            {
+                case The.Beginning:
+                case The.End:
+                    return source.InsertWithChecks(insertion, marker, occurrenceCount, position);
+                case The.StartOf:
+                case The.EndOf:
+                default:
+                    throw new ArgumentOutOfRangeException("position", "Only Beginning and End positions are supported by Insert().From() method");
+            }
+        }
+
+        private static string InsertWithChecks(this string source, string insertion, string marker, int occurrenceCount, The position)
+        {
+            if (occurrenceCount < 0)
+                throw new ArgumentOutOfRangeException("occurrence", "Negative occurrence count is not supported");
+
+            if (occurrenceCount == 0)
+                return source;
+
+            return source.Insert(insertion, marker,
+                (s, i, m) =>
+                {
+                    var indexes = s.IndexesOf(m).From(position).Take(occurrenceCount).ToArray();
+                    return indexes.Any() ? s.Insert(indexes.Last(), i) : s;
+                });
         }
     }
 }
