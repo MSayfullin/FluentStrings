@@ -131,6 +131,13 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
+        public void IndexesOfMarkerAtBeginning()
+        {
+            var indexes = "marker with another text marker and another texts marker marker".IndexesOf("marker");
+            indexes.Should().ContainInOrder(0, 25, 50, 57);
+        }
+
+        [TestMethod]
         public void IndexesOfMarker()
         {
             var indexes = "Some text marker another texts marker marker".IndexesOf("marker");
@@ -268,6 +275,20 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
+        public void IndexesOfMarkerAtBeginningFromBeginning()
+        {
+            var indexes = "marker with another text marker and another texts marker marker".IndexesOf("marker").From(The.Beginning);
+            indexes.Should().ContainInOrder(0, 25, 50, 57);
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerAtBeginningFromEnd()
+        {
+            var indexes = "marker with another text marker and another texts marker marker".IndexesOf("marker").From(The.End);
+            indexes.Should().ContainInOrder(57, 50, 25, 0);
+        }
+
+        [TestMethod]
         public void IndexesOfMarkerFromBeginning()
         {
             var indexes = "Some text marker another texts marker marker".IndexesOf("marker").From(The.Beginning);
@@ -353,6 +374,13 @@ namespace dokas.FluentStrings.Tests
         {
             var indexes = Const.SampleString.IndexesOf(String.Empty).IgnoringCase();
             indexes.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerAtBeginningIgnoringCase()
+        {
+            var indexes = "Marker with another text maRKer and another texts marker markeR".IndexesOf("marker").IgnoringCase();
+            indexes.Should().ContainInOrder(0, 25, 50, 57);
         }
 
         [TestMethod]
@@ -489,16 +517,30 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
+        public void IndexesOfMarkerAtBeginningIgnorignCaseFromBeginning()
+        {
+            var indexes = "Marker with another text maRKer and another texts marker markeR".IndexesOf("marker").IgnoringCase().From(The.Beginning);
+            indexes.Should().ContainInOrder(0, 25, 50, 57);
+        }
+
+        [TestMethod]
+        public void IndexesOfMarkerAtBeginningIgnorignCaseFromEnd()
+        {
+            var indexes = "Marker with another text maRKer and another texts marker markeR".IndexesOf("mArker").IgnoringCase().From(The.End);
+            indexes.Should().ContainInOrder(57, 50, 25, 0);
+        }
+
+        [TestMethod]
         public void IndexesOfMarkerIgnoringCaseFromBeginning()
         {
-            var indexes = "Some text marker another texts marker marker".IndexesOf("marker").IgnoringCase().From(The.Beginning);
+            var indexes = "Some text mARKer another texts markER MArker".IndexesOf("maRker").IgnoringCase().From(The.Beginning);
             indexes.Should().ContainInOrder(10, 31, 38);
         }
 
         [TestMethod]
         public void IndexesOfMarkerIgnoringCaseFromEnd()
         {
-            var indexes = "Some text marker another texts marker marker".IndexesOf("marker").IgnoringCase().From(The.End);
+            var indexes = "Some text markEr another texts marker MARKER".IndexesOf("marKer").IgnoringCase().From(The.End);
             indexes.Should().ContainInOrder(38, 31, 10);
         }
 

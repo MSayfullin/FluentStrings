@@ -18,7 +18,7 @@ namespace dokas.FluentStrings.Actions.Utilities
         private IEnumerable<int> AsEnumerable()
         {
             return _indexesOfValueIgnoringCase.IndexesOfValue.Source.IndexesOf(
-                _indexesOfValueIgnoringCase.IndexesOfValue.Marker, StringComparison.CurrentCulture, _position);
+                _indexesOfValueIgnoringCase.IndexesOfValue.Marker, StringComparison.CurrentCultureIgnoreCase, _position);
         }
 
         #region IEnumerable Members
