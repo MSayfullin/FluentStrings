@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace dokas.FluentStrings.Actions.Insert
 {
@@ -11,7 +12,7 @@ namespace dokas.FluentStrings.Actions.Insert
         internal InsertStringBeforeOccurrence(InsertString insertString, int occurrenceCount, string marker)
         {
             _insertString = insertString;
-            _occurrenceCount = Math.Max(occurrenceCount, 1);
+            _occurrenceCount = occurrenceCount;
             _marker = marker;
         }
 
@@ -26,23 +27,19 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
-            if (_marker.IsEmpty())
-                return _insertString.Source;
-            else
-            {
-                int index = -1;
-                int passCounter = 0;
-                do
-                {
-                    index = _insertString.Source.IndexOf(_marker, index + 1);
-                    passCounter++;
-                }
-                while (passCounter < _occurrenceCount && index >= 0);
+            if (_occurrenceCount < 0)
+                throw new ArgumentOutOfRangeException("occurrence", "Negative occurrence count is not supported");
 
-                return index < 0
-                    ? _insertString.Source
-                    : _insertString.Source.Insert(index, _insertString.Insertion ?? String.Empty);
-            }
+            if (_occurrenceCount == 0)
+                return _insertString.Source;
+
+            return _insertString.Source.Insert(_insertString.Insertion, _marker, InsertAction);
+        }
+
+        private string InsertAction(string source, string insertion, string marker)
+        {
+            var indexes = source.IndexesOf(marker).Take(_occurrenceCount).ToArray();
+            return indexes.Any() ? source.Insert(indexes.Last(), insertion) : source;
         }
     }
 }

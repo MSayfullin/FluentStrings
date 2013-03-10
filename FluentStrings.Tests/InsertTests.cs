@@ -639,87 +639,227 @@ namespace dokas.FluentStrings.Tests
         #region Insert Before Occurrence
 
         [TestMethod]
-        public void InsertNullTextBeforeOccurrenceInNullString()
+        public void InsertNullBeforeOccurrenceOfNullMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(null).Before(3, String.Empty);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Insert(null).Before(1, of: null);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeNullOccurrenceInNullString()
+        public void InsertNullBeforeOccurrenceOfEmptyMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(String.Empty).Before(2, null);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Insert(null).Before(2, of: String.Empty);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertNullTextBeforeNullOccurrenceInNullString()
+        public void InsertNullBeforeOccurrenceOfMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(null).Before(1, null);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Insert(null).Before(3, of: Const.SampleMarker);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeOccurrenceInNullString()
+        public void InsertEmptyTextBeforeOccurrenceOfNullMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(String.Empty).Before(3, String.Empty);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Insert(String.Empty).Before(2, of: null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertNullTextBeforeOccurrence()
+        public void InsertEmptyTextBeforeOccurrenceOfEmptyMarkerIntoNullString()
         {
-            string transformed = Const.SampleString.Insert(null).Before(5, String.Empty);
+            string transformed = Const.NullString.Insert(String.Empty).Before(1, of: String.Empty);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextBeforeOccurrenceOfMarkerIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(String.Empty).Before(1, of: Const.SampleMarker);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertTextBeforeOccurrenceOfNullMarkerIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue).Before(2, of: null);
+            transformed.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void InsertTextBeforeOccurrenceOfEmptyMarkerIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue).Before(1, of: String.Empty);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertTextBeforeOccurrenceOfMarkerIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue).Before(1, of: Const.SampleMarker);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertNullBeforeOccurrenceOfNullMarkerIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(null).Before(2, of: null);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertNullBeforeOccurrenceOfEmptyMarkerIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(null).Before(5, of: String.Empty);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertNullBeforeOccurrenceOfMarkerIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(null).Before(5, of: Const.SampleMarker);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextBeforeOccurrenceOfNullMarkerIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(String.Empty).Before(3, of: null);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextBeforeOccurrenceOfEmptyMarkerIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(String.Empty).Before(2, of: String.Empty);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextBeforeOccurrenceOfMarkerIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(String.Empty).Before(2, of: Const.SampleMarker);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextBeforeOccurrenceOfNullMarkerIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).Before(1, of: null);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextBeforeOccurrenceOfEmptyMarkerIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).Before(1, of: String.Empty);
+            transformed.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void InsertTextBeforeOccurrenceOfMarkerIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).Before(2, of: Const.SampleMarker);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertNullBeforeOccurrenceOfNullMarker()
+        {
+            string transformed = Const.SampleString.Insert(null).Before(1, of: null);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeNullOccurrence()
+        public void InsertNullBeforeOccurrenceOfEmptyMarker()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).Before(2, null);
+            string transformed = Const.SampleString.Insert(null).Before(2, of: String.Empty);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertNullTextBeforeNullOccurrence()
+        public void InsertNullBeforeOccurrenceOfMarker()
         {
-            string transformed = Const.SampleString.Insert(null).Before(3, null);
+            string transformed = Const.SampleString.Insert(null).Before(1, of: Const.SampleMarker);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeOccurrence()
+        public void InsertEmptyTextBeforeOccurrenceOfNullMarker()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).Before(3, String.Empty);
+            string transformed = Const.SampleString.Insert(String.Empty).Before(1, of: null);
             transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextBeforeOccurrenceOfEmptyMarker()
+        {
+            string transformed = Const.SampleString.Insert(String.Empty).Before(2, of: String.Empty);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextBeforeOccurrenceOfMarker()
+        {
+            string transformed = Const.SampleString.Insert(String.Empty).Before(2, of: Const.SampleMarker);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertTextBeforeOccurrenceOfNullMarker()
+        {
+            string transformed = Const.SampleString.Insert(Const.SampleValue).Before(1, of: null);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertTextBeforeOccurrenceOfEmptyMarker()
+        {
+            string transformed = Const.SampleString.Insert(Const.SampleValue).Before(2, of: String.Empty);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertTextBeforeNegativeOccurrenceOfMarker()
+        {
+            Action action = () => Const.SampleString.Insert(Const.SampleValue).Before(-1, of: Const.SampleMarker).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
+        }
+
+        [TestMethod]
+        public void InsertTextBeforeZeroOccurrenceOfMarker()
+        {
+            string transformed = "Some long long string with marker".Insert("TEST").Before(0, of: "marker");
+            transformed.Should().Be("Some long long string with marker");
         }
 
         [TestMethod]
         public void InsertTextBeforeNonExistingOccurrence()
         {
-            string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_bla");
+            string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_marker");
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void InsertTextBeforeOccurrence()
         {
-            string transformed = "TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(1, of: "_bla");
-            transformed.Should().Be("TEST string will be inserted here -->TEST_bla But not here --X_bla");
+            string transformed = "TEST string will be inserted here -->_marker But not here --X_marker".Insert("TEST").Before(1, of: "_marker");
+            transformed.Should().Be("TEST string will be inserted here -->TEST_marker But not here --X_marker");
+        }
 
-            transformed = "_bla Some Another Text _bla _bla And again text _bla TEST string will be inserted here -->_bla But not here --X_bla"
-                .Insert("TEST").Before(5, of: "_bla");
-            transformed.Should().Be("_bla Some Another Text _bla _bla And again text _bla TEST string will be inserted here -->TEST_bla But not here --X_bla");
+        [TestMethod]
+        public void InsertTextBeforeOccurrenceInLongerstring()
+        {
+            string transformed = "_marker Some Another Text _marker _marker And again text _marker TEST string will be inserted here -->_marker But not here --X_marker".Insert("TEST").Before(5, of: "_marker");
+            transformed.Should().Be("_marker Some Another Text _marker _marker And again text _marker TEST string will be inserted here -->TEST_marker But not here --X_marker");
         }
 
         [TestMethod]
         public void InsertTextBeforeOccurrenceWithMarkerAtBeginning()
         {
-            string transformed = "_bla<-- TEST string will be inserted before that _bla".Insert("TEST").Before(1, of: "_bla");
-            transformed.Should().Be("TEST_bla<-- TEST string will be inserted before that _bla");
-
-            transformed = "_bla TEST string will be inserted here -->_bla But not here --X_bla".Insert("TEST").Before(2, of: "_bla");
-            transformed.Should().Be("_bla TEST string will be inserted here -->TEST_bla But not here --X_bla");
+            string transformed = "_marker<-- TEST string will be inserted before that _marker".Insert("TEST").Before(1, of: "_marker");
+            transformed.Should().Be("TEST_marker<-- TEST string will be inserted before that _marker");
         }
 
         #endregion
