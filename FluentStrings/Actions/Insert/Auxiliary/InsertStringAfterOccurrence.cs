@@ -11,7 +11,7 @@ namespace dokas.FluentStrings.Actions.Insert
         internal InsertStringAfterOccurrence(InsertString insertString, int occurrenceCount, string marker)
         {
             _insertString = insertString;
-            _occurrenceCount = Math.Max(occurrenceCount, 1);
+            _occurrenceCount = occurrenceCount;
             _marker = marker;
         }
 
@@ -26,23 +26,7 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
-            if (_marker.IsEmpty())
-                return _insertString.Source;
-            else
-            {
-                int index = -1;
-                int passCounter = 0;
-                do
-                {
-                    index = _insertString.Source.IndexOf(_marker, index + 1);
-                    passCounter++;
-                }
-                while (passCounter < _occurrenceCount && index >= 0);
-
-                return index < 0
-                    ? _insertString.Source
-                    : _insertString.Source.Insert(index + _marker.Length, _insertString.Insertion ?? String.Empty);
-            }
+            return _insertString.Source.Insert(_insertString.Insertion, _marker, _occurrenceCount, after: true);
         }
     }
 }

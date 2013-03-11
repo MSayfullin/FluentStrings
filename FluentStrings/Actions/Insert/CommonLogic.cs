@@ -48,13 +48,13 @@ namespace dokas.FluentStrings.Actions.Insert
             }
         }
 
-        public static string Insert(this string source, string insertion, string marker, int occurrenceCount, The position = The.Beginning)
+        public static string Insert(this string source, string insertion, string marker, int occurrenceCount, The position = The.Beginning, bool after = false)
         {
             switch (position)
             {
                 case The.Beginning:
                 case The.End:
-                    return source.InsertWithChecks(insertion, marker, occurrenceCount, position);
+                    return source.InsertWithChecks(insertion, marker, occurrenceCount, position, after);
                 case The.StartOf:
                 case The.EndOf:
                 default:
@@ -62,7 +62,7 @@ namespace dokas.FluentStrings.Actions.Insert
             }
         }
 
-        private static string InsertWithChecks(this string source, string insertion, string marker, int occurrenceCount, The position)
+        private static string InsertWithChecks(this string source, string insertion, string marker, int occurrenceCount, The position, bool after)
         {
             if (occurrenceCount < 0)
                 throw new ArgumentOutOfRangeException("occurrence", "Negative occurrence count is not supported");
@@ -73,8 +73,9 @@ namespace dokas.FluentStrings.Actions.Insert
             return source.Insert(insertion, marker,
                 (s, i, m) =>
                 {
+                    var shift = after ? marker.Length : 0;
                     var indexes = s.IndexesOf(m).From(position).Take(occurrenceCount).ToArray();
-                    return indexes.Any() ? s.Insert(indexes.Last(), i) : s;
+                    return indexes.Any() ? s.Insert(indexes.Last() + shift, i) : s;
                 });
         }
     }
