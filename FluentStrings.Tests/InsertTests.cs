@@ -1307,6 +1307,13 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("_marker TEST string will be inserted here -->TEST_marker, but not here --X_marker and not here --X_MarkER");
         }
 
+        [TestMethod]
+        public void InsertTextBeforeOccurrenceWithMarkerAtBeginningFromBeginning()
+        {
+            string transformed = "_marker<-- TEST string will be inserted before that _marker".Insert("TEST").Before(1, of: "_marker").From(The.Beginning);
+            transformed.Should().Be("TEST_marker<-- TEST string will be inserted before that _marker");
+        }
+
         #endregion
 
         #region Insert After
