@@ -63,6 +63,16 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Extends Insert action with the ability to set insertion point through the marker.
+        /// Given string is inserted BEFORE first marker in the target string.
+        /// </summary>
+        /// <param name="marker">Marker value for insertion point.</param>
+        public static InsertStringBefore Before(this InsertString source, string marker)
+        {
+            return new InsertStringBefore (source, marker);
+        }
+
+        /// <summary>
         /// Extends Insert action with the ability to set insertion point through occurrence of the marker.
         /// Given string is inserted right BEFORE the marker.
         /// </summary>
