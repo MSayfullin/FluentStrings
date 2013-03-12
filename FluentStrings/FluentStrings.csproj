@@ -35,12 +35,12 @@
     <Compile Include="Actions\Insert\CommonLogic.cs" />
     <Compile Include="Actions\Insert\InsertExtensions.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringBeforeOccurrenceFrom.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertStringAfter.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringAfterAll.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringAfterOccurrence.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertString.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringAt.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringAtFrom.cs" />
-    <Compile Include="Actions\Insert\Auxiliary\InsertStringBefore.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringBeforeAll.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringBeforeOccurrence.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringTo.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringAfterOccurrenceFrom.cs" />
