@@ -106,6 +106,16 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Extends Insert action with the ability to set insertion point through some marker.
+        /// Given string is inserted AFTER first marker in the target string.
+        /// </summary>
+        /// <param name="marker">Marker value for insertion point.</param>
+        public static InsertStringAfter After(this InsertString source, string marker)
+        {
+            return new InsertStringAfter(source, marker);
+        }
+
+        /// <summary>
         /// Extends Insert action with the ability to set insertion point through occurrence of the marker.
         /// Given string is inserted right AFTER the marker.
         /// </summary>

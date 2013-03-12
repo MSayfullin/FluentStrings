@@ -45,6 +45,7 @@
     <Compile Include="Actions\Insert\Auxiliary\InsertStringTo.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringAfterOccurrenceFrom.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringBefore.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringAfter.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrenceFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrence.cs" />
