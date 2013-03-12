@@ -415,222 +415,222 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
-        #region Insert Before
+        #region Insert Before All
 
         [TestMethod]
-        public void InsertNullBeforeNullMarkerIntoNullString()
+        public void InsertNullBeforeAllNullMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(null).Before(null);
+            string transformed = Const.NullString.Insert(null).BeforeAll(null);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertNullBeforeEmptyMarkerIntoNullString()
+        public void InsertNullBeforeAllEmptyMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(null).Before(String.Empty);
+            string transformed = Const.NullString.Insert(null).BeforeAll(String.Empty);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertNullBeforeMarkerIntoNullString()
+        public void InsertNullBeforeAllMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(null).Before(Const.SampleMarker);
+            string transformed = Const.NullString.Insert(null).BeforeAll(Const.SampleMarker);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeNullMarkerIntoNullString()
+        public void InsertEmptyTextBeforeAllNullMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(String.Empty).Before(null);
+            string transformed = Const.NullString.Insert(String.Empty).BeforeAll(null);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeEmptyMarkerIntoNullString()
+        public void InsertEmptyTextBeforeAllEmptyMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(String.Empty).Before(String.Empty);
+            string transformed = Const.NullString.Insert(String.Empty).BeforeAll(String.Empty);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeMarkerIntoNullString()
+        public void InsertEmptyTextBeforeAllMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(String.Empty).Before(Const.SampleMarker);
+            string transformed = Const.NullString.Insert(String.Empty).BeforeAll(Const.SampleMarker);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertTextBeforeNullMarkerIntoNullString()
+        public void InsertTextBeforeAllNullMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(Const.SampleValue).Before(null);
+            string transformed = Const.NullString.Insert(Const.SampleValue).BeforeAll(null);
             transformed.Should().Be(Const.SampleValue);
         }
 
         [TestMethod]
-        public void InsertTextBeforeEmptyMarkerIntoNullString()
+        public void InsertTextBeforeAllEmptyMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(Const.SampleValue).Before(String.Empty);
+            string transformed = Const.NullString.Insert(Const.SampleValue).BeforeAll(String.Empty);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertTextBeforeMarkerIntoNullString()
+        public void InsertTextBeforeAllMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(Const.SampleValue).Before(Const.SampleMarker);
+            string transformed = Const.NullString.Insert(Const.SampleValue).BeforeAll(Const.SampleMarker);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertNullBeforeNullMarkerIntoEmptyString()
+        public void InsertNullBeforeAllNullMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(null).Before(null);
+            string transformed = String.Empty.Insert(null).BeforeAll(null);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertNullBeforeEmptyMarkerIntoEmptyString()
+        public void InsertNullBeforeAllEmptyMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(null).Before(String.Empty);
+            string transformed = String.Empty.Insert(null).BeforeAll(String.Empty);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertNullBeforeMarkerIntoEmptyString()
+        public void InsertNullBeforeAllMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(null).Before(Const.SampleMarker);
+            string transformed = String.Empty.Insert(null).BeforeAll(Const.SampleMarker);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeNullMarkerIntoEmptyString()
+        public void InsertEmptyTextBeforeAllNullMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(String.Empty).Before(null);
+            string transformed = String.Empty.Insert(String.Empty).BeforeAll(null);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeEmptyMarkerIntoEmptyString()
+        public void InsertEmptyTextBeforeAllEmptyMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(String.Empty).Before(String.Empty);
+            string transformed = String.Empty.Insert(String.Empty).BeforeAll(String.Empty);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeMarkerIntoEmptyString()
+        public void InsertEmptyTextBeforeAllMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(String.Empty).Before(Const.SampleMarker);
+            string transformed = String.Empty.Insert(String.Empty).BeforeAll(Const.SampleMarker);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertTextBeforeNullMarkerIntoEmptyString()
+        public void InsertTextBeforeAllNullMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(Const.SampleValue).Before(null);
+            string transformed = String.Empty.Insert(Const.SampleValue).BeforeAll(null);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertTextBeforeEmptyMarkerIntoEmptyString()
+        public void InsertTextBeforeAllEmptyMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(Const.SampleValue).Before(String.Empty);
+            string transformed = String.Empty.Insert(Const.SampleValue).BeforeAll(String.Empty);
             transformed.Should().Be(Const.SampleValue);
         }
 
         [TestMethod]
-        public void InsertTextBeforeMarkerIntoEmptyString()
+        public void InsertTextBeforeAllMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(Const.SampleValue).Before(Const.SampleMarker);
+            string transformed = String.Empty.Insert(Const.SampleValue).BeforeAll(Const.SampleMarker);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertNullBeforeNullMarker()
+        public void InsertNullBeforeAllNullMarker()
         {
-            string transformed = Const.SampleString.Insert(null).Before(null);
+            string transformed = Const.SampleString.Insert(null).BeforeAll(null);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertNullBeforeEmptyMarker()
+        public void InsertNullBeforeAllEmptyMarker()
         {
-            string transformed = Const.SampleString.Insert(null).Before(String.Empty);
+            string transformed = Const.SampleString.Insert(null).BeforeAll(String.Empty);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertNullBeforeMarker()
+        public void InsertNullBeforeAllMarker()
         {
-            string transformed = Const.SampleString.Insert(null).Before(Const.SampleMarker);
+            string transformed = Const.SampleString.Insert(null).BeforeAll(Const.SampleMarker);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeNullMarker()
+        public void InsertEmptyTextBeforeAllNullMarker()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).Before(null);
+            string transformed = Const.SampleString.Insert(String.Empty).BeforeAll(null);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeEmptyMarker()
+        public void InsertEmptyTextBeforeAllEmptyMarker()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).Before(String.Empty);
+            string transformed = Const.SampleString.Insert(String.Empty).BeforeAll(String.Empty);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextBeforeMarker()
+        public void InsertEmptyTextBeforeAllMarker()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).Before(Const.SampleMarker);
+            string transformed = Const.SampleString.Insert(String.Empty).BeforeAll(Const.SampleMarker);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertTextBeforeNullMarker()
+        public void InsertTextBeforeAllNullMarker()
         {
-            string transformed = Const.SampleString.Insert(Const.SampleValue).Before(null);
+            string transformed = Const.SampleString.Insert(Const.SampleValue).BeforeAll(null);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertTextBeforeEmptyMarker()
+        public void InsertTextBeforeAllEmptyMarker()
         {
-            string transformed = Const.SampleString.Insert(Const.SampleValue).Before(String.Empty);
+            string transformed = Const.SampleString.Insert(Const.SampleValue).BeforeAll(String.Empty);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertTextBeforeMarker()
+        public void InsertTextBeforeAllMarker()
         {
-            string transformed = Const.SampleString.Insert(Const.SampleValue).Before(Const.SampleMarker);
+            string transformed = Const.SampleString.Insert(Const.SampleValue).BeforeAll(Const.SampleMarker);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertTextBefore()
+        public void InsertTextBeforeAll()
         {
-            string transformed = "TEST string will be inserted here -->_marker".Insert("TEST").Before("_marker");
+            string transformed = "TEST string will be inserted here -->_marker".Insert("TEST").BeforeAll("_marker");
             transformed.Should().Be("TEST string will be inserted here -->TEST_marker");
         }
 
         [TestMethod]
-        public void InsertTextBeforeMultipleTimes()
+        public void InsertTextBeforeAllMultipleTimes()
         {
-            string transformed = "TEST string will be inserted here -->_marker TEST string will be inserted here -->_marker".Insert("TEST").Before("_marker");
+            string transformed = "TEST string will be inserted here -->_marker TEST string will be inserted here -->_marker".Insert("TEST").BeforeAll("_marker");
             transformed.Should().Be("TEST string will be inserted here -->TEST_marker TEST string will be inserted here -->TEST_marker");
         }
 
         [TestMethod]
-        public void InsertTextBeforeCaseSensitive()
+        public void InsertTextBeforeAllCaseSensitive()
         {
-            string transformed = "TEST string will NOT be inserted here -->_marker".Insert("TEST").Before("_maRKer");
+            string transformed = "TEST string will NOT be inserted here -->_marker".Insert("TEST").BeforeAll("_maRKer");
             transformed.Should().Be("TEST string will NOT be inserted here -->_marker");
         }
 
         [TestMethod]
-        public void InsertTextBeforeCaseSensitiveMultipleTimes()
+        public void InsertTextBeforeAllCaseSensitiveMultipleTimes()
         {
-            string transformed = "TEST string will be inserted here -->_Marker, but will NOT be inserted here -->_marker".Insert("TEST").Before("_Marker");
+            string transformed = "TEST string will be inserted here -->_Marker, but will NOT be inserted here -->_marker".Insert("TEST").BeforeAll("_Marker");
             transformed.Should().Be("TEST string will be inserted here -->TEST_Marker, but will NOT be inserted here -->_marker");
         }
 
@@ -1319,205 +1319,205 @@ namespace dokas.FluentStrings.Tests
         #region Insert After
 
         [TestMethod]
-        public void InsertNullAfterNullMarkerIntoNullString()
+        public void InsertNullAfterAllNullMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(null).After(null);
+            string transformed = Const.NullString.Insert(null).AfterAll(null);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertNullAfterEmptyMarkerIntoNullString()
+        public void InsertNullAfterAllEmptyMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(null).After(String.Empty);
+            string transformed = Const.NullString.Insert(null).AfterAll(String.Empty);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertNullAfterMarkerIntoNullString()
+        public void InsertNullAfterAllMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(null).After(Const.SampleMarker);
+            string transformed = Const.NullString.Insert(null).AfterAll(Const.SampleMarker);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertEmptyTextAfterNullMarkerIntoNullString()
+        public void InsertEmptyTextAfterAllNullMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(String.Empty).After(null);
+            string transformed = Const.NullString.Insert(String.Empty).AfterAll(null);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertEmptyTextAfterEmptyMarkerIntoNullString()
+        public void InsertEmptyTextAfterAllEmptyMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(String.Empty).After(String.Empty);
+            string transformed = Const.NullString.Insert(String.Empty).AfterAll(String.Empty);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertEmptyTextAfterMarkerIntoNullString()
+        public void InsertEmptyTextAfterAllMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(String.Empty).After(Const.SampleMarker);
+            string transformed = Const.NullString.Insert(String.Empty).AfterAll(Const.SampleMarker);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertTextAfterNullMarkerIntoNullString()
+        public void InsertTextAfterAllNullMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(Const.SampleValue).After(null);
+            string transformed = Const.NullString.Insert(Const.SampleValue).AfterAll(null);
             transformed.Should().Be(Const.SampleValue);
         }
 
         [TestMethod]
-        public void InsertTextAfterEmptyMarkerIntoNullString()
+        public void InsertTextAfterAllEmptyMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(Const.SampleValue).After(String.Empty);
+            string transformed = Const.NullString.Insert(Const.SampleValue).AfterAll(String.Empty);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertTextAfterMarkerIntoNullString()
+        public void InsertTextAfterAllMarkerIntoNullString()
         {
-            string transformed = Const.NullString.Insert(Const.SampleValue).After(Const.SampleMarker);
+            string transformed = Const.NullString.Insert(Const.SampleValue).AfterAll(Const.SampleMarker);
             transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void InsertNullAfterNullMarkerIntoEmptyString()
+        public void InsertNullAfterAllNullMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(null).After(null);
+            string transformed = String.Empty.Insert(null).AfterAll(null);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertNullAfterEmptyMarkerIntoEmptyString()
+        public void InsertNullAfterAllEmptyMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(null).After(String.Empty);
+            string transformed = String.Empty.Insert(null).AfterAll(String.Empty);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertNullAfterMarkerIntoEmptyString()
+        public void InsertNullAfterAllMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(null).After(Const.SampleMarker);
+            string transformed = String.Empty.Insert(null).AfterAll(Const.SampleMarker);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertEmptyTextAfterNullMarkerIntoEmptyString()
+        public void InsertEmptyTextAfterAllNullMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(String.Empty).After(null);
+            string transformed = String.Empty.Insert(String.Empty).AfterAll(null);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertEmptyTextAfterEmptyMarkerIntoEmptyString()
+        public void InsertEmptyTextAfterAllEmptyMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(String.Empty).After(String.Empty);
+            string transformed = String.Empty.Insert(String.Empty).AfterAll(String.Empty);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertEmptyTextAfterMarkerIntoEmptyString()
+        public void InsertEmptyTextAfterAllMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(String.Empty).After(Const.SampleMarker);
+            string transformed = String.Empty.Insert(String.Empty).AfterAll(Const.SampleMarker);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertTextAfterNullMarkerIntoEmptyString()
+        public void InsertTextAfterAllNullMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(Const.SampleValue).After(null);
+            string transformed = String.Empty.Insert(Const.SampleValue).AfterAll(null);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertTextAfterEmptyMarkerIntoEmptyString()
+        public void InsertTextAfterAllEmptyMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(Const.SampleValue).After(String.Empty);
+            string transformed = String.Empty.Insert(Const.SampleValue).AfterAll(String.Empty);
             transformed.Should().Be(Const.SampleValue);
         }
 
         [TestMethod]
-        public void InsertTextAfterMarkerIntoEmptyString()
+        public void InsertTextAfterAllMarkerIntoEmptyString()
         {
-            string transformed = String.Empty.Insert(Const.SampleValue).After(Const.SampleMarker);
+            string transformed = String.Empty.Insert(Const.SampleValue).AfterAll(Const.SampleMarker);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void InsertNullAfterNullMarker()
+        public void InsertNullAfterAllNullMarker()
         {
-            string transformed = Const.SampleString.Insert(null).After(null);
+            string transformed = Const.SampleString.Insert(null).AfterAll(null);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertNullAfterEmptyMarker()
+        public void InsertNullAfterAllEmptyMarker()
         {
-            string transformed = Const.SampleString.Insert(null).After(String.Empty);
+            string transformed = Const.SampleString.Insert(null).AfterAll(String.Empty);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertNullAfterMarker()
+        public void InsertNullAfterAllMarker()
         {
-            string transformed = Const.SampleString.Insert(null).After(Const.SampleMarker);
+            string transformed = Const.SampleString.Insert(null).AfterAll(Const.SampleMarker);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextAfterNullMarker()
+        public void InsertEmptyTextAfterAllNullMarker()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).After(null);
+            string transformed = Const.SampleString.Insert(String.Empty).AfterAll(null);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextAfterEmptyMarker()
+        public void InsertEmptyTextAfterAllEmptyMarker()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).After(String.Empty);
+            string transformed = Const.SampleString.Insert(String.Empty).AfterAll(String.Empty);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertEmptyTextAfterMarker()
+        public void InsertEmptyTextAfterAllMarker()
         {
-            string transformed = Const.SampleString.Insert(String.Empty).After(Const.SampleMarker);
+            string transformed = Const.SampleString.Insert(String.Empty).AfterAll(Const.SampleMarker);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertTextAfterNullMarker()
+        public void InsertTextAfterAllNullMarker()
         {
-            string transformed = Const.SampleString.Insert(Const.SampleValue).After(null);
+            string transformed = Const.SampleString.Insert(Const.SampleValue).AfterAll(null);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertTextAfterEmptyMarker()
+        public void InsertTextAfterAllEmptyMarker()
         {
-            string transformed = Const.SampleString.Insert(Const.SampleValue).After(String.Empty);
+            string transformed = Const.SampleString.Insert(Const.SampleValue).AfterAll(String.Empty);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertTextAfterMarker()
+        public void InsertTextAfterAllMarker()
         {
-            string transformed = Const.SampleString.Insert(Const.SampleValue).After(Const.SampleMarker);
+            string transformed = Const.SampleString.Insert(Const.SampleValue).AfterAll(Const.SampleMarker);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertTextAfter()
+        public void InsertTextAfterAll()
         {
-            string transformed = "marker marker marker_<-- TEST string will be inserted here".Insert("TEST").After("marker_");
+            string transformed = "marker marker marker_<-- TEST string will be inserted here".Insert("TEST").AfterAll("marker_");
             transformed.Should().Be("marker marker marker_TEST<-- TEST string will be inserted here");
         }
 
         [TestMethod]
-        public void InsertTextAfterCaseSensitive()
+        public void InsertTextAfterAllCaseSensitive()
         {
-            string transformed = "TEST string will NOT be inserted after _marker".Insert("TEST").After("_maRKer");
+            string transformed = "TEST string will NOT be inserted after _marker".Insert("TEST").AfterAll("_maRKer");
             transformed.Should().Be("TEST string will NOT be inserted after _marker");
         }
 

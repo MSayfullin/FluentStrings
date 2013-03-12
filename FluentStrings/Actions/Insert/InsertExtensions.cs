@@ -54,12 +54,12 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends Insert action with the ability to set insertion point through the marker.
-        /// Given string is inserted BEFORE every marker in the target string.
+        /// Given string is inserted BEFORE all markers in the target string.
         /// </summary>
         /// <param name="marker">Marker value for insertion point.</param>
-        public static InsertStringBefore Before(this InsertString source, string marker)
+        public static InsertStringBeforeAll BeforeAll(this InsertString source, string marker)
         {
-            return new InsertStringBefore(source, marker);
+            return new InsertStringBeforeAll(source, marker);
         }
 
         /// <summary>
@@ -87,12 +87,12 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends Insert action with the ability to set insertion point through some marker.
-        /// Given string is inserted AFTER every marker in the target string.
+        /// Given string is inserted AFTER all markers in the target string.
         /// </summary>
         /// <param name="marker">Marker value for insertion point.</param>
-        public static InsertStringAfter After(this InsertString source, string marker)
+        public static InsertStringAfterAll AfterAll(this InsertString source, string marker)
         {
-            return new InsertStringAfter(source, marker);
+            return new InsertStringAfterAll(source, marker);
         }
 
         /// <summary>

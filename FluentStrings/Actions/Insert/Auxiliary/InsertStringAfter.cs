@@ -2,20 +2,20 @@
 
 namespace dokas.FluentStrings.Actions.Insert
 {
-    public class InsertStringAfter
+    public class InsertStringAfterAll
     {
         private readonly InsertString _insertString;
         private readonly string _marker;
 
-        internal InsertStringAfter(InsertString insertString, string marker)
+        internal InsertStringAfterAll(InsertString insertString, string marker)
         {
             _insertString = insertString;
             _marker = marker;
         }
 
-        public static implicit operator string(InsertStringAfter insertStringAfter)
+        public static implicit operator string(InsertStringAfterAll insertStringAfterAll)
         {
-            return insertStringAfter.ToString();
+            return insertStringAfterAll.ToString();
         }
 
         public override string ToString()

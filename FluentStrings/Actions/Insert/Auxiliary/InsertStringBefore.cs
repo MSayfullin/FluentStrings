@@ -3,20 +3,20 @@ using dokas.FluentStrings.Actions.Utilities;
 
 namespace dokas.FluentStrings.Actions.Insert
 {
-    public class InsertStringBefore
+    public class InsertStringBeforeAll
     {
         private readonly InsertString _insertString;
         private readonly string _marker;
 
-        internal InsertStringBefore(InsertString insertString, string marker)
+        internal InsertStringBeforeAll(InsertString insertString, string marker)
         {
             _insertString = insertString;
             _marker = marker;
         }
 
-        public static implicit operator string(InsertStringBefore insertStringBefore)
+        public static implicit operator string(InsertStringBeforeAll insertStringBeforeAll)
         {
-            return insertStringBefore.ToString();
+            return insertStringBeforeAll.ToString();
         }
 
         public override string ToString()
