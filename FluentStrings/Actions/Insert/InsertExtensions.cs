@@ -63,6 +63,14 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Extends Insert.BeforeAll action with the ability to ignore case.
+        /// </summary>
+        public static InsertStringBeforeAllIgnoringCase IgnoringCase(this InsertStringBeforeAll source)
+        {
+            return new InsertStringBeforeAllIgnoringCase(source);
+        }
+
+        /// <summary>
         /// Extends Insert action with the ability to set insertion point through the marker.
         /// Given string is inserted BEFORE first marker in the target string.
         /// N.B.: Default Insert().Before() is equivalent of Insert().Before().From(The.Beginning)

@@ -20,8 +20,9 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
-            return _insertStringAfterOccurrence.InsertString.Source
-                .Insert(_insertStringAfterOccurrence.InsertString.Insertion, _insertStringAfterOccurrence.Marker, _insertStringAfterOccurrence.OccurrenceCount, _position, after: true);
+            return _insertStringAfterOccurrence.InsertString.Source.Insert(
+                _insertStringAfterOccurrence.InsertString.Insertion, _insertStringAfterOccurrence.Marker,
+                occurrenceCount: _insertStringAfterOccurrence.OccurrenceCount, position: _position, after: true);
         }
     }
 }

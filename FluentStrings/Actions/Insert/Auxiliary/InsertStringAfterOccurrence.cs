@@ -26,7 +26,7 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
-            return _insertString.Source.Insert(_insertString.Insertion, _marker, _occurrenceCount, after: true);
+            return _insertString.Source.Insert(_insertString.Insertion, _marker, occurrenceCount: _occurrenceCount, after: true);
         }
     }
 }
