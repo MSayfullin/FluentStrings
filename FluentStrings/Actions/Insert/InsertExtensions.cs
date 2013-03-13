@@ -82,6 +82,14 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Extends Insert.Before action with the ability to ignore case.
+        /// </summary>
+        public static InsertStringBeforeIgnoringCase IgnoringCase(this InsertStringBefore source)
+        {
+            return new InsertStringBeforeIgnoringCase(source);
+        }
+
+        /// <summary>
         /// Extends Insert action with the ability to set insertion point through occurrence of the marker.
         /// Given string is inserted right BEFORE the marker.
         /// </summary>
