@@ -2414,6 +2414,213 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
+        #region Insert After All Ignoring Case
+
+        [TestMethod]
+        public void InsertNullAfterAllNullMarkersIgnoringCaseIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(null).AfterAll(null).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertNullAfterAllEmptyMarkersIgnoringCaseIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(null).AfterAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertNullAfterAllMarkersIgnoringCaseIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(null).AfterAll(Const.SampleMarker).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAfterAllNullMarkersIgnoringCaseIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(String.Empty).AfterAll(null).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAfterAllEmptyMarkersIgnoringCaseIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(String.Empty).AfterAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAfterAllMarkersIgnoringCaseIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(String.Empty).AfterAll(Const.SampleMarker).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllNullMarkersIgnoringCaseIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue).AfterAll(null).IgnoringCase();
+            transformed.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllEmptyMarkersIgnoringCaseIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue).AfterAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllMarkersIgnoringCaseIntoNullString()
+        {
+            string transformed = Const.NullString.Insert(Const.SampleValue).AfterAll(Const.SampleMarker).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void InsertNullAfterAllNullMarkersIgnoringCaseIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(null).AfterAll(null).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertNullAfterAllEmptyMarkersIgnoringCaseIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(null).AfterAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertNullAfterAllMarkersIgnoringCaseIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(null).AfterAll(Const.SampleMarker).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAfterAllNullMarkersIgnoringCaseIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(String.Empty).AfterAll(null).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAfterAllEmptyMarkersIgnoringCaseIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(String.Empty).AfterAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAfterAllMarkersIgnoringCaseIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(String.Empty).AfterAll(Const.SampleMarker).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllNullMarkersIgnoringCaseIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).AfterAll(null).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllEmptyMarkersIgnoringCaseIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).AfterAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllMarkersIgnoringCaseIntoEmptyString()
+        {
+            string transformed = String.Empty.Insert(Const.SampleValue).AfterAll(Const.SampleMarker).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void InsertNullAfterAllNullMarkersIgnoringCase()
+        {
+            string transformed = Const.SampleString.Insert(null).AfterAll(null).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertNullAfterAllEmptyMarkersIgnoringCase()
+        {
+            string transformed = Const.SampleString.Insert(null).AfterAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertNullAfterAllMarkersIgnoringCase()
+        {
+            string transformed = Const.SampleString.Insert(null).AfterAll(Const.SampleMarker).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAfterAllNullMarkersIgnoringCase()
+        {
+            string transformed = Const.SampleString.Insert(String.Empty).AfterAll(null).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAfterAllEmptyMarkersIgnoringCase()
+        {
+            string transformed = Const.SampleString.Insert(String.Empty).AfterAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertEmptyTextAfterAllMarkersIgnoringCase()
+        {
+            string transformed = Const.SampleString.Insert(String.Empty).AfterAll(Const.SampleMarker).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllNullMarkersIgnoringCase()
+        {
+            string transformed = Const.SampleString.Insert(Const.SampleValue).AfterAll(null).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllEmptyMarkersIgnoringCase()
+        {
+            string transformed = Const.SampleString.Insert(Const.SampleValue).AfterAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllNonExistingMarkersIgnoringCase()
+        {
+            string transformed = "Some long long string".Insert("value").AfterAll("MARKER").IgnoringCase();
+            transformed.Should().Be("Some long long string");
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllIgnoringCase()
+        {
+            string transformed = "marker marker marker_<-- TEST string will be inserted here".Insert("TEST").AfterAll("MARKER_").IgnoringCase();
+            transformed.Should().Be("marker marker marker_TEST<-- TEST string will be inserted here");
+        }
+
+        [TestMethod]
+        public void InsertTextAfterAllIgnoringCaseMultipleTimes()
+        {
+            string transformed = "marker_ marker marker_<-- TEST string will be inserted here".Insert("TEST").AfterAll("MARker_").IgnoringCase();
+            transformed.Should().Be("marker_TEST marker marker_TEST<-- TEST string will be inserted here");
+        }
+
+        #endregion
+
         #region Insert After
 
         [TestMethod]

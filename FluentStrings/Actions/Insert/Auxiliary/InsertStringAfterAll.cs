@@ -13,6 +13,9 @@ namespace dokas.FluentStrings.Actions.Insert
             _marker = marker;
         }
 
+        internal InsertString InsertString { get { return _insertString; } }
+        internal string Marker { get { return _marker; } }
+
         public static implicit operator string(InsertStringAfterAll insertStringAfterAll)
         {
             return insertStringAfterAll.ToString();
