@@ -1438,14 +1438,14 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void InsertTextBeforeNonExistingFromBeginning()
+        public void InsertTextBeforeNonExistingMarkerFromBeginning()
         {
             string transformed = Const.SampleString.Insert("TEST").Before("_marker").From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertTextBeforeNonExistingFromEnd()
+        public void InsertTextBeforeNonExistingMarkerFromEnd()
         {
             string transformed = Const.SampleString.Insert("TEST").Before("_marker").From(The.End);
             transformed.Should().Be(Const.SampleString);
@@ -1894,7 +1894,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void InsertTextBeforeNonExistingOccurrence()
+        public void InsertTextBeforeNonExistingMarkerOccurrence()
         {
             string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_marker");
             transformed.Should().Be(Const.SampleString);
@@ -2136,7 +2136,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void InsertTextBeforeNonExistingOccurrenceIgnoringCase()
+        public void InsertTextBeforeNonExistingMarkerOccurrenceIgnoringCase()
         {
             string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_marker").IgnoringCase();
             transformed.Should().Be(Const.SampleString);
@@ -2364,7 +2364,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void InsertTextBeforeNonExistingOccurrenceFromBeginning()
+        public void InsertTextBeforeNonExistingMarkerOccurrenceFromBeginning()
         {
             string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_marker").From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
@@ -2567,7 +2567,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void InsertTextBeforeNonExistingOccurrenceFromEnd()
+        public void InsertTextBeforeNonExistingMarkerOccurrenceFromEnd()
         {
             string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_marker").From(The.End);
             transformed.Should().Be(Const.SampleString);
@@ -3665,7 +3665,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void InsertTextAfterNonExistingOccurrence()
+        public void InsertTextAfterNonExistingMarkerOccurrence()
         {
             string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_marker");
             transformed.Should().Be(Const.SampleString);
@@ -3900,7 +3900,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void InsertTextAfterNonExistingOccurrenceIgnoringCase()
+        public void InsertTextAfterNonExistingMarkerOccurrenceIgnoringCase()
         {
             string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_marKER").IgnoringCase();
             transformed.Should().Be(Const.SampleString);
@@ -4325,14 +4325,14 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void InsertTextAfterNonExistingOccurrenceFromBeginning()
+        public void InsertTextAfterNonExistingMarkerOccurrenceFromBeginning()
         {
             string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_marker").From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void InsertTextAfterNonExistingOccurrenceFromEnd()
+        public void InsertTextAfterNonExistingMarkerOccurrenceFromEnd()
         {
             string transformed = Const.SampleString.Insert("TEST").Before(1, of: "_marker").From(The.End);
             transformed.Should().Be(Const.SampleString);
