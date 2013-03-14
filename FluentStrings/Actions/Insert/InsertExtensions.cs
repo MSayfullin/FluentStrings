@@ -82,6 +82,18 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Extends Insert.Before action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End value can be used.
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        public static InsertStringBeforeFrom From(this InsertStringBefore source, The position)
+        {
+            return new InsertStringBeforeFrom(source, position);
+        }
+
+        /// <summary>
         /// Extends Insert.Before action with the ability to ignore case.
         /// </summary>
         public static InsertStringBeforeIgnoringCase IgnoringCase(this InsertStringBefore source)
@@ -109,7 +121,7 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Insert.Before action with the ability to change starting point.
+        /// Extends Insert.BeforeOccurrence action with the ability to change starting point.
         /// </summary>
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.

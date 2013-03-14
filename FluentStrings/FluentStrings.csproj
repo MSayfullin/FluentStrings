@@ -52,6 +52,7 @@
     <Compile Include="Actions\Insert\Auxiliary\InsertStringAfterAllIgnoringCase.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringAfterIgnoringCase.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringAfterOccurrenceIgnoringCase.cs" />
+    <Compile Include="Actions\Insert\Auxiliary\InsertStringBeforeFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrenceFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrence.cs" />
