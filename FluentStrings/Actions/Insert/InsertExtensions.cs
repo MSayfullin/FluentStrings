@@ -150,6 +150,14 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Extends Insert.After action with the ability to ignore case.
+        /// </summary>
+        public static InsertStringAfterIgnoringCase IgnoringCase(this InsertStringAfter source)
+        {
+            return new InsertStringAfterIgnoringCase(source);
+        }
+
+        /// <summary>
         /// Extends Insert action with the ability to set insertion point through occurrence of the marker.
         /// Given string is inserted right AFTER the marker.
         /// </summary>
