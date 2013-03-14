@@ -11,6 +11,8 @@ namespace dokas.FluentStrings.Actions.Insert
             this._insertStringBefore = insertStringBefore;
         }
 
+        internal InsertStringBefore InsertStringBefore { get { return _insertStringBefore; } }
+
         public static implicit operator string(InsertStringBeforeIgnoringCase insertStringBeforeIgnoringCase)
         {
             return insertStringBeforeIgnoringCase.ToString();
