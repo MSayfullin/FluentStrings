@@ -169,6 +169,14 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Extends Insert.AfterOccurrence action with the ability to ignore case.
+        /// </summary>
+        public static InsertStringAfterOccurrenceIgnoringCase IgnoringCase(this InsertStringAfterOccurrence source)
+        {
+            return new InsertStringAfterOccurrenceIgnoringCase(source);
+        }
+
+        /// <summary>
         /// Extends Insert.After action with the ability to change starting point.
         /// </summary>
         /// <param name="position">
