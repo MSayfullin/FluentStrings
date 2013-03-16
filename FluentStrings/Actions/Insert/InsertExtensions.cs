@@ -186,6 +186,18 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Extends Insert.After action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End value can be used.
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        public static InsertStringAfterFrom From(this InsertStringAfter source, The position)
+        {
+            return new InsertStringAfterFrom(source, position);
+        }
+
+        /// <summary>
         /// Extends Insert.After action with the ability to ignore case.
         /// </summary>
         public static InsertStringAfterIgnoringCase IgnoringCase(this InsertStringAfter source)
