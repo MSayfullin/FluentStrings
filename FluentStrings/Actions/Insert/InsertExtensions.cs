@@ -247,5 +247,17 @@ namespace dokas.FluentStrings
         {
             return new InsertStringAfterOccurrenceFrom(source, position);
         }
+
+        /// <summary>
+        /// Extends Insert.AfterOccurrence.IgnoringCase action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End value can be used.
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        public static InsertStringAfterOccurrenceIgnoringCaseFrom From(this InsertStringAfterOccurrenceIgnoringCase source, The position)
+        {
+            return new InsertStringAfterOccurrenceIgnoringCaseFrom(source, position);
+        }
     }
 }

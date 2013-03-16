@@ -11,6 +11,8 @@ namespace dokas.FluentStrings.Actions.Insert
             _insertStringAfterOccurrence = insertStringAfterOccurrence;
         }
 
+        internal InsertStringAfterOccurrence InsertStringAfterOccurrence { get { return _insertStringAfterOccurrence; } }
+
         public static implicit operator string(InsertStringAfterOccurrenceIgnoringCase insertStringAfterOccurrenceIgnoringCase)
         {
             return insertStringAfterOccurrenceIgnoringCase.ToString();
