@@ -13,6 +13,7 @@ Let the code speak for itself.
 
 ## License
 
+[Ms-PL](https://github.com/MSayfullin/FluentStrings/blob/master/LICENSE)
 
 ## Credits
 
