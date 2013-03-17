@@ -7,6 +7,28 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     internal static class CommonLogic
     {
+        public static string Remove(this string source, string extraction, Func<string, string, string> remove)
+        {
+            switch (source.ToKeyWith(extraction))
+            {
+                // source-extraction
+                case "null-null":
+                case "null-empty":
+                case "null-value":
+                case "empty-null":
+                case "empty-value":
+                case "value-null":
+                case "value-empty":
+                    return source;
+                case "empty-empty":
+                    return null;
+                case "value-value":
+                    return remove(source, extraction);
+                default:
+                    throw new ArgumentOutOfRangeException("Didn't you forget to regenerate case statements for changed key?");
+            }
+        }
+
         public static string RemoveValues(this string source, int? quantity, string extraction, StringComparison comparisonRule, The position)
         {
             switch (position)
@@ -31,30 +53,34 @@ namespace dokas.FluentStrings.Actions.Remove
             if (quantity < 0)
                 throw new ArgumentOutOfRangeException("quantity", "Negative quantity is not supported");
 
-            if (source.IsEmpty() || extraction.IsEmpty() || quantity == 0)
+            if (quantity == 0)
                 return source;
 
-            var indexes = source.IndexesOf(extraction, comparisonRule, position);
-            if (quantity != null)
-                indexes = indexes.Take(quantity.Value);
-            if (position == The.End)
-                indexes = indexes.Reverse();
+            return source.Remove(extraction,
+                (s, e) =>
+                {
+                    var indexes = source.IndexesOf(extraction, comparisonRule, position);
+                    if (quantity != null)
+                        indexes = indexes.Take(quantity.Value);
+                    if (position == The.End)
+                        indexes = indexes.Reverse();
 
-            var indexesArray = indexes.ToArray();
+                    var indexesArray = indexes.ToArray();
 
-            if (!indexesArray.Any())
-                return source;
+                    if (!indexesArray.Any())
+                        return source;
 
-            var start = 0;
-            var resultStringLength = source.Length - indexesArray.Length * extraction.Length;
-            var builder = new StringBuilder(resultStringLength);
-            foreach (var index in indexes)
-            {
-                builder.Append(source.Substring(start, index - start));
-                start = index + extraction.Length;
-            }
-            builder.Append(source.Substring(start));
-            return builder.ToString();
+                    var start = 0;
+                    var resultStringLength = source.Length - indexesArray.Length * extraction.Length;
+                    var builder = new StringBuilder(resultStringLength);
+                    foreach (var index in indexes)
+                    {
+                        builder.Append(source.Substring(start, index - start));
+                        start = index + extraction.Length;
+                    }
+                    builder.Append(source.Substring(start));
+                    return builder.ToString();
+                });
         }
     }
 }

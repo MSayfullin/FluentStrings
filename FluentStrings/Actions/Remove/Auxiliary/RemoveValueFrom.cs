@@ -25,9 +25,12 @@ namespace dokas.FluentStrings.Actions.Remove
                 case The.Beginning:
                     return _removeValue;
                 case The.End:
-                    return (_removeValue.Source.IsEmpty() || _removeValue.Extraction.IsEmpty())
-                        ? _removeValue.Source
-                        : _removeValue.Source.Remove(_removeValue.Source.LastIndexOf(_removeValue.Extraction), _removeValue.Extraction.Length);
+                    return _removeValue.Source.Remove(_removeValue.Extraction,
+                        (s, e) =>
+                        {
+                            var index = s.LastIndexOf(e);
+                            return index >= 0 ? s.Remove(index, e.Length) : s;
+                        });
                 case The.StartOf:
                 case The.EndOf:
                 default:

@@ -37,8 +37,43 @@ namespace dokas.FluentStrings.Tests
         [TestMethod]
         public void RemoveTextFromNullString()
         {
-            string transformed = Const.NullString.Remove("bla");
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove("smth");
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullFromNullString()
+        {
+            string transformed = Const.NullString.Remove(null);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromNullString()
+        {
+            string transformed = Const.NullString.Remove(String.Empty);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullFromEmptyString()
+        {
+            string transformed = String.Empty.Remove(null);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromEmptyString()
+        {
+            string transformed = String.Empty.Remove(String.Empty);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveTextFromEmptyString()
+        {
+            string transformed = String.Empty.Remove("smth");
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
@@ -49,17 +84,24 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveNullTextFromNullString()
-        {
-            string transformed = Const.NullString.Remove(null);
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
         public void RemoveEmptyText()
         {
             string transformed = Const.SampleString.Remove(String.Empty);
             transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNonExistingText()
+        {
+            string transformed = Const.SampleString.Remove(Const.SampleValue);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveWholeString()
+        {
+            string transformed = Const.SampleString.Remove(Const.SampleString);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
@@ -70,12 +112,6 @@ namespace dokas.FluentStrings.Tests
 
             transformed = "string will be removed ->TEST".Remove("TEST");
             transformed.Should().Be("string will be removed ->");
-
-            transformed = "string will be removed ->TEST and this will be left TEST".Remove("TEST");
-            transformed.Should().Be("string will be removed -> and this will be left TEST");
-
-            transformed = "TEST string will be removed only from left side TEST".Remove("TEST");
-            transformed.Should().Be(" string will be removed only from left side TEST");
         }
 
         [TestMethod]
@@ -91,64 +127,158 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("TEST string will be NOT be removed from string TEST");
         }
 
+        [TestMethod]
+        public void RemoveTextWithMultipleValues()
+        {
+            string transformed = "string will be removed ->TEST and this will be left TEST".Remove("TEST");
+            transformed.Should().Be("string will be removed -> and this will be left TEST");
+
+            transformed = "TEST string will be removed only from left side TEST".Remove("TEST");
+            transformed.Should().Be(" string will be removed only from left side TEST");
+        }
+
         #endregion
 
         #region Remove From
 
         [TestMethod]
+        public void RemoveNullFromBeginningOfNullString()
+        {
+            string transformed = Const.NullString.Remove(null).From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullFromEndOfNullString()
+        {
+            string transformed = Const.NullString.Remove(null).From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromBeginningOfNullString()
+        {
+            string transformed = Const.NullString.Remove(String.Empty).From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromEndOfNullString()
+        {
+            string transformed = Const.NullString.Remove(String.Empty).From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
         public void RemoveTextFromBeginningOfNullString()
         {
-            string transformed = Const.NullString.Remove("bla").From(The.Beginning);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(Const.SampleValue).From(The.Beginning);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
         public void RemoveTextFromEndOfNullString()
         {
-            string transformed = Const.NullString.Remove("bla").From(The.End);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(Const.SampleValue).From(The.End);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void RemoveNullTextFromBeginning()
+        public void RemoveNullFromBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(null).From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveNullFromEndOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(null).From(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(String.Empty).From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromEndOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(String.Empty).From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveTextFromBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(Const.SampleValue).From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveTextFromEndOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(Const.SampleValue).From(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveNullFromBeginning()
         {
             string transformed = Const.SampleString.Remove(null).From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveNullTextFromEnd()
+        public void RemoveNullFromEnd()
         {
             string transformed = Const.SampleString.Remove(null).From(The.End);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveNullTextFromBeginningOfNullString()
-        {
-            string transformed = Const.NullString.Remove(null).From(The.Beginning);
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
-        public void RemoveNullTextFromEndOfNullString()
-        {
-            string transformed = Const.NullString.Remove(null).From(The.End);
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
-        public void RemoveEmptyTextFromBeginning()
+        public void RemoveEmptyStringFromBeginning()
         {
             string transformed = Const.SampleString.Remove(String.Empty).From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveEmptyTextFromEnd()
+        public void RemoveEmptyStringFromEnd()
         {
             string transformed = Const.SampleString.Remove(String.Empty).From(The.End);
             transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNonExistingTextFromBeginning()
+        {
+            string transformed = Const.SampleString.Remove(Const.SampleValue).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNonExistingTextFromEnd()
+        {
+            string transformed = Const.SampleString.Remove(Const.SampleValue).From(The.End);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveWholeStringFromBeginning()
+        {
+            string transformed = Const.SampleString.Remove(Const.SampleString).From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveWholeStringFromEnd()
+        {
+            string transformed = Const.SampleString.Remove(Const.SampleString).From(The.End);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
@@ -208,30 +338,65 @@ namespace dokas.FluentStrings.Tests
         #region Remove Ignoring Case
 
         [TestMethod]
-        public void RemoveTextFromNullStringIgnoringCase()
+        public void RemoveNullFromNullStringIgnoringCase()
         {
-            string transformed = Const.NullString.Remove("bla").IgnoringCase();
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(null).IgnoringCase();
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void RemoveNullTextIgnoringCase()
+        public void RemoveEmptyStringFromNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(String.Empty).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveTextFromNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(Const.SampleValue).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullFromEmptyStringIgnoringCase()
+        {
+            string transformed = String.Empty.Remove(null).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromEmptyStringIgnoringCase()
+        {
+            string transformed = String.Empty.Remove(String.Empty).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveTextFromEmptyStringIgnoringCase()
+        {
+            string transformed = String.Empty.Remove(Const.SampleValue).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveNullIgnoringCase()
         {
             string transformed = Const.SampleString.Remove(null).IgnoringCase();
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveNullTextFromNullStringIgnoringCase()
+        public void RemoveEmptyStringIgnoringCase()
         {
-            string transformed = Const.NullString.Remove(null).IgnoringCase();
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.SampleString.Remove(String.Empty).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveEmptyTextIgnoringCase()
+        public void RemoveNonExistingTextIgnoringCase()
         {
-            string transformed = Const.SampleString.Remove(String.Empty).IgnoringCase();
+            string transformed = Const.SampleString.Remove(Const.SampleValue).IgnoringCase();
             transformed.Should().Be(Const.SampleString);
         }
 
@@ -243,8 +408,12 @@ namespace dokas.FluentStrings.Tests
 
             transformed = "string will be removed ->tEST".Remove("tEsT").IgnoringCase();
             transformed.Should().Be("string will be removed ->");
+        }
 
-            transformed = "string will be removed ->TEST and this will be left TEST".Remove("TEST").IgnoringCase();
+        [TestMethod]
+        public void RemoveTextIgnoringCaseWithMultipleValues()
+        {
+            string transformed = "string will be removed ->TEST and this will be left TEST".Remove("TEST").IgnoringCase();
             transformed.Should().Be("string will be removed -> and this will be left TEST");
 
             transformed = "TesT string will be removed only from left side TEST".Remove("TEST").IgnoringCase();
@@ -256,58 +425,128 @@ namespace dokas.FluentStrings.Tests
         #region Remove Ignoring Case From
 
         [TestMethod]
+        public void RemoveNullFromBeginningOfNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(null).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullFromEndOfNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(null).IgnoringCase().From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromBeginningOfNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(String.Empty).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromEndOfNullStringIgnoringCase()
+        {
+            string transformed = Const.NullString.Remove(String.Empty).IgnoringCase().From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
         public void RemoveTextFromBeginningOfNullStringIgnoringCase()
         {
-            string transformed = Const.NullString.Remove("bla").IgnoringCase().From(The.Beginning);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(Const.SampleValue).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
         public void RemoveTextFromEndOfNullStringIgnoringCase()
         {
-            string transformed = Const.NullString.Remove("bla").IgnoringCase().From(The.End);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(Const.SampleValue).IgnoringCase().From(The.End);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void RemoveNullTextFromBeginningIgnoringCase()
+        public void RemoveNullFromBeginningOfEmptyStringIgnoringCase()
+        {
+            string transformed = String.Empty.Remove(null).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveNullFromEndOfEmptyStringIgnoringCase()
+        {
+            string transformed = String.Empty.Remove(null).IgnoringCase().From(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromBeginningOfEmptyStringIgnoringCase()
+        {
+            string transformed = String.Empty.Remove(String.Empty).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyStringFromEndOfEmptyStringIgnoringCase()
+        {
+            string transformed = String.Empty.Remove(String.Empty).IgnoringCase().From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveTextFromBeginningOfEmptyStringIgnoringCase()
+        {
+            string transformed = String.Empty.Remove(Const.SampleValue).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveTextFromEndOfEmptyStringIgnoringCase()
+        {
+            string transformed = String.Empty.Remove(Const.SampleValue).IgnoringCase().From(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveNullFromBeginningIgnoringCase()
         {
             string transformed = Const.SampleString.Remove(null).IgnoringCase().From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveNullTextFromEndIgnoringCase()
+        public void RemoveNullFromEndIgnoringCase()
         {
             string transformed = Const.SampleString.Remove(null).IgnoringCase().From(The.End);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveNullTextFromBeginningOfNullStringIgnoringCase()
-        {
-            string transformed = Const.NullString.Remove(null).IgnoringCase().From(The.Beginning);
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
-        public void RemoveNullTextFromEndOfNullStringIgnoringCase()
-        {
-            string transformed = Const.NullString.Remove(null).IgnoringCase().From(The.End);
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
-        public void RemoveEmptyTextFromBeginningIgnoringCase()
+        public void RemoveEmptyStringFromBeginningIgnoringCase()
         {
             string transformed = Const.SampleString.Remove(String.Empty).IgnoringCase().From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveEmptyTextFromEndIgnoringCase()
+        public void RemoveEmptyStringFromEndIgnoringCase()
         {
             string transformed = Const.SampleString.Remove(String.Empty).IgnoringCase().From(The.End);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNonExistingTextFromBeginningIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(Const.SampleValue).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNonExistingTextFromEndIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(Const.SampleValue).IgnoringCase().From(The.End);
             transformed.Should().Be(Const.SampleString);
         }
 
@@ -319,8 +558,12 @@ namespace dokas.FluentStrings.Tests
 
             transformed = "string will be removed ->tEST".Remove("tEsT").IgnoringCase().From(The.Beginning);
             transformed.Should().Be("string will be removed ->");
+        }
 
-            transformed = "string will be removed ->TEST and this will be left TEST".Remove("TEST").IgnoringCase().From(The.Beginning);
+        [TestMethod]
+        public void RemoveTextFromBeginningIgnoringCaseWithMultipleValues()
+        {
+            string transformed = "string will be removed ->TEST and this will be left TEST".Remove("TEST").IgnoringCase().From(The.Beginning);
             transformed.Should().Be("string will be removed -> and this will be left TEST");
 
             transformed = "TesT string will be removed only from left side TEST".Remove("TEST").IgnoringCase().From(The.Beginning);
@@ -332,8 +575,12 @@ namespace dokas.FluentStrings.Tests
         {
             string transformed = "string will be removed -> TEST".Remove("tESt").IgnoringCase().From(The.End);
             transformed.Should().Be("string will be removed -> ");
+        }
 
-            transformed = "TEST <- this string will be left, but this will be removed -> TEST".Remove("test").IgnoringCase().From(The.End);
+        [TestMethod]
+        public void RemoveTextFromEndIgnoringCaseWithMultipleValues()
+        {
+            string transformed = "TEST <- this string will be left, but this will be removed -> TEST".Remove("test").IgnoringCase().From(The.End);
             transformed.Should().Be("TEST <- this string will be left, but this will be removed -> ");
 
             transformed = "string will be removed -> |TesT| some additional string".Remove("TEST").IgnoringCase().From(The.End);
@@ -345,24 +592,52 @@ namespace dokas.FluentStrings.Tests
         #region Remove Values
 
         [TestMethod]
+        public void RemoveNullValuesFromNullString()
+        {
+            string transformed = Const.NullString.Remove(2, null);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesFromNullString()
+        {
+            string transformed = Const.NullString.Remove(2, String.Empty);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
         public void RemoveValuesFromNullString()
         {
-            string transformed = Const.NullString.Remove(2, "bla");
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(2, Const.SampleValue);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesFromEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, null);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesFromEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, String.Empty);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveValuesFromEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, Const.SampleValue);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
         public void RemoveNullValues()
         {
-            string transformed = Const.SampleString.Remove(3, null);
+            string transformed = Const.SampleString.Remove(2, null);
             transformed.Should().Be(Const.SampleString);
-        }
-
-        [TestMethod]
-        public void RemoveNullValuesFromNullString()
-        {
-            string transformed = Const.NullString.Remove(1, null);
-            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
@@ -373,16 +648,23 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
+        public void RemoveNonExistingValues()
+        {
+            string transformed = Const.SampleString.Remove(2, "smth");
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
         public void RemoveNegativeQuantityValues()
         {
-            Action action = () => Const.SampleString.Remove(-1, "TEST").ToString();
+            Action action = () => Const.SampleString.Remove(-1, "smth").ToString();
             action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
         [TestMethod]
         public void RemoveZeroValues()
         {
-            string transformed = Const.SampleString.Remove(0, "TEST");
+            string transformed = Const.SampleString.Remove(0, "smth");
             transformed.Should().Be(Const.SampleString);
         }
 
@@ -432,17 +714,87 @@ namespace dokas.FluentStrings.Tests
         #region Remove Values From
 
         [TestMethod]
+        public void RemoveNullValuesFromBeginningOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, null).From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesFromEndOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, null).From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesFromBeginningOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, String.Empty).From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesFromEndOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, String.Empty).From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
         public void RemoveValuesFromBeginningOfNullString()
         {
-            string transformed = Const.NullString.Remove(2, "bla").From(The.Beginning);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(2, Const.SampleValue).From(The.Beginning);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
         public void RemoveValuesFromEndOfNullString()
         {
-            string transformed = Const.NullString.Remove(4, "bla").From(The.End);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(2, Const.SampleValue).From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesFromBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, null).From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesFromEndOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, null).From(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesFromBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, String.Empty).From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesFromEndOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, String.Empty).From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveValuesFromBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, Const.SampleValue).From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveValuesFromEndOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, Const.SampleValue).From(The.End);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
@@ -460,20 +812,6 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveNullValuesFromBeginningOfNullString()
-        {
-            string transformed = Const.NullString.Remove(4, null).From(The.Beginning);
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
-        public void RemoveNullValuesFromEndOfNullString()
-        {
-            string transformed = Const.NullString.Remove(2, null).From(The.End);
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
         public void RemoveEmptyValuesFromBeginning()
         {
             string transformed = Const.SampleString.Remove(2, String.Empty).From(The.Beginning);
@@ -483,7 +821,21 @@ namespace dokas.FluentStrings.Tests
         [TestMethod]
         public void RemoveEmptyValuesFromEnd()
         {
-            string transformed = Const.SampleString.Remove(1, String.Empty).From(The.End);
+            string transformed = Const.SampleString.Remove(2, String.Empty).From(The.End);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNonExistingValuesFromBeginning()
+        {
+            string transformed = Const.SampleString.Remove(2, "smth").From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNonExistingValuesFromEnd()
+        {
+            string transformed = Const.SampleString.Remove(2, "smth").From(The.End);
             transformed.Should().Be(Const.SampleString);
         }
 
@@ -598,30 +950,65 @@ namespace dokas.FluentStrings.Tests
         #region Remove Values Ignoring Case
 
         [TestMethod]
-        public void RemoveValuesFromNullStringIgnoringCase()
+        public void RemoveNullValuesIgnoringCaseFromNullString()
         {
-            string transformed = Const.NullString.Remove(1, "bla").IgnoringCase();
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(3, null).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesIgnoringCaseFromNullString()
+        {
+            string transformed = Const.NullString.Remove(3, String.Empty).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveValuesIgnoringCaseFromNullString()
+        {
+            string transformed = Const.NullString.Remove(3, Const.SampleValue).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesIgnoringCaseFromEmptyString()
+        {
+            string transformed = String.Empty.Remove(3, null).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesIgnoringCaseFromEmptyString()
+        {
+            string transformed = String.Empty.Remove(3, String.Empty).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveValuesIgnoringCaseFromEmptyString()
+        {
+            string transformed = String.Empty.Remove(3, Const.SampleValue).IgnoringCase();
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
         public void RemoveNullValuesIgnoringCase()
         {
-            string transformed = Const.SampleString.Remove(2, null).IgnoringCase();
+            string transformed = Const.SampleString.Remove(3, null).IgnoringCase();
             transformed.Should().Be(Const.SampleString);
-        }
-
-        [TestMethod]
-        public void RemoveNullValuesFromNullStringIgnoringCase()
-        {
-            string transformed = Const.NullString.Remove(2, null).IgnoringCase();
-            transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
         public void RemoveEmptyValuesIgnoringCase()
         {
-            string transformed = Const.SampleString.Remove(1, String.Empty).IgnoringCase();
+            string transformed = Const.SampleString.Remove(3, String.Empty).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNonExistingValuesIgnoringCase()
+        {
+            string transformed = Const.SampleString.Remove(3, "smth").IgnoringCase();
             transformed.Should().Be(Const.SampleString);
         }
 
@@ -671,23 +1058,93 @@ namespace dokas.FluentStrings.Tests
         #region Remove Values Ignoring Case From
 
         [TestMethod]
+        public void RemoveNullValuesIgnoringCaseFromBeginningOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, null).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesIgnoringCaseFromEndOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, null).IgnoringCase().From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesIgnoringCaseFromBeginningOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, String.Empty).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesIgnoringCaseFromEndOfNullString()
+        {
+            string transformed = Const.NullString.Remove(2, String.Empty).IgnoringCase().From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
         public void RemoveValuesIgnoringCaseFromBeginningOfNullString()
         {
-            string transformed = Const.NullString.Remove(2, "bla").IgnoringCase().From(The.Beginning);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(2, Const.SampleValue).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
         public void RemoveValuesIgnoringCaseFromEndOfNullString()
         {
-            string transformed = Const.NullString.Remove(2, "bla").IgnoringCase().From(The.End);
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.Remove(2, Const.SampleValue).IgnoringCase().From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesIgnoringCaseFromBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, null).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveNullValuesIgnoringCaseFromEndOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, null).IgnoringCase().From(The.End);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesIgnoringCaseFromBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, String.Empty).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveEmptyValuesIgnoringCaseFromEndOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, String.Empty).IgnoringCase().From(The.End);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveValuesIgnoringCaseFromBeginningOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, Const.SampleValue).IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveValuesIgnoringCaseFromEndOfEmptyString()
+        {
+            string transformed = String.Empty.Remove(2, Const.SampleValue).IgnoringCase().From(The.End);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
         public void RemoveNullValuesIgnoringCaseFromBeginning()
         {
-            string transformed = Const.SampleString.Remove(1, null).IgnoringCase().From(The.Beginning);
+            string transformed = Const.SampleString.Remove(2, null).IgnoringCase().From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
@@ -699,30 +1156,30 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveNullValuesIgnoringCaseFromBeginningOfNullString()
-        {
-            string transformed = Const.NullString.Remove(3, null).IgnoringCase().From(The.Beginning);
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
-        public void RemoveNullValuesIgnoringCaseFromEndOfNullString()
-        {
-            string transformed = Const.NullString.Remove(2, null).IgnoringCase().From(The.End);
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
         public void RemoveEmptyValuesIgnoringCaseFromBeginning()
         {
-            string transformed = Const.SampleString.Remove(4, String.Empty).IgnoringCase().From(The.Beginning);
+            string transformed = Const.SampleString.Remove(2, String.Empty).IgnoringCase().From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
         public void RemoveEmptyValuesIgnoringCaseFromEnd()
         {
-            string transformed = Const.SampleString.Remove(3, String.Empty).IgnoringCase().From(The.End);
+            string transformed = Const.SampleString.Remove(2, String.Empty).IgnoringCase().From(The.End);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNonExistingValuesIgnoringCaseFromBeginning()
+        {
+            string transformed = Const.SampleString.Remove(2, "smth").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveNonExistingValuesIgnoringCaseFromEnd()
+        {
+            string transformed = Const.SampleString.Remove(2, "smth").IgnoringCase().From(The.End);
             transformed.Should().Be(Const.SampleString);
         }
 
@@ -809,35 +1266,70 @@ namespace dokas.FluentStrings.Tests
         #region Remove All
 
         [TestMethod]
-        public void RemoveAllTextFromNullString()
+        public void RemoveAllNullValuesFromNullString()
         {
-            string transformed = Const.NullString.RemoveAll("bla");
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.RemoveAll(null);
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void RemoveAllNullText()
+        public void RemoveAllEmptyValuesFromNullString()
+        {
+            string transformed = Const.NullString.RemoveAll(String.Empty);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveAllValuesFromNullString()
+        {
+            string transformed = Const.NullString.RemoveAll(Const.SampleValue);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveAllNullValuesFromEmptyString()
+        {
+            string transformed = String.Empty.RemoveAll(null);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveAllEmptyValuesFromEmptyString()
+        {
+            string transformed = String.Empty.RemoveAll(String.Empty);
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveAllValuesFromEmptyString()
+        {
+            string transformed = String.Empty.RemoveAll(Const.SampleValue);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveAllNullValues()
         {
             string transformed = Const.SampleString.RemoveAll(null);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveAllNullTextFromNullString()
-        {
-            string transformed = Const.NullString.RemoveAll(null);
-            transformed.Should().Be(Const.NullString);
-        }
-
-        [TestMethod]
-        public void RemoveAllEmptyText()
+        public void RemoveAllEmptyValues()
         {
             string transformed = Const.SampleString.RemoveAll(String.Empty);
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveAllText()
+        public void RemoveAllNonExistingValues()
+        {
+            string transformed = Const.SampleString.RemoveAll("smth");
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveAllValues()
         {
             string transformed = "TEST string will be removed".RemoveAll("TEST");
             transformed.Should().Be(" string will be removed");
@@ -847,7 +1339,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveAllTextCaseSensitive()
+        public void RemoveAllValuesCaseSensitive()
         {
             string transformed = "TeSt string will be removed from both sides TeSt".RemoveAll("TeSt");
             transformed.Should().Be(" string will be removed from both sides ");
@@ -861,30 +1353,65 @@ namespace dokas.FluentStrings.Tests
         #region Remove All Ignoring Case
 
         [TestMethod]
-        public void RemoveAllTextFromNullStringIgnoringCase()
+        public void RemoveAllNullValuesIgnoringCaseFromNullString()
         {
-            string transformed = Const.NullString.RemoveAll("bla").IgnoringCase();
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.NullString.RemoveAll(null).IgnoringCase();
+            transformed.Should().Be(null);
         }
 
         [TestMethod]
-        public void RemoveAllNullTextIgnoringCase()
+        public void RemoveAllEmptyValuesIgnoringCaseFromNullString()
+        {
+            string transformed = Const.NullString.RemoveAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveAllValuesIgnoringCaseFromNullString()
+        {
+            string transformed = Const.NullString.RemoveAll(Const.SampleValue).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveAllNullValuesIgnoringCaseFromEmptyString()
+        {
+            string transformed = String.Empty.RemoveAll(null).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveAllEmptyValuesIgnoringCaseFromEmptyString()
+        {
+            string transformed = String.Empty.RemoveAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void RemoveAllValuesIgnoringCaseFromEmptyString()
+        {
+            string transformed = String.Empty.RemoveAll(Const.SampleValue).IgnoringCase();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveAllNullValuesIgnoringCase()
         {
             string transformed = Const.SampleString.RemoveAll(null).IgnoringCase();
             transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveAllNullTextFromNullStringIgnoringCase()
+        public void RemoveAllEmptyValuesIgnoringCase()
         {
-            string transformed = Const.NullString.RemoveAll(null).IgnoringCase();
-            transformed.Should().Be(Const.NullString);
+            string transformed = Const.SampleString.RemoveAll(String.Empty).IgnoringCase();
+            transformed.Should().Be(Const.SampleString);
         }
 
         [TestMethod]
-        public void RemoveAllEmptyTextIgnoringCase()
+        public void RemoveAllNonExistingValuesIgnoringCase()
         {
-            string transformed = Const.SampleString.RemoveAll(String.Empty).IgnoringCase();
+            string transformed = Const.SampleString.RemoveAll("smth").IgnoringCase();
             transformed.Should().Be(Const.SampleString);
         }
 

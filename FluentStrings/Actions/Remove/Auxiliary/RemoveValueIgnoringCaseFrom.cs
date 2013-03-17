@@ -25,11 +25,12 @@ namespace dokas.FluentStrings.Actions.Remove
                 case The.Beginning:
                     return _removeStringIgnoringCase;
                 case The.End:
-                    if (_removeStringIgnoringCase.RemoveValue.Source.IsEmpty() || _removeStringIgnoringCase.RemoveValue.Extraction.IsEmpty())
-                        return _removeStringIgnoringCase.RemoveValue.Source;
-
-                    var indexOfExtraction = _removeStringIgnoringCase.RemoveValue.Source.LastIndexOf(_removeStringIgnoringCase.RemoveValue.Extraction, StringComparison.CurrentCultureIgnoreCase);
-                    return _removeStringIgnoringCase.RemoveValue.Source.Remove(indexOfExtraction, _removeStringIgnoringCase.RemoveValue.Extraction.Length);
+                    return _removeStringIgnoringCase.RemoveValue.Source.Remove(_removeStringIgnoringCase.RemoveValue.Extraction,
+                        (s, e) =>
+                        {
+                            var index = s.LastIndexOf(e, StringComparison.CurrentCultureIgnoreCase);
+                            return index >= 0 ? s.Remove(index, e.Length) : s;
+                        });
                 case The.StartOf:
                 case The.EndOf:
                 default:
