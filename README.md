@@ -50,6 +50,30 @@ string t = "Some string will be inserted before this second 'some' word, but not
 t.Should().Be("Some string will be inserted before this second 'Look at me! I am inserted! some' word, but not before this 'some'");
 ```
 
+### Remove operations
+
+### Replace operations
+
+### Truncate operations
+
+Just playing around:
+```csharp
+string transformed = "Some very long string".TruncateTo(9);
+transformed.Should().Be("Some very");
+
+transformed = "Some very long string".TruncateTo(11).From(The.End);
+transformed.Should().Be("long string");
+```
+
+And combining the knowledge:
+```csharp
+string transformed = "Some very long string".TruncateTo(9);
+transformed = transformed.Insert("...").To(The.End);
+transformed.Should().Be("Some very...");
+```
+
+### Utility operations
+
 More examples could be found in [test classes](https://github.com/MSayfullin/FluentStrings/tree/master/FluentStrings.Tests)
 
 ## License
