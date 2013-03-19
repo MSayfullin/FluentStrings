@@ -207,10 +207,10 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveNegativeQuantityOfChars()
         {
-            string transformed = "Some very long string".RemoveChars(-1);
+            Action action = () => "Some very long string".RemoveChars(-1).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
         #endregion
@@ -253,10 +253,10 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveNegativeQuantityOfCharsFromBeginning()
         {
-            string transformed = "Some very long string".RemoveChars(-1).From(The.Beginning);
+            Action action = () => "Some very long string".RemoveChars(-1).From(The.Beginning).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
         #endregion
@@ -299,10 +299,10 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveNegativeQuantityOfCharsFromEnd()
         {
-            string transformed = "Some very long string".RemoveChars(-1).From(The.End);
+            Action action = () => "Some very long string".RemoveChars(-1).From(The.End).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
         #endregion
