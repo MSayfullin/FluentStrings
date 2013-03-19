@@ -39,7 +39,7 @@ transformed.Should().Be("MARKER, another maRKer and... marker I am inserted!<-- 
 Even ignoring case:
 ```csharp
 string transformed = "Marker1, another maRKer2 and... marker <-- some string will be inserted here"
-                      .Insert("I am inserted").After("MARKER ").IgnoringCase();
+                     .Insert("I am inserted").After("MARKER ").IgnoringCase();
 transformed.Should().Be("Marker1, another maRKer2 and... marker I am inserted<-- some string will be inserted here");
 ```
 
@@ -52,11 +52,62 @@ t.Should().Be("Some string will be inserted before this second 'I am inserted! s
 
 ### Remove operations
 
+Eliminating totally:
+```csharp
+string transformed = "Some string".Remove();
+transformed.Should().Be(String.Empty);
+```
 
+Or part...
+```csharp
+string transformed = "THIS part of string will be removed".Remove("THIS");
+transformed.Should().Be(" part of string will be removed");
+```
+
+...by part:
+```csharp
+string transformed = "THIS <- this string will be left, but this will be removed -> THIS".Remove("THIS").From(The.End);
+transformed.Should().Be("THIS <- this string will be left, but this will be removed -> ");
+```
+
+By counting markers:
+```csharp
+string transformed = "String will be removed ->TEST and this will be removed also ->TEST, except this ->TEST"
+                     .Remove(2, "TEST");
+transformed.Should().Be("String will be removed -> and this will be removed also ->, except this ->TEST");
+```
+
+Or all of them at once:
+```csharp
+string transformed = "TEST string will be removed from both sides TEST".RemoveAll("tESt").IgnoringCase();
+transformed.Should().Be(" string will be removed from both sides ");
+```
+
+*More is comming soon...*
+
+### Remove operations for chars
+
+Creating cool effects:
+```csharp
+string transformed = "Vowels will be removed from this string".RemoveVowels();
+transformed.Should().Be("Vwls wll b rmvd frm ths strng");
+```
+
+For different culture as well:
+```csharp
+string transformed = "Очень длинная строка с русскими буквами, ё".RemoveVowels().For("ru");
+transformed.Should().Be("чнь длнн стрк с рсскм бквм, ");
+```
+
+Or by specifying chars explicitly:
+```csharp
+string transformed = "Some very long string".RemoveChars('e', 'L', 'G').IgnoringCase();
+transformed.Should().Be("Som vry on strin");
+```
 
 ### Replace operations
 
-Coming soon...
+*Coming soon...*
 
 ### Truncate operations
 
