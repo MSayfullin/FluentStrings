@@ -46,13 +46,17 @@ transformed.Should().Be("Marker1, another maRKer2 and... marker I am inserted<--
 And applying all the power:
 ```csharp
 string t = "Some string will be inserted before this second 'some' word, but not before this 'some'"
-           .Insert("Look at me! I am inserted! ").Before(2, "some").IgnoringCase().From(The.Beginning);
-t.Should().Be("Some string will be inserted before this second 'Look at me! I am inserted! some' word, but not before this 'some'");
+           .Insert("I am inserted! ").Before(2, "some").IgnoringCase().From(The.Beginning);
+t.Should().Be("Some string will be inserted before this second 'I am inserted! some' word, but not before this 'some'");
 ```
 
 ### Remove operations
 
+
+
 ### Replace operations
+
+Coming soon...
 
 ### Truncate operations
 
@@ -74,7 +78,44 @@ transformed.Should().Be("Some very...");
 
 ### Utility operations
 
-More examples could be found in [test classes](https://github.com/MSayfullin/FluentStrings/tree/master/FluentStrings.Tests)
+Better approach for well known:
+```csharp
+bool isEmpty = "".IsEmpty();
+isEmpty.Should().Be(true);
+```
+
+Even for `null` case:
+```csharp
+string sample = null;
+bool isEmpty = sample.IsEmpty();
+isEmpty.Should().Be(true);
+```
+
+And continuing for white spaces:
+```csharp
+bool isEmptyOrWhiteSpace = "  ".IsEmpty().OrWhiteSpace();
+isEmptyOrWhiteSpace.Should().Be(true);
+```
+
+Extending the basics:
+```csharp
+var indexes = "marker with another text marker and another text marker marker".IndexesOf("marker");
+indexes.Should().ContainInOrder(0, 25, 49, 56);
+```
+
+Breaking restrictions:
+```csharp
+var indexes = "Some text MARKER another text MarKer marker".IndexesOf("mArkEr").IgnoringCase();
+indexes.Should().ContainInOrder(10, 30, 37);
+```
+
+And plainly reverse the order:
+```csharp
+var indexes = "marker with another text marker and another text marker marker".IndexesOf("marker").From(The.End);
+indexes.Should().ContainInOrder(56, 49, 25, 0);
+```
+
+*More examples could be found in [test classes](https://github.com/MSayfullin/FluentStrings/tree/master/FluentStrings.Tests)*
 
 ## License
 
