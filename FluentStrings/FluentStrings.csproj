@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Actions\Insert\CommonLogic.cs" />
     <Compile Include="Actions\Insert\InsertExtensions.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringBeforeOccurrenceFrom.cs" />
