@@ -6,6 +6,11 @@ Powerful set of utilities for any kind of string transformations with fluent int
 Project is still in development and some interfaces could be changed
 ```
 
+## Download
+
+Fluent Strings can be downloaded either through [NuGet package](https://nuget.org/packages/dokas.FluentStrings/)
+or as a [zip archive](http://fluentstrings.codeplex.com/releases)
+
 ## Examples
 
 Let the code speak for itself.
