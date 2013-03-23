@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>dokas.FluentStrings</id>
+        <version>0.0.0</version>
+        <title>Fluent Strings</title>
+        <authors>Marsel Sayfullin</authors>
+        <owners>Marsel Sayfullin</owners>
+        <licenseUrl>https://github.com/MSayfullin/FluentStrings/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/MSayfullin/FluentStrings</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Powerful set of utilities for any kind of string transformations with fluent interface</description>
+        <copyright>Copyright © 2013 - Marsel Sayfullin</copyright>
+        <language>en</language>
+        <tags>doka fluent string strings</tags>
+    </metadata>
+    <files>
+        <file src="FluentStrings\**\*.cs" target="src" />
+        <file src="FluentStrings\bin\Release\dokas.FluentStrings.dll" target="lib\net35-client" />
+        <file src="FluentStrings\bin\Release\dokas.FluentStrings.pdb" target="lib\net35-client" />
+        <file src="FluentStrings\bin\Release\dokas.FluentStrings.xml" target="lib\net35-client" />
+    </files>
+</package>
