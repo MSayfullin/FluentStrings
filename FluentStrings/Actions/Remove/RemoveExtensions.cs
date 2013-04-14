@@ -7,7 +7,7 @@ namespace dokas.FluentStrings
         #region Remove
 
         /// <summary>
-        /// Terminates string itself
+        /// Terminates string itself.
         /// </summary>
         /// <param name="source">Target string for removal</param>
         /// <returns>Null if string is null and String.Empty in all other cases</returns>
@@ -43,7 +43,7 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Remove action with the ability to ignore case
+        /// Extends Remove action with the ability to ignore case.
         /// </summary>
         public static RemoveValueIgnoringCase IgnoringCase(this RemoveValue source)
         {
@@ -90,7 +90,7 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Remove action with the ability to ignore case
+        /// Extends Remove action with the ability to ignore case.
         /// </summary>
         public static RemoveValuesIgnoringCase IgnoringCase(this RemoveValues source)
         {
@@ -101,7 +101,7 @@ namespace dokas.FluentStrings
         /// Extends Remove.IgnoringCase action with the ability to change starting point.
         /// </summary>
         /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
+        /// Position in source string to start from. Beginning or End values could be used.
         /// </param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveValuesIgnoringCaseFrom From(this RemoveValuesIgnoringCase source, The position)
@@ -112,7 +112,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Removes all value occurrences from the source string.
-        /// Action is case sensitive by default, use IgnoringCase extension to change behaviour
+        /// Action is case sensitive by default, use IgnoringCase extension to change behaviour.
         /// </summary>
         /// <param name="source">Target string for removal</param>
         /// <param name="value">String to be removed</param>
