@@ -13,6 +13,9 @@ namespace dokas.FluentStrings.Actions.Replace
             _value = value;
         }
 
+        internal string Source { get { return _source; } }
+        internal string Value { get { return _value; } }
+
         public static implicit operator string(ReplaceString replaceString)
         {
             return replaceString.ToString();
@@ -20,7 +23,7 @@ namespace dokas.FluentStrings.Actions.Replace
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return _source.Replace(_value, String.Empty);
         }
     }
 }
