@@ -2,12 +2,12 @@ using System;
 
 namespace dokas.FluentStrings.Actions.Replace
 {
-    public class ReplaceString
+    public class ReplaceAll
     {
         private readonly string _source;
         private readonly string _value;
 
-        public ReplaceString(string source, string value)
+        public ReplaceAll(string source, string value)
         {
             _source = source;
             _value = value;
@@ -16,9 +16,9 @@ namespace dokas.FluentStrings.Actions.Replace
         internal string Source { get { return _source; } }
         internal string Value { get { return _value; } }
 
-        public static implicit operator string(ReplaceString replaceString)
+        public static implicit operator string(ReplaceAll replaceAll)
         {
-            return replaceString.ToString();
+            return replaceAll.ToString();
         }
 
         public override string ToString()

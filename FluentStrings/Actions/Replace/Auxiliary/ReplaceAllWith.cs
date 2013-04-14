@@ -2,28 +2,28 @@ using System;
 
 namespace dokas.FluentStrings.Actions.Replace
 {
-    public class ReplaceStringWith
+    public class ReplaceAllWith
     {
-        private readonly ReplaceString _replaceString;
+        private readonly ReplaceAll _replaceAll;
         private readonly string _replacement;
 
-        public ReplaceStringWith(ReplaceString replaceString, string replacement)
+        public ReplaceAllWith(ReplaceAll replaceAll, string replacement)
         {
-            _replaceString = replaceString;
+            _replaceAll = replaceAll;
             _replacement = replacement;
         }
 
-        internal ReplaceString ReplaceString { get { return _replaceString; } }
+        internal ReplaceAll ReplaceAll { get { return _replaceAll; } }
         internal string Replacement { get { return _replacement; } }
 
-        public static implicit operator string(ReplaceStringWith replaceStringWith)
+        public static implicit operator string(ReplaceAllWith replaceAllWith)
         {
-            return replaceStringWith.ToString();
+            return replaceAllWith.ToString();
         }
 
         public override string ToString()
         {
-            return _replaceString.Source.Replace(_replaceString.Value, _replacement);
+            return _replaceAll.Source.Replace(_replaceAll.Value, _replacement);
         }
     }
 }

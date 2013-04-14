@@ -5,34 +5,34 @@ using dokas.FluentStrings.Actions.Utilities;
 
 namespace dokas.FluentStrings.Actions.Replace
 {
-    public class ReplaceStringWithIgnoringCase
+    public class ReplaceAllWithIgnoringCase
     {
-        private readonly ReplaceStringWith _replaceStringWith;
+        private readonly ReplaceAllWith _replaceAllWith;
 
-        public ReplaceStringWithIgnoringCase(ReplaceStringWith replaceStringWith)
+        public ReplaceAllWithIgnoringCase(ReplaceAllWith replaceAllWith)
         {
-            _replaceStringWith = replaceStringWith;
+            _replaceAllWith = replaceAllWith;
         }
 
-        public static implicit operator string(ReplaceStringWithIgnoringCase replaceStringWithIgnoringCase)
+        public static implicit operator string(ReplaceAllWithIgnoringCase replaceAllWithIgnoringCase)
         {
-            return replaceStringWithIgnoringCase.ToString();
+            return replaceAllWithIgnoringCase.ToString();
         }
 
         public override string ToString()
         {
             var start = 0;
-            var indexes = _replaceStringWith.ReplaceString.Source.IndexesOf(_replaceStringWith.ReplaceString.Value, StringComparison.CurrentCultureIgnoreCase).ToArray();
-            var resultStringLength = _replaceStringWith.ReplaceString.Source.Length
-                - indexes.Length * (_replaceStringWith.ReplaceString.Value.Length - _replaceStringWith.Replacement.Length);
+            var indexes = _replaceAllWith.ReplaceAll.Source.IndexesOf(_replaceAllWith.ReplaceAll.Value, StringComparison.CurrentCultureIgnoreCase).ToArray();
+            var resultStringLength = _replaceAllWith.ReplaceAll.Source.Length
+                - indexes.Length * (_replaceAllWith.ReplaceAll.Value.Length - _replaceAllWith.Replacement.Length);
             var builder = new StringBuilder();
             foreach (var index in indexes)
             {
-                builder.Append(_replaceStringWith.ReplaceString.Source.Substring(start, index - start));
-                builder.Append(_replaceStringWith.Replacement);
-                start = index + _replaceStringWith.ReplaceString.Value.Length;
+                builder.Append(_replaceAllWith.ReplaceAll.Source.Substring(start, index - start));
+                builder.Append(_replaceAllWith.Replacement);
+                start = index + _replaceAllWith.ReplaceAll.Value.Length;
             }
-            builder.Append(_replaceStringWith.ReplaceString.Source.Substring(start));
+            builder.Append(_replaceAllWith.ReplaceAll.Source.Substring(start));
             return builder.ToString();
         }
     }
