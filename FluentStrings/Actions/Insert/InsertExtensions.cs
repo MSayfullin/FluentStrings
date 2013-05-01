@@ -23,7 +23,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string for insertion. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringTo To(this InsertString source, The position)
         {
             return new InsertStringTo(source, position);
@@ -46,7 +46,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringAtFrom From(this InsertStringAt source, The position)
         {
             return new InsertStringAtFrom(source, position);
@@ -87,7 +87,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringBeforeFrom From(this InsertStringBefore source, The position)
         {
             return new InsertStringBeforeFrom(source, position);
@@ -107,7 +107,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringBeforeIgnoringCaseFrom From(this InsertStringBeforeIgnoringCase source, The position)
         {
             return new InsertStringBeforeIgnoringCaseFrom(source, position);
@@ -138,7 +138,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringBeforeOccurrenceFrom From(this InsertStringBeforeOccurrence source, The position)
         {
             return new InsertStringBeforeOccurrenceFrom(source, position);
@@ -150,7 +150,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringBeforeOccurrenceIgnoringCaseFrom From(this InsertStringBeforeOccurrenceIgnoringCase source, The position)
         {
             return new InsertStringBeforeOccurrenceIgnoringCaseFrom(source, position);
@@ -191,7 +191,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringAfterFrom From(this InsertStringAfter source, The position)
         {
             return new InsertStringAfterFrom(source, position);
@@ -211,7 +211,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringAfterIgnoringCaseFrom From(this InsertStringAfterIgnoringCase source, The position)
         {
             return new InsertStringAfterIgnoringCaseFrom(source, position);
@@ -242,7 +242,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringAfterOccurrenceFrom From(this InsertStringAfterOccurrence source, The position)
         {
             return new InsertStringAfterOccurrenceFrom(source, position);
@@ -254,7 +254,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
         public static InsertStringAfterOccurrenceIgnoringCaseFrom From(this InsertStringAfterOccurrenceIgnoringCase source, The position)
         {
             return new InsertStringAfterOccurrenceIgnoringCaseFrom(source, position);

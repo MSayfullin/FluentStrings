@@ -36,7 +36,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End values could be used
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveValueFrom From(this RemoveValue source, The position)
         {
             return new RemoveValueFrom(source, position);
@@ -56,7 +56,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End values could be used
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveValueIgnoringCaseFrom From(this RemoveValueIgnoringCase source, The position)
         {
             return new RemoveValueIgnoringCaseFrom(source, position);
@@ -83,7 +83,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End values could be used
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveValuesFrom From(this RemoveValues source, The position)
         {
             return new RemoveValuesFrom(source, position);
@@ -103,7 +103,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End values could be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveValuesIgnoringCaseFrom From(this RemoveValuesIgnoringCase source, The position)
         {
             return new RemoveValuesIgnoringCaseFrom(source, position);
@@ -203,7 +203,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End values could be used
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveCharsFrom From(this RemoveChars source, The position)
         {
             return new RemoveCharsFrom(source, position);

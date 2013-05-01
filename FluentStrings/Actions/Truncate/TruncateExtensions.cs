@@ -22,7 +22,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End values could be used
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static TruncateStringFrom From(this TruncateString source, The position)
         {
             return new TruncateStringFrom(source, position);
