@@ -16,8 +16,11 @@
     </metadata>
     <files>
         <file src="FluentStrings\**\*.cs" target="src" />
-        <file src="FluentStrings\bin\Release\dokas.FluentStrings.dll" target="lib\net35-client" />
-        <file src="FluentStrings\bin\Release\dokas.FluentStrings.pdb" target="lib\net35-client" />
-        <file src="FluentStrings\bin\Release\dokas.FluentStrings.xml" target="lib\net35-client" />
+        <file src="bin\net35-client\dokas.FluentStrings.dll" target="lib\net35-client" />
+        <file src="bin\net35-client\dokas.FluentStrings.pdb" target="lib\net35-client" />
+        <file src="bin\net35-client\dokas.FluentStrings.xml" target="lib\net35-client" />
+        <file src="bin\portable\dokas.FluentStrings.dll" target="lib\portable-net4+sl4+wp7+win8" />
+        <file src="bin\portable\dokas.FluentStrings.pdb" target="lib\portable-net4+sl4+wp7+win8" />
+        <file src="bin\portable\dokas.FluentStrings.xml" target="lib\portable-net4+sl4+wp7+win8" />
     </files>
 </package>

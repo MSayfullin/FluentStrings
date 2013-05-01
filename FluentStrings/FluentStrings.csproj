@@ -26,11 +26,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\bin\net35-client\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\dokas.FluentStrings.xml</DocumentationFile>
+    <DocumentationFile>..\bin\net35-client\dokas.FluentStrings.xml</DocumentationFile>
     <NoWarn>1591,1573</NoWarn>
   </PropertyGroup>
   <ItemGroup>
