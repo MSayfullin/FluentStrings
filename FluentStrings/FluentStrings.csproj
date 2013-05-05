@@ -130,6 +130,7 @@
     <Compile Include="Actions\Truncate\Auxiliary\TruncateStringFrom.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateString.cs" />
     <Compile Include="Actions\Truncate\TruncateExtensions.cs" />
+    <Compile Include="Actions\Truncate\Auxiliary\TruncateStringWith.cs" />
     <Compile Include="Actions\Utilities\Auxiliary\IsEmptyString.cs" />
     <Compile Include="Actions\Utilities\Auxiliary\IsEmptyOrWhiteSpaceString.cs" />
     <Compile Include="Actions\Utilities\Auxiliary\IndexesOfValue.cs" />

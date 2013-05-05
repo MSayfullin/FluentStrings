@@ -41,6 +41,134 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
+        #region Truncate To With
+
+        [TestMethod]
+        public void TruncateToWithNullOfNullString()
+        {
+            string transformed = Const.NullString.TruncateTo(3).With(null);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void TruncateToWithEmptyStringOfNullString()
+        {
+            string transformed = Const.NullString.TruncateTo(3).With(String.Empty);
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void TruncateToWithOfNullString()
+        {
+            string transformed = Const.NullString.TruncateTo(3).With(" etc.");
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void TruncateToWithNullOfEmptyString()
+        {
+            string transformed = String.Empty.TruncateTo(5).With(null);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void TruncateToWithEmptyStringOfEmptyString()
+        {
+            string transformed = String.Empty.TruncateTo(5).With(String.Empty);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void TruncateToWithOfEmptyString()
+        {
+            string transformed = String.Empty.TruncateTo(5).With(" etc.");
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void TruncateToWithNull()
+        {
+            string transformed = "Some very long string".TruncateTo(9).With(null);
+            transformed.Should().HaveLength(9);
+            transformed.Should().Be("Some very");
+        }
+
+        [TestMethod]
+        public void TruncateToWithEmptyString()
+        {
+            string transformed = "Some very long string".TruncateTo(9).With(String.Empty);
+            transformed.Should().HaveLength(9);
+            transformed.Should().Be("Some very");
+        }
+
+        [TestMethod]
+        public void TruncateWhiteSpacesToWith()
+        {
+            string transformed = "                     ".TruncateTo(11).With(" etc.");
+            transformed.Should().HaveLength(11);
+            transformed.Should().Be("       etc.");
+        }
+
+        [TestMethod]
+        public void TruncateToWithWhiteSpaces()
+        {
+            string transformed = "Some very long string".TruncateTo(11).With("   ");
+            transformed.Should().HaveLength(11);
+            transformed.Should().Be("Some ver   ");
+        }
+
+        [TestMethod]
+        public void TruncateToWith()
+        {
+            string transformed = "Some very long string".TruncateTo(11).With(" etc.");
+            transformed.Should().HaveLength(11);
+            transformed.Should().Be("Some v etc.");
+        }
+
+        #endregion
+
+        #region Truncate To With Ellipsis
+
+        [TestMethod]
+        public void TruncateToWithEllipsisOfNullString()
+        {
+            string transformed = Const.NullString.TruncateTo(3).WithEllipsis();
+            transformed.Should().Be(Const.NullString);
+        }
+
+        [TestMethod]
+        public void TruncateToWithEllipsisOfEmptyString()
+        {
+            string transformed = String.Empty.TruncateTo(5).WithEllipsis();
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void TruncateWhiteSpacesToWithEllipsis()
+        {
+            string transformed = "                     ".TruncateTo(11).WithEllipsis();
+            transformed.Should().HaveLength(11);
+            transformed.Should().Be("        ...");
+        }
+
+        [TestMethod]
+        public void TruncateToWithEllipsisTrimming()
+        {
+            string transformed = "Some very long string".TruncateTo(13).WithEllipsis();
+            transformed.Should().HaveLength(12);
+            transformed.Should().Be("Some very...");
+        }
+
+        [TestMethod]
+        public void TruncateToWithEllipsis()
+        {
+            string transformed = "Some very long string".TruncateTo(11).WithEllipsis();
+            transformed.Should().HaveLength(11);
+            transformed.Should().Be("Some ver...");
+        }
+
+        #endregion
+
         #region Truncate To From
 
         [TestMethod]

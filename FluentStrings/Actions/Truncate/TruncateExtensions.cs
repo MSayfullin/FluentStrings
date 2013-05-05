@@ -16,6 +16,25 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
+        /// Extends Truncate action with the ability to append custom text at the end.
+        /// N.B.: Pay attention that length specified for truncate includes appended value.
+        /// <param name="value">String to be appended at the end</param>
+        /// </summary>
+        public static TruncateStringWith With(this TruncateString source, string value)
+        {
+            return new TruncateStringWith(source, value);
+        }
+
+        /// <summary>
+        /// Extends Truncate action with the ability to append ellipsis at the end.
+        /// N.B.: Pay attention that length specified for truncate includes ellipsis.
+        /// </summary>
+        public static TruncateStringWith WithEllipsis(this TruncateString source)
+        {
+            return new TruncateStringWith(source, "...");
+        }
+
+        /// <summary>
         /// Extends Truncate action with the ability to change starting point.
         /// N.B.: TruncateTo().From(The.Beginning) is equivalent of the default TruncateTo()
         /// </summary>

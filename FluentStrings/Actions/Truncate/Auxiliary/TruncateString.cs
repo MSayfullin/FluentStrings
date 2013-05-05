@@ -5,16 +5,15 @@ namespace dokas.FluentStrings.Actions.Truncate
     public class TruncateString
     {
         private readonly string _source;
-        private readonly int _length;
 
         internal TruncateString(string source, int length)
         {
             _source = source;
-            _length = length;
+            Length = length;
         }
 
         internal string Source { get { return _source; } }
-        internal int Length { get { return _length; } }
+        internal int Length { get; set; }
 
         public static implicit operator string(TruncateString truncateString)
         {
@@ -24,7 +23,7 @@ namespace dokas.FluentStrings.Actions.Truncate
         public override string ToString()
         {
             return _source != null
-                ? _source.Length <= _length ? _source : _source.Substring(0, _length)
+                ? _source.Length <= Length ? _source : _source.Substring(0, Length)
                 : null;
         }
     }
