@@ -7,24 +7,31 @@ namespace dokas.FluentStrings.Tests
     public class ReplaceTests
     {
         [TestMethod]
-        public void EmptyReplace()
+        public void EmptyReplaceAll()
         {
             string transformed = "Some very long string".ReplaceAll("very");
             transformed.Should().Be("Some  long string");
         }
 
         [TestMethod]
-        public void ReplaceWith()
+        public void ReplaceAllWith()
         {
             string transformed = "Some very long string".ReplaceAll("very").With("not very");
             transformed.Should().Be("Some not very long string");
         }
 
         [TestMethod]
-        public void ReplaceWithIgnoringCase()
+        public void ReplaceAllWithIgnoringCase()
         {
             string transformed = "Some vERy long string".ReplaceAll("VerY").With("not very").IgnoringCase();
             transformed.Should().Be("Some not very long string");
+        }
+
+        [TestMethod]
+        public void ReplaceAllNonExistingValuesWithIgnoringCase()
+        {
+            string transformed = "Some vERy long string".ReplaceAll("nonexisting word").With("test").IgnoringCase();
+            transformed.Should().Be("Some vERy long string");
         }
     }
 }
