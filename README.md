@@ -125,10 +125,9 @@ transformed = "Some very long string".TruncateTo(11).From(The.End);
 transformed.Should().Be("long string");
 ```
 
-And combining the knowledge:
+And doing ellipsis:
 ```csharp
-string transformed = "Some very long string".TruncateTo(9);
-transformed = transformed.Insert("...").To(The.End);
+string transformed = "Some very long string".TruncateTo(12).WithEllipsis();
 transformed.Should().Be("Some very...");
 ```
 
