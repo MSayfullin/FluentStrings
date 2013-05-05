@@ -24,9 +24,18 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
+        public void TruncateWhiteSpacesTo()
+        {
+            string transformed = "                     ".TruncateTo(8);
+            transformed.Should().HaveLength(8);
+            transformed.Should().Be("        ");
+        }
+
+        [TestMethod]
         public void TruncateTo()
         {
             string transformed = "Some very long string".TruncateTo(8);
+            transformed.Should().HaveLength(8);
             transformed.Should().Be("Some ver");
         }
 
@@ -63,9 +72,26 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
+        public void TruncateWhiteSpacesToFromBeginning()
+        {
+            string transformed = "                     ".TruncateTo(9).From(The.Beginning);
+            transformed.Should().HaveLength(9);
+            transformed.Should().Be("         ");
+        }
+
+        [TestMethod]
+        public void TruncateWhiteSpacesToFromEnd()
+        {
+            string transformed = "                     ".TruncateTo(11).From(The.End);
+            transformed.Should().HaveLength(11);
+            transformed.Should().Be("           ");
+        }
+
+        [TestMethod]
         public void TruncateToFromBeginning()
         {
             string transformed = "Some very long string".TruncateTo(9).From(The.Beginning);
+            transformed.Should().HaveLength(9);
             transformed.Should().Be("Some very");
         }
 
@@ -73,6 +99,7 @@ namespace dokas.FluentStrings.Tests
         public void TruncateToFromEnd()
         {
             string transformed = "Some very long string".TruncateTo(11).From(The.End);
+            transformed.Should().HaveLength(11);
             transformed.Should().Be("long string");
         }
 
