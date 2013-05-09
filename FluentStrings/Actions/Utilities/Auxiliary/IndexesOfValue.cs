@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace dokas.FluentStrings.Actions.Utilities
@@ -20,7 +19,7 @@ namespace dokas.FluentStrings.Actions.Utilities
 
         private IEnumerable<int> AsEnumerable()
         {
-            return _source.IndexesOf(_marker, StringComparison.CurrentCulture);
+            return _source.IndexesOf(_marker, ignoreCase: false);
         }
 
         #region IEnumerable Members

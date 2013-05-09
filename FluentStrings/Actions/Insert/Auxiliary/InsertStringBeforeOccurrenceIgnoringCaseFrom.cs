@@ -22,7 +22,7 @@ namespace dokas.FluentStrings.Actions.Insert
         {
             return _insertStringBeforeOccurrenceIgnoringCase.InsertStringBeforeOccurrence.InsertString.Source.Insert(
                 _insertStringBeforeOccurrenceIgnoringCase.InsertStringBeforeOccurrence.InsertString.Insertion, _insertStringBeforeOccurrenceIgnoringCase.InsertStringBeforeOccurrence.Marker,
-                comparisonRule: StringComparison.CurrentCultureIgnoreCase, occurrenceCount: _insertStringBeforeOccurrenceIgnoringCase.InsertStringBeforeOccurrence.OccurrenceCount, position: _position);
+                ignoreCase: true, occurrenceCount: _insertStringBeforeOccurrenceIgnoringCase.InsertStringBeforeOccurrence.OccurrenceCount, position: _position);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using dokas.FluentStrings.Actions.Utilities;
@@ -51,7 +50,7 @@ namespace dokas.FluentStrings.Actions.Insert
         }
 
         public static string Insert(
-            this string source, string insertion, string marker, StringComparison comparisonRule = StringComparison.CurrentCulture,
+            this string source, string insertion, string marker, bool ignoreCase = false,
             int? occurrenceCount = null, The position = The.Beginning, bool after = false)
         {
             switch (position)
@@ -59,8 +58,8 @@ namespace dokas.FluentStrings.Actions.Insert
                 case The.Beginning:
                 case The.End:
                     return occurrenceCount != null
-                        ? source.InsertWithChecks(insertion, marker, comparisonRule, occurrenceCount.Value, position, after)
-                        : source.InsertWithChecks(insertion, marker, comparisonRule, position, after);
+                        ? source.InsertWithChecks(insertion, marker, ignoreCase, occurrenceCount.Value, position, after)
+                        : source.InsertWithChecks(insertion, marker, ignoreCase, position, after);
                 case The.StartOf:
                 case The.EndOf:
                 default:
@@ -68,7 +67,7 @@ namespace dokas.FluentStrings.Actions.Insert
             }
         }
 
-        private static string InsertWithChecks(this string source, string insertion, string marker, StringComparison comparisonRule, int occurrenceCount, The position, bool after)
+        private static string InsertWithChecks(this string source, string insertion, string marker, bool ignoreCase, int occurrenceCount, The position, bool after)
         {
             if (occurrenceCount < 0)
                 throw new ArgumentOutOfRangeException("occurrence", "Negative occurrence count is not supported");
@@ -80,19 +79,19 @@ namespace dokas.FluentStrings.Actions.Insert
                 (s, i, m) =>
                 {
                     var shift = after ? marker.Length : 0;
-                    var indexes = s.IndexesOf(m, comparisonRule, position).Take(occurrenceCount).ToArray();
+                    var indexes = s.IndexesOf(m, ignoreCase, position).Take(occurrenceCount).ToArray();
                     return indexes.Any() ? s.Insert(indexes.Last() + shift, i) : s;
                 });
         }
 
-        private static string InsertWithChecks(this string source, string insertion, string marker, StringComparison comparisonRule, The position, bool after)
+        private static string InsertWithChecks(this string source, string insertion, string marker, bool ignoreCase, The position, bool after)
         {
             return source.Insert(insertion, marker,
                 (s, i, m) =>
                 {
                     var indexShift = 0;
                     var afterShift = after ? marker.Length : 0;
-                    var indexes = s.IndexesOf(m, comparisonRule, position).ToArray();
+                    var indexes = s.IndexesOf(m, ignoreCase, position).ToArray();
                     var builder = new StringBuilder(s, insertion.Length * indexes.Length);
                     foreach (var index in indexes)
                     {

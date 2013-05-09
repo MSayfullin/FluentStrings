@@ -18,7 +18,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return _removeAll.Source.RemoveValues(null, _removeAll.Extraction, StringComparison.CurrentCultureIgnoreCase);
+            return _removeAll.Source.RemoveValues(null, _removeAll.Extraction, ignoreCase: true);
         }
     }
 }

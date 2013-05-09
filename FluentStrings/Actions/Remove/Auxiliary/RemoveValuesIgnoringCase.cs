@@ -20,7 +20,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return _removeValues.Source.RemoveValues(_removeValues.Quantity, _removeValues.Extraction, StringComparison.CurrentCultureIgnoreCase);
+            return _removeValues.Source.RemoveValues(_removeValues.Quantity, _removeValues.Extraction, ignoreCase: true);
         }
     }
 }

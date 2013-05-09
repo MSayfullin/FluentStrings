@@ -29,13 +29,13 @@ namespace dokas.FluentStrings.Actions.Remove
             }
         }
 
-        public static string RemoveValues(this string source, int? quantity, string extraction, StringComparison comparisonRule, The position)
+        public static string RemoveValues(this string source, int? quantity, string extraction, bool ignoreCase, The position)
         {
             switch (position)
             {
                 case The.Beginning:
                 case The.End:
-                    return RemoveValuesInternal(source, quantity, extraction, comparisonRule, position);
+                    return RemoveValuesInternal(source, quantity, extraction, ignoreCase, position);
                 case The.StartOf:
                 case The.EndOf:
                 default:
@@ -43,12 +43,12 @@ namespace dokas.FluentStrings.Actions.Remove
             }
         }
 
-        public static string RemoveValues(this string source, int? quantity, string extraction, StringComparison comparisonRule)
+        public static string RemoveValues(this string source, int? quantity, string extraction, bool ignoreCase)
         {
-            return RemoveValuesInternal(source, quantity, extraction, comparisonRule);
+            return RemoveValuesInternal(source, quantity, extraction, ignoreCase);
         }
 
-        private static string RemoveValuesInternal(string source, int? quantity, string extraction, StringComparison comparisonRule, The position = The.Beginning)
+        private static string RemoveValuesInternal(string source, int? quantity, string extraction, bool ignoreCase, The position = The.Beginning)
         {
             if (quantity < 0)
                 throw new ArgumentOutOfRangeException("quantity", "Negative quantity is not supported");
@@ -59,7 +59,7 @@ namespace dokas.FluentStrings.Actions.Remove
             return source.Remove(extraction,
                 (s, e) =>
                 {
-                    var indexes = source.IndexesOf(extraction, comparisonRule, position);
+                    var indexes = source.IndexesOf(extraction, ignoreCase, position);
                     if (quantity != null)
                         indexes = indexes.Take(quantity.Value);
                     if (position == The.End)

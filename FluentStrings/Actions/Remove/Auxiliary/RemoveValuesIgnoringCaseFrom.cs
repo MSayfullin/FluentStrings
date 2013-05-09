@@ -23,8 +23,8 @@ namespace dokas.FluentStrings.Actions.Remove
             return _removeValuesIgnoringCase.RemoveValues.Source.RemoveValues(
                 _removeValuesIgnoringCase.RemoveValues.Quantity,
                 _removeValuesIgnoringCase.RemoveValues.Extraction,
-                StringComparison.CurrentCultureIgnoreCase,
-                _position);
+                ignoreCase: true,
+                position: _position);
         }
     }
 }

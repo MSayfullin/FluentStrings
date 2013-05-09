@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace dokas.FluentStrings.Actions.Utilities
 {
@@ -25,14 +27,14 @@ namespace dokas.FluentStrings.Actions.Utilities
 
         #region Indexes
 
-        public static IEnumerable<int> IndexesOf(this string source, string marker, StringComparison comparisonRule, The position)
+        public static IEnumerable<int> IndexesOf(this string source, string marker, bool ignoreCase, The position)
         {
             switch (position)
             {
                 case The.Beginning:
-                    return source.IndexesOf(marker, comparisonRule);
+                    return source.IndexesOf(marker, ignoreCase);
                 case The.End:
-                    return source.LastIndexesOf(marker, comparisonRule);
+                    return source.IndexesOf(marker, ignoreCase).OrderByDescending(i => i);
                 case The.StartOf:
                 case The.EndOf:
                 default:
@@ -40,30 +42,12 @@ namespace dokas.FluentStrings.Actions.Utilities
             }
         }
 
-        public static IEnumerable<int> IndexesOf(this string source, string marker, StringComparison comparisonRule)
+        public static IEnumerable<int> IndexesOf(this string source, string marker, bool ignoreCase)
         {
             if (source.IsEmpty() || marker.IsEmpty())
-                yield break;
+                return Enumerable.Empty<int>();
 
-            var index = source.IndexOf(marker, comparisonRule);
-            while (index >= 0)
-            {
-                yield return index;
-                index = source.IndexOf(marker, index + 1, comparisonRule);
-            }
-        }
-
-        private static IEnumerable<int> LastIndexesOf(this string source, string marker, StringComparison comparisonRule)
-        {
-            if (source.IsEmpty() || marker.IsEmpty())
-                yield break;
-
-            var index = source.LastIndexOf(marker, comparisonRule);
-            while (index >= 0)
-            {
-                yield return index;
-                index = source.LastIndexOf(marker, index + 1, comparisonRule);
-            }
+            return Regex.Matches(source, marker, ignoreCase ? RegexOptions.IgnoreCase : RegexOptions.None).OfType<Match>().Select(m => m.Index);
         }
 
         #endregion

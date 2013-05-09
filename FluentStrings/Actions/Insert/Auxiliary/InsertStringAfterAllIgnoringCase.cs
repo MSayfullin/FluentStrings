@@ -20,7 +20,7 @@ namespace dokas.FluentStrings.Actions.Insert
         {
             return _insertStringAfterAll.InsertString.Source.Insert(
                 _insertStringAfterAll.InsertString.Insertion, _insertStringAfterAll.Marker,
-                comparisonRule: StringComparison.CurrentCultureIgnoreCase, after: true);
+                ignoreCase: true, after: true);
         }
     }
 }

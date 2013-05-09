@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Text;
 using dokas.FluentStrings.Actions.Utilities;
@@ -21,7 +20,7 @@ namespace dokas.FluentStrings.Actions.Replace
 
         public override string ToString()
         {
-            var indexes = _replaceAllWith.ReplaceAll.Source.IndexesOf(_replaceAllWith.ReplaceAll.Value, StringComparison.CurrentCultureIgnoreCase).ToArray();
+            var indexes = _replaceAllWith.ReplaceAll.Source.IndexesOf(_replaceAllWith.ReplaceAll.Value, ignoreCase: true).ToArray();
             if (indexes.Any())
             {
                 var start = 0;
