@@ -7,7 +7,7 @@
         <authors>Marsel Sayfullin</authors>
         <owners>Marsel Sayfullin</owners>
         <licenseUrl>https://github.com/MSayfullin/FluentStrings/blob/master/LICENSE</licenseUrl>
-        <projectUrl>https://github.com/MSayfullin/FluentStrings</projectUrl>
+        <projectUrl>http://msayfullin.github.io/FluentStrings/</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Powerful set of utilities for any kind of string transformations with fluent interface</description>
         <copyright>Copyright © 2013 - Marsel Sayfullin</copyright>
