@@ -72,6 +72,122 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
+        #region Format
+
+        [TestMethod]
+        public void FormatNullString()
+        {
+            var formated = Const.NullString.f(Const.SampleString);
+            formated.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void FormatEmptyString()
+        {
+            var formated = String.Empty.f(Const.SampleString);
+            formated.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void FormatEmptyTemplate()
+        {
+            var formated = Const.SampleString.f(Const.SampleValue);
+            formated.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void FormatNullStringWithNullValue()
+        {
+            var formated = Const.NullString.f(null);
+            formated.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void FormatEmptyStringWithNullValue()
+        {
+            var formated = String.Empty.f(null);
+            formated.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void FormatEmptyTemplateWithNullValue()
+        {
+            var formated = Const.SampleString.f(null);
+            formated.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void FormatNullStringWithEmptyValue()
+        {
+            var formated = Const.NullString.f(String.Empty);
+            formated.Should().Be(null);
+        }
+
+        [TestMethod]
+        public void FormatEmptyStringWithEmptyValue()
+        {
+            var formated = String.Empty.f(String.Empty);
+            formated.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void FormatEmptyTemplateWithEmptyValue()
+        {
+            var formated = Const.SampleString.f(String.Empty);
+            formated.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void FormatOneValueWithNoValues()
+        {
+            Action action = () => "{0}".f();
+            action.ShouldThrow<FormatException>();
+        }
+
+        [TestMethod]
+        public void FormatOneValueWithNull()
+        {
+            var formated = "{0}".f(null);
+            formated.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void FormatOneValueWithEmptyValue()
+        {
+            var formated = "{0}".f(String.Empty);
+            formated.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void FormatOneValue()
+        {
+            var formated = "{0}".f(Const.SampleValue);
+            formated.Should().Be(Const.SampleValue);
+        }
+
+        [TestMethod]
+        public void FormatThreeValueWithNoValues()
+        {
+            Action action = () => "{0} some string {1} some string {2}".f();
+            action.ShouldThrow<FormatException>();
+        }
+
+        [TestMethod]
+        public void FormatThreeValueWithInsufficientValues()
+        {
+            Action action = () => "{0} some string {1} some string {2}".f("TEST1", "TEST2");
+            action.ShouldThrow<FormatException>();
+        }
+
+        [TestMethod]
+        public void FormatThreeValue()
+        {
+            var formated = "{0} some string {1} some string {2}".f("TEST1", "TEST2", "TEST3");
+            formated.Should().Be("TEST1 some string TEST2 some string TEST3");
+        }
+
+        #endregion
+
         #region Indexes Of Value
 
         [TestMethod]

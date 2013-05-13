@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using dokas.FluentStrings.Actions.Utilities;
 
 namespace dokas.FluentStrings
@@ -33,10 +34,19 @@ namespace dokas.FluentStrings
         /// of the value specified in a values array.
         /// </summary>
         /// <param name="template">Formating template</param>
-        /// <param name="values">Values for fomating template</param>
-        public static string Format(this string template, params object[] values)
+        /// <param name="values">Values for formating template</param>
+        /// <exception cref="System.FormatException">Thrown when formating template is invalid</exception>
+        public static string f(this string template, params object[] values)
         {
-            return String.Format(template, values);
+            if (template == null)
+            {
+                return null;
+            }
+            return String.Format(
+                template,
+                values != null
+                    ? values.Select(v => v != null ? v : String.Empty).ToArray()
+                    : new[] { String.Empty });
         }
 
 
@@ -79,7 +89,7 @@ namespace dokas.FluentStrings
         /// <param name="position">
         /// Position in source string to start from. Beginning or End value can be used.
         /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static IndexesOfValueIgnoringCaseFrom From(this IndexesOfValueIgnoringCase source, The position)
         {
             return new IndexesOfValueIgnoringCaseFrom(source, position);
