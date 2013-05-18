@@ -232,9 +232,15 @@ namespace dokas.FluentStrings
 
         #region Starting
 
-        public static RemoveStringStarting Starting(this RemoveString source, int positionIndex)
+        /// <summary>
+        /// Removes substring starting character position in the source string.
+        /// N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)
+        /// </summary>
+        /// <param name="source">Target string for removal</param>
+        /// <param name="position">Starting position in string for removal</param>
+        public static RemoveStringStarting Starting(this RemoveString source, int position)
         {
-            return new RemoveStringStarting(source, positionIndex);
+            return new RemoveStringStarting(source, position);
         }
 
         public static RemoveStringStartingFrom From(this RemoveStringStarting source, The position)

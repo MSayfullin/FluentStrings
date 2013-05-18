@@ -4,12 +4,12 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     public class RemoveStringStarting
     {
-        private readonly RemoveString _source;
+        private readonly RemoveString _removeString;
         private readonly int _positionIndex;
 
-        internal RemoveStringStarting(RemoveString source, int positionIndex)
+        internal RemoveStringStarting(RemoveString removeString, int positionIndex)
         {
-            _source = source;
+            _removeString = removeString;
             _positionIndex = positionIndex;
         }
 
@@ -20,7 +20,16 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            if (_positionIndex < 0)
+            {
+                throw new ArgumentOutOfRangeException("_positionIndex");
+            }
+
+            if (_removeString.Source.IsEmpty() || _positionIndex >= _removeString.Source.Length)
+            {
+                return _removeString.Source;
+            }
+            return _removeString.Source.Substring(0, _positionIndex);
         }
     }
 }
