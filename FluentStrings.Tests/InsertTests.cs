@@ -263,6 +263,13 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
+        public void InsertTextAtNegativePosition()
+        {
+            Action action = ()=> "<-- TEST string will be inserted here".Insert("TEST").At(position: -1).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
+        }
+
+        [TestMethod]
         public void InsertTextAtZeroPosition()
         {
             string transformed = "<-- TEST string will be inserted here".Insert("TEST").At(position: 0);
@@ -397,6 +404,48 @@ namespace dokas.FluentStrings.Tests
         {
             string transformed = Const.SampleString.Insert(String.Empty).At(position: 2).From(The.End);
             transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void InsertTextAtNegativePositionFromBeginning()
+        {
+            Action action = () => "<-- TEST string will be inserted here".Insert("TEST").At(position: -1).From(The.Beginning).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
+        }
+
+        [TestMethod]
+        public void InsertTextAtNegativePositionFromEnd()
+        {
+            Action action = () => "<-- TEST string will be inserted here".Insert("TEST").At(position: -1).From(The.End).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
+        }
+
+        [TestMethod]
+        public void InsertTextAtZeroPositionFromBeginning()
+        {
+            string transformed = "<-- TEST string will be inserted here".Insert("TEST").At(position: 0).From(The.Beginning);
+            transformed.Should().Be("TEST<-- TEST string will be inserted here");
+        }
+
+        [TestMethod]
+        public void InsertTextAtZeroPositionFromEnd()
+        {
+            string transformed = "TEST string will be inserted here -->".Insert("TEST").At(position: 0).From(The.End);
+            transformed.Should().Be("TEST string will be inserted here -->TEST");
+        }
+
+        [TestMethod]
+        public void InsertTextAtFirstPositionFromBeginning()
+        {
+            string transformed = "!<-- TEST string will be inserted here".Insert("TEST").At(position: 1).From(The.Beginning);
+            transformed.Should().Be("!TEST<-- TEST string will be inserted here");
+        }
+
+        [TestMethod]
+        public void InsertTextAtFirstPositionFromEnd()
+        {
+            string transformed = "TEST string will be inserted here -->!".Insert("TEST").At(position: 1).From(The.End);
+            transformed.Should().Be("TEST string will be inserted here -->TEST!");
         }
 
         [TestMethod]

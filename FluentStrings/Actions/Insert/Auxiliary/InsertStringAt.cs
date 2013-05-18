@@ -23,6 +23,11 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public override string ToString()
         {
+            if (_positionIndex < 0)
+            {
+                throw new ArgumentOutOfRangeException("positionIndex", "Negative index is not supported");
+            }
+
             return _insertString.Source.IsEmpty()
                 ? _insertString.Source
                 : _insertString.Source.Insert(_positionIndex, _insertString.Insertion ?? String.Empty);
