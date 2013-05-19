@@ -282,6 +282,13 @@ namespace dokas.FluentStrings
             return new RemoveStringTo(source, position);
         }
 
+        /// <summary>
+        /// Extends Remove.To action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used.
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveStringToFrom From(this RemoveStringTo source, The position)
         {
             return new RemoveStringToFrom(source, position);

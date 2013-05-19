@@ -4,12 +4,12 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     public class RemoveStringToFrom
     {
-        private readonly RemoveStringTo _source;
+        private readonly RemoveStringTo _removeStringTo;
         private readonly The _position;
 
-        internal RemoveStringToFrom(RemoveStringTo source, The position)
+        internal RemoveStringToFrom(RemoveStringTo removeStringTo, The position)
         {
-            _source = source;
+            _removeStringTo = removeStringTo;
             _position = position;
         }
 
@@ -20,7 +20,31 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            switch (_position)
+            {
+                case The.Beginning:
+                    return _removeStringTo;
+                case The.End:
+                    if (_removeStringTo.PositionIndex < 0)
+                    {
+                        throw new ArgumentOutOfRangeException("positionIndex", "Negative index is not supported");
+                    }
+
+                    if (_removeStringTo.RemoveString.Source.IsEmpty())
+                    {
+                        return _removeStringTo.RemoveString.Source;
+                    }
+
+                    if (_removeStringTo.PositionIndex >= _removeStringTo.RemoveString.Source.Length)
+                    {
+                        return String.Empty;
+                    }
+                    return _removeStringTo.RemoveString.Source.Substring(0, _removeStringTo.RemoveString.Source.Length - _removeStringTo.PositionIndex);
+                case The.StartOf:
+                case The.EndOf:
+                default:
+                    throw new ArgumentOutOfRangeException("position", "Only Beginning and End positions are supported by Remove().To().From() method");
+            }
         }
     }
 }

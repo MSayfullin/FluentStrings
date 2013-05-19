@@ -246,62 +246,114 @@ namespace dokas.FluentStrings.Tests
         #region Remove To From
 
         [TestMethod]
-        public void RemoveToCharacterFromBeginningInNullString()
+        public void RemoveToPositionFromBeginningInNullString()
         {
-            string transformed = Const.NullString.Remove().To(3).From(The.Beginning);
+            string transformed = Const.NullString.Remove().To(position: 3).From(The.Beginning);
             transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
-        public void RemoveToCharacterFromEndInNullString()
+        public void RemoveToPositionFromEndInNullString()
         {
-            string transformed = Const.NullString.Remove().To(3).From(The.End);
+            string transformed = Const.NullString.Remove().To(position: 3).From(The.End);
             transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
-        public void RemoveToCharacterFromBeginningInEmptyString()
+        public void RemoveToPositionFromBeginningInEmptyString()
         {
-            string transformed = String.Empty.Remove().To(5).From(The.Beginning);
+            string transformed = String.Empty.Remove().To(position: 5).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void RemoveToCharacterFromEndInEmptyString()
+        public void RemoveToPositionFromEndInEmptyString()
         {
-            string transformed = String.Empty.Remove().To(5).From(The.End);
+            string transformed = String.Empty.Remove().To(position: 5).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void RemoveToCharacterFromBeginning()
+        public void RemoveToNegativePositionFromBeginning()
         {
-            string transformed = "Some very long string".Remove().To(0).From(The.Beginning);
-            transformed.Should().Be("Some very long string");
+            Action action = () => Const.SampleString.Remove().To(position: -1).From(The.Beginning).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
+        }
 
-            transformed = "Some very long string".Remove().To(1).From(The.Beginning);
+        [TestMethod]
+        public void RemoveToNegativePositionFromEnd()
+        {
+            Action action = () => Const.SampleString.Remove().To(position: -1).From(The.End).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
+        }
+
+        [TestMethod]
+        public void RemoveToZeroPositionFromBeginning()
+        {
+            string transformed = Const.SampleString.Remove().To(position: 0).From(The.Beginning);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveToZeroPositionFromEnd()
+        {
+            string transformed = Const.SampleString.Remove().To(position: 0).From(The.End);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveToFirstPositionFromBeginning()
+        {
+            string transformed = "Some very long string".Remove().To(position: 1).From(The.Beginning);
             transformed.Should().Be("ome very long string");
+        }
 
-            transformed = "Some very long string".Remove().To(7).From(The.Beginning);
+        [TestMethod]
+        public void RemoveToFirstPositionFromEnd()
+        {
+            string transformed = "Some very long string".Remove().To(position: 1).From(The.End);
+            transformed.Should().Be("Some very long strin");
+        }
+
+        [TestMethod]
+        public void RemoveToPositionFromBeginning()
+        {
+            string transformed = "Some very long string".Remove().To(position: 7).From(The.Beginning);
             transformed.Should().Be("ry long string");
+        }
 
-            transformed = "Some very long string".Remove().To(100).From(The.Beginning);
+        [TestMethod]
+        public void RemoveToPositionFromEnd()
+        {
+            string transformed = "Some very long string".Remove().To(position: 7).From(The.End);
+            transformed.Should().Be("Some very long");
+        }
+
+        [TestMethod]
+        public void RemoveToExactPositionFromBeginning()
+        {
+            string transformed = Const.SampleString.Remove().To(position: Const.SampleString.Length).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void RemoveToCharacterFromEnd()
+        public void RemoveToExactPositionFromEnd()
         {
-            string transformed = "Some very long string".Remove().To(0).From(The.End);
-            transformed.Should().Be("Some very long string");
+            string transformed = Const.SampleString.Remove().To(position: Const.SampleString.Length).From(The.End);
+            transformed.Should().Be(String.Empty);
+        }
 
-            transformed = "Some very long string".Remove().To(1).From(The.End);
-            transformed.Should().Be("ome very long string");
+        [TestMethod]
+        public void RemoveToExceedingPositionFromBeginning()
+        {
+            string transformed = Const.SampleString.Remove().To(position: Const.SampleString.Length + 100).From(The.Beginning);
+            transformed.Should().Be(String.Empty);
+        }
 
-            transformed = "Some very long string".Remove().To(7).From(The.End);
-            transformed.Should().Be("ry long string");
-
-            transformed = "Some very long string".Remove().To(100).From(The.End);
+        [TestMethod]
+        public void RemoveToExceedingPositionFromEnd()
+        {
+            string transformed = Const.SampleString.Remove().To(position: Const.SampleString.Length + 100).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
