@@ -13,6 +13,9 @@ namespace dokas.FluentStrings.Actions.Remove
             _positionIndex = positionIndex;
         }
 
+        internal RemoveString RemoveString { get { return _removeString; } }
+        internal int PositionIndex { get { return _positionIndex; } }
+
         public static implicit operator string(RemoveStringStarting removeStringStarting)
         {
             return removeStringStarting.ToString();
@@ -22,7 +25,7 @@ namespace dokas.FluentStrings.Actions.Remove
         {
             if (_positionIndex < 0)
             {
-                throw new ArgumentOutOfRangeException("_positionIndex");
+                throw new ArgumentOutOfRangeException("positionIndex", "Negative index is not supported");
             }
 
             if (_removeString.Source.IsEmpty() || _positionIndex >= _removeString.Source.Length)
