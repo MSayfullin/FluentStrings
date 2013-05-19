@@ -234,6 +234,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Removes substring starting character position in the source string.
+        /// This action is inclusive.
         /// N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)
         /// </summary>
         /// <param name="source">Target string for removal</param>
@@ -273,6 +274,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Removes substring up to character position in the source string.
+        /// This action is exclusive.
         /// N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)
         /// </summary>
         /// <param name="source">Target string for removal</param>
