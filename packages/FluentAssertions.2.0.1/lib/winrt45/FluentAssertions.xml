@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>FluentAssertions.WindowsPhone</name>
+        <name>FluentAssertions</name>
     </assembly>
     <members>
         <member name="M:FluentAssertions.AndConstraint`1.#ctor(`0)">
@@ -19,6 +19,25 @@
             Invokes the specified action on an subject so that you can chain it with any of the ShouldThrow or ShouldNotThrow 
             overloads.
             </summary>
+        </member>
+        <member name="M:FluentAssertions.AssertionExtensions.ExecutionTimeOf``1(``0,System.Linq.Expressions.Expression{System.Action{``0}})">
+            <summary>
+            Provides methods for asserting the execution time of a method or property.
+            </summary>
+            <param name="subject">The object that exposes the method or property.</param>
+            <param name="action">A reference to the method or property to measure the execution time of.</param>
+            <returns>
+            Returns an object for asserting that the execution time matches certain conditions.
+            </returns>
+        </member>
+        <member name="M:FluentAssertions.AssertionExtensions.ExecutionTime(System.Action)">
+            <summary>
+            Provides methods for asserting the execution time of a method or property.
+            </summary>
+            <param name="action">A reference to the method or property to measure the execution time of.</param>
+            <returns>
+            Returns an object for asserting that the execution time matches certain conditions.
+            </returns>
         </member>
         <member name="M:FluentAssertions.AssertionExtensions.Should(System.Xml.Linq.XDocument)">
             <summary>
@@ -43,6 +62,25 @@
             Asserts that the <paramref name="action"/> throws an exception.
             </summary>
             <param name="action">A reference to the method or property.</param>
+            <typeparam name="TException">
+            The type of the exception it should throw.
+            </typeparam>
+            <param name="reason">
+            A formatted phrase explaining why the assertion should be satisfied. If the phrase does not 
+            start with the word <i>because</i>, it is prepended to the message.
+            </param>
+            <param name="reasonArgs">
+            Zero or more values to use for filling in any <see cref="M:System.String.Format(System.String,System.Object[])"/> compatible placeholders.
+            </param>
+            <returns>
+            Returns an object that allows asserting additional members of the thrown exception.
+            </returns>
+        </member>
+        <member name="M:FluentAssertions.AssertionExtensions.ShouldThrow``1(System.Func{System.Threading.Tasks.Task},System.String,System.Object[])">
+            <summary>
+            Asserts that the <paramref name="asyncAction"/> throws an exception.
+            </summary>
+            <param name="asyncAction">A reference to the method or property.</param>
             <typeparam name="TException">
             The type of the exception it should throw.
             </typeparam>
@@ -272,10 +310,29 @@
             current <see cref="T:System.Type"/>.
             </summary>
         </member>
+        <member name="M:FluentAssertions.AssertionExtensions.Should(FluentAssertions.Types.TypeSelector)">
+            <summary>
+            Returns a <see cref="T:FluentAssertions.Types.TypeAssertions"/> object that can be used to assert the
+            current <see cref="T:System.Type"/>.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.AssertionExtensions.Should(System.Reflection.MethodInfo)">
+            <summary>
+            Returns a <see cref="T:FluentAssertions.Types.MethodInfoAssertions"/> object that can be used to assert the current <see cref="T:System.Reflection.MethodInfo"/>.
+            </summary>
+            <seealso cref="T:FluentAssertions.Types.TypeAssertions"/>
+        </member>
         <member name="M:FluentAssertions.AssertionExtensions.Should(FluentAssertions.Types.MethodInfoSelector)">
             <summary>
             Returns a <see cref="T:FluentAssertions.Types.MethodInfoAssertions"/> object that can be used to assert the methods returned by the
             current <see cref="T:FluentAssertions.Types.MethodInfoSelector"/>.
+            </summary>
+            <seealso cref="T:FluentAssertions.Types.TypeAssertions"/>
+        </member>
+        <member name="M:FluentAssertions.AssertionExtensions.Should(System.Reflection.PropertyInfo)">
+            <summary>
+            Returns a <see cref="T:FluentAssertions.Types.PropertyInfoAssertions"/> object that can be used to assert the
+            current <see cref="T:FluentAssertions.Types.PropertyInfoSelector"/>.
             </summary>
             <seealso cref="T:FluentAssertions.Types.TypeAssertions"/>
         </member>
@@ -1285,42 +1342,6 @@
             Asserts that at least one occurrence of the event had an <see cref="T:System.EventArgs"/> object matching a predicate.
             </summary>
         </member>
-        <member name="T:FluentAssertions.Events.EventHandlerFactory">
-            <summary>
-              Static methods that aid in generic event subscription
-            </summary>
-        </member>
-        <member name="M:FluentAssertions.Events.EventHandlerFactory.GenerateHandler(System.Type,FluentAssertions.Events.IEventRecorder)">
-            <summary>
-              Generates an eventhandler for an event of type eventSignature that calls RegisterEvent on recorder
-              when invoked.
-            </summary>
-        </member>
-        <member name="M:FluentAssertions.Events.EventHandlerFactory.GetDelegateReturnType(System.Type)">
-            <summary>
-              Finds the Return Type of a Delegate.
-            </summary>
-        </member>
-        <member name="M:FluentAssertions.Events.EventHandlerFactory.GetDelegateParameterTypes(System.Type)">
-            <summary>
-              Returns an Array of Types that make up a delegate's parameter signature.
-            </summary>
-        </member>
-        <member name="M:FluentAssertions.Events.EventHandlerFactory.AppendParameterListThisReference(System.Type[])">
-            <summary>
-              Returns an array of types appended with an EventRecorder reference at the beginning.
-            </summary>
-        </member>
-        <member name="M:FluentAssertions.Events.EventHandlerFactory.TypeIsDelegate(System.Type)">
-            <summary>
-              Returns T/F Dependent on a Type Being a Delegate.
-            </summary>
-        </member>
-        <member name="M:FluentAssertions.Events.EventHandlerFactory.DelegateInvokeMethod(System.Type)">
-            <summary>
-              Returns the MethodInfo for the Delegate's "Invoke" Method.
-            </summary>
-        </member>
         <member name="T:FluentAssertions.Events.EventRecorder">
             <summary>
               Records activity for a single event.
@@ -1408,21 +1429,6 @@
         <member name="P:FluentAssertions.Execution.Execute.Verification">
             <summary>
             Gets an object that wraps and executes a conditional or unconditional verification.
-            </summary>
-        </member>
-        <member name="T:FluentAssertions.Execution.ITestFramework">
-            <summary>
-            Represents an abstraction of a particular test framework such as MSTest, nUnit, etc.
-            </summary>
-        </member>
-        <member name="M:FluentAssertions.Execution.ITestFramework.Throw(System.String)">
-            <summary>
-            Throws a framework-specific exception to indicate a failing unit test.
-            </summary>
-        </member>
-        <member name="P:FluentAssertions.Execution.ITestFramework.IsAvailable">
-            <summary>
-            Gets a value indicating whether the corresponding test framework is currently available.
             </summary>
         </member>
         <member name="T:FluentAssertions.Execution.Verification">
@@ -1602,12 +1608,6 @@
             specified <paramref name="sourceDateTime"/>.
             </summary>
         </member>
-        <member name="T:FluentAssertions.Formatting.AttributeBasedFormatter">
-            <summary>
-            Specialized value formatter that looks for static methods in the caller's assembly marked with the 
-            <see cref="T:FluentAssertions.Formatting.ValueFormatterAttribute"/>.
-            </summary>
-        </member>
         <member name="M:FluentAssertions.Formatting.IValueFormatter.CanHandle(System.Object)">
             <summary>
             Indicates whether the current <see cref="T:FluentAssertions.Formatting.IValueFormatter"/> can handle the specified <paramref name="value"/>.
@@ -1634,32 +1634,6 @@
             A <see cref="T:System.String"/> that represents this instance.
             </returns>
         </member>
-        <member name="M:FluentAssertions.Formatting.AttributeBasedFormatter.CanHandle(System.Object)">
-            <summary>
-            Indicates whether the current <see cref="T:FluentAssertions.Formatting.IValueFormatter"/> can handle the specified <paramref name="value"/>.
-            </summary>
-            <param name="value">The value for which to create a <see cref="T:System.String"/>.</param>
-            <returns>
-            <c>true</c> if the current <see cref="T:FluentAssertions.Formatting.IValueFormatter"/> can handle the specified value; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:FluentAssertions.Formatting.AttributeBasedFormatter.ToString(System.Object,System.Boolean,System.Collections.Generic.IList{System.Object},System.Int32)">
-            <summary>
-            Returns a <see cref="T:System.String"/> that represents this instance.
-            </summary>
-            <param name="value">The value for which to create a <see cref="T:System.String"/>.</param>
-            <param name="useLineBreaks"> </param>
-            <param name="processedObjects">
-            A collection of objects that 
-            </param>
-            <param name="nestedPropertyLevel">
-            The level of nesting for the supplied value. This is used for indenting the format string for objects that have
-            no <see cref="M:System.Object.ToString"/> override.
-            </param>
-            <returns>
-            A <see cref="T:System.String"/> that represents this instance.
-            </returns>
-        </member>
         <member name="M:FluentAssertions.Formatting.DateTimeValueFormatter.CanHandle(System.Object)">
             <summary>
             Indicates whether the current <see cref="T:FluentAssertions.Formatting.IValueFormatter"/> can handle the specified <paramref name="value"/>.
@@ -1670,32 +1644,6 @@
             </returns>
         </member>
         <member name="M:FluentAssertions.Formatting.DateTimeValueFormatter.ToString(System.Object,System.Boolean,System.Collections.Generic.IList{System.Object},System.Int32)">
-            <summary>
-            Returns a <see cref="T:System.String"/> that represents this instance.
-            </summary>
-            <param name="value">The value for which to create a <see cref="T:System.String"/>.</param>
-            <param name="useLineBreaks"> </param>
-            <param name="processedObjects">
-            A collection of objects that 
-            </param>
-            <param name="nestedPropertyLevel">
-            The level of nesting for the supplied value. This is used for indenting the format string for objects that have
-            no <see cref="M:System.Object.ToString"/> override.
-            </param>
-            <returns>
-            A <see cref="T:System.String"/> that represents this instance.
-            </returns>
-        </member>
-        <member name="M:FluentAssertions.Formatting.GuidValueFormatter.CanHandle(System.Object)">
-            <summary>
-            Indicates whether the current <see cref="T:FluentAssertions.Formatting.IValueFormatter"/> can handle the specified <paramref name="value"/>.
-            </summary>
-            <param name="value">The value for which to create a <see cref="T:System.String"/>.</param>
-            <returns>
-            <c>true</c> if the current <see cref="T:FluentAssertions.Formatting.IValueFormatter"/> can handle the specified value; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:FluentAssertions.Formatting.GuidValueFormatter.ToString(System.Object,System.Boolean,System.Collections.Generic.IList{System.Object},System.Int32)">
             <summary>
             Returns a <see cref="T:System.String"/> that represents this instance.
             </summary>
@@ -1816,6 +1764,32 @@
             A <see cref="T:System.String"/> that represents this instance.
             </returns>
         </member>
+        <member name="M:FluentAssertions.Formatting.GuidValueFormatter.CanHandle(System.Object)">
+            <summary>
+            Indicates whether the current <see cref="T:FluentAssertions.Formatting.IValueFormatter"/> can handle the specified <paramref name="value"/>.
+            </summary>
+            <param name="value">The value for which to create a <see cref="T:System.String"/>.</param>
+            <returns>
+            <c>true</c> if the current <see cref="T:FluentAssertions.Formatting.IValueFormatter"/> can handle the specified value; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:FluentAssertions.Formatting.GuidValueFormatter.ToString(System.Object,System.Boolean,System.Collections.Generic.IList{System.Object},System.Int32)">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <param name="value">The value for which to create a <see cref="T:System.String"/>.</param>
+            <param name="useLineBreaks"> </param>
+            <param name="processedObjects">
+            A collection of objects that 
+            </param>
+            <param name="nestedPropertyLevel">
+            The level of nesting for the supplied value. This is used for indenting the format string for objects that have
+            no <see cref="M:System.Object.ToString"/> override.
+            </param>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
         <member name="M:FluentAssertions.Formatting.NullValueFormatter.CanHandle(System.Object)">
             <summary>
             Indicates whether the current <see cref="T:FluentAssertions.Formatting.IValueFormatter"/> can handle the specified <paramref name="value"/>.
@@ -1919,11 +1893,6 @@
             <returns>
             A <see cref="T:System.String"/> that represents this instance.
             </returns>
-        </member>
-        <member name="T:FluentAssertions.Formatting.ValueFormatterAttribute">
-            <summary>
-            Marks a static method as a kind of <see cref="T:FluentAssertions.Formatting.IValueFormatter"/> for a particular type.
-            </summary>
         </member>
         <member name="M:FluentAssertions.Formatting.XAttributeValueFormatter.CanHandle(System.Object)">
             <summary>
@@ -3751,6 +3720,45 @@
               Gets the exception object of the exception thrown.
             </summary>
         </member>
+        <member name="T:FluentAssertions.Specialized.ExecutionTimeAssertions">
+            <summary>
+            Provides methods for asserting that the execution time of an <see cref="T:System.Action"/> satifies certain conditions.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.Specialized.ExecutionTimeAssertions.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentAssertions.Specialized.ExecutionTimeAssertions"/> class.
+            </summary>
+            <param name="action">The action of which the execution time must be asserted.</param>
+        </member>
+        <member name="M:FluentAssertions.Specialized.ExecutionTimeAssertions.ShouldNotExceed(System.TimeSpan,System.String,System.Object[])">
+            <summary>
+            Asserts that the execution time of the operation does not exceed a specified amount of time.
+            </summary>
+            <param name="maxDuration">
+            The maximum allowed duration.
+            </param>
+            <param name="reason">
+            A formatted phrase explaining why the assertion should be satisfied. If the phrase does not 
+            start with the word <i>because</i>, it is prepended to the message.
+            </param>
+            <param name="reasonArgs">
+            Zero or more values to use for filling in any <see cref="M:System.String.Format(System.String,System.Object[])"/> compatible placeholders.
+            </param>
+        </member>
+        <member name="T:FluentAssertions.Specialized.MemberExecutionTimeAssertions`1">
+            <summary>
+            Provides methods for asserting that the execution time of an object member satifies certain conditions.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:FluentAssertions.Specialized.MemberExecutionTimeAssertions`1.#ctor(`0,System.Linq.Expressions.Expression{System.Action{`0}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentAssertions.Specialized.MemberExecutionTimeAssertions`1"/> class.
+            </summary>
+            <param name="subject">The object that exposes the method or property.</param>
+            <param name="action">A reference to the method or property to measure the execution time of.</param>
+        </member>
         <member name="T:FluentAssertions.Equivalency.AllDeclaredPublicPropertiesSelectionRule">
             <summary>
             Selection rule that adds all public properties of the subject as far as they are defined on the declared
@@ -4432,6 +4440,78 @@
             </returns>
             <filterpriority>2</filterpriority>
         </member>
+        <member name="T:FluentAssertions.Equivalency.PropertyAssertions`1">
+            <summary>
+            Provides methods for selecting one or more properties of an object and comparing them with another object.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.Equivalency.PropertyAssertions`1.AllProperties">
+            <summary>
+            Includes all properties of <typeparamref name="T"/> when comparing the subject with another object using <see cref="!:EqualTo(object)"/>.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.Equivalency.PropertyAssertions`1.AllRuntimeProperties">
+            <summary>
+            Includes all properties of <typeparamref name="T"/> including those of the run-time type when comparing the subject 
+            with another object using <see cref="!:EqualTo(object)"/>.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.Equivalency.PropertyAssertions`1.SharedProperties">
+            <summary>
+            Includes all properties of <typeparamref name="T"/> when comparing the subject with another object using <see cref="!:EqualTo(object)"/>, 
+            except those that the other object does not have.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.Equivalency.PropertyAssertions`1.IncludingNestedObjects(FluentAssertions.Equivalency.CyclicReferenceHandling)">
+            <summary>
+            Perform recursive property comparison of the child properties for objects that are of incompatible type.
+            </summary>
+            <param name="cyclicReferenceHandling">
+            Indication of how cyclic references in the nested properties should be handled. By default this will result in an
+            exception, but if <see cref="F:FluentAssertions.Equivalency.CyclicReferenceHandling.Ignore"/> is specified, cyclic references will just be ignored.
+            </param>
+        </member>
+        <member name="M:FluentAssertions.Equivalency.PropertyAssertions`1.AllPropertiesBut(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            Includes all properties of <typeparamref name="T"/> when comparing the subject with another object using <see cref="!:EqualTo(object)"/>, 
+            except those specified using a property expression.
+            </summary>
+            <param name="propertyExpression">A single property expression to exclude.</param>
+            <param name="propertyExpressions">Optional list of additional property expressions to exclude.</param>
+        </member>
+        <member name="M:FluentAssertions.Equivalency.PropertyAssertions`1.But(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            Excludes the properties specified by the <paramref name="propertyExpression"/> from the comparison.
+            </summary>
+            <param name="propertyExpression">A single property expression to exclude.</param>
+            <param name="propertyExpressions">Optional list of additional property expressions to exclude.</param>
+        </member>
+        <member name="M:FluentAssertions.Equivalency.PropertyAssertions`1.Properties(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            Includes only those properties of <typeparamref name="T"/> when comparing the subject with another object using <see cref="!:EqualTo(object)"/>
+            that were specified using a property expression.
+            </summary>
+            <param name="propertyExpression">A single property expression to include.</param>
+            <param name="propertyExpressions">Optional list of additional property expressions to include.</param>
+        </member>
+        <member name="M:FluentAssertions.Equivalency.PropertyAssertions`1.EqualTo(System.Object,System.String,System.Object[])">
+            <summary>
+            Asserts that the previously selected properties of <typeparamref name="T"/> have the same value as the equally named
+            properties of <paramref name="expectation"/>.
+            </summary>
+            <param name="expectation">The object to compare the current object with</param>
+            <remarks>
+            Property values are considered equal if, after converting them to the requested type, calling <see cref="!:EqualTo(object)"/> 
+            returns <c>true</c>.
+            </remarks>
+            <param name="reason">
+            A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion 
+            is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
+            </param>
+            <param name="reasonArgs">
+            Zero or more objects to format using the placeholders in <see cref="!:reason"/>.
+            </param>
+        </member>
         <member name="M:FluentAssertions.Equivalency.ReferenceEqualityEquivalencyStep.CanHandle(FluentAssertions.Equivalency.EquivalencyValidationContext)">
             <summary>
             Gets a value indicating whether this step can handle the current subject and/or expectation.
@@ -4702,6 +4782,12 @@
             Contains assertions for the <see cref="T:System.Reflection.MethodInfo"/> objects returned by the parent <see cref="T:FluentAssertions.Types.MethodInfoSelector"/>.
             </summary>
         </member>
+        <member name="M:FluentAssertions.Types.MethodInfoAssertions.#ctor(System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentAssertions.Types.MethodInfoAssertions"/> class.
+            </summary>
+            <param name="methodInfo">The method to assert.</param>
+        </member>
         <member name="M:FluentAssertions.Types.MethodInfoAssertions.#ctor(System.Collections.Generic.IEnumerable{System.Reflection.MethodInfo})">
             <summary>
             Initializes a new instance of the <see cref="T:FluentAssertions.Types.MethodInfoAssertions"/> class.
@@ -4806,6 +4892,12 @@
             <summary>
             Contains assertions for the <see cref="T:System.Reflection.PropertyInfo"/> objects returned by the parent <see cref="T:FluentAssertions.Types.PropertyInfoSelector"/>.
             </summary>
+        </member>
+        <member name="M:FluentAssertions.Types.PropertyInfoAssertions.#ctor(System.Reflection.PropertyInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentAssertions.Types.PropertyInfoAssertions"/> class, for a single <see cref="T:System.Reflection.PropertyInfo"/>.
+            </summary>
+            <param name="property">The property to assert.</param>
         </member>
         <member name="M:FluentAssertions.Types.PropertyInfoAssertions.#ctor(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo})">
             <summary>
@@ -5000,9 +5092,58 @@
             Gets the object which value is being asserted.
             </summary>
         </member>
+        <member name="T:FluentAssertions.Types.TypeSelectorAssertions">
+            <summary>
+            Contains a number of methods to assert that all <see cref="T:System.Type"/>s in a <see cref="T:FluentAssertions.Types.TypeSelector"/>
+            meet certain expectations.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.Types.TypeSelectorAssertions.#ctor(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object" /> class.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.Types.TypeSelectorAssertions.BeDecoratedWith``1(System.String,System.Object[])">
+            <summary>
+            Asserts that the current <see cref="T:System.Type"/> is decorated with the specified <typeparamref name="TAttribute"/>.
+            </summary>
+            <param name="reason">
+            A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion 
+            is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
+            </param>
+            <param name="reasonArgs">
+            Zero or more objects to format using the placeholders in <see cref="!:reason"/>.
+            </param>
+        </member>
+        <member name="M:FluentAssertions.Types.TypeSelectorAssertions.BeDecoratedWith``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.String,System.Object[])">
+            <summary>
+            Asserts that the current <see cref="T:System.Type"/> is decorated with an attribute of type <typeparamref name="TAttribute"/>
+            that matches the specified <paramref name="isMatchingAttributePredicate"/>.
+            </summary>
+            <param name="isMatchingAttributePredicate">
+            The predicate that the attribute must match.
+            </param>
+            <param name="reason">
+            A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion 
+            is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
+            </param>
+            <param name="reasonArgs">
+            Zero or more objects to format using the placeholders in <see cref="!:reason"/>.
+            </param>
+        </member>
+        <member name="P:FluentAssertions.Types.TypeSelectorAssertions.Subject">
+            <summary>
+            Gets the object which value is being asserted.
+            </summary>
+        </member>
         <member name="T:FluentAssertions.Types.TypeSelector">
             <summary>
             Allows for fluent filtering a list of types.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.Types.TypeSelector.ToArray">
+            <summary>
+            The resulting <see cref="T:System.Type"/> objects.
             </summary>
         </member>
         <member name="M:FluentAssertions.Types.TypeSelector.ThatDeriveFrom``1">
@@ -5424,6 +5565,28 @@
         <member name="P:FluentAssertions.Xml.XElementAssertions.Subject">
             <summary>
             Gets the object which value is being asserted.
+            </summary>
+        </member>
+        <member name="T:FluentAssertions.Specialized.AsyncFunctionAssertions">
+            <summary>
+            Contains a number of methods to assert that an asynchronous method yields the expected result.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.Specialized.AsyncFunctionAssertions.ShouldThrow``1(System.String,System.Object[])">
+            <summary>
+            Asserts that the current <see cref="T:System.Func`1"/> throws an exception of type <typeparamref name="TException"/>.
+            </summary>
+            <param name="reason">
+            A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion 
+            is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
+            </param>
+            <param name="reasonArgs">
+            Zero or more objects to format using the placeholders in <see cref="!:reason"/>.
+            </param>
+        </member>
+        <member name="P:FluentAssertions.Specialized.AsyncFunctionAssertions.Subject">
+            <summary>
+            Gets the <see cref="T:System.Func`1"/> that is being asserted.
             </summary>
         </member>
     </members>
