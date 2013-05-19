@@ -186,32 +186,58 @@ namespace dokas.FluentStrings.Tests
         #region Remove To
 
         [TestMethod]
-        public void RemoveToCharacterInNullString()
+        public void RemoveToPositionInNullString()
         {
-            string transformed = Const.NullString.Remove().To(3);
+            string transformed = Const.NullString.Remove().To(position: 3);
             transformed.Should().Be(Const.NullString);
         }
 
         [TestMethod]
-        public void RemoveToCharacterInEmptyString()
+        public void RemoveToPositionInEmptyString()
         {
-            string transformed = String.Empty.Remove().To(5);
+            string transformed = String.Empty.Remove().To(position: 5);
             transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
-        public void RemoveToCharacter()
+        public void RemoveToNegativePosition()
         {
-            string transformed = "Some very long string".Remove().To(0);
-            transformed.Should().Be("Some very long string");
+            Action action = () => Const.SampleString.Remove().To(position: -1).ToString();
+            action.ShouldThrow<ArgumentOutOfRangeException>();
+        }
 
-            transformed = "Some very long string".Remove().To(1);
+        [TestMethod]
+        public void RemoveToZeroPosition()
+        {
+            string transformed = Const.SampleString.Remove().To(position: 0);
+            transformed.Should().Be(Const.SampleString);
+        }
+
+        [TestMethod]
+        public void RemoveToFirstPosition()
+        {
+            string transformed = "Some very long string".Remove().To(position: 1);
             transformed.Should().Be("ome very long string");
+        }
 
-            transformed = "Some very long string".Remove().To(7);
+        [TestMethod]
+        public void RemoveToPosition()
+        {
+            string transformed = "Some very long string".Remove().To(position: 7);
             transformed.Should().Be("ry long string");
+        }
 
-            transformed = "Some very long string".Remove().To(100);
+        [TestMethod]
+        public void RemoveToExactPosition()
+        {
+            string transformed = Const.SampleString.Remove().To(position: Const.SampleString.Length);
+            transformed.Should().Be(String.Empty);
+        }
+
+        [TestMethod]
+        public void RemoveToExceedingPosition()
+        {
+            string transformed = Const.SampleString.Remove().To(position: Const.SampleString.Length + 100);
             transformed.Should().Be(String.Empty);
         }
 

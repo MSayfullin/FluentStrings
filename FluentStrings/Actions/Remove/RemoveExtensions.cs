@@ -271,9 +271,15 @@ namespace dokas.FluentStrings
 
         #region To
 
-        public static RemoveStringTo To(this RemoveString source, int positionIndex)
+        /// <summary>
+        /// Removes substring up to character position in the source string.
+        /// N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)
+        /// </summary>
+        /// <param name="source">Target string for removal</param>
+        /// <param name="position">End position in string for removal</param>
+        public static RemoveStringTo To(this RemoveString source, int position)
         {
-            return new RemoveStringTo(source, positionIndex);
+            return new RemoveStringTo(source, position);
         }
 
         public static RemoveStringToFrom From(this RemoveStringTo source, The position)
