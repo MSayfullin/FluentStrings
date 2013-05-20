@@ -52,6 +52,8 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Remove\RemoveToTests.cs" />
+    <Compile Include="Remove\RemoveStartingTests.cs" />
     <Compile Include="ReplaceTests.cs" />
     <Compile Include="TruncateTests.cs" />
     <Compile Include="Remove\RemoveNextPreviousTests.cs" />
