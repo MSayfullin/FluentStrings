@@ -2,7 +2,7 @@
 
 namespace dokas.FluentStrings.Tests
 {
-    public class Const
+    public static class Const
     {
         public const string NullString = null;
         public const string SampleString = "Some sample string";

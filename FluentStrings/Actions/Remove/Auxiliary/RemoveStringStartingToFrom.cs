@@ -4,12 +4,12 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     public class RemoveStringStartingToFrom
     {
-        private readonly RemoveStringStartingTo _source;
+        private readonly RemoveStringStartingTo _removeStringStartingTo;
         private readonly The _position;
 
-        internal RemoveStringStartingToFrom(RemoveStringStartingTo source, The position)
+        internal RemoveStringStartingToFrom(RemoveStringStartingTo removeStringStartingTo, The position)
         {
-            _source = source;
+            _removeStringStartingTo = removeStringStartingTo;
             _position = position;
         }
 
@@ -20,7 +20,8 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return _removeStringStartingTo.RemoveStringStarting.RemoveString.Source
+                .RemoveStartingTo(_removeStringStartingTo.RemoveStringStarting.PositionIndex, The.Beginning, _removeStringStartingTo.PositionIndex, _position);
         }
     }
 }

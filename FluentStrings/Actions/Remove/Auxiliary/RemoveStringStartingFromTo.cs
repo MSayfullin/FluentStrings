@@ -4,14 +4,17 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     public class RemoveStringStartingFromTo
     {
-        private readonly RemoveStringStartingFrom _source;
+        private readonly RemoveStringStartingFrom _removeStringStartingFrom;
         private readonly int _positionIndex;
 
-        internal RemoveStringStartingFromTo(RemoveStringStartingFrom source, int positionIndex)
+        internal RemoveStringStartingFromTo(RemoveStringStartingFrom removeStringStartingFrom, int positionIndex)
         {
-            _source = source;
+            _removeStringStartingFrom = removeStringStartingFrom;
             _positionIndex = positionIndex;
         }
+
+        internal RemoveStringStartingFrom RemoveStringStartingFrom { get { return _removeStringStartingFrom; } }
+        internal int PositionIndex { get { return _positionIndex; } }
 
         public static implicit operator string(RemoveStringStartingFromTo removeStringStartingFromTo)
         {
@@ -20,7 +23,8 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return _removeStringStartingFrom.RemoveStringStarting.RemoveString.Source
+                .RemoveStartingTo(_removeStringStartingFrom.RemoveStringStarting.PositionIndex, _removeStringStartingFrom.Position, _positionIndex, The.Beginning);
         }
     }
 }

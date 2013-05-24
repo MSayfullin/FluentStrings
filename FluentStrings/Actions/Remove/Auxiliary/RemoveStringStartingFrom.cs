@@ -13,6 +13,9 @@ namespace dokas.FluentStrings.Actions.Remove
             _position = position;
         }
 
+        internal RemoveStringStarting RemoveStringStarting { get { return _removeStringStarting; } }
+        internal The Position { get { return _position; } }
+
         public static implicit operator string(RemoveStringStartingFrom removeStringStartingFrom)
         {
             return removeStringStartingFrom.ToString();

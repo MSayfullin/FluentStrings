@@ -298,22 +298,48 @@ namespace dokas.FluentStrings
 
 
 
-        public static RemoveStringStartingTo To(this RemoveStringStarting source, int positionIndex)
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal.
+        /// This action is exclusive.
+        /// N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)
+        /// </summary>
+        /// <param name="position">End position in string for removal</param>
+        public static RemoveStringStartingTo To(this RemoveStringStarting source, int position)
         {
-            return new RemoveStringStartingTo(source, positionIndex);
+            return new RemoveStringStartingTo(source, position);
         }
 
+        /// <summary>
+        /// Extends Remove.Starting.To action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used.
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveStringStartingToFrom From(this RemoveStringStartingTo source, The position)
         {
             return new RemoveStringStartingToFrom(source, position);
         }
 
 
-        public static RemoveStringStartingFromTo To(this RemoveStringStartingFrom source, int positionIndex)
+        /// <summary>
+        /// Extends Remove.Starting.From action with the ability to set end position for removal.
+        /// This action is exclusive.
+        /// N.B.: Default Remove().Starting().From().To() is equivalent of Remove().Starting().From().To().From(The.Beginning)
+        /// </summary>
+        /// <param name="position">End position in string for removal</param>
+        public static RemoveStringStartingFromTo To(this RemoveStringStartingFrom source, int position)
         {
-            return new RemoveStringStartingFromTo(source, positionIndex);
+            return new RemoveStringStartingFromTo(source, position);
         }
 
+        /// <summary>
+        /// Extends Remove.Starting.From.To action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used.
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveStringStartingFromToFrom From(this RemoveStringStartingFromTo source, The position)
         {
             return new RemoveStringStartingFromToFrom(source, position);

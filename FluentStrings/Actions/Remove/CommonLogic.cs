@@ -82,5 +82,60 @@ namespace dokas.FluentStrings.Actions.Remove
                     return builder.ToString();
                 });
         }
+
+        public static string RemoveStartingTo(this string source, int startingPositionIndex, The startingFrom, int toPositionIndex, The toFrom)
+        {
+            if (startingPositionIndex < 0 || toPositionIndex < 0)
+                throw new ArgumentOutOfRangeException("positionIndex", "Negative index is not supported");
+
+            if (source.IsEmpty())
+                return source;
+
+            int start = 0;
+            switch (startingFrom)
+            {
+                case The.Beginning:
+                    start = Math.Min(startingPositionIndex, source.Length);
+                    break;
+                case The.End:
+                    start = Math.Max(source.Length - startingPositionIndex - 1, -1);
+                    break;
+                case The.StartOf:
+                case The.EndOf:
+                default:
+                    throw new ArgumentOutOfRangeException("position", "Only Beginning and End positions are supported by Remove().Starting().From().To().From() methods");
+            }
+
+            int finish = 0;
+            switch (toFrom)
+            {
+                case The.Beginning:
+                    finish = Math.Min(toPositionIndex, source.Length);
+                    break;
+                case The.End:
+                    finish = Math.Max(source.Length - toPositionIndex - 1, -1);
+                    break;
+                case The.StartOf:
+                case The.EndOf:
+                default:
+                    throw new ArgumentOutOfRangeException("position", "Only Beginning and End positions are supported by Remove().Starting().From().To().From() methods");
+            }
+
+            if (start == finish)
+                return source;
+
+            if (finish < start)
+            {
+                var tmp = start;
+                start = finish + 1;
+                finish = Math.Min(tmp + 1, source.Length);
+            }
+
+            if (start >= source.Length)
+                return source;
+
+            start = Math.Max(start, 0);
+            return source.Remove(start, finish - start);
+        }
     }
 }
