@@ -237,7 +237,6 @@ namespace dokas.FluentStrings
         /// This action is inclusive.
         /// N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)
         /// </summary>
-        /// <param name="source">Target string for removal</param>
         /// <param name="position">Starting position in string for removal</param>
         public static RemoveStringStarting Starting(this RemoveString source, int position)
         {
@@ -254,6 +253,19 @@ namespace dokas.FluentStrings
         public static RemoveStringStartingFrom From(this RemoveStringStarting source, The position)
         {
             return new RemoveStringStartingFrom(source, position);
+        }
+
+
+
+        /// <summary>
+        /// Removes substring starting from the first marker in the source string.
+        /// This action is inclusive.
+        /// N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)
+        /// </summary>
+        /// <param name="marker">Marker value for removal point.</param>
+        public static RemoveStringStartingFirstOccurrence Starting(this RemoveString source, string marker)
+        {
+            return new RemoveStringStartingFirstOccurrence(source, marker);
         }
 
 
@@ -277,7 +289,6 @@ namespace dokas.FluentStrings
         /// This action is exclusive.
         /// N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)
         /// </summary>
-        /// <param name="source">Target string for removal</param>
         /// <param name="position">End position in string for removal</param>
         public static RemoveStringTo To(this RemoveString source, int position)
         {
