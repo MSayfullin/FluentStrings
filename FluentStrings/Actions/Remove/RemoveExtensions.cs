@@ -268,6 +268,18 @@ namespace dokas.FluentStrings
             return new RemoveStringStartingFirstOccurrence(source, marker);
         }
 
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used.
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        public static RemoveStringStartingFirstOccurrenceFrom From(this RemoveStringStartingFirstOccurrence source, The position)
+        {
+            return new RemoveStringStartingFirstOccurrenceFrom(source, position);
+        }
+
 
 
         public static RemoveStringStartingOccurrence Starting(this RemoveString source, int occurrence, string marker)

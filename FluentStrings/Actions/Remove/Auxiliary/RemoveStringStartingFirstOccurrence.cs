@@ -13,6 +13,9 @@ namespace dokas.FluentStrings.Actions.Remove
             _marker = marker;
         }
 
+        internal RemoveString RemoveString { get { return _removeString; } }
+        internal string Marker { get { return _marker; } }
+
         public static implicit operator string(RemoveStringStartingFirstOccurrence removeStringStartingFirstOccurrence)
         {
             return removeStringStartingFirstOccurrence.ToString();
