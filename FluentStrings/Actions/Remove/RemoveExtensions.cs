@@ -280,6 +280,26 @@ namespace dokas.FluentStrings
             return new RemoveStringStartingFirstOccurrenceFrom(source, position);
         }
 
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to ignore case.
+        /// </summary>
+        public static RemoveStringStartingFirstOccurrenceIgnoringCase IgnoringCase(this RemoveStringStartingFirstOccurrence source)
+        {
+            return new RemoveStringStartingFirstOccurrenceIgnoringCase(source);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting.IgnoringCase action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        public static RemoveStringStartingFirstOccurrenceIgnoringCaseFrom From(this RemoveStringStartingFirstOccurrenceIgnoringCase source, The position)
+        {
+            return new RemoveStringStartingFirstOccurrenceIgnoringCaseFrom(source, position);
+        }
+
 
 
         public static RemoveStringStartingOccurrence Starting(this RemoveString source, int occurrence, string marker)
