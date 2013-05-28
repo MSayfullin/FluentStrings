@@ -137,5 +137,25 @@ namespace dokas.FluentStrings.Actions.Remove
             start = Math.Max(start, 0);
             return source.Remove(start, finish - start);
         }
+
+        public static string RemoveStarting(this string source, int occurrenceCount, string marker, bool ignoreCase = false, The position = The.Beginning)
+        {
+            if (occurrenceCount < 0)
+                throw new ArgumentOutOfRangeException("occurrenceCount", "Negative occurrence count is not supported");
+
+            if (occurrenceCount == 0)
+                return source;
+
+            return source.Remove(marker,
+                (s, m) =>
+                {
+                    var indexes = source.IndexesOf(marker, ignoreCase, position).Skip(occurrenceCount - 1);
+
+                    if (!indexes.Any())
+                        return source;
+
+                    return source.Remove(indexes.First());
+                });
+        }
     }
 }

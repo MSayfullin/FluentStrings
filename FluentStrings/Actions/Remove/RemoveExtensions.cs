@@ -302,14 +302,47 @@ namespace dokas.FluentStrings
 
 
 
-        public static RemoveStringStartingOccurrence Starting(this RemoveString source, int occurrence, string marker)
+        /// <summary>
+        /// Removes substring starting from the defined occurrence of the marker in the source string.
+        /// This action is inclusive.
+        /// N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)
+        /// </summary>
+        /// <param name="marker">Marker value for removal point.</param>
+        public static RemoveStringStartingOccurrence Starting(this RemoveString source, int occurrence, string of)
         {
-            return new RemoveStringStartingOccurrence(source, occurrence, marker);
+            return new RemoveStringStartingOccurrence(source, occurrence, of);
         }
 
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveStringStartingOccurrenceFrom From(this RemoveStringStartingOccurrence source, The position)
         {
             return new RemoveStringStartingOccurrenceFrom(source, position);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to ignore case.
+        /// </summary>
+        public static RemoveStringStartingOccurrenceIgnoringCase IgnoringCase(this RemoveStringStartingOccurrence source)
+        {
+            return new RemoveStringStartingOccurrenceIgnoringCase(source);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting.IgnoringCase action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        public static RemoveStringStartingOccurrenceIgnoringCaseFrom From(this RemoveStringStartingOccurrenceIgnoringCase source, The position)
+        {
+            return new RemoveStringStartingOccurrenceIgnoringCaseFrom(source, position);
         }
 
         #endregion

@@ -459,28 +459,6 @@ namespace dokas.FluentStrings.Tests
 
         #endregion
 
-        #region Remove Starting Occurrence
-
-        [TestMethod]
-        public void RemoveFromOccurrence()
-        {
-            string transformed = "Some very long string".Remove().Starting(1, "marker");
-            transformed.Should().Be("");
-        }
-
-        #endregion
-
-        #region Remove Starting Occurrence From
-
-        [TestMethod]
-        public void RemoveFromOccurrenceFrom()
-        {
-            string transformed = "Some very long string".Remove().Starting(1, "marker").From(The.Beginning);
-            transformed.Should().Be("");
-        }
-
-        #endregion
-
         #region Remove Starting Occurrence To
 
         [TestMethod]

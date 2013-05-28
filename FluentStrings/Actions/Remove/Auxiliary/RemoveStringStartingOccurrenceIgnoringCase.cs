@@ -2,20 +2,20 @@
 
 namespace dokas.FluentStrings.Actions.Remove
 {
-    public class RemoveStringStartingOccurrenceFrom
+    public class RemoveStringStartingOccurrenceIgnoringCase
     {
         private readonly RemoveStringStartingOccurrence _removeStringStartingOccurrence;
-        private readonly The _position;
 
-        internal RemoveStringStartingOccurrenceFrom(RemoveStringStartingOccurrence removeStringStartingOccurrence, The position)
+        internal RemoveStringStartingOccurrenceIgnoringCase(RemoveStringStartingOccurrence removeStringStartingOccurrence)
         {
             _removeStringStartingOccurrence = removeStringStartingOccurrence;
-            _position = position;
         }
 
-        public static implicit operator string(RemoveStringStartingOccurrenceFrom removeStringStartingOccurrenceFrom)
+        internal RemoveStringStartingOccurrence RemoveStringStartingOccurrence { get { return _removeStringStartingOccurrence; } }
+
+        public static implicit operator string(RemoveStringStartingOccurrenceIgnoringCase removeStringStartingOccurrenceIgnoringCase)
         {
-            return removeStringStartingOccurrenceFrom.ToString();
+            return removeStringStartingOccurrenceIgnoringCase.ToString();
         }
 
         public override string ToString()
@@ -23,7 +23,7 @@ namespace dokas.FluentStrings.Actions.Remove
             return _removeStringStartingOccurrence.RemoveString.Source.RemoveStarting(
                 _removeStringStartingOccurrence.OccurrenceCount,
                 _removeStringStartingOccurrence.Marker,
-                position: _position);
+                ignoreCase: true);
         }
     }
 }
