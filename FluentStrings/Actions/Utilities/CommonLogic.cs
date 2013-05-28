@@ -34,7 +34,7 @@ namespace dokas.FluentStrings.Actions.Utilities
                 case The.Beginning:
                     return source.IndexesOf(marker, ignoreCase);
                 case The.End:
-                    return source.IndexesOf(marker, ignoreCase).OrderByDescending(i => i);
+                    return source.IndexesOf(marker, ignoreCase).Reverse();
                 case The.StartOf:
                 case The.EndOf:
                 default:

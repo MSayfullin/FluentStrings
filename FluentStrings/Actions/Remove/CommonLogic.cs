@@ -59,7 +59,7 @@ namespace dokas.FluentStrings.Actions.Remove
             return source.Remove(extraction,
                 (s, e) =>
                 {
-                    var indexes = source.IndexesOf(extraction, ignoreCase, position);
+                    var indexes = s.IndexesOf(e, ignoreCase, position);
                     if (quantity != null)
                         indexes = indexes.Take(quantity.Value);
                     if (position == The.End)
@@ -68,17 +68,17 @@ namespace dokas.FluentStrings.Actions.Remove
                     var indexesArray = indexes.ToArray();
 
                     if (!indexesArray.Any())
-                        return source;
+                        return s;
 
                     var start = 0;
-                    var resultStringLength = source.Length - indexesArray.Length * extraction.Length;
+                    var resultStringLength = s.Length - indexesArray.Length * e.Length;
                     var builder = new StringBuilder(resultStringLength);
                     foreach (var index in indexes)
                     {
-                        builder.Append(source.Substring(start, index - start));
-                        start = index + extraction.Length;
+                        builder.Append(s.Substring(start, index - start));
+                        start = index + e.Length;
                     }
-                    builder.Append(source.Substring(start));
+                    builder.Append(s.Substring(start));
                     return builder.ToString();
                 });
         }
