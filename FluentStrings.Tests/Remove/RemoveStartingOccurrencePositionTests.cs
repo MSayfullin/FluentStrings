@@ -73,7 +73,7 @@ namespace dokas.FluentStrings.Tests
         }
 
         [TestMethod]
-        public void RemoveStartingBeginnigOccurrenceIndex()
+        public void RemoveStartingBeginningOccurrenceIndex()
         {
             Action action = () => "Some very very long string".Remove().Starting(The.Beginning, 1, of: "very").ToString();
             action.ShouldThrow<ArgumentOutOfRangeException>();

@@ -24,7 +24,7 @@ namespace dokas.FluentStrings.Actions.Remove
                 _removeStringStartingOccurrencePositionIgnoringCase.RemoveStringStartingOccurrencePosition.Position,
                 _removeStringStartingOccurrencePositionIgnoringCase.RemoveStringStartingOccurrencePosition.OccurrenceCount,
                 _removeStringStartingOccurrencePositionIgnoringCase.RemoveStringStartingOccurrencePosition.Marker,
-                ignoreCase: true, position: _position);
+                ignoreCase: true, from: _position);
         }
     }
 }

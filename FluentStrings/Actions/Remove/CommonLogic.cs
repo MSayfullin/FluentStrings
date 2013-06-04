@@ -138,7 +138,7 @@ namespace dokas.FluentStrings.Actions.Remove
             return source.Remove(start, finish - start);
         }
 
-        public static string RemoveStarting(this string source, int occurrenceCount, string marker, bool ignoreCase = false, The position = The.Beginning)
+        public static string RemoveStarting(this string source, int occurrenceCount, string marker, bool ignoreCase = false, The from = The.Beginning)
         {
             if (occurrenceCount < 0)
                 throw new ArgumentOutOfRangeException("occurrenceCount", "Negative occurrence count is not supported");
@@ -149,7 +149,7 @@ namespace dokas.FluentStrings.Actions.Remove
             return source.Remove(marker,
                 (s, m) =>
                 {
-                    var indexes = source.IndexesOf(marker, ignoreCase, position).Skip(occurrenceCount - 1);
+                    var indexes = source.IndexesOf(marker, ignoreCase, from).Skip(occurrenceCount - 1);
 
                     if (!indexes.Any())
                         return source;
@@ -158,7 +158,7 @@ namespace dokas.FluentStrings.Actions.Remove
                 });
         }
 
-        public static string RemoveStartingPosition(this string source, The exactPosition, int occurrenceCount, string marker, bool ignoreCase = false, The position = The.Beginning)
+        public static string RemoveStartingPosition(this string source, The position, int occurrenceCount, string marker, bool ignoreCase = false, The from = The.Beginning)
         {
             if (occurrenceCount < 0)
                 throw new ArgumentOutOfRangeException("occurrenceCount", "Negative occurrence count is not supported");
@@ -170,7 +170,7 @@ namespace dokas.FluentStrings.Actions.Remove
                 (s, m) =>
                 {
                     int shift;
-                    switch (exactPosition)
+                    switch (position)
                     {
                         case The.StartOf:
                             shift = 0;
@@ -184,7 +184,7 @@ namespace dokas.FluentStrings.Actions.Remove
                             throw new ArgumentOutOfRangeException("exactPosition", "Only StartOf and EndOf positions are supported by Remove().Starting() method");
                     }
 
-                    var indexes = source.IndexesOf(marker, ignoreCase, position).Skip(occurrenceCount - 1);
+                    var indexes = source.IndexesOf(marker, ignoreCase, from).Skip(occurrenceCount - 1);
 
                     if (!indexes.Any())
                         return source;

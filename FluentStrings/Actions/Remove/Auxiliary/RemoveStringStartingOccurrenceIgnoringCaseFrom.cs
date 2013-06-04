@@ -23,7 +23,7 @@ namespace dokas.FluentStrings.Actions.Remove
             return _removeStringStartingOccurrenceIgnoringCase.RemoveStringStartingOccurrence.RemoveString.Source.RemoveStarting(
                 _removeStringStartingOccurrenceIgnoringCase.RemoveStringStartingOccurrence.OccurrenceCount,
                 _removeStringStartingOccurrenceIgnoringCase.RemoveStringStartingOccurrence.Marker,
-                ignoreCase: true, position: _position);
+                ignoreCase: true, from: _position);
         }
     }
 }

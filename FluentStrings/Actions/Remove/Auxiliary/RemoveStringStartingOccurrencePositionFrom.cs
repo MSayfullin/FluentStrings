@@ -26,7 +26,7 @@ namespace dokas.FluentStrings.Actions.Remove
             return _removeStringStartingOccurrencePosition.RemoveString.Source.RemoveStartingPosition(
                 _removeStringStartingOccurrencePosition.Position,
                 _removeStringStartingOccurrencePosition.OccurrenceCount, _removeStringStartingOccurrencePosition.Marker,
-                position: _position);
+                from: _position);
         }
     }
 }
