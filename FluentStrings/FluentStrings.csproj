@@ -132,6 +132,10 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingFirstOccurrenceIgnoringCaseFrom.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrenceIgnoringCase.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrenceIgnoringCaseFrom.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrencePosition.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrencePositionFrom.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrencePositionIgnoringCase.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrencePositionIgnoringCaseFrom.cs" />
     <Compile Include="Actions\Remove\Resources\VowelsMap.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateStringFrom.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateString.cs" />

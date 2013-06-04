@@ -157,5 +157,45 @@ namespace dokas.FluentStrings.Actions.Remove
                     return source.Remove(indexes.First());
                 });
         }
+
+        public static string RemoveStartingPosition(this string source, The exactPosition, int occurrenceCount, string marker, bool ignoreCase = false, The position = The.Beginning)
+        {
+            if (occurrenceCount < 0)
+                throw new ArgumentOutOfRangeException("occurrenceCount", "Negative occurrence count is not supported");
+
+            if (occurrenceCount == 0)
+                return source;
+
+            return source.Remove(marker,
+                (s, m) =>
+                {
+                    int shift;
+                    switch (exactPosition)
+                    {
+                        case The.StartOf:
+                            shift = 0;
+                            break;
+                        case The.EndOf:
+                            shift = marker.Length;
+                            break;
+                        case The.Beginning:
+                        case The.End:
+                        default:
+                            throw new ArgumentOutOfRangeException("exactPosition", "Only StartOf and EndOf positions are supported by Remove().Starting() method");
+                    }
+
+                    var indexes = source.IndexesOf(marker, ignoreCase, position).Skip(occurrenceCount - 1);
+
+                    if (!indexes.Any())
+                        return source;
+
+                    var index = indexes.First() + shift;
+
+                    if (index >= source.Length)
+                        return source;
+
+                    return source.Remove(index);
+                });
+        }
     }
 }

@@ -303,11 +303,12 @@ namespace dokas.FluentStrings
 
 
         /// <summary>
-        /// Removes substring starting from the defined occurrence of the marker in the source string.
+        /// Removes substring starting from the given occurrence of the marker in the source string.
         /// This action is inclusive.
         /// N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)
         /// </summary>
-        /// <param name="marker">Marker value for removal point.</param>
+        /// <param name="occurrence">Occurrence count to start from.</param>
+        /// <param name="of">Marker value for removal point.</param>
         public static RemoveStringStartingOccurrence Starting(this RemoveString source, int occurrence, string of)
         {
             return new RemoveStringStartingOccurrence(source, occurrence, of);
@@ -343,6 +344,53 @@ namespace dokas.FluentStrings
         public static RemoveStringStartingOccurrenceIgnoringCaseFrom From(this RemoveStringStartingOccurrenceIgnoringCase source, The position)
         {
             return new RemoveStringStartingOccurrenceIgnoringCaseFrom(source, position);
+        }
+
+
+
+        /// <summary>
+        /// Removes substring starting from the given occurrence of the marker in the source string.
+        /// <para>N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="position">Exact position for removal point.</param>
+        /// <param name="occurrence">Occurrence count to start from.</param>
+        /// <param name="of">Marker value for removal point.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used</exception>
+        public static RemoveStringStartingOccurrencePosition Starting(this RemoveString source, The position, int occurrence, string of)
+        {
+            return new RemoveStringStartingOccurrencePosition(source, position, occurrence, of);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        public static RemoveStringStartingOccurrencePositionFrom From(this RemoveStringStartingOccurrencePosition source, The position)
+        {
+            return new RemoveStringStartingOccurrencePositionFrom(source, position);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to ignore case.
+        /// </summary>
+        public static RemoveStringStartingOccurrencePositionIgnoringCase IgnoringCase(this RemoveStringStartingOccurrencePosition source)
+        {
+            return new RemoveStringStartingOccurrencePositionIgnoringCase(source);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting.IgnoringCase action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        public static RemoveStringStartingOccurrencePositionIgnoringCaseFrom From(this RemoveStringStartingOccurrencePositionIgnoringCase source, The position)
+        {
+            return new RemoveStringStartingOccurrencePositionIgnoringCaseFrom(source, position);
         }
 
         #endregion
