@@ -188,9 +188,9 @@ namespace dokas.FluentStrings.Actions.Remove
 
         #endregion
 
-        #region Remove Starting Occurrence
+        #region Remove Starting Or To Occurrence
 
-        public static string RemoveStarting(this string source, int occurrenceCount, string marker, bool ignoreCase = false, The from = The.Beginning)
+        public static string RemoveStartingOrTo(this string source, int occurrenceCount, string marker, bool ignoreCase, The from, bool isStarting)
         {
             if (occurrenceCount < 0)
                 throw new ArgumentOutOfRangeException("occurrenceCount", "Negative occurrence count is not supported");
@@ -206,7 +206,7 @@ namespace dokas.FluentStrings.Actions.Remove
                     if (!indexes.Any())
                         return source;
 
-                    return source.Remove(indexes.First());
+                    return isStarting ? source.Substring(0, indexes.First()) : source.Remove(0, indexes.First());
                 });
         }
 

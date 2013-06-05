@@ -26,7 +26,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return _removeString.Source.RemoveStarting(_occurrenceCount, _marker);
+            return _removeString.Source.RemoveStartingOrTo(_occurrenceCount, _marker, ignoreCase: false, from: The.Beginning, isStarting: true);
         }
     }
 }

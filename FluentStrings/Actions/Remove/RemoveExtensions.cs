@@ -562,14 +562,48 @@ namespace dokas.FluentStrings
 
 
 
-        public static RemoveStringToOccurrence To(this RemoveString source, int occurrence, string marker)
+        /// <summary>
+        /// Removes substring up to the given occurrence of the marker in the source string.
+        /// This action is exclusive.
+        /// N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)
+        /// </summary>
+        /// <param name="occurrence">Occurrence count to remove to.</param>
+        /// <param name="of">Marker value for removal point.</param>
+        public static RemoveStringToOccurrence To(this RemoveString source, int occurrence, string of)
         {
-            return new RemoveStringToOccurrence(source, occurrence, marker);
+            return new RemoveStringToOccurrence(source, occurrence, of);
         }
 
+        /// <summary>
+        /// Extends Remove.To action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
         public static RemoveStringToOccurrenceFrom From(this RemoveStringToOccurrence source, The position)
         {
             return new RemoveStringToOccurrenceFrom(source, position);
+        }
+
+        /// <summary>
+        /// Extends Remove.To action with the ability to ignore case.
+        /// </summary>
+        public static RemoveStringToOccurrenceIgnoringCase IgnoringCase(this RemoveStringToOccurrence source)
+        {
+            return new RemoveStringToOccurrenceIgnoringCase(source);
+        }
+
+        /// <summary>
+        /// Extends Remove.To.IgnoringCase action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        public static RemoveStringToOccurrenceIgnoringCaseFrom From(this RemoveStringToOccurrenceIgnoringCase source, The position)
+        {
+            return new RemoveStringToOccurrenceIgnoringCaseFrom(source, position);
         }
 
 

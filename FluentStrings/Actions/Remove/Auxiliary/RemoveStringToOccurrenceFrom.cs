@@ -4,12 +4,12 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     public class RemoveStringToOccurrenceFrom
     {
-        private readonly RemoveStringToOccurrence _source;
+        private readonly RemoveStringToOccurrence _removeStringToOccurrence;
         private readonly The _position;
 
-        internal RemoveStringToOccurrenceFrom(RemoveStringToOccurrence source, The position)
+        internal RemoveStringToOccurrenceFrom(RemoveStringToOccurrence removeStringToOccurrence, The position)
         {
-            _source = source;
+            _removeStringToOccurrence = removeStringToOccurrence;
             _position = position;
         }
 
@@ -20,7 +20,9 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return _removeStringToOccurrence.RemoveString.Source.RemoveStartingOrTo(
+                _removeStringToOccurrence.OccurrenceCount, _removeStringToOccurrence.Marker,
+                ignoreCase: false, from: _position, isStarting: false);
         }
     }
 }

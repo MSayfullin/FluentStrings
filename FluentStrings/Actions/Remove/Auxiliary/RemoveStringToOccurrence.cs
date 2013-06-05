@@ -4,16 +4,20 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     public class RemoveStringToOccurrence
     {
-        private readonly RemoveString _source;
+        private readonly RemoveString _removeString;
         private readonly int _occurrenceCount;
         private readonly string _marker;
 
-        internal RemoveStringToOccurrence(RemoveString source, int occurrenceCount, string marker)
+        internal RemoveStringToOccurrence(RemoveString removeString, int occurrenceCount, string marker)
         {
-            _source = source;
+            _removeString = removeString;
             _occurrenceCount = occurrenceCount;
             _marker = marker;
         }
+
+        internal RemoveString RemoveString { get { return _removeString; } }
+        internal int OccurrenceCount { get { return _occurrenceCount; } }
+        internal string Marker { get { return _marker; } }
 
         public static implicit operator string(RemoveStringToOccurrence removeStringToOccurrence)
         {
@@ -22,7 +26,8 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return _removeString.Source.RemoveStartingOrTo(
+                _occurrenceCount, _marker, ignoreCase: false, from: The.Beginning, isStarting: false);
         }
     }
 }
