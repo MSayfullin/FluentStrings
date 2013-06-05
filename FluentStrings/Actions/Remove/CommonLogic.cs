@@ -210,7 +210,7 @@ namespace dokas.FluentStrings.Actions.Remove
                 });
         }
 
-        public static string RemoveStartingPosition(this string source, The position, int occurrenceCount, string marker, bool ignoreCase = false, The from = The.Beginning)
+        public static string RemoveStartingOrToPosition(this string source, The position, int occurrenceCount, string marker, bool ignoreCase, The from, bool isStarting)
         {
             if (occurrenceCount < 0)
                 throw new ArgumentOutOfRangeException("occurrenceCount", "Negative occurrence count is not supported");
@@ -244,9 +244,9 @@ namespace dokas.FluentStrings.Actions.Remove
                     var index = indexes.First() + shift;
 
                     if (index >= source.Length)
-                        return source;
+                        return isStarting ? source : String.Empty;
 
-                    return source.Remove(index);
+                    return isStarting ? source.Substring(0, index) : source.Remove(0, index);
                 });
         }
 

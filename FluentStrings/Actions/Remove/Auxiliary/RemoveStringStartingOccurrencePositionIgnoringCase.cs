@@ -20,10 +20,10 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return _removeStringStartingOccurrencePosition.RemoveString.Source.RemoveStartingPosition(
+            return _removeStringStartingOccurrencePosition.RemoveString.Source.RemoveStartingOrToPosition(
                 _removeStringStartingOccurrencePosition.Position,
                 _removeStringStartingOccurrencePosition.OccurrenceCount, _removeStringStartingOccurrencePosition.Marker,
-                ignoreCase: true);
+                ignoreCase: true, from: The.Beginning, isStarting: true);
         }
     }
 }

@@ -20,11 +20,11 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return _removeStringStartingOccurrencePositionIgnoringCase.RemoveStringStartingOccurrencePosition.RemoveString.Source.RemoveStartingPosition(
+            return _removeStringStartingOccurrencePositionIgnoringCase.RemoveStringStartingOccurrencePosition.RemoveString.Source.RemoveStartingOrToPosition(
                 _removeStringStartingOccurrencePositionIgnoringCase.RemoveStringStartingOccurrencePosition.Position,
                 _removeStringStartingOccurrencePositionIgnoringCase.RemoveStringStartingOccurrencePosition.OccurrenceCount,
                 _removeStringStartingOccurrencePositionIgnoringCase.RemoveStringStartingOccurrencePosition.Marker,
-                ignoreCase: true, from: _position);
+                ignoreCase: true, from: _position, isStarting: true);
         }
     }
 }
