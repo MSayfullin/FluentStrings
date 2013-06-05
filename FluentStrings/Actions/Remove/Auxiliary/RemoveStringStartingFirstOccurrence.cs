@@ -23,13 +23,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return _removeString.Source.Remove(
-                _marker,
-                (source, marker) =>
-                {
-                    var index = source.IndexOf(marker);
-                    return index >= 0 ? source.Substring(0, index) : source;
-                });
+            return _removeString.Source.RemoveStartingOrTo(_marker, ignoreCase: false, isStarting: true);
         }
     }
 }

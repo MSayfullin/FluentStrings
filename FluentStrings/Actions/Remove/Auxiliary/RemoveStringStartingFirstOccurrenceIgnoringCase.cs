@@ -20,13 +20,8 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return _removeStringStartingFirstOccurrence.RemoveString.Source.Remove(
-                _removeStringStartingFirstOccurrence.Marker,
-                (source, marker) =>
-                {
-                    var index = source.IndexOf(marker, StringComparison.CurrentCultureIgnoreCase);
-                    return index >= 0 ? source.Substring(0, index) : source;
-                });
+            return _removeStringStartingFirstOccurrence.RemoveString.Source.RemoveStartingOrTo(
+                _removeStringStartingFirstOccurrence.Marker, ignoreCase: true, isStarting: true);
         }
     }
 }

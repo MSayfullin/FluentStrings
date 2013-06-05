@@ -20,23 +20,9 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            switch (_position)
-            {
-                case The.Beginning:
-                    return _removeStringToFirstOccurrence;
-                case The.End:
-                    return _removeStringToFirstOccurrence.RemoveString.Source.Remove(
-                        _removeStringToFirstOccurrence.Marker,
-                        (source, marker) =>
-                        {
-                            var index = source.LastIndexOf(marker);
-                            return index >= 0 ? source.Remove(0, index) : source;
-                        });
-                case The.StartOf:
-                case The.EndOf:
-                default:
-                    throw new ArgumentOutOfRangeException("position", "Only Beginning and End positions are supported by Remove().To().From() method");
-            }
+            return _removeStringToFirstOccurrence.RemoveString.Source.RemoveStartingOrTo(
+                _removeStringToFirstOccurrence.Marker,
+                ignoreCase: false, from: _position, isStarting: false);
         }
     }
 }

@@ -29,13 +29,15 @@ namespace dokas.FluentStrings.Actions.Remove
             }
         }
 
-        public static string RemoveValues(this string source, int? quantity, string extraction, bool ignoreCase, The position)
+        #region Remove Values
+
+        public static string RemoveValues(this string source, int? quantity, string extraction, bool ignoreCase, The from)
         {
-            switch (position)
+            switch (from)
             {
                 case The.Beginning:
                 case The.End:
-                    return RemoveValuesInternal(source, quantity, extraction, ignoreCase, position);
+                    return RemoveValuesInternal(source, quantity, extraction, ignoreCase, from);
                 case The.StartOf:
                 case The.EndOf:
                 default:
@@ -48,7 +50,7 @@ namespace dokas.FluentStrings.Actions.Remove
             return RemoveValuesInternal(source, quantity, extraction, ignoreCase);
         }
 
-        private static string RemoveValuesInternal(string source, int? quantity, string extraction, bool ignoreCase, The position = The.Beginning)
+        private static string RemoveValuesInternal(string source, int? quantity, string extraction, bool ignoreCase, The from = The.Beginning)
         {
             if (quantity < 0)
                 throw new ArgumentOutOfRangeException("quantity", "Negative quantity is not supported");
@@ -59,10 +61,10 @@ namespace dokas.FluentStrings.Actions.Remove
             return source.Remove(extraction,
                 (s, e) =>
                 {
-                    var indexes = s.IndexesOf(e, ignoreCase, position);
+                    var indexes = s.IndexesOf(e, ignoreCase, from);
                     if (quantity != null)
                         indexes = indexes.Take(quantity.Value);
-                    if (position == The.End)
+                    if (from == The.End)
                         indexes = indexes.Reverse();
 
                     var indexesArray = indexes.ToArray();
@@ -82,6 +84,10 @@ namespace dokas.FluentStrings.Actions.Remove
                     return builder.ToString();
                 });
         }
+
+        #endregion
+
+        #region Remove Starting To Indexes
 
         public static string RemoveStartingTo(this string source, int startingPositionIndex, The startingFrom, int toPositionIndex, The toFrom)
         {
@@ -137,6 +143,52 @@ namespace dokas.FluentStrings.Actions.Remove
             start = Math.Max(start, 0);
             return source.Remove(start, finish - start);
         }
+
+        #endregion
+
+        #region Remove Starting Or To First Occurence
+
+        public static string RemoveStartingOrTo(this string source, string marker, bool ignoreCase, bool isStarting)
+        {
+            return source.RemoveStartingOrTo(marker, ignoreCase, isStarting, fromBeginning: true);
+        }
+
+        public static string RemoveStartingOrTo(this string source, string marker, bool ignoreCase, The from, bool isStarting)
+        {
+            switch (from)
+            {
+                case The.Beginning:
+                    return source.RemoveStartingOrTo(marker, ignoreCase, isStarting, fromBeginning: true);
+                case The.End:
+                    return source.RemoveStartingOrTo(marker, ignoreCase, isStarting, fromBeginning: false);
+                case The.StartOf:
+                case The.EndOf:
+                default:
+                    var methodName = isStarting ? "Starting" : "To";
+                    throw new ArgumentOutOfRangeException(
+                        "position", "Only Beginning and End positions are supported by Remove().{0}().From() method".f(methodName));
+            }
+        }
+
+        private static string RemoveStartingOrTo(this string source, string marker, bool ignoreCase, bool isStarting, bool fromBeginning)
+        {
+            return source.Remove(
+                marker,
+                (s, m) =>
+                {
+                    var comparison = ignoreCase ? StringComparison.CurrentCultureIgnoreCase : StringComparison.CurrentCulture;
+                    var index = fromBeginning ? s.IndexOf(m, comparison) : s.LastIndexOf(m, comparison);
+                    return index >= 0
+                        ? isStarting
+                            ? s.Substring(0, index)
+                            : s.Remove(0, index)
+                        : s;
+                });
+        }
+
+        #endregion
+
+        #region Remove Starting Occurrence
 
         public static string RemoveStarting(this string source, int occurrenceCount, string marker, bool ignoreCase = false, The from = The.Beginning)
         {
@@ -197,5 +249,7 @@ namespace dokas.FluentStrings.Actions.Remove
                     return source.Remove(index);
                 });
         }
+
+        #endregion
     }
 }

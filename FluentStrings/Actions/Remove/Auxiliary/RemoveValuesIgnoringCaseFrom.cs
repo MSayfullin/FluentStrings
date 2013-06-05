@@ -24,7 +24,7 @@ namespace dokas.FluentStrings.Actions.Remove
                 _removeValuesIgnoringCase.RemoveValues.Quantity,
                 _removeValuesIgnoringCase.RemoveValues.Extraction,
                 ignoreCase: true,
-                position: _position);
+                from: _position);
         }
     }
 }
