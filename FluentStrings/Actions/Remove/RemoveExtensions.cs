@@ -517,6 +517,63 @@ namespace dokas.FluentStrings
 
 
 
+        /// <summary>
+        /// Removes substring up to the first marker in the source string.
+        /// This action is exclusive.
+        /// N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)
+        /// </summary>
+        /// <param name="marker">Marker value for removal point.</param>
+        public static RemoveStringToFirstOccurrence To(this RemoveString source, string marker)
+        {
+            return new RemoveStringToFirstOccurrence(source, marker);
+        }
+
+        /// <summary>
+        /// Extends Remove.To action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used.
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        public static RemoveStringToFirstOccurrenceFrom From(this RemoveStringToFirstOccurrence source, The position)
+        {
+            return new RemoveStringToFirstOccurrenceFrom(source, position);
+        }
+
+        /// <summary>
+        /// Extends Remove.To action with the ability to ignore case.
+        /// </summary>
+        public static RemoveStringToFirstOccurrenceIgnoringCase IgnoringCase(this RemoveStringToFirstOccurrence source)
+        {
+            return new RemoveStringToFirstOccurrenceIgnoringCase(source);
+        }
+
+        /// <summary>
+        /// Extends Remove.To.IgnoringCase action with the ability to change starting point.
+        /// </summary>
+        /// <param name="position">
+        /// Position in source string to start from. Beginning or End values could be used
+        /// </param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
+        public static RemoveStringToFirstOccurrenceIgnoringCaseFrom From(this RemoveStringToFirstOccurrenceIgnoringCase source, The position)
+        {
+            return new RemoveStringToFirstOccurrenceIgnoringCaseFrom(source, position);
+        }
+
+
+
+        public static RemoveStringToOccurrence To(this RemoveString source, int occurrence, string marker)
+        {
+            return new RemoveStringToOccurrence(source, occurrence, marker);
+        }
+
+        public static RemoveStringToOccurrenceFrom From(this RemoveStringToOccurrence source, The position)
+        {
+            return new RemoveStringToOccurrenceFrom(source, position);
+        }
+
+
+
         public static RemoveStringStartingOccurrenceTo To(this RemoveStringStartingOccurrence source, int positionIndex)
         {
             return new RemoveStringStartingOccurrenceTo(source, positionIndex);
@@ -537,18 +594,6 @@ namespace dokas.FluentStrings
         public static RemoveStringStartingOccurrenceFromToFrom From(this RemoveStringStartingOccurrenceFromTo source, The position)
         {
             return new RemoveStringStartingOccurrenceFromToFrom(source, position);
-        }
-
-
-
-        public static RemoveStringToOccurrence To(this RemoveString source, int occurrence, string marker)
-        {
-            return new RemoveStringToOccurrence(source, occurrence, marker);
-        }
-
-        public static RemoveStringToOccurrenceFrom From(this RemoveStringToOccurrence source, The position)
-        {
-            return new RemoveStringToOccurrenceFrom(source, position);
         }
 
 
