@@ -6,7 +6,7 @@ namespace dokas.FluentStrings
     {
         /// <summary>
         /// Truncates source string to a specified length.
-        /// N.B.: Default TruncateTo() is equivalent of TruncateTo().From(The.Beginning)
+        /// <para>N.B.: Default TruncateTo() is equivalent of TruncateTo().From(The.Beginning)</para>
         /// </summary>
         /// <param name="source">Target string for truncating</param>
         /// <param name="length">Length of a resulting string</param>
@@ -17,7 +17,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends Truncate action with the ability to append custom text at the end.
-        /// N.B.: Pay attention that length specified for truncate includes appended value.
+        /// <para>N.B.: Pay attention that length specified for truncate includes appended value.</para>
         /// <param name="value">String to be appended at the end</param>
         /// </summary>
         public static TruncateStringWith With(this TruncateString source, string value)
@@ -27,7 +27,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends Truncate action with the ability to append ellipsis at the end.
-        /// N.B.: Pay attention that length specified for truncate includes ellipsis.
+        /// <para>N.B.: Pay attention that length specified for truncate includes ellipsis.</para>
         /// </summary>
         public static TruncateStringWith WithEllipsis(this TruncateString source)
         {
@@ -36,7 +36,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends Truncate action with the ability to change starting point.
-        /// N.B.: TruncateTo().From(The.Beginning) is equivalent of the default TruncateTo()
+        /// <para>N.B.: TruncateTo().From(The.Beginning) is equivalent of the default TruncateTo()</para>
         /// </summary>
         /// <param name="position">
         /// Position in source string to start from. Beginning or End values could be used

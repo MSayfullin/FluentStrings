@@ -6,8 +6,8 @@ namespace dokas.FluentStrings
     {
         /// <summary>
         /// Inserts value to the beginning of the given string.
-        /// N.B.: Default Insert() is equivalent of Insert().To(The.Beginning)
-        /// and Insert().At(position: 0).From(The.Beginning)
+        /// <para>N.B.: Default Insert() is equivalent of Insert().To(The.Beginning)
+        /// and Insert().At(position: 0).From(The.Beginning)</para>
         /// </summary>
         /// <param name="source">Target string for insertion.</param>
         /// <param name="value">String to be inserted.</param>
@@ -31,7 +31,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends Insert action with the ability to change position of insertion.
-        /// N.B.: Default Insert().At() is equivalent of Insert().At().From(The.Beginning)
+        /// <para>N.B.: Default Insert().At() is equivalent of Insert().At().From(The.Beginning)</para>
         /// </summary>
         /// <param name="source">Target string for insertion.</param>
         /// <param name="position">Position in string for insertion.</param>
@@ -73,7 +73,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Extends Insert action with the ability to set insertion point through the marker.
         /// Given string is inserted BEFORE first marker in the target string.
-        /// N.B.: Default Insert().Before() is equivalent of Insert().Before().From(The.Beginning)
+        /// <para>N.B.: Default Insert().Before() is equivalent of Insert().Before().From(The.Beginning)</para>
         /// </summary>
         /// <param name="marker">Marker value for insertion point.</param>
         public static InsertStringBefore Before(this InsertString source, string marker)
@@ -177,7 +177,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Extends Insert action with the ability to set insertion point through some marker.
         /// Given string is inserted AFTER first marker in the target string.
-        /// N.B.: Default Insert().After() is equivalent of Insert().After().From(The.Beginning)
+        /// <para>N.B.: Default Insert().After() is equivalent of Insert().After().From(The.Beginning)</para>
         /// </summary>
         /// <param name="marker">Marker value for insertion point.</param>
         public static InsertStringAfter After(this InsertString source, string marker)

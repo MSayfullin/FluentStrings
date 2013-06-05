@@ -8,7 +8,7 @@ namespace dokas.FluentStrings
     {
         /// <summary>
         /// Checks whether string is empty or not.
-        /// N.B.: Equivalent of String.IsNullOrEmpty method.
+        /// <para>N.B.: Equivalent of String.IsNullOrEmpty method.</para>
         /// </summary>
         /// <param name="source">Target string for examination</param>
         /// <returns>True if string is null or empty, otherwise false</returns>
@@ -19,7 +19,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Adds validation whether string consists only of white-space characters.
-        /// N.B.: Equivalent of String.IsNullOrWhiteSpace method.
+        /// <para>N.B.: Equivalent of String.IsNullOrWhiteSpace method.</para>
         /// </summary>
         /// <returns>True if string consists only of white-space characters, otherwise false</returns>
         public static IsEmptyOrWhiteSpaceString OrWhiteSpace(this IsEmptyString source)
@@ -54,7 +54,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Enumerates through indexes of a marker value in a given string.
         /// Action is case sensitive by default, use IgnoringCase extension to change behaviour.
-        /// N.B.: Default IndexesOf() is equivalent of IndexesOf().From(The.Beginning)
+        /// <para>N.B.: Default IndexesOf() is equivalent of IndexesOf().From(The.Beginning)</para>
         /// </summary>
         /// <param name="source">Target string for indexing</param>
         /// <param name="value">Marker value</param>

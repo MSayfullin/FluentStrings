@@ -21,7 +21,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Removes first value occurrence from the source string.
         /// Action is case sensitive by default, use IgnoringCase extension to change behaviour.
-        /// N.B.: Default Remove() is equivalent of Remove().From(The.Beginning)
+        /// <para>N.B.: Default Remove() is equivalent of Remove().From(The.Beginning)</para>
         /// </summary>
         /// <param name="source">Target string for removal</param>
         /// <param name="value">String to be removed</param>
@@ -67,7 +67,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Removes defined number of value occurrences from the source string.
         /// Action is case sensitive by default, use IgnoringCase extension to change behaviour.
-        /// N.B.: Default Remove() is equivalent of Remove().From(The.Beginning)
+        /// <para>N.B.: Default Remove() is equivalent of Remove().From(The.Beginning)</para>
         /// </summary>
         /// <param name="source">Target string for removal</param>
         /// <param name="quantity">Number of values to remove</param>
@@ -187,7 +187,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Removes number of chars from the source string.
-        /// N.B.: Default RemoveChars() is equivalent of RemoveChars().From(The.Beginning)
+        /// <para>N.B.: Default RemoveChars() is equivalent of RemoveChars().From(The.Beginning)</para>
         /// </summary>
         /// <param name="source">Target string for removal</param>
         /// <param name="quantity">Number of chars to remove</param>
@@ -198,7 +198,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Extends RemoveChars action with the ability to change starting point.
-        /// N.B.: RemoveChars().From(The.Beginning) is equivalent of the default RemoveChars()
+        /// <para>N.B.: RemoveChars().From(The.Beginning) is equivalent of the default RemoveChars()</para>
         /// </summary>
         /// <param name="position">
         /// Position in source string to start from. Beginning or End values could be used
@@ -235,7 +235,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Removes substring starting character position in the source string.
         /// This action is inclusive.
-        /// N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)
+        /// <para>N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)</para>
         /// </summary>
         /// <param name="position">Starting position in string for removal</param>
         public static RemoveStringStarting Starting(this RemoveString source, int position)
@@ -260,7 +260,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Removes substring starting from the first marker in the source string.
         /// This action is inclusive.
-        /// N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)
+        /// <para>N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)</para>
         /// </summary>
         /// <param name="marker">Marker value for removal point.</param>
         public static RemoveStringStartingFirstOccurrence Starting(this RemoveString source, string marker)
@@ -305,7 +305,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Removes substring starting from the given occurrence of the marker in the source string.
         /// This action is inclusive.
-        /// N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)
+        /// <para>N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)</para>
         /// </summary>
         /// <param name="occurrence">Occurrence count to start from.</param>
         /// <param name="of">Marker value for removal point.</param>
@@ -446,7 +446,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Removes substring up to character position in the source string.
         /// This action is exclusive.
-        /// N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)
+        /// <para>N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)</para>
         /// </summary>
         /// <param name="position">End position in string for removal</param>
         public static RemoveStringTo To(this RemoveString source, int position)
@@ -471,7 +471,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Extends Remove.Starting action with the ability to set end position for removal.
         /// This action is exclusive.
-        /// N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
         /// </summary>
         /// <param name="position">End position in string for removal</param>
         public static RemoveStringStartingTo To(this RemoveStringStarting source, int position)
@@ -495,7 +495,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Extends Remove.Starting.From action with the ability to set end position for removal.
         /// This action is exclusive.
-        /// N.B.: Default Remove().Starting().From().To() is equivalent of Remove().Starting().From().To().From(The.Beginning)
+        /// <para>N.B.: Default Remove().Starting().From().To() is equivalent of Remove().Starting().From().To().From(The.Beginning)</para>
         /// </summary>
         /// <param name="position">End position in string for removal</param>
         public static RemoveStringStartingFromTo To(this RemoveStringStartingFrom source, int position)
@@ -520,7 +520,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Removes substring up to the first marker in the source string.
         /// This action is exclusive.
-        /// N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)
+        /// <para>N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)</para>
         /// </summary>
         /// <param name="marker">Marker value for removal point.</param>
         public static RemoveStringToFirstOccurrence To(this RemoveString source, string marker)
@@ -565,7 +565,7 @@ namespace dokas.FluentStrings
         /// <summary>
         /// Removes substring up to the given occurrence of the marker in the source string.
         /// This action is exclusive.
-        /// N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)
+        /// <para>N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)</para>
         /// </summary>
         /// <param name="occurrence">Occurrence count to remove to.</param>
         /// <param name="of">Marker value for removal point.</param>
@@ -758,7 +758,7 @@ namespace dokas.FluentStrings
 
         /// <summary>
         /// Removes vowels from source string for a culture set on a CurrentThread.
-        /// N.B.: Thread.CurrentThread.CurrentCulture property is used
+        /// <para>N.B.: Thread.CurrentThread.CurrentCulture property is used</para>
         /// </summary>
         /// <param name="source">Target string for removal</param>
         public static RemoveVowels RemoveVowels(this string source)
