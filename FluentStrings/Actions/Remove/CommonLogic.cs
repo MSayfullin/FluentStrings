@@ -7,7 +7,7 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     internal static class CommonLogic
     {
-        public static string Remove(this string source, string extraction, Func<string, string, string> remove)
+        public static string Remove(this string source, string extraction, Func<string, string, string> remove, Func<string, string, string> emptyEmptyCase = null)
         {
             switch (source.ToKeyWith(extraction))
             {
@@ -21,7 +21,7 @@ namespace dokas.FluentStrings.Actions.Remove
                 case "value-empty":
                     return source;
                 case "empty-empty":
-                    return null;
+                    return emptyEmptyCase != null ? emptyEmptyCase(source, extraction) : null;
                 case "value-value":
                     return remove(source, extraction);
                 default:
@@ -183,6 +183,10 @@ namespace dokas.FluentStrings.Actions.Remove
                             ? s.Substring(0, index)
                             : s.Remove(0, index)
                         : s;
+                },
+                (s, m) =>
+                {
+                    return isStarting ? null : String.Empty;
                 });
         }
 
@@ -207,6 +211,10 @@ namespace dokas.FluentStrings.Actions.Remove
                         return source;
 
                     return isStarting ? source.Substring(0, indexes.First()) : source.Remove(0, indexes.First());
+                },
+                (s, m) =>
+                {
+                    return isStarting ? null : String.Empty;
                 });
         }
 
@@ -218,35 +226,36 @@ namespace dokas.FluentStrings.Actions.Remove
             if (occurrenceCount == 0)
                 return source;
 
+            switch (position)
+            {
+                case The.StartOf:
+                case The.EndOf:
+                    break;
+                case The.Beginning:
+                case The.End:
+                default:
+                    throw new ArgumentOutOfRangeException("position", "Only StartOf and EndOf positions are supported by Remove().Starting() method");
+            }
+
             return source.Remove(marker,
                 (s, m) =>
                 {
-                    int shift;
-                    switch (position)
-                    {
-                        case The.StartOf:
-                            shift = 0;
-                            break;
-                        case The.EndOf:
-                            shift = marker.Length;
-                            break;
-                        case The.Beginning:
-                        case The.End:
-                        default:
-                            throw new ArgumentOutOfRangeException("exactPosition", "Only StartOf and EndOf positions are supported by Remove().Starting() method");
-                    }
-
                     var indexes = source.IndexesOf(marker, ignoreCase, from).Skip(occurrenceCount - 1);
 
                     if (!indexes.Any())
                         return source;
 
+                    int shift = position == The.StartOf ? 0 : marker.Length;
                     var index = indexes.First() + shift;
 
                     if (index >= source.Length)
                         return isStarting ? source : String.Empty;
 
                     return isStarting ? source.Substring(0, index) : source.Remove(0, index);
+                },
+                (s, m) =>
+                {
+                    return isStarting || position == The.EndOf ? null : String.Empty;
                 });
         }
 

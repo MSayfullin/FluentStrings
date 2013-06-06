@@ -41,7 +41,7 @@ namespace dokas.FluentStrings.Tests
         public void RemoveToOccurrenceOfEmptyMarkerInEmptyString()
         {
             string transformed = String.Empty.Remove().To(1, of: String.Empty);
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
@@ -192,14 +192,14 @@ namespace dokas.FluentStrings.Tests
         public void RemoveToOccurrenceOfEmptyMarkerFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().To(1, of: String.Empty).From(The.Beginning);
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().To(1, of: String.Empty).From(The.End);
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
@@ -406,7 +406,7 @@ namespace dokas.FluentStrings.Tests
         public void RemoveToOccurrenceOfEmptyMarkerIgnoringCaseInEmptyString()
         {
             string transformed = String.Empty.Remove().To(2, of: String.Empty).IgnoringCase();
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
@@ -550,14 +550,14 @@ namespace dokas.FluentStrings.Tests
         public void RemoveToOccurrenceOfEmptyMarkerIgnoringCaseFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().To(2, of: String.Empty).IgnoringCase().From(The.Beginning);
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
         public void RemoveToOccurrenceOfEmptyMarkerIgnoringCaseFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().To(2, of: String.Empty).IgnoringCase().From(The.End);
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]

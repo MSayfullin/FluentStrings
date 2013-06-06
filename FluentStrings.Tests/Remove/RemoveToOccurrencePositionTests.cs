@@ -41,7 +41,7 @@ namespace dokas.FluentStrings.Tests
         public void RemoveToStartOfOccurrenceOfEmptyMarkerInEmptyString()
         {
             string transformed = String.Empty.Remove().To(The.StartOf, 1, of: String.Empty);
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
@@ -325,14 +325,14 @@ namespace dokas.FluentStrings.Tests
         public void RemoveToStartOfOccurrenceOfEmptyMarkerFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().To(The.StartOf, 1, of: String.Empty).From(The.Beginning);
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
         public void RemoveToStartOfOccurrenceOfEmptyMarkerFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().To(The.StartOf, 1, of: String.Empty).From(The.End);
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
@@ -819,7 +819,7 @@ namespace dokas.FluentStrings.Tests
         public void RemoveToStartOfOccurrenceOfEmptyMarkerIgnoringCaseInEmptyString()
         {
             string transformed = String.Empty.Remove().To(The.StartOf, 2, of: String.Empty).IgnoringCase();
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
@@ -1089,14 +1089,14 @@ namespace dokas.FluentStrings.Tests
         public void RemoveToStartOfOccurrenceOfEmptyMarkerIgnoringCaseFromBeginningInEmptyString()
         {
             string transformed = String.Empty.Remove().To(The.StartOf, 2, of: String.Empty).IgnoringCase().From(The.Beginning);
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
         public void RemoveToStartOfOccurrenceOfEmptyMarkerIgnoringCaseFromEndInEmptyString()
         {
             string transformed = String.Empty.Remove().To(The.StartOf, 2, of: String.Empty).IgnoringCase().From(The.End);
-            transformed.Should().Be(null);
+            transformed.Should().Be(String.Empty);
         }
 
         [TestMethod]
