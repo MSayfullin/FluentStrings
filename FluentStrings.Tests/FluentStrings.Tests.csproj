@@ -60,12 +60,10 @@
     <Compile Include="Remove\RemoveStartingOccurrencePositionTests.cs" />
     <Compile Include="Remove\RemoveStartingOccurrenceTests.cs" />
     <Compile Include="Remove\RemoveStartingFirstOccurrenceTests.cs" />
-    <Compile Include="Remove\RemoveStartingToBaseTests.cs" />
     <Compile Include="Remove\RemoveToTests.cs" />
     <Compile Include="Remove\RemoveStartingTests.cs" />
     <Compile Include="ReplaceTests.cs" />
     <Compile Include="TruncateTests.cs" />
-    <Compile Include="Remove\RemoveNextPreviousTests.cs" />
     <Compile Include="Remove\RemoveStartingToTests.cs" />
     <Compile Include="Remove\RemoveBeforeAfterTests.cs" />
     <Compile Include="Remove\RemoveCharsTests.cs" />
