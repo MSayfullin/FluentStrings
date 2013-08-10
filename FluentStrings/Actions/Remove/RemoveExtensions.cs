@@ -131,58 +131,6 @@ namespace dokas.FluentStrings
 
         #endregion
 
-        #region Before
-
-        public static RemoveValueBefore Before(this RemoveValue source, string marker)
-        {
-            return new RemoveValueBefore(source, marker);
-        }
-
-        public static RemoveValueBeforeFrom From(this RemoveValueBefore source, The position)
-        {
-            return new RemoveValueBeforeFrom(source, position);
-        }
-
-
-
-        public static RemoveValueBeforeOccurrence Before(this RemoveValue source, int occurrence, string marker)
-        {
-            return new RemoveValueBeforeOccurrence(source, occurrence, marker);
-        }
-
-        public static RemoveValueBeforeOccurrenceFrom From(this RemoveValueBeforeOccurrence source, The position)
-        {
-            return new RemoveValueBeforeOccurrenceFrom(source, position);
-        }
-
-        #endregion
-
-        #region After
-
-        public static RemoveValueAfter After(this RemoveValue source, string marker)
-        {
-            return new RemoveValueAfter(source, marker);
-        }
-
-        public static RemoveValueAfterFrom From(this RemoveValueAfter source, The position)
-        {
-            return new RemoveValueAfterFrom(source, position);
-        }
-
-
-
-        public static RemoveValueAfterOccurrence After(this RemoveValue source, int occurrence, string marker)
-        {
-            return new RemoveValueAfterOccurrence(source, occurrence, marker);
-        }
-
-        public static RemoveValueAfterOccurrenceFrom From(this RemoveValueAfterOccurrence source, The position)
-        {
-            return new RemoveValueAfterOccurrenceFrom(source, position);
-        }
-
-        #endregion
-
         #region Remove Chars
 
         /// <summary>
@@ -821,32 +769,6 @@ namespace dokas.FluentStrings
         public static RemoveStringStartingFromToOccurrencePositionFrom From(this RemoveStringStartingFromToOccurrencePosition source, The position)
         {
             return new RemoveStringStartingFromToOccurrencePositionFrom(source, position);
-        }
-
-        #endregion
-
-        #region Next/Previous
-
-        public static RemoveStringStartingNext Next(this RemoveStringStarting source, int chars)
-        {
-            return new RemoveStringStartingNext(source, chars);
-        }
-
-        public static RemoveStringStartingFromNext Next(this RemoveStringStartingFrom source, int chars)
-        {
-            return new RemoveStringStartingFromNext(source, chars);
-        }
-
-
-
-        public static RemoveStringStartingPrevious Previous(this RemoveStringStarting source, int chars)
-        {
-            return new RemoveStringStartingPrevious(source, chars);
-        }
-
-        public static RemoveStringStartingFromPrevious Previous(this RemoveStringStartingFrom source, int chars)
-        {
-            return new RemoveStringStartingFromPrevious(source, chars);
         }
 
         #endregion
