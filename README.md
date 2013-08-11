@@ -2,14 +2,10 @@
 
 Powerful set of utilities for any kind of string transformations with fluent interface.
 
-```
-Project is still in development and some interfaces could be changed
-```
-
 ## Download
 
 Fluent Strings can be downloaded either through [NuGet package](https://nuget.org/packages/dokas.FluentStrings/)
-or as a [zip archive](http://fluentstrings.codeplex.com/releases)
+or as a [zip archive](https://github.com/MSayfullin/FluentStrings/releases)
 
 ## Examples
 
@@ -88,7 +84,24 @@ string transformed = "TEST string will be removed from both sides TEST".RemoveAl
 transformed.Should().Be(" string will be removed from both sides ");
 ```
 
-*More is comming soon...*
+Starting some position:
+```csharp
+string transformed = "Some very long string".Remove().Starting(position: 7).From(The.End);
+transformed.Should().Be(" string");
+```
+
+Or to some marker:
+```csharp
+string transformed = "Some very VERY long string with very VERY long string at the end".Remove()
+                     .To(The.EndOf, 3, of: "vERy").IgnoringCase().From(The.End);
+transformed.Should().Be(" long string with very VERY long string at the end");
+```
+
+And starting to some positions:
+```csharp
+string transformed = "Some very long string".Remove().Starting(position: 9).To(position: 0);
+transformed.Should().Be("Slong string");
+```
 
 ### Remove operations for chars
 
@@ -112,7 +125,11 @@ transformed.Should().Be("Som vry on strin");
 
 ### Replace operations
 
-*Coming soon...*
+Just replacing all for now:
+```csharp
+string transformed = "Some vERy long string".ReplaceAll("VerY").With("not very").IgnoringCase();
+transformed.Should().Be("Some not very long string");
+```
 
 ### Truncate operations
 
