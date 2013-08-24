@@ -51,7 +51,7 @@ namespace dokas.FluentStrings.Actions.Insert
 
         public static string Insert(
             this string source, string insertion, string marker, bool ignoreCase = false,
-            int? occurrenceCount = null, The position = The.Beginning, bool after = false)
+            The position = The.Beginning, int? occurrenceCount = null, bool after = false)
         {
             switch (position)
             {

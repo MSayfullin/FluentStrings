@@ -41,18 +41,6 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Insert.At action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
-        public static InsertStringAtFrom From(this InsertStringAt source, The position)
-        {
-            return new InsertStringAtFrom(source, position);
-        }
-
-        /// <summary>
         /// Extends Insert action with the ability to set insertion point through the marker.
         /// Given string is inserted BEFORE all markers in the target string.
         /// </summary>
@@ -60,14 +48,6 @@ namespace dokas.FluentStrings
         public static InsertStringBeforeAll BeforeAll(this InsertString source, string marker)
         {
             return new InsertStringBeforeAll(source, marker);
-        }
-
-        /// <summary>
-        /// Extends Insert.BeforeAll action with the ability to ignore case.
-        /// </summary>
-        public static InsertStringBeforeAllIgnoringCase IgnoringCase(this InsertStringBeforeAll source)
-        {
-            return new InsertStringBeforeAllIgnoringCase(source);
         }
 
         /// <summary>
@@ -82,38 +62,6 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Insert.Before action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
-        public static InsertStringBeforeFrom From(this InsertStringBefore source, The position)
-        {
-            return new InsertStringBeforeFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Insert.Before action with the ability to ignore case.
-        /// </summary>
-        public static InsertStringBeforeIgnoringCase IgnoringCase(this InsertStringBefore source)
-        {
-            return new InsertStringBeforeIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Insert.Before.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
-        public static InsertStringBeforeIgnoringCaseFrom From(this InsertStringBeforeIgnoringCase source, The position)
-        {
-            return new InsertStringBeforeIgnoringCaseFrom(source, position);
-        }
-
-        /// <summary>
         /// Extends Insert action with the ability to set insertion point through occurrence of the marker.
         /// Given string is inserted right BEFORE the marker.
         /// </summary>
@@ -125,38 +73,6 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Insert.BeforeOccurrence action with the ability to ignore case.
-        /// </summary>
-        public static InsertStringBeforeOccurrenceIgnoringCase IgnoringCase(this InsertStringBeforeOccurrence source)
-        {
-            return new InsertStringBeforeOccurrenceIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Insert.BeforeOccurrence action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
-        public static InsertStringBeforeOccurrenceFrom From(this InsertStringBeforeOccurrence source, The position)
-        {
-            return new InsertStringBeforeOccurrenceFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Insert.BeforeOccurrence.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
-        public static InsertStringBeforeOccurrenceIgnoringCaseFrom From(this InsertStringBeforeOccurrenceIgnoringCase source, The position)
-        {
-            return new InsertStringBeforeOccurrenceIgnoringCaseFrom(source, position);
-        }
-
-        /// <summary>
         /// Extends Insert action with the ability to set insertion point through some marker.
         /// Given string is inserted AFTER all markers in the target string.
         /// </summary>
@@ -164,14 +80,6 @@ namespace dokas.FluentStrings
         public static InsertStringAfterAll AfterAll(this InsertString source, string marker)
         {
             return new InsertStringAfterAll(source, marker);
-        }
-
-        /// <summary>
-        /// Extends Insert.AfterAll action with the ability to ignore case.
-        /// </summary>
-        public static InsertStringAfterAllIgnoringCase IgnoringCase(this InsertStringAfterAll source)
-        {
-            return new InsertStringAfterAllIgnoringCase(source);
         }
 
         /// <summary>
@@ -186,38 +94,6 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Insert.After action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
-        public static InsertStringAfterFrom From(this InsertStringAfter source, The position)
-        {
-            return new InsertStringAfterFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Insert.After action with the ability to ignore case.
-        /// </summary>
-        public static InsertStringAfterIgnoringCase IgnoringCase(this InsertStringAfter source)
-        {
-            return new InsertStringAfterIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Insert.After.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
-        public static InsertStringAfterIgnoringCaseFrom From(this InsertStringAfterIgnoringCase source, The position)
-        {
-            return new InsertStringAfterIgnoringCaseFrom(source, position);
-        }
-
-        /// <summary>
         /// Extends Insert action with the ability to set insertion point through occurrence of the marker.
         /// Given string is inserted right AFTER the marker.
         /// </summary>
@@ -226,38 +102,6 @@ namespace dokas.FluentStrings
         public static InsertStringAfterOccurrence After(this InsertString source, int occurrence, string of)
         {
             return new InsertStringAfterOccurrence(source, occurrence, of);
-        }
-
-        /// <summary>
-        /// Extends Insert.AfterOccurrence action with the ability to ignore case.
-        /// </summary>
-        public static InsertStringAfterOccurrenceIgnoringCase IgnoringCase(this InsertStringAfterOccurrence source)
-        {
-            return new InsertStringAfterOccurrenceIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Insert.After action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
-        public static InsertStringAfterOccurrenceFrom From(this InsertStringAfterOccurrence source, The position)
-        {
-            return new InsertStringAfterOccurrenceFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Insert.AfterOccurrence.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used.</exception>
-        public static InsertStringAfterOccurrenceIgnoringCaseFrom From(this InsertStringAfterOccurrenceIgnoringCase source, The position)
-        {
-            return new InsertStringAfterOccurrenceIgnoringCaseFrom(source, position);
         }
     }
 }
