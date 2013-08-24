@@ -62,37 +62,5 @@ namespace dokas.FluentStrings
         {
             return new IndexesOfValue(source, value);
         }
-
-        /// <summary>
-        /// Extends IndexesOf action with the ability to ignore case.
-        /// </summary>
-        public static IndexesOfValueIgnoringCase IgnoringCase(this IndexesOfValue source)
-        {
-            return new IndexesOfValueIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends IndexesOf action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static IndexesOfValueFrom From(this IndexesOfValue source, The position)
-        {
-            return new IndexesOfValueFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends IndexesOf.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End value can be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static IndexesOfValueIgnoringCaseFrom From(this IndexesOfValueIgnoringCase source, The position)
-        {
-            return new IndexesOfValueIgnoringCaseFrom(source, position);
-        }
     }
 }
