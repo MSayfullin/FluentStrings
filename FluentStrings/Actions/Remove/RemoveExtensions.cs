@@ -16,8 +16,6 @@ namespace dokas.FluentStrings
             return new RemoveString(source);
         }
 
-
-
         /// <summary>
         /// Removes first value occurrence from the source string.
         /// Action is case sensitive by default, use IgnoringCase extension to change behaviour.
@@ -29,40 +27,6 @@ namespace dokas.FluentStrings
         {
             return new RemoveValue(source, value);
         }
-
-        /// <summary>
-        /// Extends Remove action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveValueFrom From(this RemoveValue source, The position)
-        {
-            return new RemoveValueFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove action with the ability to ignore case.
-        /// </summary>
-        public static RemoveValueIgnoringCase IgnoringCase(this RemoveValue source)
-        {
-            return new RemoveValueIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Remove.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveValueIgnoringCaseFrom From(this RemoveValueIgnoringCase source, The position)
-        {
-            return new RemoveValueIgnoringCaseFrom(source, position);
-        }
-
-
 
         /// <summary>
         /// Removes defined number of value occurrences from the source string.
@@ -78,39 +42,6 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Remove action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveValuesFrom From(this RemoveValues source, The position)
-        {
-            return new RemoveValuesFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove action with the ability to ignore case.
-        /// </summary>
-        public static RemoveValuesIgnoringCase IgnoringCase(this RemoveValues source)
-        {
-            return new RemoveValuesIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Remove.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveValuesIgnoringCaseFrom From(this RemoveValuesIgnoringCase source, The position)
-        {
-            return new RemoveValuesIgnoringCaseFrom(source, position);
-        }
-
-
-        /// <summary>
         /// Removes all value occurrences from the source string.
         /// Action is case sensitive by default, use IgnoringCase extension to change behaviour.
         /// </summary>
@@ -119,14 +50,6 @@ namespace dokas.FluentStrings
         public static RemoveAll RemoveAll(this string source, string value)
         {
             return new RemoveAll(source, value);
-        }
-
-        /// <summary>
-        /// Extends RemoveAll action with the ability to ignore case
-        /// </summary>
-        public static RemoveAllIgnoringCase IgnoringCase(this RemoveAll source)
-        {
-            return new RemoveAllIgnoringCase(source);
         }
 
         #endregion
@@ -145,20 +68,6 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends RemoveChars action with the ability to change starting point.
-        /// <para>N.B.: RemoveChars().From(The.Beginning) is equivalent of the default RemoveChars()</para>
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveCharsFrom From(this RemoveChars source, The position)
-        {
-            return new RemoveCharsFrom(source, position);
-        }
-
-
-        /// <summary>
         /// Removes selected chars from the source string
         /// </summary>
         /// <param name="source">Target string for removal</param>
@@ -166,14 +75,6 @@ namespace dokas.FluentStrings
         public static RemoveSelectedChars RemoveChars(this string source, params char[] chars)
         {
             return new RemoveSelectedChars(source, chars);
-        }
-
-        /// <summary>
-        /// Extends RemoveChars action with the ability to ignore case
-        /// </summary>
-        public static RemoveSelectedCharsIgnoringCase IgnoringCase(this RemoveSelectedChars source)
-        {
-            return new RemoveSelectedCharsIgnoringCase(source);
         }
 
         #endregion
@@ -185,25 +86,11 @@ namespace dokas.FluentStrings
         /// This action is inclusive.
         /// <para>N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)</para>
         /// </summary>
-        /// <param name="position">Starting position in string for removal</param>
+        /// <param name="position">Starting position in string for removal.</param>
         public static RemoveStringStarting Starting(this RemoveString source, int position)
         {
             return new RemoveStringStarting(source, position);
         }
-
-        /// <summary>
-        /// Extends Remove.Starting action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingFrom From(this RemoveStringStarting source, The position)
-        {
-            return new RemoveStringStartingFrom(source, position);
-        }
-
-
 
         /// <summary>
         /// Removes substring starting from the first marker in the source string.
@@ -215,40 +102,6 @@ namespace dokas.FluentStrings
         {
             return new RemoveStringStartingFirstOccurrence(source, marker);
         }
-
-        /// <summary>
-        /// Extends Remove.Starting action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingFirstOccurrenceFrom From(this RemoveStringStartingFirstOccurrence source, The position)
-        {
-            return new RemoveStringStartingFirstOccurrenceFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove.Starting action with the ability to ignore case.
-        /// </summary>
-        public static RemoveStringStartingFirstOccurrenceIgnoringCase IgnoringCase(this RemoveStringStartingFirstOccurrence source)
-        {
-            return new RemoveStringStartingFirstOccurrenceIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Remove.Starting.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingFirstOccurrenceIgnoringCaseFrom From(this RemoveStringStartingFirstOccurrenceIgnoringCase source, The position)
-        {
-            return new RemoveStringStartingFirstOccurrenceIgnoringCaseFrom(source, position);
-        }
-
-
 
         /// <summary>
         /// Removes substring starting from the given occurrence of the marker in the source string.
@@ -263,85 +116,17 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Remove.Starting action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingOccurrenceFrom From(this RemoveStringStartingOccurrence source, The position)
-        {
-            return new RemoveStringStartingOccurrenceFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove.Starting action with the ability to ignore case.
-        /// </summary>
-        public static RemoveStringStartingOccurrenceIgnoringCase IgnoringCase(this RemoveStringStartingOccurrence source)
-        {
-            return new RemoveStringStartingOccurrenceIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Remove.Starting.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingOccurrenceIgnoringCaseFrom From(this RemoveStringStartingOccurrenceIgnoringCase source, The position)
-        {
-            return new RemoveStringStartingOccurrenceIgnoringCaseFrom(source, position);
-        }
-
-
-
-        /// <summary>
         /// Removes substring starting from the first occurrence of the marker in the source string.
         /// This allows to make Remove.Starting action exclusive.
         /// <para>N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)</para>
         /// </summary>
         /// <param name="position">Exact position for removal point.</param>
         /// <param name="marker">Marker value for removal point.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
         public static RemoveStringStartingFirstOccurrencePosition Starting(this RemoveString source, The position, string marker)
         {
             return new RemoveStringStartingFirstOccurrencePosition(source, position, marker);
         }
-
-        /// <summary>
-        /// Extends Remove.Starting action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingFirstOccurrencePositionFrom From(this RemoveStringStartingFirstOccurrencePosition source, The position)
-        {
-            return new RemoveStringStartingFirstOccurrencePositionFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove.Starting action with the ability to ignore case.
-        /// </summary>
-        public static RemoveStringStartingFirstOccurrencePositionIgnoringCase IgnoringCase(this RemoveStringStartingFirstOccurrencePosition source)
-        {
-            return new RemoveStringStartingFirstOccurrencePositionIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Remove.Starting.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingFirstOccurrencePositionIgnoringCaseFrom From(this RemoveStringStartingFirstOccurrencePositionIgnoringCase source, The position)
-        {
-            return new RemoveStringStartingFirstOccurrencePositionIgnoringCaseFrom(source, position);
-        }
-
-
 
         /// <summary>
         /// Removes substring starting from the given occurrence of the marker in the source string.
@@ -351,42 +136,10 @@ namespace dokas.FluentStrings
         /// <param name="position">Exact position for removal point.</param>
         /// <param name="occurrence">Occurrence count to start from.</param>
         /// <param name="of">Marker value for removal point.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
         public static RemoveStringStartingOccurrencePosition Starting(this RemoveString source, The position, int occurrence, string of)
         {
             return new RemoveStringStartingOccurrencePosition(source, position, occurrence, of);
-        }
-
-        /// <summary>
-        /// Extends Remove.Starting action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingOccurrencePositionFrom From(this RemoveStringStartingOccurrencePosition source, The position)
-        {
-            return new RemoveStringStartingOccurrencePositionFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove.Starting action with the ability to ignore case.
-        /// </summary>
-        public static RemoveStringStartingOccurrencePositionIgnoringCase IgnoringCase(this RemoveStringStartingOccurrencePosition source)
-        {
-            return new RemoveStringStartingOccurrencePositionIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Remove.Starting.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingOccurrencePositionIgnoringCaseFrom From(this RemoveStringStartingOccurrencePositionIgnoringCase source, The position)
-        {
-            return new RemoveStringStartingOccurrencePositionIgnoringCaseFrom(source, position);
         }
 
         #endregion
@@ -398,74 +151,22 @@ namespace dokas.FluentStrings
         /// This action is exclusive.
         /// <para>N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)</para>
         /// </summary>
-        /// <param name="position">End position in string for removal</param>
+        /// <param name="position">End position in string for removal.</param>
         public static RemoveStringTo To(this RemoveString source, int position)
         {
             return new RemoveStringTo(source, position);
         }
 
         /// <summary>
-        /// Extends Remove.To action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringToFrom From(this RemoveStringTo source, The position)
-        {
-            return new RemoveStringToFrom(source, position);
-        }
-
-
-
-        /// <summary>
         /// Extends Remove.Starting action with the ability to set end position for removal.
         /// This action is exclusive.
         /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
         /// </summary>
-        /// <param name="position">End position in string for removal</param>
+        /// <param name="position">End position in string for removal.</param>
         public static RemoveStringStartingTo To(this RemoveStringStarting source, int position)
         {
             return new RemoveStringStartingTo(source, position);
         }
-
-        /// <summary>
-        /// Extends Remove.Starting.To action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingToFrom From(this RemoveStringStartingTo source, The position)
-        {
-            return new RemoveStringStartingToFrom(source, position);
-        }
-
-
-        /// <summary>
-        /// Extends Remove.Starting.From action with the ability to set end position for removal.
-        /// This action is exclusive.
-        /// <para>N.B.: Default Remove().Starting().From().To() is equivalent of Remove().Starting().From().To().From(The.Beginning)</para>
-        /// </summary>
-        /// <param name="position">End position in string for removal</param>
-        public static RemoveStringStartingFromTo To(this RemoveStringStartingFrom source, int position)
-        {
-            return new RemoveStringStartingFromTo(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove.Starting.From.To action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringStartingFromToFrom From(this RemoveStringStartingFromTo source, The position)
-        {
-            return new RemoveStringStartingFromToFrom(source, position);
-        }
-
-
 
         /// <summary>
         /// Removes substring up to the first marker in the source string.
@@ -479,40 +180,6 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Remove.To action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used.
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringToFirstOccurrenceFrom From(this RemoveStringToFirstOccurrence source, The position)
-        {
-            return new RemoveStringToFirstOccurrenceFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove.To action with the ability to ignore case.
-        /// </summary>
-        public static RemoveStringToFirstOccurrenceIgnoringCase IgnoringCase(this RemoveStringToFirstOccurrence source)
-        {
-            return new RemoveStringToFirstOccurrenceIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Remove.To.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringToFirstOccurrenceIgnoringCaseFrom From(this RemoveStringToFirstOccurrenceIgnoringCase source, The position)
-        {
-            return new RemoveStringToFirstOccurrenceIgnoringCaseFrom(source, position);
-        }
-
-
-
-        /// <summary>
         /// Removes substring up to the given occurrence of the marker in the source string.
         /// This action is exclusive.
         /// <para>N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)</para>
@@ -523,40 +190,6 @@ namespace dokas.FluentStrings
         {
             return new RemoveStringToOccurrence(source, occurrence, of);
         }
-
-        /// <summary>
-        /// Extends Remove.To action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringToOccurrenceFrom From(this RemoveStringToOccurrence source, The position)
-        {
-            return new RemoveStringToOccurrenceFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove.To action with the ability to ignore case.
-        /// </summary>
-        public static RemoveStringToOccurrenceIgnoringCase IgnoringCase(this RemoveStringToOccurrence source)
-        {
-            return new RemoveStringToOccurrenceIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Remove.To.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringToOccurrenceIgnoringCaseFrom From(this RemoveStringToOccurrenceIgnoringCase source, The position)
-        {
-            return new RemoveStringToOccurrenceIgnoringCaseFrom(source, position);
-        }
-
-
 
         /// <summary>
         /// Removes substring up to the first occurrence of the marker in the source string.
@@ -572,40 +205,6 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Remove.To action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringToFirstOccurrencePositionFrom From(this RemoveStringToFirstOccurrencePosition source, The position)
-        {
-            return new RemoveStringToFirstOccurrencePositionFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove.To action with the ability to ignore case.
-        /// </summary>
-        public static RemoveStringToFirstOccurrencePositionIgnoringCase IgnoringCase(this RemoveStringToFirstOccurrencePosition source)
-        {
-            return new RemoveStringToFirstOccurrencePositionIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Remove.To.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringToFirstOccurrencePositionIgnoringCaseFrom From(this RemoveStringToFirstOccurrencePositionIgnoringCase source, The position)
-        {
-            return new RemoveStringToFirstOccurrencePositionIgnoringCaseFrom(source, position);
-        }
-
-
-
-        /// <summary>
         /// Removes substring up to the given occurrence of the marker in the source string.
         /// This allows to make Remove.To action inclusive.
         /// <para>N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)</para>
@@ -617,38 +216,6 @@ namespace dokas.FluentStrings
         public static RemoveStringToOccurrencePosition To(this RemoveString source, The position, int occurrence, string of)
         {
             return new RemoveStringToOccurrencePosition(source, position, occurrence, of);
-        }
-
-        /// <summary>
-        /// Extends Remove.To action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringToOccurrencePositionFrom From(this RemoveStringToOccurrencePosition source, The position)
-        {
-            return new RemoveStringToOccurrencePositionFrom(source, position);
-        }
-
-        /// <summary>
-        /// Extends Remove.To action with the ability to ignore case.
-        /// </summary>
-        public static RemoveStringToOccurrencePositionIgnoringCase IgnoringCase(this RemoveStringToOccurrencePosition source)
-        {
-            return new RemoveStringToOccurrencePositionIgnoringCase(source);
-        }
-
-        /// <summary>
-        /// Extends Remove.To.IgnoringCase action with the ability to change starting point.
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static RemoveStringToOccurrencePositionIgnoringCaseFrom From(this RemoveStringToOccurrencePositionIgnoringCase source, The position)
-        {
-            return new RemoveStringToOccurrencePositionIgnoringCaseFrom(source, position);
         }
 
         #endregion

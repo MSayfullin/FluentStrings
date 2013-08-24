@@ -148,11 +148,6 @@ namespace dokas.FluentStrings.Actions.Remove
 
         #region Remove Starting Or To First Occurence
 
-        public static string RemoveStartingOrTo(this string source, string marker, bool ignoreCase, bool isStarting)
-        {
-            return source.RemoveStartingOrTo(marker, ignoreCase, isStarting, fromBeginning: true);
-        }
-
         public static string RemoveStartingOrTo(this string source, string marker, bool ignoreCase, The from, bool isStarting)
         {
             switch (from)

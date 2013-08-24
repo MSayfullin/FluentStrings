@@ -1,13 +1,16 @@
 ﻿using System;
+using dokas.FluentStrings.Actions.Common;
 
 namespace dokas.FluentStrings.Actions.Remove
 {
-    public class RemoveStringToOccurrencePosition
+    public class RemoveStringToOccurrencePosition : ICaseIgnorable, IPositional
     {
         private readonly RemoveString _removeString;
         private readonly The _position;
         private readonly int _occurrenceCount;
         private readonly string _marker;
+        private bool _ignoreCase;
+        private The _from;
 
         internal RemoveStringToOccurrencePosition(RemoveString removeString, The position, int occurrence, string marker)
         {
@@ -15,12 +18,9 @@ namespace dokas.FluentStrings.Actions.Remove
             _position = position;
             _occurrenceCount = occurrence;
             _marker = marker;
+            _ignoreCase = false;
+            _from = The.Beginning;
         }
-
-        internal RemoveString RemoveString { get { return _removeString; } }
-        internal The Position { get { return _position; } }
-        internal int OccurrenceCount { get { return _occurrenceCount; } }
-        internal string Marker { get { return _marker; } }
 
         public static implicit operator string(RemoveStringToOccurrencePosition removeStringToOccurrencePosition)
         {
@@ -31,7 +31,25 @@ namespace dokas.FluentStrings.Actions.Remove
         {
             return _removeString.Source.RemoveStartingOrToPosition(
                 _position, _occurrenceCount, _marker,
-                ignoreCase: false, from: The.Beginning, isStarting: false);
+                _ignoreCase, _from, isStarting: false);
         }
+
+        #region ICaseIgnorable Members
+
+        void ICaseIgnorable.IgnoreCase()
+        {
+            _ignoreCase = true;
+        }
+
+        #endregion
+
+        #region IPositional Members
+
+        void IPositional.Set(The position)
+        {
+            _from = position;
+        }
+
+        #endregion
     }
 }

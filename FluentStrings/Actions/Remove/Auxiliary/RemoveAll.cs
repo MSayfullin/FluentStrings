@@ -1,20 +1,20 @@
 ﻿using System;
+using dokas.FluentStrings.Actions.Common;
 
 namespace dokas.FluentStrings.Actions.Remove
 {
-    public class RemoveAll
+    public class RemoveAll : ICaseIgnorable
     {
         private readonly string _source;
         private readonly string _extraction;
+        private bool _ignoreCase;
 
         internal RemoveAll(string source, string extraction)
         {
             _source = source;
             _extraction = extraction;
+            _ignoreCase = false;
         }
-
-        internal string Source { get { return _source; } }
-        internal string Extraction { get { return _extraction; } }
 
         public static implicit operator string(RemoveAll removeAll)
         {
@@ -23,7 +23,18 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return _source.Remove(_extraction, (s, e) => s.Replace(e, String.Empty));
+            return _ignoreCase
+                ? _source.RemoveValues(null, _extraction, ignoreCase: true)
+                : _source.Remove(_extraction, (s, e) => s.Replace(e, String.Empty));
         }
+
+        #region ICaseIgnorable Members
+
+        void ICaseIgnorable.IgnoreCase()
+        {
+            _ignoreCase = true;
+        }
+
+        #endregion
     }
 }
