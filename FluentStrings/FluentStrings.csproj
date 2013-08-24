@@ -169,7 +169,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Actions\Replace\ReplaceExtensions.cs" />
     <Compile Include="Actions\Replace\Auxiliary\ReplaceAllWith.cs" />
-    <Compile Include="Actions\Replace\Auxiliary\ReplaceAllWithIgnoringCase.cs" />
     <Compile Include="Actions\Replace\Auxiliary\ReplaceAll.cs" />
     <Compile Include="Actions\Utilities\UtilityExtensions.cs" />
   </ItemGroup>

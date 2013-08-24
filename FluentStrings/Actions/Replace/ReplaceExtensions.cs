@@ -26,13 +26,5 @@ namespace dokas.FluentStrings
         {
             return new ReplaceAllWith(source, replacement);
         }
-
-        /// <summary>
-        /// Extends ReplaceAll.With action with the ability to ignore case.
-        /// </summary>
-        public static ReplaceAllWithIgnoringCase IgnoringCase(this ReplaceAllWith source)
-        {
-            return new ReplaceAllWithIgnoringCase(source);
-        }
     }
 }
