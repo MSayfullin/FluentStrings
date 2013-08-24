@@ -158,7 +158,6 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrencePositionIgnoringCase.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrencePositionIgnoringCaseFrom.cs" />
     <Compile Include="Actions\Remove\Resources\VowelsMap.cs" />
-    <Compile Include="Actions\Truncate\Auxiliary\TruncateStringFrom.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateString.cs" />
     <Compile Include="Actions\Truncate\TruncateExtensions.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateStringWith.cs" />

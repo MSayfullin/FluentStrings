@@ -14,7 +14,7 @@ namespace dokas.FluentStrings.Actions.Truncate
 
             if (!_value.IsEmpty())
             {
-                _truncateString.Length -= _value.Length;
+                _truncateString.TargetLength -= _value.Length;
             }
         }
 
@@ -26,28 +26,21 @@ namespace dokas.FluentStrings.Actions.Truncate
         public override string ToString()
         {
             if (_truncateString.Source.IsEmpty())
-            {
                 return _truncateString.Source;
-            }
 
             if (_value.IsEmpty())
-            {
                 return _truncateString;
-            }
 
-            if (_truncateString.Source.Length > _truncateString.Length)
-            {
-                string truncated = _truncateString;
-                if (!truncated.IsEmpty().OrWhiteSpace())
-                {
-                    truncated = truncated.TrimEnd();
-                }
-                return truncated + _value;
-            }
-            else
-            {
+            if (_truncateString.Source.Length <= _truncateString.TargetLength)
                 return _truncateString.Source;
+
+            string truncated = _truncateString;
+            if (!truncated.IsEmpty().OrWhiteSpace())
+            {
+                truncated = truncated.TrimEnd();
             }
+            return truncated + _value;
+
         }
     }
 }

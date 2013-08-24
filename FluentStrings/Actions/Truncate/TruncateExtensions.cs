@@ -33,18 +33,5 @@ namespace dokas.FluentStrings
         {
             return new TruncateStringWith(source, "...");
         }
-
-        /// <summary>
-        /// Extends Truncate action with the ability to change starting point.
-        /// <para>N.B.: TruncateTo().From(The.Beginning) is equivalent of the default TruncateTo()</para>
-        /// </summary>
-        /// <param name="position">
-        /// Position in source string to start from. Beginning or End values could be used
-        /// </param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when StartOf or EndOf position value is used</exception>
-        public static TruncateStringFrom From(this TruncateString source, The position)
-        {
-            return new TruncateStringFrom(source, position);
-        }
     }
 }
