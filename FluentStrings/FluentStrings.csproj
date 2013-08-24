@@ -37,6 +37,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Actions\Common\Auxiliary\ICaseIgnorable.cs" />
+    <Compile Include="Actions\Common\Auxiliary\IPositional.cs" />
+    <Compile Include="Actions\Common\CommonExtensions.cs" />
     <Compile Include="Actions\Insert\CommonLogic.cs" />
     <Compile Include="Actions\Insert\InsertExtensions.cs" />
     <Compile Include="Actions\Insert\Auxiliary\InsertStringBeforeOccurrenceFrom.cs" />
