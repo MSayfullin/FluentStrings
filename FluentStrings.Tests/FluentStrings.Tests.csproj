@@ -60,6 +60,7 @@
     <Compile Include="Remove\RemoveStartingOccurrencePositionTests.cs" />
     <Compile Include="Remove\RemoveStartingOccurrenceTests.cs" />
     <Compile Include="Remove\RemoveStartingFirstOccurrenceTests.cs" />
+    <Compile Include="Remove\RemoveStartingToBaseTests.cs" />
     <Compile Include="Remove\RemoveToTests.cs" />
     <Compile Include="Remove\RemoveStartingTests.cs" />
     <Compile Include="ReplaceTests.cs" />

@@ -218,6 +218,42 @@ namespace dokas.FluentStrings
             return new RemoveStringToOccurrencePosition(source, position, occurrence, of);
         }
 
+
+
+        public static RemoveStringStartingOccurrenceTo To(this RemoveStringStartingOccurrence source, int positionIndex)
+        {
+            return new RemoveStringStartingOccurrenceTo(source, positionIndex);
+        }
+
+
+        
+        public static RemoveStringStartingToOccurrence To(this RemoveStringStarting source, int occurrence, string marker)
+        {
+            return new RemoveStringStartingToOccurrence(source, occurrence, marker);
+        }
+
+
+
+        public static RemoveStringStartingToOccurrencePosition To(this RemoveStringStarting source, The position, int occurrence, string marker)
+        {
+            return new RemoveStringStartingToOccurrencePosition(source, position, occurrence, marker);
+        }
+
+
+
+        public static RemoveStringStartingOccurrenceToOccurrence To(this RemoveStringStartingOccurrence source, int occurrence, string marker)
+        {
+            return new RemoveStringStartingOccurrenceToOccurrence(source, occurrence, marker);
+        }
+
+
+
+
+        public static RemoveStringStartingOccurrenceToOccurrencePosition To(this RemoveStringStartingOccurrence source, The position, int occurrence, string marker)
+        {
+            return new RemoveStringStartingOccurrenceToOccurrencePosition(source, position, occurrence, marker);
+        }
+
         #endregion
 
         #region Remove Vowels
