@@ -3,26 +3,28 @@ using dokas.FluentStrings.Actions.Common;
 
 namespace dokas.FluentStrings.Actions.Remove
 {
-    public class RemoveStringStartingOccurrenceToOccurrence : ICaseIgnorable, IPositional
+    public class RemoveStringStartingOccurrenceToOccurrencePosition : ICaseIgnorable, IPositional
     {
         private readonly RemoveStringStartingOccurrence _removeStringStartingOccurrence;
-        private readonly int _occurrenceCount;
+        private readonly The _position;
+        private readonly int _occurrence;
         private readonly string _marker;
         private bool _ignoreCase;
-        private The _position;
+        private The _from;
 
-        internal RemoveStringStartingOccurrenceToOccurrence(RemoveStringStartingOccurrence removeStringStartingOccurrence, int occurrenceCount, string marker)
+        internal RemoveStringStartingOccurrenceToOccurrencePosition(RemoveStringStartingOccurrence removeStringStartingOccurrence, The position, int occurrence, string marker)
         {
             _removeStringStartingOccurrence = removeStringStartingOccurrence;
-            _occurrenceCount = occurrenceCount;
+            _position = position;
+            _occurrence = occurrence;
             _marker = marker;
             _ignoreCase = false;
-            _position = The.Beginning;
+            _from = The.Beginning;
         }
 
-        public static implicit operator string(RemoveStringStartingOccurrenceToOccurrence removeStringStartingOccurrenceToOccurrence)
+        public static implicit operator string(RemoveStringStartingOccurrenceToOccurrencePosition removeStringStartingOccurrenceToOccurrencePosition)
         {
-            return removeStringStartingOccurrenceToOccurrence.ToString();
+            return removeStringStartingOccurrenceToOccurrencePosition.ToString();
         }
 
         public override string ToString()
@@ -43,7 +45,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
         void IPositional.Set(The position)
         {
-            _position = position;
+            _from = position;
         }
 
         #endregion

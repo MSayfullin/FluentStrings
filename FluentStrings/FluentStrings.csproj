@@ -82,6 +82,7 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToFirstOccurrence.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToFirstOccurrencePosition.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrencePosition.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrenceToOccurrencePosition.cs" />
     <Compile Include="Actions\Remove\Resources\VowelsMap.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateString.cs" />
     <Compile Include="Actions\Truncate\TruncateExtensions.cs" />
