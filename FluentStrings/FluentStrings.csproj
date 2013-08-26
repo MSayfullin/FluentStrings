@@ -79,6 +79,9 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrencePosition.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrencePosition.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrenceToOccurrencePosition.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrencePositionTo.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrencePositionToOccurrence.cs" />
+    <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrencePositionToOccurrencePosition.cs" />
     <Compile Include="Actions\Remove\Resources\VowelsMap.cs" />
     <Compile Include="Actions\Truncate\Auxiliary\TruncateString.cs" />
     <Compile Include="Actions\Truncate\TruncateExtensions.cs" />

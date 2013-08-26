@@ -158,17 +158,6 @@ namespace dokas.FluentStrings
         }
 
         /// <summary>
-        /// Extends Remove.Starting action with the ability to set end position for removal.
-        /// This action is exclusive.
-        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
-        /// </summary>
-        /// <param name="position">End position in string for removal.</param>
-        public static RemoveStringStartingTo To(this RemoveStringStarting source, int position)
-        {
-            return new RemoveStringStartingTo(source, position);
-        }
-
-        /// <summary>
         /// Removes substring up to the first marker in the source string.
         /// This action is exclusive.
         /// <para>N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)</para>
@@ -198,7 +187,7 @@ namespace dokas.FluentStrings
         /// </summary>
         /// <param name="position">Exact position for removal point.</param>
         /// <param name="marker">Marker value for removal point.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
         public static RemoveStringToOccurrencePosition To(this RemoveString source, The position, string marker)
         {
             return source.To(position, 1, of: marker);
@@ -212,35 +201,201 @@ namespace dokas.FluentStrings
         /// <param name="position">Exact position for removal point.</param>
         /// <param name="occurrence">Occurrence count to start from.</param>
         /// <param name="of">Marker value for removal point.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
         public static RemoveStringToOccurrencePosition To(this RemoveString source, The position, int occurrence, string of)
         {
             return new RemoveStringToOccurrencePosition(source, position, occurrence, of);
         }
 
-        public static RemoveStringStartingToOccurrence To(this RemoveStringStarting source, int occurrence, string marker)
+
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal.
+        /// This action is exclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="position">End position in string for removal.</param>
+        public static RemoveStringStartingTo To(this RemoveStringStarting source, int position)
         {
-            return new RemoveStringStartingToOccurrence(source, occurrence, marker);
+            return new RemoveStringStartingTo(source, position);
         }
 
-        public static RemoveStringStartingToOccurrencePosition To(this RemoveStringStarting source, The position, int occurrence, string marker)
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal.
+        /// This action is exclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="position">End position in string for removal.</param>
+        public static RemoveStringStartingOccurrenceTo To(this RemoveStringStartingOccurrence source, int position)
         {
-            return new RemoveStringStartingToOccurrencePosition(source, position, occurrence, marker);
+            return new RemoveStringStartingOccurrenceTo(source, position);
         }
 
-        public static RemoveStringStartingOccurrenceTo To(this RemoveStringStartingOccurrence source, int positionIndex)
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal.
+        /// This action is exclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="position">End position in string for removal.</param>
+        public static RemoveStringStartingOccurrencePositionTo To(this RemoveStringStartingOccurrencePosition source, int position)
         {
-            return new RemoveStringStartingOccurrenceTo(source, positionIndex);
+            return new RemoveStringStartingOccurrencePositionTo(source, position);
         }
 
-        public static RemoveStringStartingOccurrenceToOccurrence To(this RemoveStringStartingOccurrence source, int occurrence, string marker)
+
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the first marker.
+        /// This action is exclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="marker">Marker value for removal point.</param>
+        public static RemoveStringStartingToOccurrence To(this RemoveStringStarting source, string marker)
         {
-            return new RemoveStringStartingOccurrenceToOccurrence(source, occurrence, marker);
+            return source.To(1, of: marker);
         }
 
-        public static RemoveStringStartingOccurrenceToOccurrencePosition To(this RemoveStringStartingOccurrence source, The position, int occurrence, string marker)
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the first marker.
+        /// This action is exclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="marker">Marker value for removal point.</param>
+        public static RemoveStringStartingOccurrenceToOccurrence To(this RemoveStringStartingOccurrence source, string marker)
         {
-            return new RemoveStringStartingOccurrenceToOccurrencePosition(source, position, occurrence, marker);
+            return source.To(1, of: marker);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the first marker.
+        /// This action is exclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="marker">Marker value for removal point.</param>
+        public static RemoveStringStartingOccurrencePositionToOccurrence To(this RemoveStringStartingOccurrencePosition source, string marker)
+        {
+            return source.To(1, of: marker);
+        }
+
+
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the given occurrence of the marker.
+        /// This action is exclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="occurrence">Occurrence count to remove to.</param>
+        /// <param name="of">Marker value for removal point.</param>
+        public static RemoveStringStartingToOccurrence To(this RemoveStringStarting source, int occurrence, string of)
+        {
+            return new RemoveStringStartingToOccurrence(source, occurrence, of);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the given occurrence of the marker.
+        /// This action is exclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="occurrence">Occurrence count to remove to.</param>
+        /// <param name="of">Marker value for removal point.</param>
+        public static RemoveStringStartingOccurrenceToOccurrence To(this RemoveStringStartingOccurrence source, int occurrence, string of)
+        {
+            return new RemoveStringStartingOccurrenceToOccurrence(source, occurrence, of);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the given occurrence of the marker.
+        /// This action is exclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="occurrence">Occurrence count to remove to.</param>
+        /// <param name="of">Marker value for removal point.</param>
+        public static RemoveStringStartingOccurrencePositionToOccurrence To(this RemoveStringStartingOccurrencePosition source, int occurrence, string of)
+        {
+            return new RemoveStringStartingOccurrencePositionToOccurrence(source, occurrence, of);
+        }
+
+
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the first occurrence of the marker.
+        /// This allows to make Remove.Starting.To action inclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="position">Exact position for removal point.</param>
+        /// <param name="marker">Marker value for removal point.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
+        public static RemoveStringStartingToOccurrencePosition To(this RemoveStringStarting source, The position, string marker)
+        {
+            return source.To(position, 1, of: marker);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the first occurrence of the marker.
+        /// This allows to make Remove.Starting.To action inclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="position">Exact position for removal point.</param>
+        /// <param name="marker">Marker value for removal point.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
+        public static RemoveStringStartingOccurrenceToOccurrencePosition To(this RemoveStringStartingOccurrence source, The position, string marker)
+        {
+            return source.To(position, 1, of: marker);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the first occurrence of the marker.
+        /// This allows to make Remove.Starting.To action inclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="position">Exact position for removal point.</param>
+        /// <param name="marker">Marker value for removal point.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
+        public static RemoveStringStartingOccurrencePositionToOccurrencePosition To(this RemoveStringStartingOccurrencePosition source, The position, string marker)
+        {
+            return source.To(position, 1, of: marker);
+        }
+
+
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the given occurrence of the marker.
+        /// This allows to make Remove.Starting.To action inclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="position">Exact position for removal point.</param>
+        /// <param name="occurrence">Occurrence count to start from.</param>
+        /// <param name="of">Marker value for removal point.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
+        public static RemoveStringStartingToOccurrencePosition To(this RemoveStringStarting source, The position, int occurrence, string of)
+        {
+            return new RemoveStringStartingToOccurrencePosition(source, position, occurrence, of);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the first occurrence of the marker.
+        /// This allows to make Remove.Starting.To action inclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="position">Exact position for removal point.</param>
+        /// <param name="marker">Marker value for removal point.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
+        public static RemoveStringStartingOccurrenceToOccurrencePosition To(this RemoveStringStartingOccurrence source, The position, int occurrence, string of)
+        {
+            return new RemoveStringStartingOccurrenceToOccurrencePosition(source, position, occurrence, of);
+        }
+
+        /// <summary>
+        /// Extends Remove.Starting action with the ability to set end position for removal to the first occurrence of the marker.
+        /// This allows to make Remove.Starting.To action inclusive.
+        /// <para>N.B.: Default Remove().Starting().To() is equivalent of Remove().Starting().To().From(The.Beginning)</para>
+        /// </summary>
+        /// <param name="position">Exact position for removal point.</param>
+        /// <param name="marker">Marker value for removal point.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
+        public static RemoveStringStartingOccurrencePositionToOccurrencePosition To(this RemoveStringStartingOccurrencePosition source, The position, int occurrence, string of)
+        {
+            return new RemoveStringStartingOccurrencePositionToOccurrencePosition(source, position, occurrence, of);
         }
 
         #endregion
