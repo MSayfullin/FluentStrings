@@ -31,7 +31,9 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            return _removeString.Source.RemoveStartingOrTo(_occurrenceCount, _marker, _ignoreCase, _position, isStarting: true);
+            return _occurrenceCount == 1
+                ? _removeString.Source.RemoveStartingOrTo(_marker, _ignoreCase, _position, isStarting: true)
+                : _removeString.Source.RemoveStartingOrTo(_occurrenceCount, _marker, _ignoreCase, _position, isStarting: true);
         }
 
         #region ICaseIgnorable Members

@@ -98,9 +98,9 @@ namespace dokas.FluentStrings
         /// <para>N.B.: Default Remove().Starting() is equivalent of Remove().Starting().From(The.Beginning)</para>
         /// </summary>
         /// <param name="marker">Marker value for removal point.</param>
-        public static RemoveStringStartingFirstOccurrence Starting(this RemoveString source, string marker)
+        public static RemoveStringStartingOccurrence Starting(this RemoveString source, string marker)
         {
-            return new RemoveStringStartingFirstOccurrence(source, marker);
+            return source.Starting(1, of: marker);
         }
 
         /// <summary>
@@ -123,9 +123,9 @@ namespace dokas.FluentStrings
         /// <param name="position">Exact position for removal point.</param>
         /// <param name="marker">Marker value for removal point.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used.</exception>
-        public static RemoveStringStartingFirstOccurrencePosition Starting(this RemoveString source, The position, string marker)
+        public static RemoveStringStartingOccurrencePosition Starting(this RemoveString source, The position, string marker)
         {
-            return new RemoveStringStartingFirstOccurrencePosition(source, position, marker);
+            return source.Starting(position, 1, of: marker);
         }
 
         /// <summary>
@@ -174,9 +174,9 @@ namespace dokas.FluentStrings
         /// <para>N.B.: Default Remove().To() is equivalent of Remove().To().From(The.Beginning)</para>
         /// </summary>
         /// <param name="marker">Marker value for removal point.</param>
-        public static RemoveStringToFirstOccurrence To(this RemoveString source, string marker)
+        public static RemoveStringToOccurrence To(this RemoveString source, string marker)
         {
-            return new RemoveStringToFirstOccurrence(source, marker);
+            return source.To(1, of: marker);
         }
 
         /// <summary>
@@ -199,9 +199,9 @@ namespace dokas.FluentStrings
         /// <param name="position">Exact position for removal point.</param>
         /// <param name="marker">Marker value for removal point.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown when Beginning or End position value is used</exception>
-        public static RemoveStringToFirstOccurrencePosition To(this RemoveString source, The position, string marker)
+        public static RemoveStringToOccurrencePosition To(this RemoveString source, The position, string marker)
         {
-            return new RemoveStringToFirstOccurrencePosition(source, position, marker);
+            return source.To(position, 1, of: marker);
         }
 
         /// <summary>

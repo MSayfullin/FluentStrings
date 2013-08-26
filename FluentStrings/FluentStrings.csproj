@@ -76,11 +76,7 @@
     <Compile Include="Actions\Remove\Auxiliary\RemoveValue.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveVowelsFor.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveValues.cs" />
-    <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingFirstOccurrence.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrencePosition.cs" />
-    <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingFirstOccurrencePosition.cs" />
-    <Compile Include="Actions\Remove\Auxiliary\RemoveStringToFirstOccurrence.cs" />
-    <Compile Include="Actions\Remove\Auxiliary\RemoveStringToFirstOccurrencePosition.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringToOccurrencePosition.cs" />
     <Compile Include="Actions\Remove\Auxiliary\RemoveStringStartingOccurrenceToOccurrencePosition.cs" />
     <Compile Include="Actions\Remove\Resources\VowelsMap.cs" />
