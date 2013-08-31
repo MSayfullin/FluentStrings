@@ -1,29 +1,29 @@
 ﻿using System;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace dokas.FluentStrings.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TruncateTests
     {
         #region Truncate To
 
-        [TestMethod]
+        [Test]
         public void TruncateToOfNullString()
         {
             string transformed = Const.NullString.TruncateTo(3);
             transformed.Should().Be(Const.NullString);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToOfEmptyString()
         {
             string transformed = String.Empty.TruncateTo(5);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateWhiteSpacesTo()
         {
             string transformed = "                     ".TruncateTo(8);
@@ -31,7 +31,7 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("        ");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateTo()
         {
             string transformed = "Some very long string".TruncateTo(8);
@@ -43,49 +43,49 @@ namespace dokas.FluentStrings.Tests
 
         #region Truncate To With
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithNullOfNullString()
         {
             string transformed = Const.NullString.TruncateTo(3).With(null);
             transformed.Should().Be(Const.NullString);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithEmptyStringOfNullString()
         {
             string transformed = Const.NullString.TruncateTo(3).With(String.Empty);
             transformed.Should().Be(Const.NullString);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithOfNullString()
         {
             string transformed = Const.NullString.TruncateTo(3).With(" etc.");
             transformed.Should().Be(Const.NullString);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithNullOfEmptyString()
         {
             string transformed = String.Empty.TruncateTo(5).With(null);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithEmptyStringOfEmptyString()
         {
             string transformed = String.Empty.TruncateTo(5).With(String.Empty);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithOfEmptyString()
         {
             string transformed = String.Empty.TruncateTo(5).With(" etc.");
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithNull()
         {
             string transformed = "Some very long string".TruncateTo(9).With(null);
@@ -93,7 +93,7 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("Some very");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithEmptyString()
         {
             string transformed = "Some very long string".TruncateTo(9).With(String.Empty);
@@ -101,7 +101,7 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("Some very");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateWhiteSpacesToWith()
         {
             string transformed = "                     ".TruncateTo(11).With(" etc.");
@@ -109,7 +109,7 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("       etc.");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithWhiteSpaces()
         {
             string transformed = "Some very long string".TruncateTo(11).With("   ");
@@ -117,7 +117,7 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("Some ver   ");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWith()
         {
             string transformed = "Some very long string".TruncateTo(11).With(" etc.");
@@ -129,21 +129,21 @@ namespace dokas.FluentStrings.Tests
 
         #region Truncate To With Ellipsis
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithEllipsisOfNullString()
         {
             string transformed = Const.NullString.TruncateTo(3).WithEllipsis();
             transformed.Should().Be(Const.NullString);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithEllipsisOfEmptyString()
         {
             string transformed = String.Empty.TruncateTo(5).WithEllipsis();
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateWhiteSpacesToWithEllipsis()
         {
             string transformed = "                     ".TruncateTo(11).WithEllipsis();
@@ -151,7 +151,7 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("        ...");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithEllipsisTrimming()
         {
             string transformed = "Some very long string".TruncateTo(13).WithEllipsis();
@@ -159,7 +159,7 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("Some very...");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToWithEllipsis()
         {
             string transformed = "Some very long string".TruncateTo(11).WithEllipsis();
@@ -171,35 +171,35 @@ namespace dokas.FluentStrings.Tests
 
         #region Truncate To From
 
-        [TestMethod]
+        [Test]
         public void TruncateToFromBeginningOfNullString()
         {
             string transformed = Const.NullString.TruncateTo(3).From(The.Beginning);
             transformed.Should().Be(Const.NullString);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToFromEndOfNullString()
         {
             string transformed = Const.NullString.TruncateTo(3).From(The.End);
             transformed.Should().Be(Const.NullString);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToFromBeginningOfEmptyString()
         {
             string transformed = String.Empty.TruncateTo(5).From(The.Beginning);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToFromEndOfEmptyString()
         {
             string transformed = String.Empty.TruncateTo(5).From(The.End);
             transformed.Should().Be(String.Empty);
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateWhiteSpacesToFromBeginning()
         {
             string transformed = "                     ".TruncateTo(9).From(The.Beginning);
@@ -207,7 +207,7 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("         ");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateWhiteSpacesToFromEnd()
         {
             string transformed = "                     ".TruncateTo(11).From(The.End);
@@ -215,7 +215,7 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("           ");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToFromBeginning()
         {
             string transformed = "Some very long string".TruncateTo(9).From(The.Beginning);
@@ -223,7 +223,7 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("Some very");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToFromEnd()
         {
             string transformed = "Some very long string".TruncateTo(11).From(The.End);
@@ -231,14 +231,14 @@ namespace dokas.FluentStrings.Tests
             transformed.Should().Be("long string");
         }
 
-        [TestMethod]
+        [Test]
         public void TruncateToFromBeginningMoreThanAvailable()
         {
             string transformed = Const.SampleString.TruncateTo(100).From(The.Beginning);
             transformed.Should().Be(Const.SampleString);
         }
         
-        [TestMethod]
+        [Test]
         public void TruncateToFromEndMoreThanAvailable()
         {
             string transformed = Const.SampleString.TruncateTo(100).From (The.End);

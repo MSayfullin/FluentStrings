@@ -40,6 +40,10 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
+# NUnit Tests Runner
+*.VisualState.xml
+TestResult.xml
+
 # Apple stuff
 .DS_Store
 

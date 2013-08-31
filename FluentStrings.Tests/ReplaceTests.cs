@@ -1,33 +1,33 @@
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace dokas.FluentStrings.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class ReplaceTests
     {
-        [TestMethod]
+        [Test]
         public void EmptyReplaceAll()
         {
             string transformed = "Some very long string".ReplaceAll("very");
             transformed.Should().Be("Some  long string");
         }
 
-        [TestMethod]
+        [Test]
         public void ReplaceAllWith()
         {
             string transformed = "Some very long string".ReplaceAll("very").With("not very");
             transformed.Should().Be("Some not very long string");
         }
 
-        [TestMethod]
+        [Test]
         public void ReplaceAllWithIgnoringCase()
         {
             string transformed = "Some vERy long string".ReplaceAll("VerY").With("not very").IgnoringCase();
             transformed.Should().Be("Some not very long string");
         }
 
-        [TestMethod]
+        [Test]
         public void ReplaceAllNonExistingValuesWithIgnoringCase()
         {
             string transformed = "Some vERy long string".ReplaceAll("nonexisting word").With("test").IgnoringCase();
