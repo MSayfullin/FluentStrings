@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentStrings", "FluentStrings\FluentStrings.csproj", "{79FB125E-FB95-4327-A305-E88E71C2AF59}"
-EndProject
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44E87F65-D8CD-4805-987A-8A338C879A9A}"
 	ProjectSection(SolutionItems) = preProject
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 		dokas.FluentStrings.nuspec = dokas.FluentStrings.nuspec
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentStrings", "FluentStrings\FluentStrings.csproj", "{79FB125E-FB95-4327-A305-E88E71C2AF59}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentStrings.Tests", "FluentStrings.Tests\FluentStrings.Tests.csproj", "{CD228F4F-429E-4FC4-879F-C7FF2566972A}"
 EndProject
