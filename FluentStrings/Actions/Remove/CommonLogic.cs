@@ -25,7 +25,7 @@ namespace dokas.FluentStrings.Actions.Remove
                 case "value-value":
                     return remove(source, extraction);
                 default:
-                    throw new ArgumentOutOfRangeException("Didn't you forget to regenerate case statements for changed key?");
+                    throw new ArgumentOutOfRangeException("key", "Have you regenerated case statements for changed key?");
             }
         }
 
@@ -179,10 +179,7 @@ namespace dokas.FluentStrings.Actions.Remove
                             : s.Remove(0, index)
                         : s;
                 },
-                (s, m) =>
-                {
-                    return isStarting ? null : String.Empty;
-                });
+                (s, m) => isStarting ? null : String.Empty);
         }
 
         #endregion
@@ -207,10 +204,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
                     return isStarting ? source.Substring(0, indexes.First()) : source.Remove(0, indexes.First());
                 },
-                (s, m) =>
-                {
-                    return isStarting ? null : String.Empty;
-                });
+                (s, m) => isStarting ? null : String.Empty);
         }
 
         public static string RemoveStartingOrToPosition(this string source, The position, int occurrenceCount, string marker, bool ignoreCase, The from, bool isStarting)
@@ -229,7 +223,9 @@ namespace dokas.FluentStrings.Actions.Remove
                 case The.Beginning:
                 case The.End:
                 default:
-                    throw new ArgumentOutOfRangeException("position", "Only StartOf and EndOf positions are supported by Remove().Starting() method");
+                    var methodName = isStarting ? "Starting" : "To";
+                    throw new ArgumentOutOfRangeException(
+                        "position", "Only StartOf and EndOf positions are supported by Remove().{0}() method".f(methodName));
             }
 
             return source.Remove(marker,
@@ -248,10 +244,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
                     return isStarting ? source.Substring(0, index) : source.Remove(0, index);
                 },
-                (s, m) =>
-                {
-                    return isStarting || position == The.EndOf ? null : String.Empty;
-                });
+                (s, m) => isStarting || position == The.EndOf ? null : String.Empty);
         }
 
         #endregion
