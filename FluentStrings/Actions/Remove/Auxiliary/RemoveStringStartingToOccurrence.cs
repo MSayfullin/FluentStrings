@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using dokas.FluentStrings.Actions.Common;
+using dokas.FluentStrings.Actions.Utilities;
 
 namespace dokas.FluentStrings.Actions.Remove
 {
@@ -27,7 +29,24 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            if (_occurrenceCount < 0)
+                throw new ArgumentOutOfRangeException("occurrenceCount", "Negative occurrence count is not supported");
+
+            if (_occurrenceCount == 0)
+                return _source;
+
+            return _source.RemoveString.Source.Remove(_marker,
+                (s, m) =>
+                {
+                    var indexes = s.IndexesOf(m, _ignoreCase, _position).Skip(_occurrenceCount - 1);
+
+                    if (!indexes.Any())
+                        return _source;
+
+                    // index is calculated in direction from the beginning
+                    return s.RemoveStartingTo(_source.PositionIndex, _source.Position, indexes.First(), The.Beginning);
+                },
+                (s, m) => String.Empty);
         }
 
         #region ICaseIgnorable Members
