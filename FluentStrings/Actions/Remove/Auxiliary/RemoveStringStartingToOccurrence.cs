@@ -42,7 +42,7 @@ namespace dokas.FluentStrings.Actions.Remove
                         return _source;
 
                     // index is calculated in direction from the beginning
-                    return s.RemoveStartingTo(_source.PositionIndex, _source.Position, index.Value, The.Beginning);
+                    return s.RemoveStartingTo(_source.PositionIndex, _source.Position, index.Value, The.Beginning, applyCorrection: false);
                 },
                 (s, m) => String.Empty);
         }

@@ -458,10 +458,10 @@ namespace dokas.FluentStrings.Tests
         public void RemoveStartingCharacterFromEndToOccurrenceOfMarker()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).From(The.End).To(1, "marker");
-            transformed.Should().Be("Some very long string with m");
+            transformed.Should().Be("Some very long string with ");
 
             transformed = "Some very long string with marker and markers and markable words".Remove().Starting(5).From(The.End).To(3, "mark");
-            transformed.Should().Be("Some very long string with marker and markers and mwords");
+            transformed.Should().Be("Some very long string with marker and markers and words");
 
             transformed = "Some very 'marker' long string with marker".Remove().Starting(10).From(The.End).To(2, "marker");
             transformed.Should().Be("Some very 'marker' long string marker");
@@ -667,10 +667,10 @@ namespace dokas.FluentStrings.Tests
         public void RemoveStartingCharacterFromEndToOccurrenceOfMarkerFromBeginning()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).From(The.End).To(1, "marker").From(The.Beginning);
-            transformed.Should().Be("Some very long string with m");
+            transformed.Should().Be("Some very long string with ");
 
             transformed = "Some very long string with marker and markers and markable words".Remove().Starting(5).From(The.End).To(3, "mark").From(The.Beginning);
-            transformed.Should().Be("Some very long string with marker and markers and mwords");
+            transformed.Should().Be("Some very long string with marker and markers and words");
 
             transformed = "Some very 'marker' long string with marker".Remove().Starting(10).From(The.End).To(2, "marker").From(The.Beginning);
             transformed.Should().Be("Some very 'marker' long string marker");
@@ -680,13 +680,13 @@ namespace dokas.FluentStrings.Tests
         public void RemoveStartingCharacterFromEndToOccurrenceOfMarkerFromEnd()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).From(The.End).To(1, "marker").From(The.End);
-            transformed.Should().Be("Some very long string with marker and another m");
+            transformed.Should().Be("Some very long string with marker and another ");
 
             transformed = "Some very long string with marker and markers and markable words".Remove().Starting(5).From(The.End).To(3, "mark").From(The.End);
-            transformed.Should().Be("Some very long string with mwords");
+            transformed.Should().Be("Some very long string with words");
 
             transformed = "Some very 'marker' long string with marker".Remove().Starting(10).From(The.End).To(2, "marker").From(The.End);
-            transformed.Should().Be("Some very 'mith marker");
+            transformed.Should().Be("Some very 'ith marker");
         }
 
         #endregion
@@ -772,10 +772,10 @@ namespace dokas.FluentStrings.Tests
         public void RemoveStartingCharacterFromEndToOccurrenceOfMarkerIgnoringCase()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).From(The.End).To(1, "mArKeR").IgnoringCase();
-            transformed.Should().Be("Some very long string with m");
+            transformed.Should().Be("Some very long string with ");
 
             transformed = "Some very long string with marker and markers and markable words".Remove().Starting(5).From(The.End).To(3, "MARK").IgnoringCase();
-            transformed.Should().Be("Some very long string with marker and markers and mwords");
+            transformed.Should().Be("Some very long string with marker and markers and words");
 
             transformed = "Some very 'marker' long string with marker".Remove().Starting(10).From(The.End).To(2, "MARker").IgnoringCase();
             transformed.Should().Be("Some very 'marker' long string marker");
@@ -933,10 +933,10 @@ namespace dokas.FluentStrings.Tests
         public void RemoveStartingCharacterFromEndToOccurrenceOfMarkerIgnoringCaseFromBeginning()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).From(The.End).To(1, "maRKer").IgnoringCase().From(The.Beginning);
-            transformed.Should().Be("Some very long string with m");
+            transformed.Should().Be("Some very long string with ");
 
             transformed = "Some very long string with marker and markers and markable words".Remove().Starting(5).From(The.End).To(3, "mARK").IgnoringCase().From(The.Beginning);
-            transformed.Should().Be("Some very long string with marker and markers and mwords");
+            transformed.Should().Be("Some very long string with marker and markers and words");
 
             transformed = "Some very 'marker' long string with marker".Remove().Starting(10).From(The.End).To(2, "MARKER").IgnoringCase().From(The.Beginning);
             transformed.Should().Be("Some very 'marker' long string marker");
@@ -946,13 +946,13 @@ namespace dokas.FluentStrings.Tests
         public void RemoveStartingCharacterFromEndToOccurrenceOfMarkerIgnoringCaseFromEnd()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).From(The.End).To(1, "MARKER").IgnoringCase().From(The.End);
-            transformed.Should().Be("Some very long string with marker and another m");
+            transformed.Should().Be("Some very long string with marker and another ");
 
             transformed = "Some very long string with marker and markers and markable words".Remove().Starting(5).From(The.End).To(3, "maRk").IgnoringCase().From(The.End);
-            transformed.Should().Be("Some very long string with mwords");
+            transformed.Should().Be("Some very long string with words");
 
             transformed = "Some very 'marker' long string with marker".Remove().Starting(10).From(The.End).To(2, "maRKer").IgnoringCase().From(The.End);
-            transformed.Should().Be("Some very 'mith marker");
+            transformed.Should().Be("Some very 'ith marker");
         }
 
         #endregion
