@@ -186,6 +186,27 @@ namespace dokas.FluentStrings.Actions.Remove
 
         #region Remove Starting Or To Occurrence
 
+        public static int? IndexOf(this string source, int occurrenceCount, string marker, bool ignoreCase, The from)
+        {
+            var indexes = source.IndexesOf(marker, ignoreCase, from).Skip(occurrenceCount - 1);
+
+            if (!indexes.Any())
+                return null;
+
+            return indexes.First();
+        }
+
+        public static int? IndexOf(this string source, The position, int occurrenceCount, string marker, bool ignoreCase, The from)
+        {
+            var index = source.IndexOf(occurrenceCount, marker, ignoreCase, from);
+
+            if (index == null)
+                return null;
+
+            int shift = position == The.StartOf ? 0 : marker.Length;
+            return index.Value + shift;
+        }
+
         public static string RemoveStartingOrTo(this string source, int occurrenceCount, string marker, bool ignoreCase, The from, bool isStarting)
         {
             if (occurrenceCount < 0)
@@ -197,12 +218,12 @@ namespace dokas.FluentStrings.Actions.Remove
             return source.Remove(marker,
                 (s, m) =>
                 {
-                    var indexes = source.IndexesOf(marker, ignoreCase, from).Skip(occurrenceCount - 1);
+                    var index = source.IndexOf(occurrenceCount, marker, ignoreCase, from);
 
-                    if (!indexes.Any())
+                    if (index == null)
                         return source;
 
-                    return isStarting ? source.Substring(0, indexes.First()) : source.Remove(0, indexes.First());
+                    return isStarting ? source.Substring(0, index.Value) : source.Remove(0, index.Value);
                 },
                 (s, m) => isStarting ? null : String.Empty);
         }
@@ -231,18 +252,15 @@ namespace dokas.FluentStrings.Actions.Remove
             return source.Remove(marker,
                 (s, m) =>
                 {
-                    var indexes = source.IndexesOf(marker, ignoreCase, from).Skip(occurrenceCount - 1);
+                    var index = source.IndexOf(position, occurrenceCount, marker, ignoreCase, from);
 
-                    if (!indexes.Any())
+                    if (index == null)
                         return source;
-
-                    int shift = position == The.StartOf ? 0 : marker.Length;
-                    var index = indexes.First() + shift;
 
                     if (index >= source.Length)
                         return isStarting ? source : String.Empty;
 
-                    return isStarting ? source.Substring(0, index) : source.Remove(0, index);
+                    return isStarting ? source.Substring(0, index.Value) : source.Remove(0, index.Value);
                 },
                 (s, m) => isStarting || position == The.EndOf ? null : String.Empty);
         }

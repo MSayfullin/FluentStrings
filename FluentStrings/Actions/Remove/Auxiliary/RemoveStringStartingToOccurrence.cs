@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using dokas.FluentStrings.Actions.Common;
-using dokas.FluentStrings.Actions.Utilities;
 
 namespace dokas.FluentStrings.Actions.Remove
 {
@@ -38,13 +36,13 @@ namespace dokas.FluentStrings.Actions.Remove
             return _source.RemoveString.Source.Remove(_marker,
                 (s, m) =>
                 {
-                    var indexes = s.IndexesOf(m, _ignoreCase, _position).Skip(_occurrenceCount - 1);
+                    var index = s.IndexOf(_occurrenceCount, m, _ignoreCase, _position);
 
-                    if (!indexes.Any())
+                    if (index == null)
                         return _source;
 
                     // index is calculated in direction from the beginning
-                    return s.RemoveStartingTo(_source.PositionIndex, _source.Position, indexes.First(), The.Beginning);
+                    return s.RemoveStartingTo(_source.PositionIndex, _source.Position, index.Value, The.Beginning);
                 },
                 (s, m) => String.Empty);
         }
