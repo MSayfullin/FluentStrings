@@ -5,15 +5,15 @@ namespace dokas.FluentStrings.Actions.Remove
 {
     public class RemoveStringStartingToOccurrence : ICaseIgnorable, IPositional
     {
-        private readonly RemoveStringStarting _source;
+        private readonly RemoveStringStarting _removeStringStarting;
         private readonly int _occurrenceCount;
         private readonly string _marker;
         private bool _ignoreCase;
         private The _position;
 
-        internal RemoveStringStartingToOccurrence(RemoveStringStarting source, int occurrenceCount, string marker)
+        internal RemoveStringStartingToOccurrence(RemoveStringStarting removeStringStarting, int occurrenceCount, string marker)
         {
-            _source = source;
+            _removeStringStarting = removeStringStarting;
             _occurrenceCount = occurrenceCount;
             _marker = marker;
             _ignoreCase = false;
@@ -31,18 +31,21 @@ namespace dokas.FluentStrings.Actions.Remove
                 throw new ArgumentOutOfRangeException("occurrenceCount", "Negative occurrence count is not supported");
 
             if (_occurrenceCount == 0)
-                return _source;
+                return _removeStringStarting;
 
-            return _source.RemoveString.Source.Remove(_marker,
+            return _removeStringStarting.RemoveString.Source.Remove(_marker,
                 (s, m) =>
                 {
                     var index = s.IndexOf(_occurrenceCount, m, _ignoreCase, _position);
 
                     if (index == null)
-                        return _source;
+                        return _removeStringStarting;
 
                     // index is calculated in direction from the beginning
-                    return s.RemoveStartingTo(_source.PositionIndex, _source.Position, index.Value, The.Beginning, applyCorrection: false);
+                    return s.RemoveStartingTo(
+                        _removeStringStarting.PositionIndex, _removeStringStarting.Position,
+                        index.Value, The.Beginning,
+                        applyCorrection: false);
                 },
                 (s, m) => String.Empty);
         }

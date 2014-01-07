@@ -31,7 +31,9 @@ namespace dokas.FluentStrings.Tests
                 new TestCaseData(Const.SampleString, The.StartOf, String.Empty).Returns(Const.SampleString),
                 new TestCaseData(Const.SampleString, The.EndOf, String.Empty).Returns(Const.SampleString),
                 new TestCaseData("Some string", The.StartOf, Const.SampleMarker).Returns("Som"),
-                new TestCaseData("Some string", The.EndOf, Const.SampleMarker).Returns("Som")
+                new TestCaseData("Some string", The.EndOf, Const.SampleMarker).Returns("Som"),
+                new TestCaseData(Const.SampleString, The.Beginning, String.Empty).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.End, String.Empty).Throws(typeof(ArgumentOutOfRangeException))
             };
 
             public IEnumerator GetEnumerator()
@@ -130,7 +132,11 @@ namespace dokas.FluentStrings.Tests
                 new TestCaseData("Some string", The.StartOf, Const.SampleMarker, The.Beginning).Returns("Som"),
                 new TestCaseData("Some string", The.EndOf, Const.SampleMarker, The.Beginning).Returns("Som"),
                 new TestCaseData("Some string", The.StartOf, Const.SampleMarker, The.End).Returns("Som"),
-                new TestCaseData("Some string", The.EndOf, Const.SampleMarker, The.End).Returns("Som")
+                new TestCaseData("Some string", The.EndOf, Const.SampleMarker, The.End).Returns("Som"),
+                new TestCaseData(Const.SampleString, The.Beginning, Const.SampleMarker, The.Beginning).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.End, Const.SampleMarker, The.End).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.StartOf, Const.SampleMarker, The.StartOf).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.EndOf, Const.SampleMarker, The.EndOf).Throws(typeof(ArgumentOutOfRangeException))
             };
 
             public IEnumerator GetEnumerator()
@@ -413,7 +419,11 @@ namespace dokas.FluentStrings.Tests
                 new TestCaseData("Some string", The.Beginning, The.StartOf, Const.SampleMarker).Returns("So"),
                 new TestCaseData("Some string", The.Beginning, The.EndOf, Const.SampleMarker).Returns("So"),
                 new TestCaseData("Some string", The.End, The.StartOf, Const.SampleMarker).Returns("ng"),
-                new TestCaseData("Some string", The.End, The.EndOf, Const.SampleMarker).Returns("ng")
+                new TestCaseData("Some string", The.End, The.EndOf, Const.SampleMarker).Returns("ng"),
+                new TestCaseData(Const.SampleString, The.End, The.Beginning, String.Empty).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.Beginning, The.End, String.Empty).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.EndOf, The.Beginning, String.Empty).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.StartOf, The.End, String.Empty).Throws(typeof(ArgumentOutOfRangeException))
             };
 
             public IEnumerator GetEnumerator()
@@ -589,7 +599,13 @@ namespace dokas.FluentStrings.Tests
                 new TestCaseData("Some string", The.End, The.StartOf, Const.SampleMarker, The.Beginning).Returns("ng"),
                 new TestCaseData("Some string", The.End, The.EndOf, Const.SampleMarker, The.Beginning).Returns("ng"),
                 new TestCaseData("Some string", The.End, The.StartOf, Const.SampleMarker, The.End).Returns("ng"),
-                new TestCaseData("Some string", The.End, The.EndOf, Const.SampleMarker, The.End).Returns("ng")
+                new TestCaseData("Some string", The.End, The.EndOf, Const.SampleMarker, The.End).Returns("ng"),
+                new TestCaseData(Const.SampleString, The.EndOf, The.StartOf, Const.SampleMarker, The.Beginning).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.StartOf, The.EndOf, Const.SampleMarker, The.End).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.End, The.Beginning, Const.SampleMarker, The.Beginning).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.Beginning, The.End, Const.SampleMarker, The.End).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.End, The.EndOf, Const.SampleMarker, The.EndOf).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.Beginning, The.StartOf, Const.SampleMarker, The.StartOf).Throws(typeof(ArgumentOutOfRangeException))
             };
 
             public IEnumerator GetEnumerator()

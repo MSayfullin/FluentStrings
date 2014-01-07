@@ -370,7 +370,9 @@ namespace dokas.FluentStrings.Tests
                 new TestCaseData(Const.SampleString, The.Beginning, String.Empty).Returns(Const.SampleString),
                 new TestCaseData(Const.SampleString, The.End, String.Empty).Returns(Const.SampleString),
                 new TestCaseData("Some string", The.Beginning, Const.SampleMarker).Returns("Som"),
-                new TestCaseData("Some string", The.End, Const.SampleMarker).Returns("ing")
+                new TestCaseData("Some string", The.End, Const.SampleMarker).Returns("ing"),
+                new TestCaseData(Const.SampleString, The.StartOf, Const.SampleMarker).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.EndOf, Const.SampleMarker).Throws(typeof(ArgumentOutOfRangeException))
             };
 
             public IEnumerator GetEnumerator()
@@ -510,7 +512,11 @@ namespace dokas.FluentStrings.Tests
                 new TestCaseData("Some string", The.Beginning, Const.SampleMarker, The.Beginning).Returns("Som"),
                 new TestCaseData("Some string", The.Beginning, Const.SampleMarker, The.End).Returns("Som"),
                 new TestCaseData("Some string", The.End, Const.SampleMarker, The.Beginning).Returns("ing"),
-                new TestCaseData("Some string", The.End, Const.SampleMarker, The.End).Returns("ing")
+                new TestCaseData("Some string", The.End, Const.SampleMarker, The.End).Returns("ing"),
+                new TestCaseData(Const.SampleString, The.EndOf, Const.SampleMarker, The.Beginning).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.StartOf,Const.SampleMarker, The.End).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.Beginning, Const.SampleMarker, The.StartOf).Throws(typeof(ArgumentOutOfRangeException)),
+                new TestCaseData(Const.SampleString, The.End,Const.SampleMarker, The.EndOf).Throws(typeof(ArgumentOutOfRangeException))
             };
 
             public IEnumerator GetEnumerator()
