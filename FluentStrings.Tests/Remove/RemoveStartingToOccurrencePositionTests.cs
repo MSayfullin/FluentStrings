@@ -77,6 +77,13 @@ namespace dokas.FluentStrings.Tests
         }
 
         [Test]
+        public void RemoveStartingCharacterToExceedingOccurrencePositionOfMarker()
+        {
+            string transformed = "Some very long string with marker and another marker".Remove().Starting(1).To(The.StartOf, 10, "marker");
+            transformed.Should().Be("S");
+        }
+
+        [Test]
         public void RemoveStartingCharacterToOccurrencePositionOfMarker()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).To(The.StartOf, 1, "marker");
@@ -208,6 +215,20 @@ namespace dokas.FluentStrings.Tests
         }
 
         [Test]
+        public void RemoveStartingCharacterToExceedingOccurrencePositionOfMarkerFromBeginning()
+        {
+            string transformed = "Some very long string with marker and another marker".Remove().Starting(1).To(The.StartOf, 10, "marker").From(The.Beginning);
+            transformed.Should().Be("S");
+        }
+
+        [Test]
+        public void RemoveStartingCharacterToExceedingOccurrencePositionOfMarkerFromEnd()
+        {
+            string transformed = "Some very long string with marker and another marker".Remove().Starting(1).To(The.EndOf, 10, "marker").From(The.End);
+            transformed.Should().Be("S");
+        }
+
+        [Test]
         public void RemoveStartingCharacterToOccurrencePositionOfMarkerFromBeginning()
         {
             string transformed = "Some very long string with marker and another marker".Remove().Starting(0).To(The.StartOf, 1, "marker").From(The.Beginning);
@@ -268,6 +289,13 @@ namespace dokas.FluentStrings.Tests
         public void RemoveStartingCharacterToZeroOccurrencePositionOfMarkerIgnoringCase()
         {
             string transformed = "Some very long string with marker and another MARKER".Remove().Starting(1).To(The.StartOf, 0, "marker").IgnoringCase();
+            transformed.Should().Be("S");
+        }
+
+        [Test]
+        public void RemoveStartingCharacterToExceedingOccurrencePositionOfMarkerIgnoringCase()
+        {
+            string transformed = "Some very long string with marker and another marker".Remove().Starting(1).To(The.EndOf, 10, "MARKER").IgnoringCase();
             transformed.Should().Be("S");
         }
 
@@ -347,6 +375,20 @@ namespace dokas.FluentStrings.Tests
         public void RemoveStartingCharacterToZeroOccurrencePositionOfMarkerIgnoringCaseFromEnd()
         {
             string transformed = "Some very long string with marker and another MARKER".Remove().Starting(1).To(The.StartOf, 0, "marker").IgnoringCase().From(The.End);
+            transformed.Should().Be("S");
+        }
+
+        [Test]
+        public void RemoveStartingCharacterToExceedingOccurrencePositionOfMarkerIgnoringCaseFromBeginning()
+        {
+            string transformed = "Some very long string with marker and another marker".Remove().Starting(1).To(The.EndOf, 10, "MARKER").IgnoringCase().From(The.Beginning);
+            transformed.Should().Be("S");
+        }
+
+        [Test]
+        public void RemoveStartingCharacterToExceedingOccurrencePositionOfMarkerIgnoringCaseFromEnd()
+        {
+            string transformed = "Some very long string with marker and another marker".Remove().Starting(1).To(The.StartOf, 10, "MARKER").IgnoringCase().From(The.End);
             transformed.Should().Be("S");
         }
 
