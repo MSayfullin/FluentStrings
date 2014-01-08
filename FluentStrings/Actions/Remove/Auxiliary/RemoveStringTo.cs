@@ -23,26 +23,7 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public override string ToString()
         {
-            if (_positionIndex < 0)
-                throw new ArgumentOutOfRangeException("positionIndex", "Negative index is not supported");
-
-            if (_removeString.Source.IsEmpty())
-                return _removeString.Source;
-
-            if (_positionIndex >= _removeString.Source.Length)
-                return String.Empty;
-
-            switch (_position)
-            {
-                case The.Beginning:
-                    return _removeString.Source.Substring(_positionIndex, _removeString.Source.Length - _positionIndex);
-                case The.End:
-                    return _removeString.Source.Substring(0, _removeString.Source.Length - _positionIndex);
-                case The.StartOf:
-                case The.EndOf:
-                default:
-                    throw new ArgumentOutOfRangeException("position", "Only Beginning and End positions are supported by Remove().To().From() method");
-            }
+            return _removeString.Source.RemoveTo(_positionIndex, _position);
         }
 
         #region IPositional Members
