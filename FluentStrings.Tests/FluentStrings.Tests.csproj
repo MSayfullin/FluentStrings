@@ -54,6 +54,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Remove\RemoveStartingOccurrenceToTests.cs" />
     <Compile Include="Remove\RemoveStartingToOccurrencePositionTests.cs" />
     <Compile Include="Remove\RemoveStartingToOccurrenceTests.cs" />
     <Compile Include="Remove\RemoveToOccurrencePositionTests.cs" />
