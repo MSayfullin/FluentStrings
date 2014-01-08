@@ -45,7 +45,7 @@ namespace dokas.FluentStrings.Actions.Remove
                     return s.RemoveStartingTo(
                         _removeStringStarting.PositionIndex, _removeStringStarting.Position,
                         index.Value, The.Beginning,
-                        applyCorrection: false);
+                        applyFinishCorrection: false);
                 },
                 (s, m) => String.Empty);
         }

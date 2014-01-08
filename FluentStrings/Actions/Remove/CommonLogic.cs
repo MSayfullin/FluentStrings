@@ -117,7 +117,9 @@ namespace dokas.FluentStrings.Actions.Remove
 
         #region Remove Starting To Indexes
 
-        public static string RemoveStartingTo(this string source, int startingPositionIndex, The startingFrom, int toPositionIndex, The toFrom, bool applyCorrection = true)
+        public static string RemoveStartingTo(this string source,
+            int startingPositionIndex, The startingFrom, int toPositionIndex, The toFrom,
+            bool applyStartCorrection = true, bool applyFinishCorrection = true)
         {
             if (startingPositionIndex < 0 || toPositionIndex < 0)
                 throw new ArgumentOutOfRangeException("positionIndex", "Negative index is not supported");
@@ -160,9 +162,9 @@ namespace dokas.FluentStrings.Actions.Remove
 
             if (finish < start)
             {
-                var tmp = start;
-                start = applyCorrection ? finish + 1 : finish;
-                finish = Math.Min(tmp + 1, source.Length);
+                var oldStart = applyStartCorrection ? start + 1 : start;
+                start = applyFinishCorrection ? finish + 1 : finish;
+                finish = Math.Min(oldStart, source.Length);
             }
 
             if (start >= source.Length)
