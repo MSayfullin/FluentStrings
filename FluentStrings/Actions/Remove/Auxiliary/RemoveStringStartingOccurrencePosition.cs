@@ -26,6 +26,8 @@ namespace dokas.FluentStrings.Actions.Remove
         internal The Position { get { return _position; } }
         internal int OccurrenceCount { get { return _occurrenceCount; } }
         internal string Marker { get { return _marker; } }
+        internal bool IgnoreCase { get { return _ignoreCase; } }
+        internal The From { get { return _from; } }
 
         public static implicit operator string(RemoveStringStartingOccurrencePosition removeStringStartingOccurrencePosition)
         {
