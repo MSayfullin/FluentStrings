@@ -293,6 +293,9 @@ namespace dokas.FluentStrings.Tests
         #region Remove Starting Occurrence Ignoring Case To
 
         [TestCaseSource(typeof(RemoveStartingOccurrenceToDataCases))]
+        [TestCase("Some STRING", 1, "string", 3, Result = "SomeSTRING")]
+        [TestCase("Some string with many strings", 2, "STRING", 22, Result = "Some string with many strings")]
+        [TestCase("Some string with many strings", 1, "sTrInG", 12, Result = "Some with many strings")]
         public string RemoveStartingOccurrenceIgnoringCaseToExtremeCases(string source, int occurrence, string startingMarker, int positionIndex)
         {
             return source.Remove().Starting(occurrence, of: startingMarker).IgnoringCase().To(positionIndex);
@@ -303,6 +306,10 @@ namespace dokas.FluentStrings.Tests
         #region Remove Starting Occurrence Ignoring Case To From
 
         [TestCaseSource(typeof(RemoveStartingOccurrenceToFromDataCases))]
+        [TestCase("Some STRING", 1, "string", 7, The.End, Result = "SomeSTRING")]
+        [TestCase("Some string with many strings", 2, "STRING", 22, The.Beginning, Result = "Some string with many strings")]
+        [TestCase("Some string with many strings", 1, "stRING", 12, The.Beginning, Result = "Some with many strings")]
+        [TestCase("Some string with many strings", 1, "STRing", 16, The.End, Result = "Some with many strings")]
         public string RemoveStartingOccurrenceIgnoringCaseToFromExtremeCases(string source, int occurrence, string startingMarker, int positionIndex, The toFrom)
         {
             return source.Remove().Starting(occurrence, of: startingMarker).IgnoringCase().To(positionIndex).From(toFrom);
@@ -313,6 +320,12 @@ namespace dokas.FluentStrings.Tests
         #region Remove Starting Occurrence Ignoring Case From To
 
         [TestCaseSource(typeof(RemoveStartingOccurrenceFromToDataCases))]
+        [TestCase("Some string", 1, "STRING", The.Beginning, 3, Result = "Somestring")]
+        [TestCase("Some STRING", 1, "string", The.End, 3, Result = "SomeSTRING")]
+        [TestCase("Some STRING with many strings", 2, "sTrInG", The.Beginning, 22, Result = "Some STRING with many strings")]
+        [TestCase("Some string with many sTRINGS", 1, "STRING", The.End, 22, Result = "Some string with many sTRINGS")]
+        [TestCase("Some stRINg with many strings", 1, "strING", The.Beginning, 12, Result = "Some with many strings")]
+        [TestCase("Some string with many sTRINgs", 2, "STRing", The.End, 12, Result = "Some with many sTRINgs")]
         public string RemoveStartingOccurrenceIgnoringCaseFromToExtremeCases(string source, int occurrence, string startingMarker, The startingFrom, int positionIndex)
         {
             return source.Remove().Starting(occurrence, of: startingMarker).IgnoringCase().From(startingFrom).To(positionIndex);
@@ -323,6 +336,18 @@ namespace dokas.FluentStrings.Tests
         #region Remove Starting Occurrence Ignoring Case From To From
 
         [TestCaseSource(typeof(RemoveStartingOccurrenceFromToFromDataCases))]
+        [TestCase("Some string", 1, "STRING", The.Beginning, 3, The.Beginning, Result = "Somestring")]
+        [TestCase("Some string", 1, "strING", The.Beginning, 7, The.End, Result = "Somestring")]
+        [TestCase("Some string", 1, "STRIng", The.End, 3, The.Beginning, Result = "Somestring")]
+        [TestCase("Some string", 1, "sTRING", The.End, 7, The.End, Result = "Somestring")]
+        [TestCase("Some STRING with many strings", 2, "string", The.Beginning, 22, The.Beginning, Result = "Some STRING with many strings")]
+        [TestCase("Some string with many STRINGS", 2, "string", The.Beginning, 6, The.End, Result = "Some string with many STRINGS")]
+        [TestCase("Some sTRIng with many sTRINGs", 1, "string", The.End, 22, The.Beginning, Result = "Some sTRIng with many sTRINGs")]
+        [TestCase("Some string with many strings", 1, "sTRINg", The.End, 6, The.End, Result = "Some string with many strings")]
+        [TestCase("Some string with many strings", 1, "sTrING", The.Beginning, 12, The.Beginning, Result = "Some with many strings")]
+        [TestCase("Some string with many strings", 1, "stRINg", The.Beginning, 16, The.End, Result = "Some with many strings")]
+        [TestCase("Some STRING with many strings", 2, "STRing", The.End, 12, The.Beginning, Result = "Some with many strings")]
+        [TestCase("Some sTRIng with many sTriNGS", 2, "string", The.End, 16, The.End, Result = "Some with many sTriNGS")]
         public string RemoveStartingOccurrenceIgnoringCaseFromToFromExtremeCases(string source, int occurrence, string startingMarker, The startingFrom, int positionIndex, The toFrom)
         {
             return source.Remove().Starting(occurrence, of: startingMarker).IgnoringCase().From(startingFrom).To(positionIndex).From(toFrom);
