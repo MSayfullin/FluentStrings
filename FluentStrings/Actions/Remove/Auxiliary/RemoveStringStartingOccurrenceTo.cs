@@ -29,9 +29,6 @@ namespace dokas.FluentStrings.Actions.Remove
             if (_positionIndex < 0)
                 throw new ArgumentOutOfRangeException("positionIndex", "Negative index is not supported");
 
-            if (_removeStringStartingOccurrence.OccurrenceCount == 0)
-                return _removeStringStartingOccurrence.RemoveString.Source.RemoveTo(_positionIndex, _position);
-
             return _removeStringStartingOccurrence.RemoveString.Source.Remove(_removeStringStartingOccurrence.Marker,
                 (s, m) =>
                 {
@@ -39,10 +36,11 @@ namespace dokas.FluentStrings.Actions.Remove
                         _removeStringStartingOccurrence.OccurrenceCount, m,
                         _removeStringStartingOccurrence.IgnoreCase, _removeStringStartingOccurrence.Position);
 
-                    return index == null
-                        ? _removeStringStartingOccurrence.RemoveString.Source.RemoveTo(_positionIndex, _position)
-                        // index is calculated in direction from the beginning
-                        : s.RemoveStartingTo(index.Value, The.Beginning, _positionIndex, _position, applyStartCorrection: false);
+                    if (index == null)
+                        index = 0;
+
+                    // index is calculated in direction from the beginning
+                    return s.RemoveStartingTo(index.Value, The.Beginning, _positionIndex, _position, applyStartCorrection: false);
                 },
                 (s, m) => String.Empty);
         }

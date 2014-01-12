@@ -218,6 +218,9 @@ namespace dokas.FluentStrings.Actions.Remove
 
         public static int? IndexOf(this string source, int occurrenceCount, string marker, bool ignoreCase, The from)
         {
+            if (occurrenceCount == 0)
+                return null;
+
             var indexes = source.IndexesOf(marker, ignoreCase, from).Skip(occurrenceCount - 1);
 
             if (!indexes.Any())
