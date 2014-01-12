@@ -87,34 +87,6 @@ namespace dokas.FluentStrings.Actions.Remove
 
         #endregion
 
-        #region Remove To Index
-
-        public static string RemoveTo(this string source, int positionIndex, The position)
-        {
-            if (positionIndex < 0)
-                throw new ArgumentOutOfRangeException("positionIndex", "Negative index is not supported");
-
-            if (source.IsEmpty())
-                return source;
-
-            if (positionIndex >= source.Length)
-                return String.Empty;
-
-            switch (position)
-            {
-                case The.Beginning:
-                    return source.Substring(positionIndex, source.Length - positionIndex);
-                case The.End:
-                    return source.Substring(0, source.Length - positionIndex);
-                case The.StartOf:
-                case The.EndOf:
-                default:
-                    throw new ArgumentOutOfRangeException("position", "Only Beginning and End positions are supported by Remove().To().From() method");
-            }
-        }
-
-        #endregion
-
         #region Remove Starting To Indexes
 
         public static string RemoveStartingTo(this string source,
