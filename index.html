@@ -1,154 +1,183 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Fluent Strings : Powerful set of utilities for any kind of string transformation with fluent interface" />
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Fluentstrings by MSayfullin</title>
+    <title>Fluent Strings</title>
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>Fluentstrings</h1>
-        <h2>Powerful set of utilities for any kind of string transformation with fluent interface</h2>
-        <a href="https://github.com/MSayfullin/FluentStrings" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>Fluent Strings</h1>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/MSayfullin/FluentStrings">View on GitHub</a>
+
+          <h1 id="project_title">Fluent Strings</h1>
+          <h2 id="project_tagline">Powerful set of utilities for any kind of string transformation with fluent interface</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/MSayfullin/FluentStrings/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/MSayfullin/FluentStrings/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="fluent-strings" class="anchor" href="#fluent-strings"><span class="octicon octicon-link"></span></a>Fluent Strings</h1>
 
 <p>Powerful set of utilities for any kind of string transformations with fluent interface.</p>
 
-<pre><code>Project is still in development and some interfaces could be changed
-</code></pre>
-
-<h2>Download</h2>
+<h2>
+<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h2>
 
 <p>Fluent Strings can be downloaded either through <a href="https://nuget.org/packages/dokas.FluentStrings/">NuGet package</a>
-or as a <a href="http://fluentstrings.codeplex.com/releases">zip archive</a></p>
+or as a <a href="https://github.com/MSayfullin/FluentStrings/releases">zip archive</a></p>
 
-<h2>Examples</h2>
+<h2>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h2>
 
 <p>Let the code speak for itself.</p>
 
-<h3>Insert operations</h3>
+<h3>
+<a name="insert-operations" class="anchor" href="#insert-operations"><span class="octicon octicon-link"></span></a>Insert operations</h3>
 
 <p>Something simple at the beginning:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"&lt;-- some string will be inserted here"</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="s">"I am inserted!"</span><span class="p">);</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"&lt;-- some string will be inserted here"</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="s">"I am inserted!"</span><span class="p">);</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"I am inserted!&lt;-- some string will be inserted here"</span><span class="p">);</span>
 </pre></div>
 
 <p>Let's change the position:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some string will be inserted here --&gt;"</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="s">"I am inserted!"</span><span class="p">).</span><span class="n">To</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">End</span><span class="p">);</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some string will be inserted here --&gt;"</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="s">"I am inserted!"</span><span class="p">).</span><span class="n">To</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">End</span><span class="p">);</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Some string will be inserted here --&gt;I am inserted!"</span><span class="p">);</span>
 </pre></div>
 
 <p>And simply put something at the position we want:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Start of the sentence &lt;-- some string will be inserted here"</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="s">"I am inserted!"</span><span class="p">).</span><span class="n">At</span><span class="p">(</span><span class="m">22</span><span class="p">);</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Start of the sentence &lt;-- some string will be inserted here"</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="s">"I am inserted!"</span><span class="p">).</span><span class="n">At</span><span class="p">(</span><span class="m">22</span><span class="p">);</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Start of the sentence I am inserted!&lt;-- some string will be inserted here"</span><span class="p">);</span>
 </pre></div>
 
 <p>Mixing up with markers:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"MARKER, another maRKer and... marker &lt;-- some string will be inserted here"</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"MARKER, another maRKer and... marker &lt;-- some string will be inserted here"</span>
                       <span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="s">"I am inserted!"</span><span class="p">).</span><span class="n">After</span><span class="p">(</span><span class="s">"marker "</span><span class="p">);</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"MARKER, another maRKer and... marker I am inserted!&lt;-- some string will be inserted here"</span><span class="p">);</span>
 </pre></div>
 
 <p>Even ignoring case:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Marker1, another maRKer2 and... marker &lt;-- some string will be inserted here"</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Marker1, another maRKer2 and... marker &lt;-- some string will be inserted here"</span>
                      <span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="s">"I am inserted"</span><span class="p">).</span><span class="n">After</span><span class="p">(</span><span class="s">"MARKER "</span><span class="p">).</span><span class="n">IgnoringCase</span><span class="p">();</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Marker1, another maRKer2 and... marker I am inserted&lt;-- some string will be inserted here"</span><span class="p">);</span>
 </pre></div>
 
 <p>And applying all the power:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">t</span> <span class="p">=</span> <span class="s">"Some string will be inserted before this second 'some' word, but not before this 'some'"</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">t</span> <span class="p">=</span> <span class="s">"Some string will be inserted before this second 'some' word, but not before this 'some'"</span>
            <span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="s">"I am inserted! "</span><span class="p">).</span><span class="n">Before</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="s">"some"</span><span class="p">).</span><span class="n">IgnoringCase</span><span class="p">().</span><span class="n">From</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">Beginning</span><span class="p">);</span>
 <span class="n">t</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Some string will be inserted before this second 'I am inserted! some' word, but not before this 'some'"</span><span class="p">);</span>
 </pre></div>
 
-<h3>Remove operations</h3>
+<h3>
+<a name="remove-operations" class="anchor" href="#remove-operations"><span class="octicon octicon-link"></span></a>Remove operations</h3>
 
 <p>Eliminating totally:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some string"</span><span class="p">.</span><span class="n">Remove</span><span class="p">();</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some string"</span><span class="p">.</span><span class="n">Remove</span><span class="p">();</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
 </pre></div>
 
 <p>Or part...</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"THIS part of string will be removed"</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">"THIS"</span><span class="p">);</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"THIS part of string will be removed"</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">"THIS"</span><span class="p">);</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">" part of string will be removed"</span><span class="p">);</span>
 </pre></div>
 
 <p>...by part:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"THIS &lt;- this string will be left, but this will be removed -&gt; THIS"</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">"THIS"</span><span class="p">).</span><span class="n">From</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">End</span><span class="p">);</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"THIS &lt;- this string will be left, but this will be removed -&gt; THIS"</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">"THIS"</span><span class="p">).</span><span class="n">From</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">End</span><span class="p">);</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"THIS &lt;- this string will be left, but this will be removed -&gt; "</span><span class="p">);</span>
 </pre></div>
 
 <p>By counting markers:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"String will be removed -&gt;TEST and this will be removed also -&gt;TEST, except this -&gt;TEST"</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"String will be removed -&gt;TEST and this will be removed also -&gt;TEST, except this -&gt;TEST"</span>
                      <span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="s">"TEST"</span><span class="p">);</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"String will be removed -&gt; and this will be removed also -&gt;, except this -&gt;TEST"</span><span class="p">);</span>
 </pre></div>
 
 <p>Or all of them at once:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"TEST string will be removed from both sides TEST"</span><span class="p">.</span><span class="n">RemoveAll</span><span class="p">(</span><span class="s">"tESt"</span><span class="p">).</span><span class="n">IgnoringCase</span><span class="p">();</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"TEST string will be removed from both sides TEST"</span><span class="p">.</span><span class="n">RemoveAll</span><span class="p">(</span><span class="s">"tESt"</span><span class="p">).</span><span class="n">IgnoringCase</span><span class="p">();</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">" string will be removed from both sides "</span><span class="p">);</span>
 </pre></div>
 
-<p><em>More is comming soon...</em></p>
+<p>Starting some position:</p>
 
-<h3>Remove operations for chars</h3>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some very long string"</span><span class="p">.</span><span class="n">Remove</span><span class="p">().</span><span class="n">Starting</span><span class="p">(</span><span class="n">position</span><span class="p">:</span> <span class="m">7</span><span class="p">).</span><span class="n">From</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">End</span><span class="p">);</span>
+<span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">" string"</span><span class="p">);</span>
+</pre></div>
+
+<p>Or to some marker:</p>
+
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some very VERY long string with very VERY long string at the end"</span><span class="p">.</span><span class="n">Remove</span><span class="p">()</span>
+                     <span class="p">.</span><span class="n">To</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">EndOf</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="n">of</span><span class="p">:</span> <span class="s">"vERy"</span><span class="p">).</span><span class="n">IgnoringCase</span><span class="p">().</span><span class="n">From</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">End</span><span class="p">);</span>
+<span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">" long string with very VERY long string at the end"</span><span class="p">);</span>
+</pre></div>
+
+<p>And starting to some positions:</p>
+
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some very long string"</span><span class="p">.</span><span class="n">Remove</span><span class="p">().</span><span class="n">Starting</span><span class="p">(</span><span class="n">position</span><span class="p">:</span> <span class="m">9</span><span class="p">).</span><span class="n">To</span><span class="p">(</span><span class="n">position</span><span class="p">:</span> <span class="m">0</span><span class="p">);</span>
+<span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Slong string"</span><span class="p">);</span>
+</pre></div>
+
+<h3>
+<a name="remove-operations-for-chars" class="anchor" href="#remove-operations-for-chars"><span class="octicon octicon-link"></span></a>Remove operations for chars</h3>
 
 <p>Creating cool effects:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Vowels will be removed from this string"</span><span class="p">.</span><span class="n">RemoveVowels</span><span class="p">();</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Vowels will be removed from this string"</span><span class="p">.</span><span class="n">RemoveVowels</span><span class="p">();</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Vwls wll b rmvd frm ths strng"</span><span class="p">);</span>
 </pre></div>
 
 <p>For different culture as well:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Очень длинная строка с русскими буквами, ё"</span><span class="p">.</span><span class="n">RemoveVowels</span><span class="p">().</span><span class="n">For</span><span class="p">(</span><span class="s">"ru"</span><span class="p">);</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Очень длинная строка с русскими буквами, ё"</span><span class="p">.</span><span class="n">RemoveVowels</span><span class="p">().</span><span class="n">For</span><span class="p">(</span><span class="s">"ru"</span><span class="p">);</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"чнь длнн стрк с рсскм бквм, "</span><span class="p">);</span>
 </pre></div>
 
 <p>Or by specifying chars explicitly:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some very long string"</span><span class="p">.</span><span class="n">RemoveChars</span><span class="p">(</span><span class="sc">'e'</span><span class="p">,</span> <span class="sc">'L'</span><span class="p">,</span> <span class="sc">'G'</span><span class="p">).</span><span class="n">IgnoringCase</span><span class="p">();</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some very long string"</span><span class="p">.</span><span class="n">RemoveChars</span><span class="p">(</span><span class="sc">'e'</span><span class="p">,</span> <span class="sc">'L'</span><span class="p">,</span> <span class="sc">'G'</span><span class="p">).</span><span class="n">IgnoringCase</span><span class="p">();</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Som vry on strin"</span><span class="p">);</span>
 </pre></div>
 
-<h3>Replace operations</h3>
+<h3>
+<a name="replace-operations" class="anchor" href="#replace-operations"><span class="octicon octicon-link"></span></a>Replace operations</h3>
 
-<p><em>Coming soon...</em></p>
+<p>Just replacing all for now:</p>
 
-<h3>Truncate operations</h3>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some vERy long string"</span><span class="p">.</span><span class="n">ReplaceAll</span><span class="p">(</span><span class="s">"VerY"</span><span class="p">).</span><span class="n">With</span><span class="p">(</span><span class="s">"not very"</span><span class="p">).</span><span class="n">IgnoringCase</span><span class="p">();</span>
+<span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Some not very long string"</span><span class="p">);</span>
+</pre></div>
+
+<h3>
+<a name="truncate-operations" class="anchor" href="#truncate-operations"><span class="octicon octicon-link"></span></a>Truncate operations</h3>
 
 <p>Just playing around:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some very long string"</span><span class="p">.</span><span class="n">TruncateTo</span><span class="p">(</span><span class="m">9</span><span class="p">);</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some very long string"</span><span class="p">.</span><span class="n">TruncateTo</span><span class="p">(</span><span class="m">9</span><span class="p">);</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Some very"</span><span class="p">);</span>
 
 <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some very long string"</span><span class="p">.</span><span class="n">TruncateTo</span><span class="p">(</span><span class="m">11</span><span class="p">).</span><span class="n">From</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">End</span><span class="p">);</span>
@@ -157,77 +186,73 @@ or as a <a href="http://fluentstrings.codeplex.com/releases">zip archive</a></p>
 
 <p>And doing ellipsis:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some very long string"</span><span class="p">.</span><span class="n">TruncateTo</span><span class="p">(</span><span class="m">12</span><span class="p">).</span><span class="n">WithEllipsis</span><span class="p">();</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">transformed</span> <span class="p">=</span> <span class="s">"Some very long string"</span><span class="p">.</span><span class="n">TruncateTo</span><span class="p">(</span><span class="m">12</span><span class="p">).</span><span class="n">WithEllipsis</span><span class="p">();</span>
 <span class="n">transformed</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Some very..."</span><span class="p">);</span>
 </pre></div>
 
-<h3>Utility operations</h3>
+<h3>
+<a name="utility-operations" class="anchor" href="#utility-operations"><span class="octicon octicon-link"></span></a>Utility operations</h3>
 
 <p>Better approach for well known:</p>
 
-<div class="highlight"><pre><span class="kt">bool</span> <span class="n">isEmpty</span> <span class="p">=</span> <span class="s">""</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">();</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">bool</span> <span class="n">isEmpty</span> <span class="p">=</span> <span class="s">""</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">();</span>
 <span class="n">isEmpty</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
 </pre></div>
 
 <p>Even for <code>null</code> case:</p>
 
-<div class="highlight"><pre><span class="kt">string</span> <span class="n">sample</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">string</span> <span class="n">sample</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
 <span class="kt">bool</span> <span class="n">isEmpty</span> <span class="p">=</span> <span class="n">sample</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">();</span>
 <span class="n">isEmpty</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
 </pre></div>
 
 <p>And continuing for white spaces:</p>
 
-<div class="highlight"><pre><span class="kt">bool</span> <span class="n">isEmptyOrWhiteSpace</span> <span class="p">=</span> <span class="s">"  "</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">().</span><span class="n">OrWhiteSpace</span><span class="p">();</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">bool</span> <span class="n">isEmptyOrWhiteSpace</span> <span class="p">=</span> <span class="s">"  "</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">().</span><span class="n">OrWhiteSpace</span><span class="p">();</span>
 <span class="n">isEmptyOrWhiteSpace</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
 </pre></div>
 
 <p>Extending the basics:</p>
 
-<div class="highlight"><pre><span class="kt">var</span> <span class="n">indexes</span> <span class="p">=</span> <span class="s">"marker with another text marker and another text marker marker"</span><span class="p">.</span><span class="n">IndexesOf</span><span class="p">(</span><span class="s">"marker"</span><span class="p">);</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">var</span> <span class="n">indexes</span> <span class="p">=</span> <span class="s">"marker with another text marker and another text marker marker"</span><span class="p">.</span><span class="n">IndexesOf</span><span class="p">(</span><span class="s">"marker"</span><span class="p">);</span>
 <span class="n">indexes</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">ContainInOrder</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">49</span><span class="p">,</span> <span class="m">56</span><span class="p">);</span>
 </pre></div>
 
 <p>Breaking restrictions:</p>
 
-<div class="highlight"><pre><span class="kt">var</span> <span class="n">indexes</span> <span class="p">=</span> <span class="s">"Some text MARKER another text MarKer marker"</span><span class="p">.</span><span class="n">IndexesOf</span><span class="p">(</span><span class="s">"mArkEr"</span><span class="p">).</span><span class="n">IgnoringCase</span><span class="p">();</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">var</span> <span class="n">indexes</span> <span class="p">=</span> <span class="s">"Some text MARKER another text MarKer marker"</span><span class="p">.</span><span class="n">IndexesOf</span><span class="p">(</span><span class="s">"mArkEr"</span><span class="p">).</span><span class="n">IgnoringCase</span><span class="p">();</span>
 <span class="n">indexes</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">ContainInOrder</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">37</span><span class="p">);</span>
 </pre></div>
 
 <p>And plainly reverse the order:</p>
 
-<div class="highlight"><pre><span class="kt">var</span> <span class="n">indexes</span> <span class="p">=</span> <span class="s">"marker with another text marker and another text marker marker"</span><span class="p">.</span><span class="n">IndexesOf</span><span class="p">(</span><span class="s">"marker"</span><span class="p">).</span><span class="n">From</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">End</span><span class="p">);</span>
+<div class="highlight highlight-csharp"><pre><span class="kt">var</span> <span class="n">indexes</span> <span class="p">=</span> <span class="s">"marker with another text marker and another text marker marker"</span><span class="p">.</span><span class="n">IndexesOf</span><span class="p">(</span><span class="s">"marker"</span><span class="p">).</span><span class="n">From</span><span class="p">(</span><span class="n">The</span><span class="p">.</span><span class="n">End</span><span class="p">);</span>
 <span class="n">indexes</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">ContainInOrder</span><span class="p">(</span><span class="m">56</span><span class="p">,</span> <span class="m">49</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
 </pre></div>
 
 <p><em>More examples could be found in <a href="https://github.com/MSayfullin/FluentStrings/tree/master/FluentStrings.Tests">test classes</a></em></p>
 
-<h2>License</h2>
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p><a href="https://github.com/MSayfullin/FluentStrings/blob/master/LICENSE">Ms-PL</a></p>
 
-<h2>Credits</h2>
+<h2>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
 
 <p>Many thanks to <a href="http://fluentassertions.codeplex.com/">Fluent Assertions</a> for making my testing experience awesome.</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/MSayfullin/FluentStrings/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/MSayfullin/FluentStrings/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/MSayfullin/FluentStrings"></a> is maintained by <a href="https://github.com/MSayfullin">MSayfullin</a>.</p>
-
-          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
     </div>
 
-  
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Fluent Strings maintained by <a href="https://github.com/MSayfullin">MSayfullin</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>
